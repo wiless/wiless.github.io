@@ -1,0 +1,33 @@
+
+# Site settings
+title: Digital Portal - Sendil Kumar
+email: 
+description: > # this means to ignore newlines until "baseurl:"
+ Digital portal for my personal blogs and posts
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "https://blogs.sendildevar.in/" # the base hostname & protocol for your site
+
+twitter_username: iamssk
+github_username:  wiless
+
+collections:
+  articles:
+    output: true
+  tutorial:
+    output: true
+  recentposts:
+    output: true
+
+exclude:
+  - mydoc_writers_*
+  - bower_components
+  - Gemfile
+  
+paginate: 2
+paginate_path: "/articles/page:num/"
+
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM  #Github Flavored Markdown

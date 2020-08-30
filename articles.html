@@ -1,0 +1,25 @@
+--- 
+layout: articlelist
+title: List of Articles
+--- 
+
+{% assign sortedposts = site.articles | sort: 'id' | reverse %}
+{% for post in sortedposts %}
+{% unless post.draft==true %}
+<!-- {% increment ncount %} -->
+<div class="ui stackable one cards fluid">
+    <!-- <div class="ui three column doubling stackable grid"> -->
+    <a class="ui card orange" href="{{post.url}}">
+        <div class="content">
+            <div class="header">{{post.title}}</div>
+            <div class="meta" name="metainfo">
+                <span class="category" name="created">Posted on {{ post.date }}</span>
+            </div>
+            <div class="description tldr">
+                <p> {{ post.summary }}</p>
+            </div>
+        </div>
+    </a>
+</div>
+{% endunless %}
+{% endfor %}

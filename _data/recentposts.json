@@ -1,0 +1,38 @@
+[
+    {
+        "id":1,
+        "Link": "https://www.linkedin.com/feed/update/urn:li:activity:6666291276842971136/",
+        "Description": "LinkedIn #India to lag behind in #5G",
+        "Title": "India will be slipping off from 5G as well as economy"
+    },
+    {
+        "id":2,
+        "Link": "https://www.linkedin.com/posts/skdevar_ericsson-spectrumcovid-fwa-activity-6660896481492508672-_Cb3",
+        "Description": "LinkedIn #Covid Traffic",
+        "Title": "Traffic increased upto 100% in fixed network residential areas and 20% in operator's mobile network..."
+    },
+    {
+        "id":3,
+        "Link": "https://www.linkedin.com/posts/skdevar_covid-19-community-mobility-report-activity-6658980975051186176-T-C-",
+        "Description": "LinkedIn #Google Mobility",
+        "Title": "Mobility report from #Google is available for limited time. The report shows the trends the usages during the #covid19 period. https://lnkd.in/gCBGB55 #mobility..."
+    },
+    {
+        "id":4,
+        "Link": "https://www.linkedin.com/pulse/imt-2020-development-dr-sendil-kumar/",
+        "Description": "LinkedIn IMT2020",
+        "Title": "My article on IMT2020 development at ITU-R"
+    },
+    {
+        "id":5,
+        "Link": "https://www.linkedin.com/pulse/imt2020-development-part-2-dr-sendil-kumar/",
+        "Description": "LinkedIn IMT2020",
+        "Title": "My article on IMT2020 development at ITU-R - part 2 "
+    },
+    {
+        "id":6,
+        "Link": "https://www.linkedin.com/pulse/5g-disruptive-spectrum-policy-new-business-part-1-2-kumar/",
+        "Description": "New Disruptive Spectrum policy",
+        "Title": "My view on disruptive policies for 5G"
+    }
+]

@@ -1,0 +1,75 @@
+
+<div class="ui modal">
+    <script>
+        function Auth(provider) {
+            if (provider != "email") {
+                window.location = "/auth/" + provider + "/?redirect=" + window.location.pathname;
+            } else {
+                console.log("Do email login");
+                // action="/login" method="post" target="_blank"
+                uel = document.getElementById("userid");
+                pel = document.getElementById("pwd");
+                $.post("/auth/email",
+                    {
+                        userid: uel.value,
+                        pwd: pel.value
+                    },
+                    function (data, status) {
+                        alert("Login done..", status);
+                        console.log("Success or failure",status);
+                        window.location.reload();
+                        // $('.ui.modal').modal('hide');
+                    });
+
+            }
+
+
+        }
+    </script>
+    <div class="ui middle aligned center aligned grid">
+        <div class="column">
+            <div class="ui divider hidden"></div>
+            <a class="ui large basic button black" onclick="Auth('github')">
+                <i class="icon github"></i>
+                Github
+            </a>
+            <a class="ui large button blue" onclick="Auth('google')">
+                <i class="icon google"></i>
+                Google
+            </a>
+            <div class="ui divider horizontal"></div>
+            <form class="ui form" method="POST">
+                <div class="ui stacked segment">
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="user icon"></i>
+                            <input type="text" id="userid" name="userid" autocomplete="username"
+                                placeholder="User Name">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="lock icon"></i>
+                            <input type="password" id="pwd" name="pwd" autocomplete="current-password"
+                                placeholder="Password">
+                        </div>
+                    </div>
+
+                    <!-- <h2 class="ui teal header"> -->
+                    <div class="content field"></div>
+                    <!-- <div class="ui fluid large green submit button">Login</div> -->
+
+
+
+                </div>
+
+            </form>
+            <button class="ui large basic button  blue" onclick="Auth('email')">
+                <i class=" icon key"></i>
+                Login
+            </button>
+
+        </div>
+
+    </div>
+</div>

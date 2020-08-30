@@ -1,0 +1,17 @@
+<div class="ui segment center aligned piled">
+    <label class="ui label inverted teal float left" id="recentupdates">Recent Posts on LinkedIn,
+        Twitter,
+        Medium</label>
+    <div class="ui divider"></div>
+    
+    {% assign sorteditems = site.data.recentposts | sort: 'id' | reverse %}
+    {% for row in sorteditems %}
+    <div class="item">
+        <div class="content">
+            <a class="header" target="_blank" href="{{ row.Link }}">{{ row.Title }}</a>
+            <div class="description"> {{ row.Description }}</div>
+        </div>
+        <div class="ui divider"></div>
+    </div>
+    {% endfor %}
+</div>
