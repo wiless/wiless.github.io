@@ -5,7 +5,7 @@ email:
 description: > # this means to ignore newlines until "baseurl:"
  Digital portal for my personal blogs and posts
 baseurl: "/blog/" # the subpath of your site, e.g. /blog/
-url: "https://blogs.sendildevar.in/" # the base hostname & protocol for your site
+url: "https://wiless.github.io/blog" # the base hostname & protocol for your site
 
 twitter_username: iamssk
 github_username:  wiless
