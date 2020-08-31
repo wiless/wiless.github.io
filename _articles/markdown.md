@@ -2,6 +2,7 @@
 layout: article
 draft: true
 summary: Sample markdown file with all features
+index: -1
 --- 
 
 # Testing markdown renderer
