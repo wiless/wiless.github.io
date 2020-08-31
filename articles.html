@@ -6,7 +6,7 @@ permalink: /articles
 
 {% assign sortedposts = site.articles | sort: 'index' | reverse %}
 {% for item in sortedposts %}
-{% unless post.draft==true %}
+{% unless item.draft==true %}
 <!-- {% increment ncount %} -->
 <div class="ui stackable one cards fluid">
     <!-- <div class="ui three column doubling stackable grid"> -->
