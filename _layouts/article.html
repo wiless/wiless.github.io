@@ -14,8 +14,11 @@
                              <div class="contentfont">
                                 {{content}}
                             </div>
+                <a href="{{ page.previous.url }}"> Previous : {{ page.previous.title }} </a> 
+                </br>
+                <a href="{{ page.next.url }}">  Next : {{ page.next.title }}  </a>
+
                </div>
-                <a> {{ page.previous.url }}       | {{ page.next.url }} </a>
             </div>
             <div class="four wide column">
                 {% include sidebar.html %}
