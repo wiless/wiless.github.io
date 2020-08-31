@@ -4,7 +4,7 @@ title: List of Articles
 permalink: /articles
 ---
 
-{% assign sortedposts = site.articles | sort: 'id' | reverse %}
+{% assign sortedposts = site.articles | sort: 'index' | reverse %}
 {% for item in sortedposts %}
 {% unless post.draft==true %}
 <!-- {% increment ncount %} -->
