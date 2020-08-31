@@ -5,8 +5,7 @@ summary: First sample article by admin
 name: helloworld.md
 nextpost: /article/3gpprel17.html
 index: 0
-date: now
-
+date: 2020-01-01T10:30-05:00
 ---
 
 # Hello World 
