@@ -3,7 +3,7 @@ layout: articlelist
 title: List of Articles
 --- 
 
-{% assign sortedposts = site.articles | sort: 'id' | reverse %}
+{% assign sortedposts = site.articles | sort: 'title' | reverse %}
 {% for post in sortedposts %}
 {% unless post.draft==true %}
 <!-- {% increment ncount %} -->
