@@ -1,6 +1,6 @@
 ---
 layout: article
-draft: true
+draft: false
 summary: Sample markdown file with all features
 index: -1
 --- 
@@ -74,6 +74,17 @@ func Name(str string){
 return x;
 }
 ```
+<div class="mermaid">
+journey
+    title ITU Timeline
+    section Development
+      Make tea: 5: 3GPP
+      Go upstairs: 3: TSDSI
+      Do work: 1: Me, Cat
+    section Evaluation
+      Go downstairs: 5: Me
+      Sit down: 5: Me
+</div>
 
 This should be well quoted ..
 
