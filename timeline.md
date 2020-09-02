@@ -17,6 +17,7 @@ title: Story of official 5G
 .timeline {
   position: relative;
   max-width: 1200px;
+  background-color: #474e5d;
   margin: 0 auto;
 }
 
