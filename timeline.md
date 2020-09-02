@@ -63,17 +63,17 @@ title: Story of official 5G
 }
 
 /* Place the container to the left */
-.containernew .left {
+.containerleft {
   left: 0;
 }
 
 /* Place the container to the right */
-.containernew .right {
+.containerright {
   left: 50%;
 }
 
 /* Add arrows to the left container (pointing right) */
-.left::before {
+.containerleft::before {
   content: " ";
   height: 0;
   position: absolute;
@@ -87,7 +87,7 @@ title: Story of official 5G
 }
 
 /* Add arrows to the right container (pointing left) */
-.right::before {
+.containerright::before {
   content: " ";
   height: 0;
   position: absolute;
@@ -101,7 +101,7 @@ title: Story of official 5G
 }
 
 /* Fix the circle for containers on the right side */
- .right::after {
+ .containerright::after {
   left: -16px;
 }
 
@@ -136,12 +136,12 @@ title: Story of official 5G
   }
 
   /* Make sure all circles are at the same spot */
-  .left::after, .right::after {
+  .containerleft::after, .containerright::after {
   left: 15px;
   }
   
   /* Make all right containers behave like the left ones */
-   .right {
+   .containerright {
   left: 0%;
   }
 }
@@ -152,37 +152,37 @@ title: Story of official 5G
 *Official 5G* - The technology recognized and recommended by ITU-R to be deployed in IMT spectrum bands, that has been built to meet the requirments of new generation. Once in every 10 years, ITU-R meets to identify new requirements and vision of next generation of IMT technology. IMT-2000, IMT-Advanced (2010), IMT-2020 (2020) and next will be in 2030!.  
 
 <div class="timeline">
-  <div class="containernew left">
+  <div class="containernew containerleft">
     <div class="content">
       <h2>2017</h2>
       <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
     </div>
   </div>
-  <div class="containernew right">
+  <div class="containernew containerright">
     <div class="content">
       <h2>2016</h2>
       <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
     </div>
   </div>
-  <div class="containernew left">
+  <div class="containernew containerleft">
     <div class="content">
       <h2>2015</h2>
       <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
     </div>
   </div>
-  <div class="containernew right">
+  <div class="containernew containerright">
     <div class="content">
       <h2>2012</h2>
       <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
     </div>
   </div>
-  <div class="containernew left">
+  <div class="containernew containerleft">
     <div class="content">
       <h2>2011</h2>
       <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
     </div>
   </div>
-  <div class="containernew right">
+  <div class="containernew containerright">
     <div class="content">
       <h2>2007</h2>
       <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
