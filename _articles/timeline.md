@@ -104,7 +104,7 @@ index: 99
 
 /* Fix the circle for containers on the right side */
  .containerright::after {
-  left: -16px;
+  left: -26px;
 }
 
 /* The actual content */
