@@ -200,7 +200,7 @@ One of the organizational partner of 3GPP submitted its intention to submit a 3G
   <div class="title ">    <i class="dropdown icon"></i>
     DECT Forum
   </div>
-  <div class="content active">
+  <div class="content ">
       <p class="transition visible" style="display: block !important;">
 Forum of members inside ETSI submitted its intention to submit a candidate technology to ITU-R. [6]. Based on this initial submission, it seemed like DECT forum was  developing a new DECT specifications (non-3GPP) that can meet all the IMT2020/5G requirments of eMBB, URLLC and mMTC. DECT is well known in the fixed cordless phone ecosystem.</p>  
   </div>
@@ -215,15 +215,22 @@ Forum of members inside ETSI submitted its intention to submit a candidate techn
   </div>
   <div class="containernew containerleft">
     <div class="content">
-      <h2>July 2019</h2>
-      <p>Meanwhile, within IEEE 802 AANI SC group, some of the members (like broadcomm, NuFront) continued to assess the capability of  IEEE 802.11ax to meet some of the IMT2020 requirements. These discussions continued in July, Sept and Nov meetings in 2018 to propose 802.11ax as complimentary solution for some of the environment like Indoor Hotspot and Dense Urban. IEEE and 3GPP exchanged LS to participate together for the ITU-R submission. In May 2019, NuFront proposed a  joint candidate technology (IEEE 802.11ax and EUHT) submission to ITU-R.  (See [16])  
-      </p>
-    </div>
+      
+      <div class="ui accordion">
+  <div class="title">  <i class="dropdown icon"></i>
+July 2019
+  </div>
+  <div class="content"> <p class="transition visible" style="display: block !important;">
+      Meanwhile, within IEEE 802 AANI SC group, some of the members (like broadcomm, NuFront) continued to assess the capability of  IEEE 802.11ax to meet some of the IMT2020 requirements. These discussions continued in July, Sept and Nov meetings in 2018 to propose 802.11ax as complimentary solution for some of the environment like Indoor Hotspot and Dense Urban. IEEE and 3GPP exchanged LS to participate together for the ITU-R submission. In May 2019, NuFront proposed a  joint candidate technology (IEEE 802.11ax and EUHT) submission to ITU-R.  (See [16])  
+    </p></div>
+</div>
   </div>
   <div class="containernew containerright">
     <div class="content">
-      <h2>2019</h2>
+
+<h2>2019</h2>
       <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+      
     </div>
   </div>
   <div class="containernew containerleft">
@@ -252,40 +259,3 @@ All self-evaluation has to strictly follow these methodology in their evaluation
 In addition to the self-assessment report, ITU-R had invited independent evaluation groups who can contribute to ITU-R by evaluating these submissions and independently re-assessing the technology if they meet the requirements of 5G/IMT-2020 set by ITU-R. Not all the IEGs were expected to evaluate all the candidate 5G technologies.
 
 All the final reports from all the IEGs were expected to be submitted to ITU-R by Feb 2020. The official summary of the conclusions from the reports in Feb 2020 are available here IMT2020/38.
-
-<div class="ui accordion">
-  <div class="title active">
-    <i class="dropdown icon"></i>
-    What is a dog?
-  </div>
-  <div class="content active">
-    <p class="transition visible" style="display: block !important;">A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
-  </div>
-</div>
-
-
-<div class="ui accordion">
-  <div class="title active">
-    <i class="dropdown icon"></i>
-    What is a dog?
-  </div>
-  <div class="content active">
-    <p class="transition visible" style="display: block !important;">A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
-  </div>
-  <div class="title">
-    <i class="dropdown icon"></i>
-    What kinds of dogs are there?
-  </div>
-  <div class="content">
-    <p>There are many breeds of dogs. Each breed varies in size and temperament. Owners often select a breed of dog that they find to be compatible with their own lifestyle and desires from a companion.</p>
-  </div>
-  <div class="title">
-    <i class="dropdown icon"></i>
-    How do you acquire a dog?
-  </div>
-  <div class="content">
-    <p>Three common ways for a prospective owner to acquire a dog is from pet shops, private owners, or shelters.</p>
-    <p>A pet shop may be the most convenient way to buy a dog. Buying a dog from a private owner allows you to assess the pedigree and upbringing of your dog before choosing to take it home. Lastly, finding your dog from a shelter, helps give a good home to a dog who may not find one so readily.</p>
-  </div>
-</div>
-
