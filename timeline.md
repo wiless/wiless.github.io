@@ -37,7 +37,7 @@ body {
   padding: 10px 40px;
   position: relative;
 /*  background-color: inherit; */
-    background-color: #474e5d;
+    background-color: white;
 
   width: 50%;
   
