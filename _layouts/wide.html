@@ -10,8 +10,10 @@
     {% include menu.html %}
 
     <div class="ui container">
-
-        {{content}}
+   {% include socialbar.html %}
+                             <div class="contentfont">
+                                {{content}}
+                            </div> 
     </div>
 
   {% include footer.html %}
