@@ -5,9 +5,12 @@ title: Story of official 5G
 ---
 
 <style>
+
+/* body
 * {
   box-sizing: border-box;
 }
+*/ 
 
 /* body {
   background-color: #474e5d;
@@ -26,7 +29,7 @@ title: Story of official 5G
   content: '';
   position: absolute;
   width: 6px;
-  background-color: #474e5d;
+  background-color: white;
   top: 0;
   bottom: 0;
   left: 50%;
@@ -37,8 +40,8 @@ title: Story of official 5G
 .containernew {
   padding: 10px 40px;
   position: relative;
-/*  background-color: inherit; */
-    background-color: #474e5d;
+  background-color: inherit; 
+
 
   width: 50%;
   
@@ -77,7 +80,7 @@ title: Story of official 5G
   width: 0;
   z-index: 1;
   right: 30px;
-  border: medium solid #474e5d;
+  border: medium solid white;
   border-width: 10px 0 10px 10px;
   border-color: transparent transparent transparent white;
 }
@@ -91,7 +94,7 @@ title: Story of official 5G
   width: 0;
   z-index: 1;
   left: 30px;
-  border: medium solid #474e5d;
+  border: medium solid white;
   border-width: 10px 10px 10px 0;
   border-color: transparent white transparent transparent;
 }
@@ -126,7 +129,7 @@ title: Story of official 5G
   /* Make sure that all arrows are pointing leftwards */
   .containernew::before {
   left: 60px;
-  border: medium solid #474e5d;
+  border: medium solid white;
   border-width: 10px 10px 10px 0;
   border-color: transparent white transparent transparent;
   }
