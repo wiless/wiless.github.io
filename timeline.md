@@ -9,9 +9,9 @@ title: Story of official 5G
   box-sizing: border-box;
 }
 
-body {
+/* body {
   background-color: #474e5d;
-}
+}*/
 
 /* The actual timeline (the vertical ruler) */
 .timeline {
@@ -37,7 +37,7 @@ body {
   padding: 10px 40px;
   position: relative;
 /*  background-color: inherit; */
-    background-color: white;
+    background-color: #474e5d;
 
   width: 50%;
   
