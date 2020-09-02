@@ -246,6 +246,7 @@ All the final reports from all the IEGs were expected to be submitted to ITU-R b
   <div class="content active">
     <p class="transition visible" style="display: block !important;">A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
   </div>
+</div>
   
   
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Simple collapsible</button>
