@@ -11,7 +11,6 @@ title: Story of official 5G
 
 body {
   background-color: #474e5d;
-  font-family: Helvetica, sans-serif;
 }
 
 /* The actual timeline (the vertical ruler) */
@@ -26,7 +25,7 @@ body {
   content: '';
   position: absolute;
   width: 6px;
-  background-color: white;
+  background-color: #474e5d;
   top: 0;
   bottom: 0;
   left: 50%;
@@ -51,7 +50,7 @@ body {
   width: 25px;
   height: 25px;
   right: -17px;
-  background-color: white;
+  background-color: #474e5d;
   border: 4px solid #FF9F55;
   top: 15px;
   border-radius: 50%;
@@ -77,7 +76,7 @@ body {
   width: 0;
   z-index: 1;
   right: 30px;
-  border: medium solid white;
+  border: medium solid #474e5d;
   border-width: 10px 0 10px 10px;
   border-color: transparent transparent transparent white;
 }
@@ -91,7 +90,7 @@ body {
   width: 0;
   z-index: 1;
   left: 30px;
-  border: medium solid white;
+  border: medium solid #474e5d;
   border-width: 10px 10px 10px 0;
   border-color: transparent white transparent transparent;
 }
@@ -126,7 +125,7 @@ body {
   /* Make sure that all arrows are pointing leftwards */
   .containernew::before {
   left: 60px;
-  border: medium solid white;
+  border: medium solid #474e5d;
   border-width: 10px 10px 10px 0;
   border-color: transparent white transparent transparent;
   }
