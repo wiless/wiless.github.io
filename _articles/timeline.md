@@ -238,6 +238,16 @@ In addition to the self-assessment report, ITU-R had invited independent evaluat
 
 All the final reports from all the IEGs were expected to be submitted to ITU-R by Feb 2020. The official summary of the conclusions from the reports in Feb 2020 are available here IMT2020/38.
 
+<div class="ui accordion">
+  <div class="title active">
+    <i class="dropdown icon"></i>
+    What is a dog?
+  </div>
+  <div class="content active">
+    <p class="transition visible" style="display: block !important;">A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
+  </div>
+  
+  
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Simple collapsible</button>
   <div id="demo" class="collapse">
     Lorem ipsum dolor sit amet, consectetur adipisicing elit,
