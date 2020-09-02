@@ -1,6 +1,7 @@
 ---
 layout: article
 permalink: /timeline
+title: Story of official 5G
 ---
 
 <style>
@@ -138,6 +139,10 @@ body {
   }
 }
 </style>
+
+# Story of the Official 5G
+
+*Official 5G* - The technology recognized and recommended by ITU-R to be deployed in IMT spectrum bands, that has been built to meet the requirments of new generation. Once in every 10 years, ITU-R meets to identify new requirements and vision of next generation of IMT technology. IMT-2000, IMT-Advanced (2010), IMT-2020 (2020) and next will be in 2030!.  
 
 <div class="timeline">
   <div class="containernew left">
