@@ -224,3 +224,23 @@ Almost during the finalization (around Mid 2017) of “Evaluation Methdologies r
     </div>
   </div>
 </div>
+
+
+
+# What do these technology claim?
+
+All the proponents of 5G candidate technolgies are expected to include a self-assessment report of their technology in their final submissions (June 2019) to ITU-R.  
+
+All technology being different, the ITU-R has setup a common methdology [17] on how to evaluate a performance metric, for each performance metric that need to be evaluated using simulation there are configuration paramters like frequency, height of the basestations, transmit power etc.  
+All self-evaluation has to strictly follow these methodology in their evaluation. 
+
+In addition to the self-assessment report, ITU-R had invited independent evaluation groups who can contribute to ITU-R by evaluating these submissions and independently re-assessing the technology if they meet the requirements of 5G/IMT-2020 set by ITU-R. Not all the IEGs were expected to evaluate all the candidate 5G technologies.
+
+All the final reports from all the IEGs were expected to be submitted to ITU-R by Feb 2020. The official summary of the conclusions from the reports in Feb 2020 are available here IMT2020/38.
+
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Simple collapsible</button>
+  <div id="demo" class="collapse">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  </div>
