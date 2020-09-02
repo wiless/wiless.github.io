@@ -4,6 +4,7 @@ permalink: /timeline
 title: Story of official 5G
 ---
 
+
 <style>
 
 /* body
@@ -72,7 +73,7 @@ title: Story of official 5G
 }
 
 /* Add arrows to the left container (pointing right) */
-.containernew .left::before {
+.left::before {
   content: " ";
   height: 0;
   position: absolute;
@@ -86,7 +87,7 @@ title: Story of official 5G
 }
 
 /* Add arrows to the right container (pointing left) */
-.containernew .right::before {
+.right::before {
   content: " ";
   height: 0;
   position: absolute;
@@ -100,7 +101,7 @@ title: Story of official 5G
 }
 
 /* Fix the circle for containers on the right side */
-.containernew .right::after {
+ .right::after {
   left: -16px;
 }
 
@@ -135,12 +136,12 @@ title: Story of official 5G
   }
 
   /* Make sure all circles are at the same spot */
-  .containernew .left::after, .right::after {
+  .left::after, .right::after {
   left: 15px;
   }
   
   /* Make all right containers behave like the left ones */
-  .containernew .right {
+   .right {
   left: 0%;
   }
 }
