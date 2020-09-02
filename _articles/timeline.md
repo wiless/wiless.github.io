@@ -197,15 +197,15 @@ Almost during the finalization (around Mid 2017) of “Evaluation Methdologies r
       <p class="transition visible" style="display: block !important;">
 One of the organizational partner of 3GPP submitted its intention to submit a 3GPP Rel 15 based specifications as another candidate technology for 5G [5]. And also informed that final submission of the entire specification along with self-evaluation report in the required format will be submitted by meeting#32 in Brazil (July 2019)</p>
   </div>
-  
-  <div class="title active">    <i class="dropdown icon"></i>
+  <div class="title ">    <i class="dropdown icon"></i>
     DECT Forum
   </div>
   <div class="content active">
       <p class="transition visible" style="display: block !important;">
 Forum of members inside ETSI submitted its intention to submit a candidate technology to ITU-R. [6]. Based on this initial submission, it seemed like DECT forum was  developing a new DECT specifications (non-3GPP) that can meet all the IMT2020/5G requirments of eMBB, URLLC and mMTC. DECT is well known in the fixed cordless phone ecosystem.</p>  
-      </div>
-    </div>
+  </div>
+ </div>
+  </div>
   </div>
   <div class="containernew containerleft">
     <div class="content">
