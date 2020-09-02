@@ -9,7 +9,7 @@ title: Story of official 5G
   box-sizing: border-box;
 }
 
-.container {
+body {
   background-color: #474e5d;
   font-family: Helvetica, sans-serif;
 }
@@ -37,7 +37,9 @@ title: Story of official 5G
 .containernew {
   padding: 10px 40px;
   position: relative;
-  background-color: inherit;
+/*  background-color: inherit; */
+    background-color: #474e5d;
+
   width: 50%;
   
 }
@@ -102,7 +104,7 @@ title: Story of official 5G
 /* The actual content */
 .content {
   padding: 20px 30px;
-  background-color: white;
+  background-color: black;
   position: relative;
   border-radius: 6px;
 }
