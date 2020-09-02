@@ -62,17 +62,17 @@ title: Story of official 5G
 }
 
 /* Place the container to the left */
-.left {
+.containernew .left {
   left: 0;
 }
 
 /* Place the container to the right */
-.right {
+.containernew .right {
   left: 50%;
 }
 
 /* Add arrows to the left container (pointing right) */
-.left::before {
+.containernew .left::before {
   content: " ";
   height: 0;
   position: absolute;
@@ -86,7 +86,7 @@ title: Story of official 5G
 }
 
 /* Add arrows to the right container (pointing left) */
-.right::before {
+.containernew .right::before {
   content: " ";
   height: 0;
   position: absolute;
@@ -100,7 +100,7 @@ title: Story of official 5G
 }
 
 /* Fix the circle for containers on the right side */
-.right::after {
+.containernew .right::after {
   left: -16px;
 }
 
@@ -135,12 +135,12 @@ title: Story of official 5G
   }
 
   /* Make sure all circles are at the same spot */
-  .left::after, .right::after {
+  .containernew .left::after, .right::after {
   left: 15px;
   }
   
   /* Make all right containers behave like the left ones */
-  .right {
+  .containernew .right {
   left: 0%;
   }
 }
