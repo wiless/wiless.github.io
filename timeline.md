@@ -9,7 +9,7 @@ title: Story of official 5G
   box-sizing: border-box;
 }
 
-body {
+.container {
   background-color: #474e5d;
   font-family: Helvetica, sans-serif;
 }
@@ -39,6 +39,7 @@ body {
   position: relative;
   background-color: inherit;
   width: 50%;
+  
 }
 
 /* The circles on the timeline */
