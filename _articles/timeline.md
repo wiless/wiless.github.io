@@ -496,7 +496,7 @@ July 2016)[4]:
 
   <div class="containernew containerleft">
     <div class="content">
-      <h2>Something Extra</h2>
+      <h2>Something Extra in Submissions</h2>
       <p>
         ITU-R process for "recommendation of official 5G" is not about competition among the candidate technologies, but some submission reports contained extra results and claims about candidate technologies. ITU-R had strictly limited the discussion and endorsement to parts of the reports that have used configurations set by ITU-R.
       </p>
@@ -572,8 +572,9 @@ July 2016)[4]:
 
   </div>
 
-
-
-
-
 </div>
+
+---- 
+
+
+This article will be updated in Nov 2020.
