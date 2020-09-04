@@ -3,8 +3,8 @@
 title: Digital Portal - Sendil Kumar
 email: 
 description: > # this means to ignore newlines until "baseurl:"
- Digital portal for my personal blogs and posts
-baseurl: "/blog/" # the subpath of your site, e.g. /blog/
+# Digital portal for my personal blogs and posts
+baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://wiless.github.io/blog" # the base hostname & protocol for your site
 
 twitter_username: iamssk
@@ -19,13 +19,12 @@ collections:
     output: true
 
 exclude:
-  - mydoc_writers_*
   - bower_components
   - Gemfile
   
-paginate: 2
-paginate_path: "/articles/page:num/"
 
+# plugins:
+#  - jekyll-feed
 
 # Build settings
 markdown: kramdown
