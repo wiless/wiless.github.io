@@ -157,9 +157,7 @@ built to meet the requirments of new generation. Once in every 10 years, ITU-R m
 vision of next generation of IMT technology. IMT-2000, IMT-Advanced (2010), IMT-2020 (2020) and next will be in 2030!.
 
 Among all the generations of mobile technology, #5G has made lot of momentum and expectations from the technology right
-from the day when it was chalked out on a whiteboard. The journey of official 5G began in 2014 and completed the vision
-of IMT and overall objectives of the future development of IMT for 2020 and beyond (see report M.2483) in Sept 2015.
-This ITU-R recommendation was based on inputs various administrations, standards body and members of ITU.
+from the day when it was chalked out on a whiteboard. 
 
 
 
@@ -193,6 +191,11 @@ July 2016)[4]:
 
 <div class="timeline">
 
+<div class="containernew containerright">
+    <div class="content">
+<h2>2014</h2>
+The journey of official 5G began in 2014 and completed the vision of IMT and overall objectives of the future development of IMT for 2020 and beyond (see report M.2483) in Sept 2015. This ITU-R recommendation was based on inputs various administrations, standards body and members of ITU.
+</div></div>
   <div class="containernew containerleft">
     <div class="content">
       <h2>2015</h2>
