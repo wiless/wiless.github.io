@@ -8,7 +8,6 @@ index: 99
 ---
 
 
-
 <div class="ui small image">
   <img src="/imgs/genevalake.jpg">
 </div>
