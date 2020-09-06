@@ -4,6 +4,7 @@ permalink:
 title: Story of official 5G
 summary: Timeline of the development of official 5G at ITU-R (updated July 2020)
 description: Timeline of the development of official 5G at ITU.
+img: /imgs/genevalake.jpg
 index: 99
 ---
 
@@ -150,6 +151,10 @@ index: 99
     }
   }
 </style>
+
+
+[![Geneva Lake, Switzerland](/imgs/genevalake.jpg)
+
 
 # Story of the Official 5G
 
