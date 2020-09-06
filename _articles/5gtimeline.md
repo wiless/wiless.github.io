@@ -8,6 +8,8 @@ index: 99
 ---
 # TESTING 
 
+<img class="ui fluid image" src="/imgs/genevalake.jpg">
+
 
 # Story of the Official 5G
 
