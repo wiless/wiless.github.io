@@ -8,7 +8,7 @@ index: 99
 ---
 # TESTING 
 
-![Geneva Lake, Switzerland](/imgs/genevalake.jpg)
+[Geneva Lake Switzerland](/imgs/genevalake.jpg)
 
 <img class="ui fluid image" src="/imgs/genevalake.jpg">
 
