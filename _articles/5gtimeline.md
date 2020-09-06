@@ -8,14 +8,6 @@ index: 99
 ---
 # TESTING 
 
-[Geneva Lake Switzerland](/imgs/genevalake.jpg)
-
-<img class="ui fluid image" src="/imgs/genevalake.jpg">
-
-
-<div class="ui small image">
-  <img src="/imgs/genevalake.jpg">
-</div>
 
 # Story of the Official 5G
 
