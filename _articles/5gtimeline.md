@@ -152,8 +152,12 @@ index: 99
   }
 </style>
 
+<div class="ui small image">
+  <img src="/imgs/genevalake.jpg">
+</div>
+![Geneva Lake, Switzerland](/imgs/genevalake.jpg | width=100)
 
-[![Geneva Lake, Switzerland](/imgs/genevalake.jpg)
+<img class="ui fluid image" src="/imgs/genevalake.jpg">
 
 
 # Story of the Official 5G
