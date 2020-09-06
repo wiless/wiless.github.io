@@ -6,12 +6,10 @@ img: /imgs/genevalake.jpg
 index: 99
 
 ---
-# TESTING 
+# Story of the Official 5G
 
 <img class="ui fluid image" src="/imgs/genevalake.jpg">
 
-
-# Story of the Official 5G
 
 *Official 5G* - The technology recognized and recommended by ITU-R to be deployed in IMT spectrum bands, that has been
 built to meet the requirments of new generation. Once in every 10 years, ITU-R meets to identify new requirements and
