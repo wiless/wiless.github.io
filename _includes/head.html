@@ -14,11 +14,11 @@
 
 <meta itemprop="url" content="{{site.url}}{{page.url}}" />
 
-<meta property="og:url" content="{{site.url}}{{page.url}}" />
-
-<meta property="og:title" content="{{page.title}}" />
-<meta property="og:description" content="{{page.summary}}" />
-<meta property="og:image" content="https://blog.sendildevar.in/assets/headerdark-card.jpeg"/>
+<meta prefix="og: http://ogp.me/ns#" property="og:type" content="blog" />
+<meta prefix="og: http://ogp.me/ns#" property="og:url" content="{{site.url}}{{page.url}}" />
+<meta prefix="og: http://ogp.me/ns#" property="og:title" content="{{page.title}}" />
+<meta prefix="og: http://ogp.me/ns#" property="og:description" content="{{page.summary}}" />
+<meta prefix="og: http://ogp.me/ns#" property="og:image" content="https://blog.sendildevar.in/assets/headerdark-card.jpeg"/>
 
     <!-- Site Properties -->
     {% if  page.title %}
