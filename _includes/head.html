@@ -8,7 +8,7 @@
     <!-- Site Properties -->
     {% if page.title %}
     <title>sendildevar.in | {{page.title}}</title>    
-    <meta name="description" content="{{page.img}} ok {{page.summary}}">
+    <meta name="description" content="{{page.summary}}">
     {% else %}
     <title>Digital Portal - sendildevar.in</title>
     <meta name="description" content="Personal portal of Sendil Kumar">
@@ -22,7 +22,7 @@
 <meta name="twitter:description" content="{{page.summary}}">
 <meta name="twitter:creator" content="@iamssk">
  {% if page.img %}
-         <meta name="twitter:image" content="https://blog.sendildevar.in/{{page.img}}">
+         <meta name="twitter:image" content="https://blog.sendildevar.in{{page.img}}">
     {% else %}
      <meta name="twitter:image" content="https://blog.sendildevar.in/assets/headerdark-card.jpeg">
  {% endif %}
@@ -35,7 +35,7 @@
 <meta prefix="og: http://ogp.me/ns#" property="og:title" content="Article | {{page.title}}" />
 <meta prefix="og: http://ogp.me/ns#" property="og:description" content="{{page.summary}}" />
 {% if page.img %}
-<meta prefix="og: http://ogp.me/ns#" property="og:image" content="https://blog.sendildevar.in/{{page.img}}"/>
+<meta prefix="og: http://ogp.me/ns#" property="og:image" content="https://blog.sendildevar.in{{page.img}}"/>
     {% else %}
 <meta prefix="og: http://ogp.me/ns#" property="og:image" content="https://blog.sendildevar.in/assets/headerdark-card.jpeg"/>
     {% endif %}
