@@ -1,7 +1,7 @@
 ---
 layout: wide
 title: Story of official 5G
-summary: Timeline of the development of official 5G at ITU-R (updated July 2020)
+summary: Article about the timeline of events at at ITU-R for announcing the official 5G (Last updated July 2020). Personal views based on public documents
 img: /imgs/genevalake.jpg
 index: 99
 
