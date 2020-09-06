@@ -23,8 +23,9 @@ exclude:
   - Gemfile
   
 
-# plugins:
-#  - jekyll-feed
+plugins:
+ - jekyll-feed
+ - jekyll-sitemap
 
 # Build settings
 markdown: kramdown
