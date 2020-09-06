@@ -8,11 +8,13 @@
     <!-- Site Properties -->
     {% if page.title %}
     <title>sendildevar.in | {{page.title}}</title>    
+    <meta name="description" content="{{page.summary}}">
     {% else %}
     <title>Digital Portal - sendildevar.in</title>
+    <meta name="description" content="Personal portal of Sendil Kumar">
     {% endif %}
     
-<meta name="description" content="Personal portal of Sendil Kumar (ssk)">
+
 <!-- Twitter Card data -->
 <meta name="twitter:card" content="{{page.summary}}">
 <meta name="twitter:site" content="{{site.twitter}}">
