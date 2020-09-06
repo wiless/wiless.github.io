@@ -155,7 +155,8 @@ index: 99
 <div class="ui small image">
   <img src="/imgs/genevalake.jpg">
 </div>
-![Geneva Lake, Switzerland](/imgs/genevalake.jpg | width=100)
+
+![Geneva Lake, Switzerland](/imgs/genevalake.jpg)
 
 <img class="ui fluid image" src="/imgs/genevalake.jpg">
 
