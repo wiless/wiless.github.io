@@ -1,8 +1,17 @@
 <head>
+    
     <!-- Standard Meta -->
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    
+    <!-- Site Properties -->
+    {% if page.title %}
+    <title>sendildevar.in | {{page.title}}</title>    
+    {% else %}
+    <title>Digital Portal - sendildevar.in</title>
+    {% endif %}
+    
 <meta name="description" content="Personal portal of Sendil Kumar (ssk)">
 <!-- Twitter Card data -->
 <meta name="twitter:card" content="{{page.summary}}">
@@ -20,12 +29,7 @@
 <meta prefix="og: http://ogp.me/ns#" property="og:description" content="{{page.summary}}" />
 <meta prefix="og: http://ogp.me/ns#" property="og:image" content="https://blog.sendildevar.in/assets/headerdark-card.jpeg"/>
 
-    <!-- Site Properties -->
-    {% if  page.title %}
-    <title>sendildevar.in | {{page.title}}</title>    
-    {% else %}
-    <title>Digital Portal - sendildevar.in</title>
-    {% endif %}
+    
     <link rel="stylesheet" type="text/css" href="/static/semantic.css">
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Share+Tech+Mono&display=swap"
