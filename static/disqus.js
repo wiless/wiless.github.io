@@ -1,6 +1,6 @@
 var disqus_config = function () {
     // we are using document.location.* here because Jekyll code does not work well in JS code.
-    this.page.url = {{document.location.href}};
+    this.page.url = document.location.href;
     this.page.identifier = document.location.pathname;
   };
 
