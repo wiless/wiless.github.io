@@ -453,28 +453,23 @@ TSDSI-RIT - Are there any trials or demonstrations ??
     <div class="content">
       <h2>2020 July</h2>
       <p>
-        Due to the inconclusive results regarding DECT & NuFront assessment reports, ITU-R decided to give once again an
-        exceptional extended time during the June 2020 meeting for assessment of these two candidate technology. These
-        two technologies will be again assessed by independent evaluation groups and if they are found to meet all the
+        Due to the inconclusive results regarding <b> DECT 2020 NR</b> & <b>NuFront - EUHT </b> assessment reports, ITU-R decided to give once again an
+        <i>exceptional extended</i> time during the June 2020 meeting for assessment of these two candidate technology. 
+        
+        These two technologies will be again assessed by independent evaluation groups and if they are found to meet all the
         requirements they get to be included in the official 5G recommendation in 2021. Whereas both 3GPP and TSDSI will
         make to the official 5G recommendations by Nov 2020
       </p>
-
-     
-
     </div>
   </div>
 
   <div class="containernew containerright">
     <div class="content">
       <h2>2020, October & November</h2>
-      <div class="ui floating green message">
-        <p>
+              <p>
           This meeting will decide the final recommendations of the technology as "Official 5G" by end of 2020
         </p>
-      </div>
-
-
+      
     </div>
 
   </div>
