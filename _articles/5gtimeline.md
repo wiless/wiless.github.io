@@ -8,7 +8,7 @@ index: 99
 ---
 # Story of the Official 5G
 
-<img class="ui fluid image" src="/imgs/genevalake.jpg">
+<!-- <img class="ui fluid image" src="/imgs/genevalake.jpg"> -->
 
 
 *Official 5G* - The technology recognized and recommended by ITU-R to be deployed in IMT spectrum bands, that has been

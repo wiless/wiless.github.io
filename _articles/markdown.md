@@ -22,6 +22,8 @@ graph TD;
     A-->D;
 </div>
 
+You can use foot notes [^1] like this. 
+
 
 <div class="mermaid">
 sequenceDiagram
@@ -105,3 +107,6 @@ This should be well quoted ..
 
 # Chapter 2
  
+
+
+[^1] - I am a footnote you can return back ...
