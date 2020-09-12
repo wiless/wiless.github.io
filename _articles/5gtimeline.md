@@ -1,14 +1,12 @@
 ---
 layout: wide
-title: Story of official 5G
+title: Story of the official 5G
 summary: Article about the timeline of events at at ITU-R for announcing the official 5G (Last updated July 2020). Personal views based on public documents
 img: /imgs/genevalake.jpg
 index: 99
 
 ---
 # Story of the Official 5G
-
-<!-- <img class="ui fluid image" src="/imgs/genevalake.jpg"> -->
 
 
 *Official 5G* - The technology recognized and recommended by ITU-R to be deployed in IMT spectrum bands, that has been
@@ -17,7 +15,6 @@ vision of next generation of IMT technology. IMT-2000, IMT-Advanced (2010), IMT-
 
 Among all the generations of mobile technology, #5G has made lot of momentum and expectations from the technology right
 from the day when it was chalked out on a whiteboard. 
-
 
 
 ## 3GPP 5G initiatives
@@ -263,7 +260,7 @@ The journey of official 5G began in 2014 and completed the vision of IMT and ove
           This success of TSDSI continued to attract media attraction as well as concerns of interoperability issues
           with global telecom ecosystem. Few press articles related to this are
 
-          <div class="ui icon button" data-content="EconomicTimes, Feb 2020">
+          <div class="ui icon button justify" data-content="EconomicTimes, Feb 2020">
 
             <a target=_blank
               href="https://telecom.economictimes.indiatimes.com/news/global-telecom-gear-vendors-body-seeks-meeting-with-dot-over-tsdsis-local-5g-standards-says-it-will-impact-5g-rollout/73901311">
@@ -273,7 +270,7 @@ The journey of official 5G began in 2014 and completed the vision of IMT and ove
             networks.
           </div>
 
-          <div class="ui icon button" data-content="EconomicTimes, Feb 2020">
+          <div class="ui icon button justify" data-content="EconomicTimes, Feb 2020">
             <a target=_blank
               href="https://tsdsi.in/tsdsis-submission-accepted-as-a-candidate-for-evaluation-as-an-imt-2020-5g-standard-at-itu-r-wp-5d-meeting/"><i
                 class="linkify icon"></i>
@@ -386,13 +383,11 @@ The journey of official 5G began in 2014 and completed the vision of IMT and ove
         </div>
       </div>
       
-      <div class="ui floating teal message">
+      <div class="ui floating negative message">
         <p>
            Such supplimentary information and claims in the evaluation reports were explicitly noted and declared as not relevant and not considered during the ITU-R processes (See ITU-R document). So these extra informations and claims remain unvalidated by ITU-R. 
           </p>
         
-            
-          
       </div>
       Read : <a target=_blank href="https://www.itu.int/dms_pub/itu-r/md/15/imt.2020/c/R15-IMT.2020-C-0028!R1!MSW-E.docx"> ITU-R comments on  TSDSI (P1,Att 2)</a> 
       and
@@ -404,7 +399,57 @@ The journey of official 5G began in 2014 and completed the vision of IMT and ove
     </div>
   </div>
 
-  <div class="containernew containerright">
+<div class="containernew containerright">
+    <div class="content"> 
+<h2> 5G Ecosystem worldwide </h2>
+As per the latest (Aug 2020) <a href="https://gsacom.com/paper/5g-market-snapshot-august-2020/"> GSA’s 5G Snapshot </a> 
+<ul>
+<li>  By July 2020, 392 operators in 126 countries/territories had announced they were investing in 5G </li>
+<li>   115 operators had announced they had deployed 3GPP compliant technology in their live networks </li>
+<li>   Of those, a total of 92* operators in 38* countries/territories had launched one or more 3GPP-compliant 5G services.</li>
+One of the reason for hypes around 5G was because some of the telecom vendors had started showcasing the capabilities of 5G even before the 3GPP specifications were ready. 
+<hr>
+</ul>
+
+<h2>
+TSDSI-RIT - Are there any trials or demonstrations ?? 
+</h2>
+<div class="ui floating negative message">
+  It continues to be in media as the  “local 5G standard” and a fork of 3GPP, no public demonstration or trials of this local technology is known yet.
+</div>
+
+<div class="ui accordion">
+  <div class="title "> <i class="dropdown icon"></i>
+    Related Press Articles
+  </div>
+  <div class="content ">
+    <div class="ui icon button justify" data-content="Linkded Article, Mar 2020">
+      <a target=_blank href=
+      "https://www.linkedin.com/pulse/indias-5g-technology-opportunities-challenges-parag-kar">
+        <i class="linkify icon"></i> Linked Article, March 2020</a> India's 5G Technology - Opportunities and Challenges 
+        Parag Kar's article to evaluate the opportunities and challenges that India is facing as it goes through the process of defining it own 5G standard.</div>
+      
+                <div class="ui icon button justify" data-content="EconomicTimes, June 2020">
+      <a target=_blank href=
+      "https://telecom.economictimes.indiatimes.com/tele-talk/avoid-fragmentation-of-5g-technology-standards-while-bridging-the-digital-divide/4322">
+        <i class="linkify icon"></i> EconomicTimes, June 2020) </a> Avoid fragmentation of 5G technology standards while bridging the digital divide  
+                </div>
+      
+                <div class="ui icon button justify" data-content="EconomicTimes, June 2020">
+      <a target=_blank href="https://telecom.economictimes.indiatimes.com/news/bridging-the-5g-digital-divide-how-indigenously-developed-technology-can-reach-remote-indian-villages/77120188"> <i class="linkify icon"></i>
+      Economic Times, July 2020</a>
+      
+      How indigenously developed 5G tech can reach remote Indian villages..by IIT Madras, Director. ...IITM Director, it is our fervent hope that, sooner rather than later, the enhancements proposed in the TSDSI RIT will get folded into the 3GPP RIT (as originally intended by India) and a single global standard will address everyone’s needs, including those on the wrong side of the digital divide. DISCLAIMER : Views expressed above are the author's own.
+                </div>
+  </div>
+</div>
+          
+
+    </div>
+    </div>
+
+
+  <div class="containernew containerleft">
     <div class="content">
       <h2>2020 July</h2>
       <p>
