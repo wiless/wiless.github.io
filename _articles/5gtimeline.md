@@ -151,10 +151,10 @@ The journey of official 5G began in 2014 and completed the vision of IMT and ove
       technology.
 
       <div class="ui accordion">
-        <div class="title"> <i class="dropdown icon"></i>
+        <div class="title active"> <i class="dropdown icon"></i>
           Suprise Submission : NuFront
         </div>
-        <div class="content">
+        <div class="content active">
           <p> <b>NuFront</b> - A private company from China submitted a new candidate technology “EUHT” to the final
             meeting[8] . Their website have products they had developed in China and deployed in some scenarios
             (non-cellular) [9]. The company also claims to have developed the technology in 2010 and EUHT as chinese
@@ -212,10 +212,10 @@ The journey of official 5G began in 2014 and completed the vision of IMT and ove
       <h2 class="ui header red">2019, Sept</h2>
       <h3> Exceptional Deadline !!</h3>
       <div class="ui accordion">
-        <div class="title"> <i class="dropdown icon"></i>
+        <div class="title active"> <i class="dropdown icon"></i>
           Lucky NuFront, DECT & TSDSI !!
         </div>
-        <div class="content">
+        <div class="content active">
           Fortunately, all the proponents NuFront, DECT Forum and TSDSI got an exceptional lifeline <a target=_blank href="https://www.itu.int/md/R15-IMT.2020-C-0022/en">14</a> to fix and
           complete their submission by 10 Sept 2019.
         </div>
@@ -243,10 +243,10 @@ The journey of official 5G began in 2014 and completed the vision of IMT and ove
         extended deadline 10th Sept 2019.
       </p>
       <div class="ui accordion">
-        <div class="title "> <i class="dropdown icon"></i>
+        <div class="title active "> <i class="dropdown icon"></i>
           Finally, they made it ! - DECT TSDSI and NuFront
         </div>
-        <div class="content  ">
+        <div class="content active  ">
 
           <h3>DECT</h3>DECT remained to be a set of pure 3GPP NR and DECT2020.DECT[15a]
           <h3>TSDSI</h3> final submission continued to be a modifed 3GPP Rel 15 NR and a modified Rel.15 LTE
@@ -320,10 +320,10 @@ The journey of official 5G began in 2014 and completed the vision of IMT and ove
         All the IEGs concluded that the 3GPP LTE & NR technology met all the requirements of 5G
       </blockquote>
       <div class="ui accordion">
-        <div class="title "> <i class="dropdown icon"></i>
+        <div class="title active "> <i class="dropdown icon"></i>
           DECT
         </div>
-        <div class="content ">
+        <div class="content active">
           - Regarding the DECT technology, all the IEGs who evaluated could not conclude if DECT can meet some of the 5G
           requirements due to incompleteness in the final submission of DECT to ITU-R
         </div>
@@ -362,10 +362,10 @@ The journey of official 5G began in 2014 and completed the vision of IMT and ove
       </p>
      
       <div class="ui accordion">
-        <div class="title "> <i class="dropdown icon"></i>
+        <div class="title active"> <i class="dropdown icon"></i>
           DECT
         </div>
-        <div class="content ">
+        <div class="content active">
           had included results based on different configurations (different frequency (f=1900MHz) and deployment parameters, BS height=5m ) based on DECT system’s typical operating values. 
         </div>
         <div class="title "> <i class="dropdown icon"></i>
