@@ -216,7 +216,7 @@ The journey of official 5G began in 2014 and completed the vision of IMT and ove
           Lucky NuFront, DECT & TSDSI !!
         </div>
         <div class="content">
-          Fortunately, all the proponents NuFront, DECT Forum and TSDSI got an exceptional lifeline [14] to fix and
+          Fortunately, all the proponents NuFront, DECT Forum and TSDSI got an exceptional lifeline <a target=_blank href="https://www.itu.int/md/R15-IMT.2020-C-0022/en">14</a> to fix and
           complete their submission by 10 Sept 2019.
         </div>
       </div>
