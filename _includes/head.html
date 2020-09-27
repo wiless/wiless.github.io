@@ -68,6 +68,10 @@
     <link href="https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer+SC&display=swap" rel="stylesheet">
  
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56542209-2"></script>
 <script>
@@ -77,6 +81,33 @@
 
   gtag('config', 'UA-56542209-2');
 </script>
+<!-- <script>
+    "use strict";
 
+    function sayHello(){
+        console.log("Hello I am ..");
+        initMap();
+    }
+
+    let map;
+    function initMap() {
+        var elem=document.getElementById("map");
+        elem.style.height="100%";
+        
+        console.log("Hello world",elem);
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: {
+          lat: 26.263863,lng: 73.008957          
+        },
+        zoom: 8,
+      });
+    }
+  </script> -->
+
+  <style>
+      #map {
+        height: 100%;
+      }
+  </style>
 </head>
 

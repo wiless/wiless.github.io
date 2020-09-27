@@ -1,44 +1,72 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Simple Map</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3nmtvMAnGh_brB-zKxhnPcfd8M4ui4s4&callback=initMap&libraries=&v=weekly"
-      defer
-    ></script>
-    <style type="text/css">
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
+---
+layout: wide
+title: FSS Earth stations at 3.5Ghz India
+<!-- img: /imgs/irnss2.jpg -->
+---
+Locations of Earth-Stations and Radial Distance 
+<div class="ui right labeled input">
+  <input type="text" placeholder="300" id="distance" value=300>
+  <div class="ui basic label">
+    km
+  </div>
+</div>
+<div class="ui divider"></div>
+<a class="ui button" onclick="SetCenter(0)">Hassan </a>
+<a class="ui button" onclick="SetCenter(1)">Bhopal</a>
+<a class="ui button" onclick="SetCenter(2)">Jodhpur</a>
+<a class="ui button" onclick="SetCenter(3)">Shillong</a>
+<div class="ui divider"></div>
+<div style="height:500px">
+<div id="map" style="width:100%"> </div>
+ </div>
 
-      /* Optional: Makes the sample page fill the window. */
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-    <script>
-      "use strict";
-
-      let map;
-
-      function initMap() {
-        map = new google.maps.Map(document.getElementById("map"), {
-          center: {
-            lat: -34.397,
-            lng: 150.644,
-          },
-          zoom: 8,
+<script>
+ // "use strict";
+  let ess;
+  
+  function SetCenter(id){
+    map.setCenter(esslocations[id]);
+    var marker = new google.maps.Marker({
+          position: esslocations[id],
+          map: map,
+          title: esslocationNames[id],
+       icon:ess
         });
-      }
-    </script>
-  </head>
-  <body>
-    <div id="map"></div>
-  </body>
-</html>
+      
+    distance=Number(document.getElementById("distance").value)*1000;
+    var circle = new google.maps.Circle({map:map,center:esslocations[id],radius:distance});
+  }
+
+  let esslocations;
+  let esslocationNames;
+  let map;
+  function initMap() {
+      loadFSSlocations();
+      var elem=document.getElementById("map");
+    ess  ={url:"/imgs/ess.png",scaledSize: new google.maps.Size(20, 20)};
+    var locationRio = esslocations[0];
+      map = new google.maps.Map(elem, {
+      center:esslocations[0],
+      zoom: 8,
+    });
+    
+    var marker = new google.maps.Marker({
+          position: locationRio,
+          map: map,
+          icon:ess,
+          title: 'FSS ES'
+        });
+  }
+
+  function loadFSSlocations() {
+    esslocations=[{lat:  13.071533, lng:76.098461},{lat:23.288243, lng:77.465232},{lat:26.206881, lng:73.023676},{lat: 25.674127, lng:91.913490}];
+    esslocationNames=["Hassan","Bhopal","Jodhpur","Shillong"];
+  }
+   
+</script>
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3nmtvMAnGh_brB-zKxhnPcfd8M4ui4s4&callback=initMap&libraries=&v=weekly"
+    defer
+  ></script>
+
+  
