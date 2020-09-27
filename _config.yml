@@ -17,6 +17,8 @@ collections:
     output: true
   recentposts:
     output: true
+  apps:
+    output: true
 
 exclude:
   - bower_components
