@@ -1,0 +1,39 @@
+[
+  {
+        "name":"INSAT-2M",
+        "frequency":[
+          {
+          "from":2670,
+          "to":2690,
+          "bw":20,
+          "direction":"E-S"
+          },
+          {
+          "from":2670,
+          "to":2690,
+          "bw":20,
+          "direction":"E-S"
+          },
+            {
+          "from":2500,
+          "to":2520,
+          "bw":20,
+          "direction":"S-E"
+          },
+          {
+          "from":3680,
+          "to":3700,
+          "bw":20,
+          "direction":"S-E"
+          },
+          {
+          "from":6450,
+          "to":6470,
+          "bw":20,
+          "direction":"E-S"
+          },
+        ]
+       "comment":"https://www.itu.int/online/sns/ntwkstat.sh?ntc_id=94520162&ie=y&categ=C&tab=geo&emi=R&fdgs=N&script=&sel_type=C&sel_satname=INSAT-2M+(48)&sat_name=INSAT-2M+(48)&plan_id=&ntc_nbr="
+        
+    },
+]
