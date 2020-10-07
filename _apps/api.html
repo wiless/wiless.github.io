@@ -12,7 +12,7 @@ title: Testing Wiless Cellular Library API
     <button class="btn btn-info xg-signin" data-onsuccess="onSignIn">G Sign</button>
     <button class="btn btn-info" onclick="signIn()">Sign In</button>
     <button type="button" onclick="signOut();" class="btn btn-info">Sign Out</button>
-    <button type="button" onclick="LoginAPI();" class="btn btn-info">LoginIn</button>
+    <button type="button" onclick="LoginAPI();" class="btn btn-info">Log In</button>
     <button type="button" onclick="APIlogger(`new`)" class="btn btn-info">Call API</button>
     <button type="button" onclick="APIlogger('hexgrid')" class="btn btn-info">Hex Grid</button>
 
@@ -137,7 +137,8 @@ title: Testing Wiless Cellular Library API
    
 
     function signOut() {
-      // var auth2 = gapi.auth2.getAuthInstance();
+       var auth2 = gapi.auth2.getAuthInstance();
+googleauth.signOut();
 wiless.Logout();
       //wiless.APIcalls("logout").then(console.log("Logged out Wiless API"));
     }
