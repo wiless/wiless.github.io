@@ -11,7 +11,11 @@
 $(document).ready(function() {
 
    window.onload = function(){
-       $('.ui.accordion').accordion();
+    
+      if (document.getElementsByClassName('.ui.accordion').length>0)
+      {      
+        $('.ui.accordion').accordion();
+      }
 
    };
 });
