@@ -34,9 +34,10 @@ function API() {
   }
 
   this.Logout= ()=> { 
-this.id_token="";
-this.APIcalls("logout");
+id_token=""; 
 alert("logged out");
+this.APIcalls("logout");
+
 }
   this.Token = ()=>{
     return this.id_token;
@@ -45,6 +46,7 @@ alert("logged out");
   this.APIcalls = function (arg, jdata) {
 if (arg=="logout") {
 this.id_token="";
+alert("logged out");
 }
     var val = funcpaths.get(arg);
     // console.log("Val ", val);
