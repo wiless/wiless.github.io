@@ -45,7 +45,6 @@ this.APIcalls("logout");
 if (arg=="logout") {
 id_token="";
 headers = { 'Authorization': "Bearer " + id_token };
-alert("logged out");
 }
     var val = funcpaths.get(arg);
     // console.log("Val ", val);
