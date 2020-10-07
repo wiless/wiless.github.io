@@ -135,8 +135,8 @@ title: Testing Wiless Cellular Library API
     }
     function LoginAPI() {
       
-      password=document.getElementByID("password");
-      userid=document.getElementByID("userid");
+      password=document.getElementById("password").value;
+      userid=document.getElementById("userid").value;
       
       creds = { userid: userid, password: password };
       wiless.APIcalls("login", creds).then(OnSuccessAPI);
