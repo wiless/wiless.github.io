@@ -1,0 +1,156 @@
+---
+layout: wide
+title: Testing Wiless Cellular Library API
+<!-- img:   -->
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://apis.google.com/js/platform.js?onload=initgapi" async defer></script>
+  <!-- <script src="https://apis.google.com/js/platform.js?onload=initapi" async defer></script> -->
+  <meta name="google-signin-client_id"
+    content="565126014426-fis7623ann950k0i711upje0o5kt3qhp.apps.googleusercontent.com">
+  <script src="/api.js"></script>
+ 
+  <div class="jumbotron text-center">
+    <h1>My First Bootstrap Page</h1>
+    <p>Resize this responsive page to see the effect!</p>
+    <img id="profile" src="" class="rounded-circle" alt="Profile Picture">
+
+    <button class="btn btn-info xg-signin" data-onsuccess="onSignIn">G Sign</button>
+    <button class="btn btn-info" onclick="signIn()">Sign In</button>
+    <button type="button" onclick="signOut();" class="btn btn-info">Sign Out</button>
+    <button type="button" onclick="LoginAPI();" class="btn btn-info">LoginIn</button>
+    <button type="button" onclick="APIlogger(`new`)" class="btn btn-info">Call API</button>
+    <button type="button" onclick="APIlogger('hexgrid')" class="btn btn-info">Hex Grid</button>
+
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <h3>Column 1</h3>
+
+          Enter name: <input type="text" id="userid">
+          Enter password: <input type="password" id="password">
+          <input type="button" onclick="LoginAPI()">
+
+        <p>Lorem ipsum dolor..</p>
+        <div class="form-group">
+          <textarea class="form-control" rows="5" id="console"></textarea>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <h3>Column 2</h3>
+        <p>Lorem ipsum dolor..</p>
+      </div>
+      <div class="col-sm-4">
+        <h3>Column 3</h3>
+        <p>Lorem ipsum dolor..</p>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    var googleauth;
+    var userprofile;
+
+    function onSignIn(googleUser) {
+      userprofile = googleUser.getBasicProfile();
+
+      // The ID token you need to pass to your backend:
+      gtoken = googleUser.getAuthResponse().id_token;
+      // The ID token you need to pass to your backend:
+      console.log('ID: ' + userprofile.getId()); // Do not send to your backend! Use an ID token instead.
+      console.log('Name: ' + userprofile.getName());
+      console.log('Image URL: ' + userprofile.getImageUrl());
+      console.log('Email: ' + userprofile.getEmail()); // This is null if the 'email' scope is not present.
+      var img = document.getElementById("profile");
+      img.setAttribute("src", userprofile.getImageUrl());
+
+      // var opts = { "token": gtoken };
+      wiless.LoginViaGoogle(gtoken).then(
+        console.log("Google Signed In")
+      );
+
+      
+    }
+
+    
+    function initBackend() {
+      console.log("Initialize Backend API Server");
+    }
+
+    function initapi() {
+      console.log("Loaded Google Platform Library");
+    }
+
+    
+
+    function APIlogger(arg) {
+      wiless.APIcalls(arg).then(
+        d => {
+          elem = document.getElementById("console");
+          if (elem != null) {
+            elem.value = JSON.stringify(d);
+          }
+        }
+
+      );
+    }
+    function signIn() {
+      //{prompt:"select_account"}
+      googleauth.signIn().then(
+        guser => {
+          onSignIn(guser);
+        }
+      );
+    }
+    function initgapi() {
+      console.log("Loaded Google Platform Library");
+      gapi.load('auth2', function () {
+        /* Ready. Make a call to gapi.auth2.init or some other API */        
+        var param = { client_id: '565126014426-fis7623ann950k0i711upje0o5kt3qhp.apps.googleusercontent.com' };
+        googleauth = gapi.auth2.init(param);
+        googleauth.then(
+          d => {
+
+            initBackend();
+            console.log("Google Auth is ready")
+          }, e => console.log("Error ", e)
+        );
+
+      });
+    }
+
+    var result = [];
+    var cnt = 0;
+    
+    
+    function OnSuccessAPI(d) {
+      console.log("Login to API server success. ");
+    }
+    function LoginAPI() {
+      
+      password=document.getElementByID("password");
+      userid=document.getElementByID("userid");
+      
+      creds = { userid: userid, password: password };
+      wiless.APIcalls("login", creds).then(OnSuccessAPI);
+    }
+
+   
+
+    function signOut() {
+      // var auth2 = gapi.auth2.getAuthInstance();
+      wiless.APIcalls("logout").then(console.log("Logged out Wiless API"));
+    }
+
+  </script>
+
