@@ -33,12 +33,18 @@ function API() {
     return "Hello " + name + " " + _magicword;
   }
 
+  this.Logout= ()=> { 
+this.id_token="";
+this.APIcalls("logout");
+}
   this.Token = ()=>{
     return this.id_token;
   }
 
   this.APIcalls = function (arg, jdata) {
-
+if (arg=="logout") {
+this.id_token="";
+}
     var val = funcpaths.get(arg);
     // console.log("Val ", val);
     if (arg == "login") {
