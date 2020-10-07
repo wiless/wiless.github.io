@@ -34,8 +34,8 @@ function API() {
   }
 
   this.Logout= ()=> { 
-id_token=""; 
-alert("logged out");
+this.id_token=""; 
+alert("logged out from Function");
 this.APIcalls("logout");
 
 }
