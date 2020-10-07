@@ -10,7 +10,7 @@ function API() {
   let funcpaths = new Map();
 
   (function () {        
-    apiurl = "http://localhost:8080";
+    apiurl = "https://wilessapi.appspot.com";
     funcpaths.set("new", { path: "/new", method: "get" })
     .set("system", { path: "/system", method: "get" })
     .set("login", { path: "/login", method: "post" })
