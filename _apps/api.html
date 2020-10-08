@@ -34,9 +34,18 @@ title: Testing Wiless Cellular Library API
           <textarea class="form-control" rows="5" id="console"></textarea>
         </div>
       </div>
+
+
       <div class="col-sm-4">
         <h3>Column 2</h3>
         <p>Lorem ipsum dolor..</p>
+<div id="observablehq-024a3f53"></div>
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+import define from "https://api.observablehq.com/@wiless/cellular-network-simulator.js?v=3";
+const inspect = Inspector.into("#observablehq-024a3f53");
+(new Runtime).module(define, name => name === "Circle" ? inspect() : undefined);
+</script>
       </div>
       <div class="col-sm-4">
         <h3>Column 3</h3>
