@@ -158,8 +158,8 @@ const inspect = Inspector.into("#observablehq-024a3f53");
 const cmodule=(new Runtime).module(define, name => name === "Circle" ? inspect() : undefined);
 var radius=40;
 cmodule.redefine("radius", radius);
-  
-  function hello() {
+  export name "I am good";
+ export function hello() {
     cmodule.redefine("radius", Math.random()*30);
   }
 </script>
