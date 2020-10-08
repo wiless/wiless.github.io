@@ -14,7 +14,8 @@ Lately, I have been tinkering around to convert some of <a href="https://github.
 sequenceDiagram
     participant Client
     participant WebServer
-    Client<<-WebServer: Load Static Pages
+    participant APIserver    
+    WebServer->>Client: Load Static Pages
     Note right of WebServer: Hosted on Github Pages    
     Client-->>APIserver: Authenticate Me!
     Note right of APIserver: Hosted on GAE    
