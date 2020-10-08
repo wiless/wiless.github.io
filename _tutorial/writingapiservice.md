@@ -14,7 +14,7 @@ Lately, I have been tinkering around to convert some of <a href="https://github.
 sequenceDiagram
     participant Client
     participant WebServer
-    Client->>WebServer: Load Static Pages
+    Client<<-WebServer: Load Static Pages
     loop Healthcheck
         Client->>WebServer: Fight against hypochondria
     end
