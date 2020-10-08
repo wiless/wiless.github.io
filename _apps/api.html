@@ -45,7 +45,7 @@ import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/run
 import define from "https://api.observablehq.com/@wiless/cellular-network-simulator.js?v=3";
 const inspect = Inspector.into("#observablehq-024a3f53");
 const cmodule=(new Runtime).module(define, name => name === "Circle" ? inspect() : undefined);
-cmodule.variable().define("radius", 15);
+cmodule.redefine("radius", 15);
 </script>
       </div>
       <div class="col-sm-4">
