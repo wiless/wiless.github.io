@@ -1,6 +1,6 @@
 ---
-layout: wide
-title: Few learnings from integrating Observable, my blog and API service
+layout: article
+title: Few learnings from integrating `ObservableHQ`, My blog and API service
 ---
 
 > This post is still work-in-progress !!
