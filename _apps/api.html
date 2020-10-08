@@ -149,6 +149,8 @@ cmodule.redefine("radius", radius);
       //wiless.APIcalls("logout").then(console.log("Logged out Wiless API"));
     }
 
+</script>
+<script type="module">
 
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
 import define from "https://api.observablehq.com/@wiless/cellular-network-simulator.js?v=3";
@@ -156,5 +158,8 @@ const inspect = Inspector.into("#observablehq-024a3f53");
 const cmodule=(new Runtime).module(define, name => name === "Circle" ? inspect() : undefined);
 var radius=40;
 cmodule.redefine("radius", radius);
-    
+  
+  function hello() {
+    cmodule.redefine("radius", Math.random()*30);
+  }
 </script>
