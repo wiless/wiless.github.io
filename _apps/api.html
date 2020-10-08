@@ -153,12 +153,13 @@ wiless.Logout();
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
 import define from "https://api.observablehq.com/@wiless/cellular-network-simulator.js?v=3";
 const inspect = Inspector.into("#observablehq-024a3f53"); 
-const cmodule=(new Runtime).module(define, name => name === "Circle" ? inspect() : undefined);
+var cmodule=(new Runtime).module(define, name => name === "Circle" ? inspect() : undefined);
 var radius=40;
 
  document.getElementById("radius").onchange=hello;
   function hello() {
 //     cmodule.redefine("radius", radius);
+    console.log("Hello : radius ",radius);
     cmodule.redefine("radius", Math.random()*30);
   }
 </script>
