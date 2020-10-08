@@ -158,10 +158,13 @@ var cmodule=(new Runtime).module(define, name => name === "Circle" ? inspect() :
 var radius=40;
 
  document.getElementById("update").onclick=hello;
+ document.getElementById("radius").onchange=hello;
+  
   function hello() {
     var myradius=Number(document.getElementById("radius").value);
 //     console.log("radius box ", myradius);
 //     console.log("Hello : radius ",radius,cmodule);
     cmodule.redefine("radius", myradius);
   }
+  
 </script>
