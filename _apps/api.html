@@ -40,6 +40,7 @@ title: Testing Wiless Cellular Library API
         <h3>Column 2</h3>
         <p>Lorem ipsum dolor..</p>
 <input type="number" name="radius" id="radius" value=100>
+<button type="button" id="update" class="btn btn-info">Update</button>
 <div id="observablehq-024a3f53"></div>
 
       </div>
@@ -156,9 +157,9 @@ const inspect = Inspector.into("#observablehq-024a3f53");
 var cmodule=(new Runtime).module(define, name => name === "Circle" ? inspect() : undefined);
 var radius=40;
 
- document.getElementById("radius").onchange=hello;
+ document.getElementById("update").onclick=hello;
   function hello() {
-    myradius=Number(document.getElementById("radius").value);
+    var myradius=Number(document.getElementById("radius").value);
     console.log("radius box ", myradius);
     console.log("Hello : radius ",radius,cmodule);
     cmodule.redefine("radius", Math.random()*30);
