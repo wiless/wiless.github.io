@@ -15,12 +15,11 @@ sequenceDiagram
     participant Client
     participant WebServer
     participant APIserver    
-    WebServer->>Client: Load Static Pages
-    Note right of WebServer: Hosted on Github Pages    
-    Client-->>APIserver: Authenticate Me!
-    Note right of APIserver: Hosted on GAE    
-    APIserver-->>Client: Returns a signed Token
-    Client->>ObserverHQ: Import Module
+    participant ObserverableHQ
+    WebServer->>Client: Load Static Pages    
+    Client->>APIserver: Authenticate Me!    
+    APIserver->>Client: Returns a signed Token
+    Client->>ObserverableHQ: Import Module
     Bob-->>John: Jolly good!
 
 </div>
