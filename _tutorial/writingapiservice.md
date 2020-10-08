@@ -16,7 +16,8 @@ sequenceDiagram
     participant WebServer
     participant APIserver    
     participant ObserverableHQ
-    
+    Note left of WebServer: Hosted on Github Pages, #jekyl semantic-ui 
+    Note left of APIserver: Hosted on GAE, #golang
     WebServer->>Client: Load Static Pages    
     Client->>APIserver: Authenticate Me!    
     APIserver->>Client: Returns a `signed Token`
