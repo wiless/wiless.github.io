@@ -15,11 +15,11 @@ sequenceDiagram
     participant Client
     participant WebServer
     Client<<-WebServer: Load Static Pages
-    loop Healthcheck
-        Client->>WebServer: Fight against hypochondria
-    end
-    Note right of APIServer: Rational thoughts <br/>prevail!
+    Note right of WebServer: Hosted on Github Pages
+    
     Client-->>APIserver: Authenticate Me!
+    Note right of APIserver: Hosted on GAE
+    
     APIserver-->>Client: Returns a signed Token
     Client->>ObserverHQ: Import Module
     Bob-->>John: Jolly good!
