@@ -160,8 +160,8 @@ var radius=40;
  document.getElementById("update").onclick=hello;
   function hello() {
     var myradius=Number(document.getElementById("radius").value);
-    console.log("radius box ", myradius);
-    console.log("Hello : radius ",radius,cmodule);
-    cmodule.redefine("radius", Math.random()*30);
+//     console.log("radius box ", myradius);
+//     console.log("Hello : radius ",radius,cmodule);
+    cmodule.redefine("radius", myradius);
   }
 </script>
