@@ -12,6 +12,7 @@ Lately, I have been tinkering around to convert some of <a href="https://github.
 
 <div class="mermaid">
 sequenceDiagram
+    autonumber
     participant Client
     participant WebServer
     participant APIserver    
