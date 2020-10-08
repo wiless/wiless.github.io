@@ -16,6 +16,7 @@ sequenceDiagram
     participant WebServer
     participant APIserver    
     participant ObserverableHQ
+    
     WebServer->>Client: Load Static Pages    
     Client->>APIserver: Authenticate Me!    
     APIserver->>Client: Returns a `signed Token`
