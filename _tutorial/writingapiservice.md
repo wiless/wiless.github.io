@@ -20,8 +20,9 @@ sequenceDiagram
     WebServer->>Client: Load Static Pages    
     Client->>APIserver: Authenticate Me!    
     APIserver->>Client: Returns a `signed Token`
-    Client->>ObserverableHQ: Import Module
-    Client-->>APIserver: Call Cellular APIs (return JSON objects)
+    ObserverableHQ->>Client: Import Module
+    Client-->>APIserver: Call Cellular APIs 
+    APIserver-->Client:  return JSON objects
     Client->>ObserverableHQ: Redefine variables on Observerable Notebook cell
     ObserverableHQ->>Client: Renders the plots/diagram (based on d3)    
 
