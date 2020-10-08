@@ -22,6 +22,7 @@ sequenceDiagram
     APIserver->>Client: Returns a `signed Token`
     ObserverableHQ->>Client: Import Module
     Client-->>APIserver: Call Cellular APIs 
+    Note over Client,APIserver: Uses `fetch` based calls, using lookup functions in .js hosted along WebServer 
     APIserver-->Client:  return JSON objects
     Client->>ObserverableHQ: Redefine variables on Observerable Notebook cell
     ObserverableHQ->>Client: Renders the plots/diagram (based on d3)    
