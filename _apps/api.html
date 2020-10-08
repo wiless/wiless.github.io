@@ -42,7 +42,7 @@ title: Testing Wiless Cellular Library API
 <input type="number" name="radius" id="radius" value=100>
 <button type="button" id="update" class="btn btn-info">Update</button>
 <div id="observablehq-024a3f53"></div>
-
+<div id="observablehq-fad0a867"></div>
       </div>
       <div class="col-sm-4">
         <h3>Test 3</h3>
@@ -82,7 +82,9 @@ title: Testing Wiless Cellular Library API
       console.log("Initialize Backend API Server");
     }
 
+    var someglobalvar;
     function initapi() {
+      someglobalvar="Sendil knows it";
       console.log("Loaded Google Platform Library");
     }
 
@@ -149,6 +151,16 @@ wiless.Logout();
     }
 
 </script>
+
+
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+import define from "https://api.observablehq.com/@wiless/cellular-network-simulator.js?v=3";
+// const inspect = Inspector.into("#observablehq-fad0a867");
+(new Runtime).module(define, name => name === "hexplot" ? Inspector.into("#observablehq-fad0a867") : undefined);
+</script>
+
+
 <script type="module">
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
 import define from "https://api.observablehq.com/@wiless/cellular-network-simulator.js?v=3";
@@ -162,7 +174,7 @@ var radius=40;
   
   function hello() {
     var myradius=Number(document.getElementById("radius").value);
-//     console.log("radius box ", myradius);
+     console.log("Some Global Variable ", someglobalvar);
 //     console.log("Hello : radius ",radius,cmodule);
     cmodule.redefine("radius", myradius);
   }
