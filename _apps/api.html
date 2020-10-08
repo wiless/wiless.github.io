@@ -144,8 +144,6 @@ title: Testing Wiless Cellular Library API
        var auth2 = gapi.auth2.getAuthInstance();
 googleauth.signOut();
 wiless.Logout();
-radius=document.getElementById("radius").value;
-cmodule.redefine("radius", radius);
       //wiless.APIcalls("logout").then(console.log("Logged out Wiless API"));
     }
 
@@ -157,9 +155,10 @@ import define from "https://api.observablehq.com/@wiless/cellular-network-simula
 const inspect = Inspector.into("#observablehq-024a3f53"); 
 const cmodule=(new Runtime).module(define, name => name === "Circle" ? inspect() : undefined);
 var radius=40;
-cmodule.redefine("radius", radius);
- 
- export function hello() {
+
+ document.getElementById("radius").onchange=hello;
+  function hello() {
+//     cmodule.redefine("radius", radius);
     cmodule.redefine("radius", Math.random()*30);
   }
 </script>
