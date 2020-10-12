@@ -53,7 +53,7 @@ Locations of Earth-Stations and Radial Distance
         });
       
     distance=Number(document.getElementById("distance").value)*1000;
-    var circle = new google.maps.Circle({map:map,center:esslocations[id],radius:distance});
+    var circle = new google.maps.Circle({map:map,center:latlng ,radius:distance});
   }
 
   let esslocations;
