@@ -15,6 +15,11 @@ Locations of Earth-Stations and Radial Distance
 <a class="ui button" onclick="SetCenter(1)">Bhopal</a>
 <a class="ui button" onclick="SetCenter(2)">Jodhpur</a>
 <a class="ui button" onclick="SetCenter(3)">Shillong</a>
+
+<div class="ui icon input">
+  <input type="text" id="custom" placeholder="Lat,Lng...">
+  <i class="inverted circular search link icon" onclick="SetCenter(-1)"></i>
+</div>
 <div class="ui divider"></div>
 <div style="height:500px">
 <div id="map" style="width:100%"> </div>
@@ -25,11 +30,22 @@ Locations of Earth-Stations and Radial Distance
   let ess;
   
   function SetCenter(id){
-    map.setCenter(esslocations[id]);
+    let latlng;
+    let placename string;
+    if id==-1{
+    latlng=document.getElementById("custom").value;
+      //{lat:  13.071533, lng:76.098461}
+    placename="Custom"
+      
+    }else{
+    latlng=esslocations[id]
+    placename= esslocationNames[id]
+    }
+    map.setCenter(latlng);
     var marker = new google.maps.Marker({
-          position: esslocations[id],
+          position: latlng,
           map: map,
-          title: esslocationNames[id],
+          title: placename,
        icon:ess
         });
       
