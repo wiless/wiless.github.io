@@ -117,7 +117,6 @@ title: Testing Wiless Cellular Library API
         googleauth = gapi.auth2.init(param);
         googleauth.then(
           d => {
-
             initBackend();
             console.log("Google Auth is ready")
           }, e => console.log("Error ", e)
@@ -163,10 +162,12 @@ document.getElementById("radius").onchange=hello;
  
   
 var cmodule=(new Runtime).module(define, name => {
-  if (name == "Circle"){
+  if (name === "Circle"){
+    console.log("Circle loaded..");
     return inspect();
   }
-  if (name == "hexplot"){
+  if (name === "hexplot"){
+    console.log("Hexplot loaded..");
     return inspect2();
   }
   return undefined;
@@ -174,9 +175,6 @@ var cmodule=(new Runtime).module(define, name => {
   );
 //var cmodule2=(new Runtime).module(define, name => name === "hexplot" ? inspect2() : undefined);
 
-var radius=40;
-
-  
   function hello() {
     var myradius=Number(document.getElementById("radius").value);
    //  console.log("Some Global Variable ", someglobalvar);
