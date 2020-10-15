@@ -156,17 +156,20 @@ wiless.Logout();
 <script type="module">
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
 import define from "https://api.observablehq.com/@wiless/cellular-network-simulator.js?v=3";
-// const inspect = Inspector.into("#observablehq-fad0a867");
-(new Runtime).module(define, name => name === "hexplot" ? Inspector.into("#observablehq-fad0a867")() : undefined);
-</script>
-
-
-<script type="module">
-import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
-import define from "https://api.observablehq.com/@wiless/cellular-network-simulator.js?v=3";
-
 const inspect = Inspector.into("#observablehq-024a3f53"); 
-var cmodule=(new Runtime).module(define, name => name === "Circle" ? inspect() : undefined);
+const inspect2 = Inspector.into("#observablehq-fad0a867");
+
+var cmodule=(new Runtime).module(define, name => {
+  if (name === "Circle"){
+    return inspect();
+  }
+  if (name === "hexplot"){
+    return inspect2();
+  }
+  return undefined
+  );
+//var cmodule2=(new Runtime).module(define, name => name === "hexplot" ? inspect2() : undefined);
+
 var radius=40;
 
  document.getElementById("update").onclick=hello;
