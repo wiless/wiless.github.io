@@ -3,6 +3,42 @@ layout: wide
 title: Testing Wiless Cellular Library API
 <!-- img:   -->
 ---
+
+
+
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+import define from "https://api.observablehq.com/@wiless/cellular-network-simulator.js?v=3";
+const inspect = Inspector.into("#observablehq-024a3f53"); 
+const inspect2 = Inspector.into("#observablehq-fad0a867");
+document.getElementById("update").onclick=hello;
+document.getElementById("radius").onchange=hello;
+ 
+  
+var cmodule=(new Runtime).module(define, name => {
+  if (name === "Circle"){
+    console.log("Circle loaded..");
+    return inspect();
+  }
+  if (name === "hexplot"){
+    console.log("Hexplot loaded..");
+    return inspect2();
+  }
+  return undefined;
+}
+  );
+//var cmodule2=(new Runtime).module(define, name => name === "hexplot" ? inspect2() : undefined);
+
+  function hello() {
+    var myradius=Number(document.getElementById("radius").value);
+   //  console.log("Some Global Variable ", someglobalvar);
+//     console.log("Hello : radius ",radius,cmodule);
+    cmodule.redefine("radius", myradius);
+  }
+  
+</script>
+
+
   <script src="https://apis.google.com/js/platform.js?onload=initgapi" async defer></script>
   <script src="/static/api.js"></script>
  
@@ -151,37 +187,4 @@ wiless.Logout();
       //wiless.APIcalls("logout").then(console.log("Logged out Wiless API"));
     }
 
-</script>
-
-
-<script type="module">
-import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
-import define from "https://api.observablehq.com/@wiless/cellular-network-simulator.js?v=3";
-const inspect = Inspector.into("#observablehq-024a3f53"); 
-const inspect2 = Inspector.into("#observablehq-fad0a867");
-document.getElementById("update").onclick=hello;
-document.getElementById("radius").onchange=hello;
- 
-  
-var cmodule=(new Runtime).module(define, name => {
-  if (name === "Circle"){
-    console.log("Circle loaded..");
-    return inspect();
-  }
-  if (name === "hexplot"){
-    console.log("Hexplot loaded..");
-    return inspect2();
-  }
-  return undefined;
-}
-  );
-//var cmodule2=(new Runtime).module(define, name => name === "hexplot" ? inspect2() : undefined);
-
-  function hello() {
-    var myradius=Number(document.getElementById("radius").value);
-   //  console.log("Some Global Variable ", someglobalvar);
-//     console.log("Hello : radius ",radius,cmodule);
-    cmodule.redefine("radius", myradius);
-  }
-  
 </script>
