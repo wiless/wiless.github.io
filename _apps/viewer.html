@@ -1,0 +1,28 @@
+---
+layout: wide
+title: API logger
+---
+
+  <link href="/static/jsoneditor.css" rel="stylesheet" type="text/css">
+  <script src="/static/jsoneditor.js"></script>
+
+<div id="jsoneditor" style="height:500px"></div>
+
+<script>
+const container = document.getElementById('jsoneditor')
+
+  const options = {
+    mode: 'view'
+  }
+
+  const json = {
+    'array': [1, 2, 3],
+    'boolean': true,
+    'null': null,
+    'number': 123,
+    'object': {'a': 'b', 'c': 'd'},
+    'string': 'Hello World'
+  }
+
+  const editor = new JSONEditor(container, options, json)
+</script>
