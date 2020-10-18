@@ -3,26 +3,67 @@ layout: wide
 title: API logger
 ---
 
-  <link href="/static/jsoneditor.css" rel="stylesheet" type="text/css">
-  <script src="/static/jsoneditor.js"></script>
+<link href="/static/jsoneditor.css" rel="stylesheet" type="text/css">
+<script src="/static/jsoneditor.js"></script>
+<script src="/static/api.js"></script>
 
-<div id="jsoneditor" style="height:500px"></div>
+
+    
+    <button type="button" onclick="helloclick()">Click</button>  
+    <div class="card bg-primary text-white">
+        <div class="card-header">File Pick 
+            <input type="file" name="inputfile"  id="inputfile"> 
+        </div>
+        <div class="card-body bg-light text-dark" id="output"> </div>
+    </div>
+    <hr>
+<div class="row">
+    <div class="col-sm-6">
+        <div id="APIresults" >
+            everythig is here
+          </div>
+
+    </div>
+    <div class="col-sm-6">.col-sm-4</div>
+    
+    
+    
+    </div>
 
 <script>
-const container = document.getElementById('jsoneditor')
-
+var globalcounter=0;
+ 
+  
   const options = {
     mode: 'view'
   }
 
-  const json = {
-    'array': [1, 2, 3],
-    'boolean': true,
-    'null': null,
-    'number': 123,
-    'object': {'a': 'b', 'c': 'd'},
-    'string': 'Hello World'
-  }
+   const apiname="hexgrid";
+    wiless.APIcalls(apiname).then(d => {
+      const myJSON = d;
+      elem = document.getElementById("APIresults");
+      card=document.createElement("div");
+      elem.appendChild(card);
+      h3=document.createElement("h3");
+      h3.appendChild(document.createTextNode(globalcounter+": "+apiname));
 
-  const editor = new JSONEditor(container, options, json)
+      btn=document.createElement("button");
+      btn.setAttribute("type","button");
+      btn.innerHTML=` <span aria-hidden="true">&times;</span>`;
+      btn.classList.add("close");
+      btn.onclick=function(e){e.target.parentElement.parentElement.remove();};
+      card.appendChild(btn);
+      card.appendChild(h3);      
+      jsoneditor=document.createElement("div");
+      card.appendChild(jsoneditor);
+      card.classList.add("shadow","p-3","mb-5", "bg-white", "rounded");
+
+      const editor = new JSONEditor(jsoneditor, options, myJSON)
+
+    
+      return;
+    }
+    );
+  }
+  
 </script>
