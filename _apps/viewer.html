@@ -50,7 +50,7 @@ var globalcounter=0;
                         // el.textContent=fr.result; 
                         json=JSON.parse(fr.result);
 
-                        const editor = new JSONEditor(el, {mode:'view',maxVisibleChilds:25}, json);
+                        const editor = new JSONEditor(el, {mode:'view',modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds:25}, json);
 
             }               
             fr.readAsText(this.files[0]); 
