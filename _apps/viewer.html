@@ -27,6 +27,9 @@ title: API logger
     </div>
     <div class="col-sm-6">
     Output JSON Files
+         <div id="column2" >
+            API Output Responses
+          </div>
     </div>
     
     
@@ -84,8 +87,20 @@ maxVisibleChilds:25
       card.classList.add("shadow","p-3","mb-5", "bg-white", "rounded");
 
       const editor = new JSONEditor(jsoneditor, options, myJSON)
-
-    
+// Do the same in the second column 
+      const JFoptions=    {
+  hoverPreviewEnabled: true,
+  hoverPreviewArrayCount: 10,
+  hoverPreviewFieldCount: 2,
+  // theme: 'dark',
+  animateOpen: false,
+  animateClose: false,
+  useToJSON: true
+}
+      el=document.getElementById("column2");
+      const formatter = new JSONFormatter(myJSON,1,JFoptions);
+      
+      el=card.appendChild(formatter.render());
       return;
     }
     );
