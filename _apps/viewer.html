@@ -32,14 +32,32 @@ title: API logger
 
 <script>
 var globalcounter=0;
+  document.getElementById('inputfile') 
+            .addEventListener('change', function() { 
+              
+            var fr=new FileReader(); 
+            fr.onload=function(){ 
+              el=document.getElementById('output') ;
+                
+                        // el.textContent=fr.result; 
+                        json=JSON.parse(fr.result);
+
+                        const editor = new JSONEditor(el, {mode:'view',maxVisibleChilds:25}, json);
+
+            }               
+            fr.readAsText(this.files[0]); 
+        });
+
  
+
+    
     function helloclick() {
     globalcounter++;
   
   const options = {
     mode: 'view',
            modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], // allowed modes
-
+maxVisibleChilds:25
   }
 
    const apiname="hexgrid";
