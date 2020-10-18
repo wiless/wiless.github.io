@@ -71,12 +71,13 @@ maxVisibleChilds:25
    const apiname="hexgrid";
     wiless.APIcalls(apiname).then(d => {
       const myJSON = d;
+
+      // Add all fancy boxes
       elem = document.getElementById("APIresults");
       card=document.createElement("div");
       elem.appendChild(card);
       h3=document.createElement("h3");
       h3.appendChild(document.createTextNode(globalcounter+": "+apiname));
-
       btn=document.createElement("button");
       btn.setAttribute("type","button");
       btn.innerHTML=` <span aria-hidden="true">&times;</span>`;
@@ -99,10 +100,29 @@ maxVisibleChilds:25
   animateClose: false,
   useToJSON: true
 }
-      el=document.getElementById("column2");
-      const formatter = new JSONFormatter(myJSON,1,JFoptions);
+
+     // Add all fancy boxes
+      elem = document.getElementById("column2");
+      card=document.createElement("div");
+      elem.appendChild(card);
+      h3=document.createElement("h3");
+      h3.appendChild(document.createTextNode(globalcounter+": "+apiname));
+      btn=document.createElement("button");
+      btn.setAttribute("type","button");
+      btn.innerHTML=` <span aria-hidden="true">&times;</span>`;
+      btn.classList.add("close");
+      btn.onclick=function(e){e.target.parentElement.parentElement.remove();};
+      card.appendChild(btn);
+      card.appendChild(h3);      
+      card.classList.add("shadow","p-3","mb-5", "bg-white", "rounded");
+
       
-      el.appendChild(formatter.render());
+        
+        
+        
+      const formatter = new JSONFormatter(myJSON,1,JFoptions);
+      card.appendChild(formatter.render());    
+
       return;
     }
     );
