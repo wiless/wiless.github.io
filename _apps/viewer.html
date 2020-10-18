@@ -88,7 +88,7 @@ maxVisibleChilds:25
       card.appendChild(jsoneditor);
       card.classList.add("shadow","p-3","mb-5", "bg-white", "rounded");
 
-      const editor = new JSONEditor(jsoneditor, options, myJSON)
+      const editor = new JSONEditor(jsoneditor, options, myJSON);
 // Do the same in the second column 
       const JFoptions=    {
   hoverPreviewEnabled: true,
@@ -102,7 +102,7 @@ maxVisibleChilds:25
       el=document.getElementById("column2");
       const formatter = new JSONFormatter(myJSON,1,JFoptions);
       
-      el=card.appendChild(formatter.render());
+      el.appendChild(formatter.render());
       return;
     }
     );
