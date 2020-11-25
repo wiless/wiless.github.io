@@ -100,6 +100,7 @@ var cmodule=(new Runtime).module(define, name => {
 
       // The ID token you need to pass to your backend:
       gtoken = googleUser.getAuthResponse().id_token;
+     
       // The ID token you need to pass to your backend:
       console.log('ID: ' + userprofile.getId()); // Do not send to your backend! Use an ID token instead.
       console.log('Name: ' + userprofile.getName());
@@ -107,15 +108,31 @@ var cmodule=(new Runtime).module(define, name => {
       console.log('Email: ' + userprofile.getEmail()); // This is null if the 'email' scope is not present.
       var img = document.getElementById("profile");
       img.setAttribute("src", userprofile.getImageUrl());
-
+   
       // var opts = { "token": gtoken };
       wiless.LoginViaGoogle(gtoken).then(
         console.log("Google Signed In")
       );
-
+    TestSLSservice(gtoken);
       
     }
-
+ function TestSLSservice(id_token){
+  apiur:="https://gcr.sendildevar.in"
+  path:="/create"
+  method:="get"
+  headers:=headers = { 'Authorization': "Bearer " + id_token };
+  return fetch(apiurl + path, {
+      method: method,
+      headers: headers,
+      body: JSON.stringify(data)
+    }).then(function (resp) {
+      console.log("fetch : status", resp.status);
+      return resp.json();
+    }).then(function (rdata) {
+      console.log(method, ":", path, '=>', rdata);      
+      return rdata;
+    });
+ }
     
     function initBackend() {
       console.log("Initialize Backend API Server");
