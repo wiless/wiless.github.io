@@ -118,10 +118,10 @@ var cmodule=(new Runtime).module(define, name => {
     }
  function TestSLSservice(id_token){
   console.log("Trying ...SLS service");
-  apiurl:="https://gcr.sendildevar.in";
-  path:="/create";
-  method:="get";
-  headers:=headers = { 'Authorization': "Bearer " + id_token };
+  apiurl="https://gcr.sendildevar.in";
+  path="/create";
+  method="get";
+  headers = { 'Authorization': "Bearer " + id_token };
   return fetch(apiurl + path, {
       method: method,
       headers: headers,
