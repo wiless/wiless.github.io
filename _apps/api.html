@@ -124,8 +124,8 @@ var cmodule=(new Runtime).module(define, name => {
   headers = { 'Authorization': "Bearer " + id_token };
   return fetch(apiurl + path, {
       method: method,
-      headers: headers,
-      body: JSON.stringify(data)
+      headers: headers
+      //body: JSON.stringify(data)
     }).then(function (resp) {
       console.log("fetch : status", resp.status);
       return resp.json();
