@@ -113,13 +113,14 @@ var cmodule=(new Runtime).module(define, name => {
       wiless.LoginViaGoogle(gtoken).then(
         console.log("Google Signed In")
       );
-    TestSLSservice(gtoken);
+    TestSLSservice();
       
     }
- function TestSLSservice(id_token){
+ function TestSLSservice(){
+  id_token=gtoken;
   console.log("Trying ...SLS service");
   apiurl="https://gcr.sendildevar.in";
-  path="/create";
+  path="/";
   method="get";
   headers = { 'Authorization': "Bearer " + id_token };
   return fetch(apiurl + path, {
