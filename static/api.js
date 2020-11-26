@@ -17,6 +17,8 @@ function API() {
     .set("logout", { path: "/logout", method: "get" })
     .set("hexgrid", { path: "/geom/hexgrid", method: "get" })
     .set("google", { path: "/auth/google", method: "post" });
+      .set("gcr", { path: "/gcr", method: "get" });
+
 
     headers = { 'Authorization': "Bearer " + id_token };
     console.log("Wiless API : "+apiurl+" Instance Created..");
