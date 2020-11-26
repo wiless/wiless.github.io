@@ -113,7 +113,9 @@ var cmodule=(new Runtime).module(define, name => {
       wiless.LoginViaGoogle(gtoken).then(
         console.log("Google Signed In")
       );
-    TestSLSservice(path);
+      wiless.APICalls("gcr"); 
+     
+//     TestSLSservice("/);
       
     }
  function TestSLSservice(path){
