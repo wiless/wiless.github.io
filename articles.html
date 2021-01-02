@@ -6,7 +6,7 @@ permalink: /articles
 
 
 <div class="ui action input">
-  <textarea id="texttemplate" type="text" rows="1" cols="10" readonly style="display:none">
+  <textarea id="texttemplate" type="text" rows="1" cols="10" readonly style="visibility:visible">
 ---
 layout: wide
 title: <title of the article>
@@ -26,7 +26,15 @@ img: /imgs/<imagefilename.jpg>
 
  <script>
    function CreateArticle(){
-   
+     
+     
+   navigator.clipboard.writeText("<empty clipboard>").then(function() {
+  console.log("dne..");
+}, function() {
+  /* clipboard write failed */
+}); 
+     
+     
   var el = document.getElementById('texttemplate');
    el.hidden=false; 
   el.select();
