@@ -6,7 +6,7 @@ permalink: /articles
 
 
 <div class="ui action input">
-  <textarea id="texttemplate" type="text" rows="1" cols="10" disabled >
+  <textarea id="texttemplate" type="text" rows="1" cols="10" readonly hidden=true >
 ---
 layout: wide
 title: <title of the article>
@@ -27,9 +27,10 @@ img: /imgs/<imagefilename.jpg>
  <script>
    function CreateArticle(){
    
-  var cutTextarea = document.getElementById('texttemplate');
-  cutTextarea.select();
-
+  var el = document.getElementById('texttemplate');
+   el.hidden=false; 
+  el.select();
+el.hidden=true;
   try {
     var successful = document.execCommand('copy');
     var msg = successful ? 'successful' : 'unsuccessful';
