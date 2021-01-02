@@ -6,8 +6,17 @@ permalink: /articles
 
 
 <div class="ui action input">
-  <textarea id="texttemplate" type="text" rows="1" cols="10" readonly style="visibility:visible">
----
+  <input id="texttemplate" type="text" value="...template..">
+  <button class="ui teal right labeled icon button" id="copybtn" onclick="CreateArticle()">
+    <i class="copy icon"></i>
+    Copy Template
+  </button>
+</div> 
+
+ <script>
+   function CreateArticle(){
+     
+var template=`---
 layout: wide
 title: <title of the article>
 summary: <summary of the article>
@@ -16,36 +25,27 @@ img: /imgs/<imagefilename.jpg>
 --- 
     
 # Aritcle Title
-</textarea >
-
-  <button class="ui teal right labeled icon button" id="copybtn" onclick="CreateArticle()">
-    <i class="copy icon"></i>
-    New Article
-  </button>
-</div> 
-
- <script>
-   function CreateArticle(){
-     
-     
-   navigator.clipboard.writeText("<empty clipboard>").then(function() {
-  console.log("dne..");
+`;
+   navigator.clipboard.writeText(template).then(function() {
+  console.log("Clipboard copied");
+     var url="https://github.com/wiless/wiless.github.io/new/master/_articles";
+  window.open(url, '_blank');  
 }, function() {
   /* clipboard write failed */
 }); 
      
      
-  var el = document.getElementById('texttemplate');
-   el.hidden=false; 
-  el.select();
-//el.hidden=true;
-  try {
-    var successful = document.execCommand('copy');
-    var msg = successful ? 'successful' : 'unsuccessful';
-    console.log('Cutting text command was ' + msg);
-  } catch(err) {
-    console.log('Oops, unable to cut');
-  }
+//   var el = document.getElementById('texttemplate');
+//    el.hidden=false; 
+//   el.select();
+// //el.hidden=true;
+//   try {
+//     var successful = document.execCommand('copy');
+//     var msg = successful ? 'successful' : 'unsuccessful';
+//     console.log('Cutting text command was ' + msg);
+//   } catch(err) {
+//     console.log('Oops, unable to cut');
+//   }
 }
      
   </script>
