@@ -80,17 +80,12 @@ var globalcounter=0;
         // 3GPP_InH_configA.json 
         // ITU_InH_configA.json
         // SIM_InH_configA.json
-        fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/ITU_InH_configB.json").then(d => d.json()).then(d=> {console.log(d); createJSONCard("
-itu",d);});
-        fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/3GPP_InH_configB.json").then(d => d.json()).then(d=> {console.log(d); createJSONCard("
-nr",d);});
-        fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/SIM_InH_configB.json").then(d => d.json()).then(d=> {console.log(d); createJSONCard("
-sim",d);});
-        
-		
-      // Add ITU
-    
-
+        fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/ITU_InH_configB.json").then(d => d.json()).then(
+		d=> {console.log(d); createJSONCard("itu",d);});
+        fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/3GPP_InH_configB.json").then(d => d.json()).then(
+		d=> {console.log(d); createJSONCard("nr",d);});
+        fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/SIM_InH_configB.json").then(d => d.json()).then(
+		d=> {console.log(d); createJSONCard("sim",d);});
         
     }
     
