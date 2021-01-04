@@ -118,7 +118,11 @@ var googleauth;
 
       });
     }
-
+    
+function initBackend(){
+// Do things if user is logged in.. on client side..
+  
+}
 
     function onSignIn(googleUser) {
       userprofile = googleUser.getBasicProfile();
