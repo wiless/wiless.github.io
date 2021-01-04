@@ -57,6 +57,15 @@ title: API logger
 
 <script>
 var globalcounter=0;
+	const JFoptions=    {
+  hoverPreviewEnabled: true,
+  hoverPreviewArrayCount: 10,
+  hoverPreviewFieldCount: 2,
+  // theme: 'dark',
+  animateOpen: false,
+  animateClose: false,
+  useToJSON: true
+};
     function createJSONCard(elid,json){
       apiname=elid;
       elem = document.getElementById(elid);
@@ -141,15 +150,7 @@ maxVisibleChilds:25
 
       const editor = new JSONEditor(jsoneditor, options, myJSON);
 // Do the same in the second column 
-      const JFoptions=    {
-  hoverPreviewEnabled: true,
-  hoverPreviewArrayCount: 10,
-  hoverPreviewFieldCount: 2,
-  // theme: 'dark',
-  animateOpen: false,
-  animateClose: false,
-  useToJSON: true
-}
+      
 
      // Add all fancy boxes
       elem = document.getElementById("column2");
