@@ -113,7 +113,7 @@ var googleauth;
           d => {
             initBackend();
             console.log("Google Auth is ready")
-            signIn();
+            //signIn();
           }, e => console.log("Error ", e)
         );
 
@@ -128,7 +128,7 @@ function initBackend(){
 }
 
 function setProfilePic(elid){
-  
+   
    var el = document.getElementById(elid);
       if (el!=null){        
         if (el.nodeName=="IMG"){          
@@ -140,8 +140,7 @@ function setProfilePic(elid){
     function onSignIn(googleUser) {
       userprofile = googleUser.getBasicProfile();
       // The ID token you need to pass to your backend:
-       var gtoken = googleUser.getAuthResponse().id_token;
-   
+      
       // The ID token you need to pass to your backend:
       console.log('ID: ' + userprofile.getId()); // Do not send to your backend! Use an ID token instead.
       console.log('Name: ' + userprofile.getName());
