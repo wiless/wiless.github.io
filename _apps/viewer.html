@@ -17,7 +17,27 @@ title: API logger
             <input type="file" name="inputfile"  id="inputfile"> 
         </div>
         <div class="card-body bg-light text-dark" id="output"> </div>
+        
     </div>
+<div class="row">
+    <button type="button" onclick="loadSLSConfigs()">Load Configs</button>        
+    <div class="col-sm-4">
+        <div id="itu" >
+            ITU Config Files
+          </div>
+    </div>
+    <div class="col-sm-4">
+         <div id="nr" >
+            NR Config Files
+          </div>
+    </div>
+    <div class="col-sm-4">
+         <div id="sim" >
+            SIM Config Files
+          </div>
+    </div>
+</div>
+
     <hr>
   <button type="button" onclick="helloclick()">Click</button>  
 <div class="row">
@@ -33,13 +53,20 @@ title: API logger
             API Output Responses
           </div>
     </div>
-    
-    
-    
-    </div>
+</div>
 
 <script>
 var globalcounter=0;
+    function loadSLSConfigs(){
+        // 3GPP_InH_configA.json 
+        // ITU_InH_configA.json
+        // SIM_InH_configA.json
+        //fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/ITU_InH_configB.json").then(d => d.json()).then(d=> {console.log(d);editor.set(d);})
+        //fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/ITU_InH_configB.json").then(d => d.json()).then(d=> {console.log(d);editor.set(d);})
+        //fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/ITU_InH_configB.json").then(d => d.json()).then(d=> {console.log(d);editor.set(d);})
+    }
+    
+    
   document.getElementById('inputfile') 
             .addEventListener('change', function() { 
               
@@ -115,11 +142,6 @@ maxVisibleChilds:25
       card.appendChild(btn);
       card.appendChild(h3);      
       card.classList.add("shadow","p-3","mb-5", "bg-white", "rounded");
-
-      
-        
-        
-        
       const formatter = new JSONFormatter(myJSON,1,JFoptions);
       card.appendChild(formatter.render());    
 
