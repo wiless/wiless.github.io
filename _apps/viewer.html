@@ -30,7 +30,8 @@ title: API logger
 <div class="ui divider"></div>
  <button class="ui button float teal right" type="button" onclick="loadSLSConfigs()">Load Configs</button>        
 <button class="ui button float green right" type="button" onclick="runSLS()">Run SLS</button>        
-	
+<div class="ui divider red"></div>
+
 <div class="row">
    
     <div class="col-sm-4">
@@ -61,7 +62,7 @@ title: API logger
     </div>
     <div class="col-sm-6">
     Output JSON Files
-         <div id="column2" >
+         <div id="hexgrid" >
             API Output Responses
           </div>
     </div>
@@ -146,6 +147,7 @@ maxVisibleChilds:25
       const myJSON = d;
 
       // Add all fancy boxes
+     	    
       elem = document.getElementById("APIresults");
       card=document.createElement("div");
       elem.appendChild(card);
@@ -167,21 +169,23 @@ maxVisibleChilds:25
       
 
      // Add all fancy boxes
-      elem = document.getElementById("column2");
-      card=document.createElement("div");
-      elem.appendChild(card);
-      h3=document.createElement("h4");
-      h3.appendChild(document.createTextNode(globalcounter+": "+apiname));
-      btn=document.createElement("button");
-      btn.setAttribute("type","button");
-      btn.innerHTML=` <span aria-hidden="true">&times;</span>`;
-      btn.classList.add("close");
-      btn.onclick=function(e){e.target.parentElement.parentElement.remove();};
-      card.appendChild(btn);
-      card.appendChild(h3);      
-      card.classList.add("shadow","p-3","mb-5", "bg-white", "rounded");
-      const formatter = new JSONFormatter(myJSON,1,JFoptions);
-      card.appendChild(formatter.render());    
+      createJSONCard(apiname,myJSON);
+	    
+//       elem = document.getElementById("column2");
+//       card=document.createElement("div");
+//       elem.appendChild(card);
+//       h3=document.createElement("h4");
+//       h3.appendChild(document.createTextNode(globalcounter+": "+apiname));
+//       btn=document.createElement("button");
+//       btn.setAttribute("type","button");
+//       btn.innerHTML=` <span aria-hidden="true">&times;</span>`;
+//       btn.classList.add("close");
+//       btn.onclick=function(e){e.target.parentElement.parentElement.remove();};
+//       card.appendChild(btn);
+//       card.appendChild(h3);      
+//       card.classList.add("shadow","p-3","mb-5", "bg-white", "rounded");
+//       const formatter = new JSONFormatter(myJSON,1,JFoptions);
+//       card.appendChild(formatter.render());    
 
       return;
     }
