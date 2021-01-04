@@ -130,7 +130,7 @@ var userprofile;
       console.log('Image URL: ' + userprofile.getImageUrl());
       console.log('Email: ' + userprofile.getEmail()); // This is null if the 'email' scope is not present.
       var img = document.getElementById("profile");
-      if img!=null{        
+      if (img!=null){        
       img.setAttribute("src", userprofile.getImageUrl());
       }   
       // var opts = { "token": gtoken };
