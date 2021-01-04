@@ -94,6 +94,7 @@ headers = { 'Authorization': "Bearer " + id_token };
 
 // Google API 
 var userprofile;
+var googleauth;
 
  function signIn() {
       //{prompt:"select_account"}
