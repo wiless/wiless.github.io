@@ -28,7 +28,8 @@ title: API logger
         
     </div>
 <div class="ui divider"></div>
- <button class="ui button float right" type="button" onclick="loadSLSConfigs()">Load Configs</button>        
+ <button class="ui button float teal right" type="button" onclick="loadSLSConfigs()">Load Configs</button>        
+<button class="ui button float green right" type="button" onclick="runSLS()">Run SLS</button>        
 	
 <div class="row">
    
@@ -127,7 +128,9 @@ var globalcounter=0;
         });
 
  
-
+function runSLS(){
+alert("Trying to run SLS");
+}
     
     function helloclick() {
     globalcounter++;
