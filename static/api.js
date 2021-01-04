@@ -113,6 +113,7 @@ var googleauth;
           d => {
             initBackend();
             console.log("Google Auth is ready")
+            signIn();
           }, e => console.log("Error ", e)
         );
 
@@ -120,24 +121,34 @@ var googleauth;
     }
     
 function initBackend(){
+  
 // Do things if user is logged in.. on client side..
   
+  
+}
+
+function setProfilePic(elid){
+  
+   var img = document.getElementById(elid);
+      if (img!=null){        
+        if (el.nodeName=="IMG"){          
+      img.setAttribute("src", userprofile.getImageUrl());
+        }
+      }   
 }
 
     function onSignIn(googleUser) {
       userprofile = googleUser.getBasicProfile();
       // The ID token you need to pass to your backend:
-      gtoken = googleUser.getAuthResponse().id_token;
-     
+       var gtoken = googleUser.getAuthResponse().id_token;
+   
       // The ID token you need to pass to your backend:
       console.log('ID: ' + userprofile.getId()); // Do not send to your backend! Use an ID token instead.
       console.log('Name: ' + userprofile.getName());
       console.log('Image URL: ' + userprofile.getImageUrl());
       console.log('Email: ' + userprofile.getEmail()); // This is null if the 'email' scope is not present.
-      var img = document.getElementById("profile");
-      if (img!=null){        
-      img.setAttribute("src", userprofile.getImageUrl());
-      }   
+     
+      
       // var opts = { "token": gtoken };
 //       wiless.LoginViaGoogle(gtoken).then(
 //         console.log("Google Signed In")
