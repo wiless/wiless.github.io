@@ -57,13 +57,40 @@ title: API logger
 
 <script>
 var globalcounter=0;
+    function createJSONCard(elid,json){
+      elem = document.getElementById(elid);
+      card=document.createElement("div");
+      elem.appendChild(card);
+      h3=document.createElement("h4");
+      h3.appendChild(document.createTextNode(globalcounter+": "+apiname));
+      btn=document.createElement("button");
+      btn.setAttribute("type","button");
+      btn.innerHTML=` <span aria-hidden="true">&times;</span>`;
+      btn.classList.add("close");
+      btn.onclick=function(e){e.target.parentElement.parentElement.remove();};
+      card.appendChild(btn);
+      card.appendChild(h3);      
+      card.classList.add("shadow","p-3","mb-5", "bg-white", "rounded");
+      const formatter = new JSONFormatter(json,1,JFoptions);
+      card.appendChild(formatter.render());     
+    }
+    
     function loadSLSConfigs(){
         // 3GPP_InH_configA.json 
         // ITU_InH_configA.json
         // SIM_InH_configA.json
-        //fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/ITU_InH_configB.json").then(d => d.json()).then(d=> {console.log(d);editor.set(d);})
-        //fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/ITU_InH_configB.json").then(d => d.json()).then(d=> {console.log(d);editor.set(d);})
-        //fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/ITU_InH_configB.json").then(d => d.json()).then(d=> {console.log(d);editor.set(d);})
+        fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/ITU_InH_configB.json").then(d => d.json()).then(d=> {console.log(d); createJSONCard("
+itu",d);});
+        fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/3GPP_InH_configB.json").then(d => d.json()).then(d=> {console.log(d); createJSONCard("
+nr",d);});
+        fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/SIM_InH_configB.json").then(d => d.json()).then(d=> {console.log(d); createJSONCard("
+sim",d);});
+        
+		
+      // Add ITU
+    
+
+        
     }
     
     
