@@ -99,6 +99,7 @@ var globalcounter=0;
     }
     
     function loadSLSConfigs(){
+	    globalcounter++;    
         // 3GPP_InH_configA.json 
         // ITU_InH_configA.json
         // SIM_InH_configA.json
@@ -108,7 +109,7 @@ var globalcounter=0;
 		d=> {console.log(d); createJSONCard("nr",d);});
         fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/SIM_InH_configB.json").then(d => d.json()).then(
 		d=> {console.log(d); createJSONCard("sim",d);});
-        
+      
     }
     
     
