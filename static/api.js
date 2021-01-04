@@ -91,3 +91,67 @@ headers = { 'Authorization': "Bearer " + id_token };
   console.log("Wiless API Library Initialized");
 })()
 
+
+// Google API 
+var userprofile;
+
+ function signIn() {
+      //{prompt:"select_account"}
+     gauth = gapi.auth2.getAuthInstance();
+     gauth.signIn().then(guser => onSignIn(guser));   
+   
+    }
+
+ function initgapi() {
+      console.log("Loaded Google Platform Library");
+      gapi.load('auth2', function () {
+        /* Ready. Make a call to gapi.auth2.init or some other API */        
+        var param = { client_id: '565126014426-fis7623ann950k0i711upje0o5kt3qhp.apps.googleusercontent.com' };
+        googleauth = gapi.auth2.init(param);
+        googleauth.then(
+          d => {
+            initBackend();
+            console.log("Google Auth is ready")
+          }, e => console.log("Error ", e)
+        );
+
+      });
+    }
+
+
+    function onSignIn(googleUser) {
+      userprofile = googleUser.getBasicProfile();
+      // The ID token you need to pass to your backend:
+      gtoken = googleUser.getAuthResponse().id_token;
+     
+      // The ID token you need to pass to your backend:
+      console.log('ID: ' + userprofile.getId()); // Do not send to your backend! Use an ID token instead.
+      console.log('Name: ' + userprofile.getName());
+      console.log('Image URL: ' + userprofile.getImageUrl());
+      console.log('Email: ' + userprofile.getEmail()); // This is null if the 'email' scope is not present.
+      var img = document.getElementById("profile");
+      if img!=null{        
+      img.setAttribute("src", userprofile.getImageUrl());
+      }   
+      // var opts = { "token": gtoken };
+//       wiless.LoginViaGoogle(gtoken).then(
+//         console.log("Google Signed In")
+//       );
+//       wiless.APIcalls("gcr"); 
+//     TestSLSservice("/);
+      
+    }
+
+ function signOut() {
+       var auth2 = gapi.auth2.getAuthInstance();       
+        auth2.signOut().then(function () {
+//             document.getElementById("googlebtn").hidden = false;
+//             document.getElementById("signout").hidden = true;
+            wiless.Logout();
+//             fetch("/logout").then().then();
+            console.log('User signed out.');
+        });
+   
+
+      //wiless.APIcalls("logout").then(console.log("Logged out Wiless API"));
+    }
