@@ -98,7 +98,7 @@ var googleauth;
 
  function signIn() {
       //{prompt:"select_account"}
-     gauth = gapi.auth2.getAuthInstance();
+     var gauth = gapi.auth2.getAuthInstance();
      gauth.signIn().then(guser => onSignIn(guser));   
    
     }
