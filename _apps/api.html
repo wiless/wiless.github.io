@@ -117,8 +117,11 @@ var cmodule=(new Runtime).module(define, name => {
  function TestSLSservice(path){
   id_token=gtoken;
   console.log("Trying ...SLS service");
-  apiurl="https://gcr.sendildevar.in";
+//   apiurl="https://gcr.sendildevar.in";
+  apiurl="https://slsservice-4d7hbjhtaq-de.a.run.app";
+  
 //   path="/";
+  
   method="get";
   headers = { 'Authorization': "Bearer " + id_token };
   return fetch(apiurl + path, {
