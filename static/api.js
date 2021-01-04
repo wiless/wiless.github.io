@@ -129,10 +129,10 @@ function initBackend(){
 
 function setProfilePic(elid){
   
-   var img = document.getElementById(elid);
-      if (img!=null){        
+   var el = document.getElementById(elid);
+      if (el!=null){        
         if (el.nodeName=="IMG"){          
-      img.setAttribute("src", userprofile.getImageUrl());
+      el.setAttribute("src", userprofile.getImageUrl());
         }
       }   
 }
