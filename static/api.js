@@ -111,7 +111,7 @@ var googleauth;
         googleauth = gapi.auth2.init(param);
         googleauth.then(
           d => {
-            initBackend();
+       
             console.log("Google Auth is ready")
             //signIn();
           }, e => console.log("Error ", e)
@@ -120,10 +120,10 @@ var googleauth;
       });
     }
     
-function initBackend(){
+function initBackend(token){
   
 // Do things if user is logged in.. on client side..
-  
+  wiless.id_token=token;
   
 }
 
@@ -146,7 +146,9 @@ function setProfilePic(elid){
       console.log('Name: ' + userprofile.getName());
       console.log('Image URL: ' + userprofile.getImageUrl());
       console.log('Email: ' + userprofile.getEmail()); // This is null if the 'email' scope is not present.
-     
+      
+      token=googleauth.currentUser.get().getAuthResponse().id_token;
+      initBackend(token);
       
       // var opts = { "token": gtoken };
 //       wiless.LoginViaGoogle(gtoken).then(
