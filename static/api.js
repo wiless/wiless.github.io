@@ -147,7 +147,7 @@ function setProfilePic(elid){
       console.log('Image URL: ' + userprofile.getImageUrl());
       console.log('Email: ' + userprofile.getEmail()); // This is null if the 'email' scope is not present.
       
-      token=googleauth.currentUser.get().getAuthResponse().id_token;
+      var token=googleauth.currentUser.get().getAuthResponse().id_token;
       initBackend(token);
       
       // var opts = { "token": gtoken };
