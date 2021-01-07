@@ -1,6 +1,6 @@
 "use strict";
 
-let wiless = new API();
+export let wiless = new API();
 
 function API() {
   let _magicword = "sendil";
