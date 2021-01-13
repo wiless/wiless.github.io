@@ -87,6 +87,20 @@ headers = { 'Authorization': "Bearer " + id_token };
 }
 
 (function () {
+  var el = document.getElementById("btnsignin");
+      if (el!=null){        
+        if (el.nodeName=="BUTTON"){          
+        el.hidden=false;
+        }
+      }  
+      
+      var el = document.getElementById("btnsignout");
+      if (el!=null){        
+        if (el.nodeName=="BUTTON"){          
+        el.hidden=true;
+        }
+      }  
+        
   console.log("Wiless API Library Initialized");
 })()
 
@@ -99,10 +113,13 @@ var googleauth;
       //{prompt:"select_account"}
      var gauth = gapi.auth2.getAuthInstance();
      gauth.signIn().then(guser => onSignIn(guser));   
-   
+    
     }
 
  function initgapi() {
+   
+      
+   
       console.log("Loaded Google Platform Library");
       gapi.load('auth2', function () {
         /* Ready. Make a call to gapi.auth2.init or some other API */        
@@ -137,9 +154,26 @@ function setProfilePic(elid){
 }
 
     function onSignIn(googleUser) {
-      userprofile = googleUser.getBasicProfile();
-      // The ID token you need to pass to your backend:
       
+//       <button class="ui item button" id="btnsignin" onclick="signIn()">Sign In</button>
+//       <button class="ui item button" id="btnsignout" onclick="signOut()">Sign Out</button> 
+      
+      var el = document.getElementById("btnsignin");
+      if (el!=null){        
+        if (el.nodeName=="BUTTON"){          
+        el.hidden=true;
+        }
+      }  
+      
+      var el = document.getElementById("btnsignout");
+      if (el!=null){        
+        if (el.nodeName=="BUTTON"){          
+        el.hidden=false;
+        }
+      }  
+        
+      userprofile = googleUser.getBasicProfile();
+      // The ID token you need to pass to your backend:      
       // The ID token you need to pass to your backend:
       console.log('ID: ' + userprofile.getId()); // Do not send to your backend! Use an ID token instead.
       console.log('Name: ' + userprofile.getName());
@@ -161,6 +195,22 @@ function setProfilePic(elid){
  function signOut() {
        var auth2 = gapi.auth2.getAuthInstance();       
         auth2.signOut().then(function () {
+          var el = document.getElementById("btnsignin");
+      if (el!=null){        
+        if (el.nodeName=="BUTTON"){          
+        el.hidden=false;
+        }
+      }  
+      
+      var el = document.getElementById("btnsignout");
+      if (el!=null){        
+        if (el.nodeName=="BUTTON"){          
+        el.hidden=true;
+        }
+      }  
+        
+          
+          
 //             document.getElementById("googlebtn").hidden = false;
 //             document.getElementById("signout").hidden = true;
             wiless.Logout();
