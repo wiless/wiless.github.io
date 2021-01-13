@@ -87,18 +87,20 @@ headers = { 'Authorization': "Bearer " + id_token };
 }
 
 (function () {
-  console.log("Hiding buttons");
+  
   var el = document.getElementById("btnsignin");
+  
       if (el!=null){        
         if (el.nodeName=="BUTTON"){          
         el.hidden=false;
         }
       }  
       
-      var el = document.getElementById("btnsignout");
-      if (el!=null){        
-        if (el.nodeName=="BUTTON"){          
-        el.hidden=true;
+      var el2 = document.getElementById("btnsignout");
+  console.log("Hiding buttons" , el,el2);
+      if (el2!=null){        
+        if (el2.nodeName=="BUTTON"){          
+        el2.hidden=true;
         }
       }  
         
