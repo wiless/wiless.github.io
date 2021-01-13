@@ -87,6 +87,7 @@ headers = { 'Authorization': "Bearer " + id_token };
 }
 
 (function () {
+  console.log("Hiding buttons");
   var el = document.getElementById("btnsignin");
       if (el!=null){        
         if (el.nodeName=="BUTTON"){          
