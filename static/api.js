@@ -88,7 +88,7 @@ headers = { 'Authorization': "Bearer " + id_token };
 
 (function () {
   
-    el = document.getElementById("btnsignin");
+   var el = document.getElementById("btnsignin");
   
       if (el!=null){        
         if (el.nodeName=="BUTTON"){          
@@ -96,7 +96,7 @@ headers = { 'Authorization': "Bearer " + id_token };
         }
       }  
       
-        el2 = document.getElementById("btnsignout");
+    var    el2 = document.getElementById("btnsignout");
   console.log("Hiding buttons" , el,el2);
       if (el2!=null){        
         if (el2.nodeName=="BUTTON"){          
