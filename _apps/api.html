@@ -41,9 +41,9 @@ var cmodule=(new Runtime).module(define, name => {
   <div class="jumbotron text-center">
     <h1>Experimental Page for Testing API</h1>
     <img id="profile" src="" class="rounded-circle" alt="Profile Picture">
-    <button class="btn btn-info xg-signin" data-onsuccess="onSignIn">G Sign</button>
-    <button class="btn btn-info" onclick="signIn()">Sign In</button>
-    <button type="button" onclick="signOut();" class="btn btn-info">Sign Out</button>
+<!--     <button class="btn btn-info xg-signin" data-onsuccess="onSignIn">G Sign</button> -->
+<!--     <button class="btn btn-info" onclick="signIn()">Sign In</button> -->
+<!--     <button type="button" onclick="signOut();" class="btn btn-info">Sign Out</button> -->
     <button type="button" onclick="LoginAPI();" class="btn btn-info">Log In</button>
     <button type="button" onclick="APIlogger(`new`)" class="btn btn-info">Call API</button>
     <button type="button" onclick="APIlogger('hexgrid')" class="btn btn-info">Hex Grid</button>
@@ -88,8 +88,8 @@ var cmodule=(new Runtime).module(define, name => {
 
 
   <script>
-    var googleauth;
-    var userprofile;
+//     var googleauth;
+//     var userprofile;
 
     function onSignIn(googleUser) {
       userprofile = googleUser.getBasicProfile();
