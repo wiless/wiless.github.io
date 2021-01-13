@@ -44,7 +44,15 @@ var cmodule=(new Runtime).module(define, name => {
 <!--     <button class="btn btn-info xg-signin" data-onsuccess="onSignIn">G Sign</button> -->
 <!--     <button class="btn btn-info" onclick="signIn()">Sign In</button> -->
 <!--     <button type="button" onclick="signOut();" class="btn btn-info">Sign Out</button> -->
-    <button type="button" onclick="LoginAPI();" class="btn btn-info">Log In</button>
+   <form>
+          Enter name: 
+          <input type="text" name="username" id="userid">
+          Enter password: 
+          <input type="password" name="password" id="password">
+          <button type="button" onclick="LoginAPI();" class="btn btn-info">Login In</button>
+</form>
+   
+    <button type="button" onclick="LoginAPI();" class="btn btn-info">Log In (UserName/PassWord)</button>
     <button type="button" onclick="APIlogger(`new`)" class="btn btn-info">Call API</button>
     <button type="button" onclick="APIlogger('hexgrid')" class="btn btn-info">Hex Grid</button>
 
