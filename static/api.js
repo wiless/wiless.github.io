@@ -88,7 +88,7 @@ headers = { 'Authorization': "Bearer " + id_token };
 
 (function () {
   
-  var el = document.getElementById("btnsignin");
+    el = document.getElementById("btnsignin");
   
       if (el!=null){        
         if (el.nodeName=="BUTTON"){          
@@ -96,7 +96,7 @@ headers = { 'Authorization': "Bearer " + id_token };
         }
       }  
       
-      var el2 = document.getElementById("btnsignout");
+        el2 = document.getElementById("btnsignout");
   console.log("Hiding buttons" , el,el2);
       if (el2!=null){        
         if (el2.nodeName=="BUTTON"){          
@@ -148,7 +148,7 @@ function initBackend(token){
 
 function setProfilePic(elid){
    
-   var el = document.getElementById(elid);
+     el = document.getElementById(elid);
       if (el!=null){        
         if (el.nodeName=="IMG"){          
       el.setAttribute("src", userprofile.getImageUrl());
@@ -161,7 +161,7 @@ function setProfilePic(elid){
 //       <button class="ui item button" id="btnsignin" onclick="signIn()">Sign In</button>
 //       <button class="ui item button" id="btnsignout" onclick="signOut()">Sign Out</button> 
       
-      var el = document.getElementById("btnsignin");
+        el = document.getElementById("btnsignin");
       if (el!=null){        
         if (el.nodeName=="BUTTON"){          
         el.hidden=true;
