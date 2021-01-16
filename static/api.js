@@ -46,6 +46,7 @@ this.APIcalls("logout");
   this.APIcalls = function (arg, jdata) {
 if (arg=="logout") {
 id_token="";
+this.id_token="";
 headers = { 'Authorization': "Bearer " + id_token };
 }
     var val = funcpaths.get(arg);
@@ -69,7 +70,7 @@ headers = { 'Authorization': "Bearer " + id_token };
     if (method == undefined) {
       method = "GET"
     }
-
+  headers={ 'Authorization': "Bearer " + d.token };
     return fetch(apiurl + path, {
       method: method,
       credentials:"include",
@@ -143,7 +144,7 @@ function initBackend(token){
   
 // Do things if user is logged in.. on client side..
   wiless.id_token=token;
-  
+  wiless.headers={ 'Authorization': "Bearer " + token };
 }
 
 function setProfilePic(elid){
