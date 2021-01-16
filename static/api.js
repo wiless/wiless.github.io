@@ -70,7 +70,8 @@ headers = { 'Authorization': "Bearer " + id_token };
     if (method == undefined) {
       method = "GET"
     }
-  headers={ 'Authorization': "Bearer " + d.token };
+    console.log("header is ",headers);
+  headers={ 'Authorization': "Bearer " + wiless.Token() };
     return fetch(apiurl + path, {
       method: method,
       credentials:"include",
