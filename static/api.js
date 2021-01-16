@@ -123,8 +123,6 @@ var googleauth;
 
  function initgapi() {
    
-      
-   
       console.log("Loaded Google Platform Library");
       gapi.load('auth2', function () {
         /* Ready. Make a call to gapi.auth2.init or some other API */        
@@ -146,6 +144,7 @@ function initBackend(token){
 // Do things if user is logged in.. on client side..
   wiless.id_token=token;
   wiless.headers={ 'Authorization': "Bearer " + token };
+  console.log("API Client token & header set",wiless.Token(),wiless.headers);
 }
 
 function setProfilePic(elid){
