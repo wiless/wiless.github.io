@@ -149,7 +149,7 @@ function initBackend(token){
 
 function setProfilePic(elid){
    
-     el = document.getElementById(elid);
+    var el = document.getElementById(elid);
       if (el!=null){        
         if (el.nodeName=="IMG"){          
       el.setAttribute("src", userprofile.getImageUrl());
