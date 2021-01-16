@@ -51,9 +51,8 @@ var cmodule=(new Runtime).module(define, name => {
           <input type="password" name="password" id="password">
           <button type="button" onclick="LoginAPI();" class="btn btn-info">Login In</button>
 </form>
-   
-    <button type="button" onclick="LoginAPI();" class="btn btn-info">Log In (UserName/PassWord)</button>
-    <button type="button" onclick="APIlogger(`new`)" class="btn btn-info">Call API</button>
+   <div class="ui divider></div>
+    <button type="button" onclick="APIlogger('new')" class="btn btn-info">Call API</button>
     <button type="button" onclick="APIlogger('hexgrid')" class="btn btn-info">Hex Grid</button>
 
   </div>
@@ -89,32 +88,7 @@ var cmodule=(new Runtime).module(define, name => {
 
 
   <script>
-//     var googleauth;
-//     var userprofile;
 
-//     function onSignIn(googleUser) {
-//       userprofile = googleUser.getBasicProfile();
-
-//       // The ID token you need to pass to your backend:
-//       gtoken = googleUser.getAuthResponse().id_token;
-     
-//       // The ID token you need to pass to your backend:
-//       console.log('ID: ' + userprofile.getId()); // Do not send to your backend! Use an ID token instead.
-//       console.log('Name: ' + userprofile.getName());
-//       console.log('Image URL: ' + userprofile.getImageUrl());
-//       console.log('Email: ' + userprofile.getEmail()); // This is null if the 'email' scope is not present.
-//       var img = document.getElementById("profile");
-//       img.setAttribute("src", userprofile.getImageUrl());
-   
-//       // var opts = { "token": gtoken };
-//       wiless.LoginViaGoogle(gtoken).then(
-//         console.log("Google Signed In")
-//       );
-// //       wiless.APIcalls("gcr"); 
-     
-// //     TestSLSservice("/);
-      
-//     }
  function TestSLSservice(path){
   id_token=gtoken;
   console.log("Trying ...SLS service");
