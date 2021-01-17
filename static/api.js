@@ -55,7 +55,7 @@ headers = { 'Authorization': "Bearer " + id_token };
       return this.CallAPI(val.path, val.method, jdata).then(d => { headers = { 'Authorization': "Bearer " + d.token };this.id_token = d.token;return d.token });
     }
     
-    if val==undefined {
+    if (val==undefined) {
       return ;
     }
      
