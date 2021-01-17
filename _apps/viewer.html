@@ -14,8 +14,7 @@ title: API logger
 	word-wrap: break-word;
 	}
 </style>
-
-<script src="/static/api.js"></script>
+ 
 
 
     
@@ -70,6 +69,7 @@ title: API logger
 
 <script>
 var globalcounter=0;
+	 var slsinfo={};
 	const JFoptions=    {
   hoverPreviewEnabled: true,
   hoverPreviewArrayCount: 10,
@@ -100,6 +100,8 @@ var globalcounter=0;
     
     function loadSLSConfigs(){
 	    globalcounter++;    
+	
+	slsinfo[globalcounter]={itu:{},nr:{},sim:{}};
         // 3GPP_InH_configA.json 
         // ITU_InH_configA.json
         // SIM_InH_configA.json
@@ -135,7 +137,9 @@ var globalcounter=0;
  
 function runSLS(){
 alert("Trying to run SLS");
-	wiless.APIcalls("gcr").then(d=>console.log("Got this",d));
+	
+wiless.APIcalls("gcr").then(d=>console.log("Got this",d));
+	
 }
     
     function helloclick() {
