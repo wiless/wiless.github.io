@@ -45,7 +45,7 @@ var cmodule=(new Runtime).module(define, name => {
 <!--     <button class="btn btn-info" onclick="signIn()">Sign In</button> -->
 <!--     <button type="button" onclick="signOut();" class="btn btn-info">Sign Out</button> -->
    
-   <div class="ui form" id="loginform" >
+   <div class="ui form" id="loginform">
   <div class="fields equal width">
     <div class="field">
       <label>Username</label>
@@ -57,12 +57,15 @@ var cmodule=(new Runtime).module(define, name => {
     </div>
      <button type="button" onclick="LoginAPI();" class="btn btn-info">Login In</button>
   </div>
+   </div>
      
    <div class="ui divider"></div>
+   
+   
     <button type="button" onclick="APIlogger('new')" class="btn btn-info">Call API</button>
     <button type="button" onclick="APIlogger('hexgrid')" class="btn btn-info">Hex Grid</button>
-
-  </div>
+ 
+</div>
 
   <div class="container">
     <div class="row">
