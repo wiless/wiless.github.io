@@ -71,11 +71,14 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
   
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<!--   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> -->
-<!--   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
-   <script src="https://apis.google.com/js/platform.js?onload=initgapi" async defer></script>
-  <script src="/static/api.js"></script>
-   <meta name="google-signin-client_id"  content="565126014426-fis7623ann950k0i711upje0o5kt3qhp.apps.googleusercontent.com">         
+   <script src="/static/api.js"></script>
+    
+    <meta name="google-signin-scope" content="profile email">
+   <meta name="google-signin-client_id"  content="565126014426-fis7623ann950k0i711upje0o5kt3qhp.apps.googleusercontent.com">           
+   <script src="https://apis.google.com/js/platform.js" async defer> </script>
+<!--    <script src="https://apis.google.com/js/platform.js?onload=initgapi" async defer></script> -->
+    
+  
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56542209-2"></script>
 <script>
@@ -83,6 +86,7 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'UA-56542209-2');
+    
     $(document)
     .ready(function() {
         // fix main menu to page on passing
