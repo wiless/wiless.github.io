@@ -70,7 +70,7 @@ headers = { 'Authorization': "Bearer " + id_token };
     if (method == undefined) {
       method = "GET"
     }
-    console.log("header is ",headers);
+//     console.log("header is ",headers);
   headers={ 'Authorization': "Bearer " + wiless.Token() };
     return fetch(apiurl + path, {
       method: method,
@@ -185,7 +185,7 @@ function setProfilePic(elid){
 //       console.log('Image URL: ' + userprofile.getImageUrl());
       console.log('Logged in as ' + userprofile.getEmail()); // This is null if the 'email' scope is not present.
       setProfilePic("profile");
-      var token=googleauth.currentUser.get().getAuthResponse().id_token;
+      var token=googleUser.currentUser.get().getAuthResponse().id_token;
       initBackend(token);
       
       // var opts = { "token": gtoken };
