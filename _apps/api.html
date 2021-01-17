@@ -98,39 +98,7 @@ var cmodule=(new Runtime).module(define, name => {
 
 
   <script>
-
- function TestSLSservice(path){
-  id_token=wiless.Token();
-  console.log("Trying ...SLS service");
-//   apiurl="https://gcr.sendildevar.in";
-  apiurl="https://slsservice-4d7hbjhtaq-de.a.run.app";
   
-//   path="/";
-  
-  method="get";
-  headers = { 'Authorization': "Bearer " + id_token };
-  return fetch(apiurl + path, {
-      method: method,
-      headers: headers
-      //body: JSON.stringify(data)
-    }).then(function (resp) {
-      console.log("fetch : status", resp.status);
-      return resp.json();
-    }).then(function (rdata) {
-      console.log(method, ":", path, '=>', rdata);      
-      return rdata;
-    });
- }
-    
-//     function initBackend() {
-//       console.log("Initialize Backend API Server");
-//     }
-
-//     var someglobalvar;
-//     function initapi() {
-//       someglobalvar="Sendil knows it";
-//       console.log("Loaded Google Platform Library");
-//     }
     
     function APIlogger(arg) {
       wiless.APIcalls(arg).then(
@@ -143,29 +111,7 @@ var cmodule=(new Runtime).module(define, name => {
 
       );
     }
-//     function signIn() {
-//       //{prompt:"select_account"}
-//       googleauth.signIn().then(
-//         guser => {
-//           onSignIn(guser);
-//         }
-//       );
-//     }
-//     function initgapi() {
-//       console.log("Loaded Google Platform Library");
-//       gapi.load('auth2', function () {
-//         /* Ready. Make a call to gapi.auth2.init or some other API */        
-//         var param = { client_id: '565126014426-fis7623ann950k0i711upje0o5kt3qhp.apps.googleusercontent.com' };
-//         googleauth = gapi.auth2.init(param);
-//         googleauth.then(
-//           d => {
-//             initBackend();
-//             console.log("Google Auth is ready")
-//           }, e => console.log("Error ", e)
-//         );
-
-//       });
-//     }
+ 
 
     var result = [];
     var cnt = 0;
