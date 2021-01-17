@@ -16,6 +16,7 @@ function API() {
     .set("logout", { path: "/logout", method: "get" })
     .set("hexgrid", { path: "/geom/hexgrid", method: "get" })
     .set("gcr", { path: "/gcr", method: "get" })
+    .set("sls", { path: "/gcr", method: "post" })
     .set("google", { path: "/auth/google", method: "post" });
     
 
@@ -56,6 +57,7 @@ headers = { 'Authorization': "Bearer " + id_token };
     }
     
     if (val==undefined) {
+      console.error("Unknown api ",arg);
       return ;
     }
      
