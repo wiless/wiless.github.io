@@ -80,6 +80,7 @@ var globalcounter=0;
   useToJSON: true
 };
     function createJSONCard(elid,json){
+	    
       apiname=elid;
       elem = document.getElementById(elid);
       card=document.createElement("div");
@@ -107,12 +108,15 @@ var globalcounter=0;
         // SIM_InH_configA.json
         fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/ITU_InH_configB.json").then(d => d.json()).then(
 		d=> {//console.log(d); 
+			slsinfo[globalcounter].itu=d;
 			createJSONCard("itu",d);});
         fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/3GPP_InH_configB.json").then(d => d.json()).then(
 		d=> {//console.log(d); 
+			slsinfo[globalcounter].nr=d;
 			createJSONCard("nr",d);});
         fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/SIM_InH_configB.json").then(d => d.json()).then(
 		d=> {//console.log(d); 
+			slsinfo[globalcounter].sim=d;
 			createJSONCard("sim",d);});
       
     }
