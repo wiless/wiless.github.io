@@ -99,8 +99,8 @@ headers = { 'Authorization': "Bearer " + id_token };
       }  
       
     var    el2 = document.getElementById("btnsignout");
-  console.log("Hiding buttons" , el,el2);
       if (el2!=null){        
+          console.log("Hiding buttons" , el,el2);
         if (el2.nodeName=="BUTTON"){          
         el2.hidden=true;
         }
@@ -144,7 +144,7 @@ function initBackend(token){
 // Do things if user is logged in.. on client side..
   wiless.id_token=token;
   wiless.headers={ 'Authorization': "Bearer " + token };
-  console.log("API Client token & header set",wiless.Token(),wiless.headers);
+
 }
 
 function setProfilePic(elid){
@@ -177,12 +177,13 @@ function setProfilePic(elid){
       }  
         
       userprofile = googleUser.getBasicProfile();
+      
       // The ID token you need to pass to your backend:      
       // The ID token you need to pass to your backend:
-      console.log('ID: ' + userprofile.getId()); // Do not send to your backend! Use an ID token instead.
-      console.log('Name: ' + userprofile.getName());
-      console.log('Image URL: ' + userprofile.getImageUrl());
-      console.log('Email: ' + userprofile.getEmail()); // This is null if the 'email' scope is not present.
+//       console.log('ID: ' + userprofile.getId()); // Do not send to your backend! Use an ID token instead.
+//       console.log('Name: ' + userprofile.getName());
+//       console.log('Image URL: ' + userprofile.getImageUrl());
+      console.log('Logged in as ' + userprofile.getEmail()); // This is null if the 'email' scope is not present.
       setProfilePic("profile");
       var token=googleauth.currentUser.get().getAuthResponse().id_token;
       initBackend(token);
