@@ -140,9 +140,9 @@ var globalcounter=0;
 
  
 function runSLS(){
-alert("Trying to run SLS ", slsconfig[globalcounter]);
+alert("Trying to run SLS ", slsinfo[globalcounter]);
 // 	slsinfo(globalcounter)={itu:{},nr:{},sim:{}};
-wiless.APIcalls("sls",slsconfig[globalcounter]).then(d=>console.log("Got this",d));	
+wiless.APIcalls("sls",slsinfo[globalcounter]).then(d=>console.log("Got this",d));	
 }
     
     function helloclick() {
