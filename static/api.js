@@ -50,12 +50,13 @@ this.id_token="";
 headers = { 'Authorization': "Bearer " + id_token };
 }
     var val = funcpaths.get(arg);
-    // console.log("Val ", val);
+    
     if (arg == "login") {
       return this.CallAPI(val.path, val.method, jdata).then(d => { headers = { 'Authorization': "Bearer " + d.token };this.id_token = d.token;return d.token });
-    } else {
-      return this.CallAPI(val.path, val.method, jdata);
-    }
+    } 
+    
+    return this.CallAPI(val.path, val.method, jdata);
+    
     
   }
 
