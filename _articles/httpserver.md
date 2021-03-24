@@ -2,7 +2,7 @@
 layout: wide
 title: A Minimal HTTP Server written in Golang
 summary: This is a handy opensource HTTPserver to run on local machines needed for various reason
-index: 11 
+index: 1 
 img: /imgs/imagefilename.jpg
 --- 
     
