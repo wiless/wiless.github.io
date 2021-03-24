@@ -17,3 +17,5 @@ https://gist.github.com/wiless/b97637e1b5625248784d
 *Build Version*
 Linux x84 : 
 Windows 64bit : 
+
+<script src="https://gist.github.com/wiless/b97637e1b5625248784d.js"></script>
