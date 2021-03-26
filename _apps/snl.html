@@ -14,79 +14,60 @@ title: SNL Spectrum Viewer
 	word-wrap: break-word;
 	}
 </style>
- 
-
-
     
-  
+    <div class="ui teal label"> 
+                        <i class="paint brush icon"></i> 
+                        Theme
+                        <select class="ui teal dropdown" id="theme"> </select>
+                      </div>
+
+
     <div class="card bg-primary text-white">
-        <div class="card-header">File Pick 
-            <input type="file" name="inputfile"  id="inputfile"> 
-        </div>
-        <div class="card-body bg-light text-dark" id="output"> </div>
-        
+	    <div id="view" class="column card-body bg-light text-dark"></div>
+	    <button class="ui float right teal button" name="saveButton" onclick="UpdatePlot()">Update </button>	     
+	    <div class="column card-body bg-light text-dark" id="vegaspec"> </div>
+	    <div class="card-body bg-light text-dark" id="data"> </div>
+	    <div class="column card-body bg-light text-dark" id="vegadata"> </div>
     </div>
-<div class="ui divider"></div>
- <button class="ui button float teal right" type="button" onclick="loadSLSConfigs()">Load Configs</button>        
-<button class="ui button float green right" type="button" onclick="runSLS()">Run SLS</button>        
-<div class="ui divider red"></div>
-
-<div class="row">
+<div class="ui divider"></div>  
    
-    <div class="col-sm-4">
-        <div id="itu" >
-            ITU Config Files
-          </div>
-    </div>
-    <div class="col-sm-4">
-         <div id="nr" >
-            NR Config Files
-          </div>
-    </div>
-    <div class="col-sm-4">
-         <div id="sim" >
-            SIM Config Files
-          </div>
-    </div>
-</div>
-
-    <hr>
-  <button type="button" onclick="helloclick()">Click</button>  
-<div class="row">
-    <div class="col-sm-6">
-        <div id="APIresults" >
-            API Output Responses
-          </div>
-
-    </div>
-    <div class="col-sm-6">
-    Output JSON Files
-         <div id="hexgrid" >
-            API Output Responses
-          </div>
-    </div>
-</div>
-
-   <div class="column">  
-                 <button class="ui float right teal button" name="saveButton" onclick="UpdatePlot()">Update </button>
                 <div id="output" style="height: 500px;background-color: rgba(202, 244, 247);"> </div>
             </div>
-
-
-
+ 
 <script>
+	
+	 function CallPlots() {
+        vegaspec = ploteditor.get();
+
+
+        // optional argument passed to Vega-Embed to specify Vega-Lite spec. More info at https://github.com/vega/vega-embed
+        var opt = {
+            "mode": "vega-lite"
+        };
+
+        // Embed the visualization in the container with id `vis`
+        vegaEmbed("#view", vegaspec, opt).then(function (result) {
+            // Callback receiving the View instance and parsed Vega spec
+            // result.view is the View, which resides under the '#vis' element
+        }).catch(console.warn);
+
+
+    }
+
+	
 function UpdatePlot() {
         el = document.getElementById('output');
         //  editor = new JSONEditor(el, {mode:'view',modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds:25}, objspec);
         themename = document.getElementById("theme").value;
         var objspec = editor.get();
-        var id_token = guser.getAuthResponse().id_token;
-        myHeaders.set('Authorization', 'Bearer ' + id_token);
-        const myloader = { http: { headers: myHeaders } };
+   //     var id_token = guser.getAuthResponse().id_token;
+    //    myHeaders.set('Authorization', 'Bearer ' + id_token);
+      //  const myloader = { http: { headers: myHeaders } };
       
       
-      
-        vegaEmbed('#vis2', objspec, { renderer: "canvas", "loader": myloader, "actions": { "export": true, "source": false, "compiled": false, "editor": false }, "theme": themename, "downloadFileName": "ISRO Frequency", patch: (s) => {
+      vegaEmbed('#vis2', objspec, { renderer: "canvas", "loader": myloader, "actions": { "export": true, "source": false, "compiled": false, "editor": false }, "theme": themename, "downloadFileName": "ISRO Frequency", patch: (s) => {
+	      
+//         vegaEmbed('#vis2', objspec, { renderer: "canvas", "loader": myloader, "actions": { "export": true, "source": false, "compiled": false, "editor": false }, "theme": themename, "downloadFileName": "ISRO Frequency", patch: (s) => {
          
          s.signals.push({
  "name": "barClick",
@@ -109,148 +90,9 @@ function UpdatePlot() {
 
     //    vegaEmbed('#vis2', objspec, { "loader": myloader, "actions": { "export": true, "source": false, "compiled": false, "editor": false }, "theme": themename, "downloadFileName": "ISRO Frequency" });
     }
-    function ping() {
-        // var id_token = guser.getAuthResponse().id_token;
-        // myHeaders.set('Authorization', 'Bearer ' + id_token);
-        // const req = new Request('/', { method: "GET", headers: myHeaders });
-        // // fetch(req).then().then();
-    }	
-	
-	
-var globalcounter=0;
-	 var slsinfo={};
-	const JFoptions=    {
-  hoverPreviewEnabled: true,
-  hoverPreviewArrayCount: 10,
-  hoverPreviewFieldCount: 2,
-  // theme: 'dark',
-  animateOpen: false,
-  animateClose: false,
-  useToJSON: true
-};
-    function createJSONCard(elid,json){
-	    
-      apiname=elid;
-      elem = document.getElementById(elid);
-      card=document.createElement("div");
-      elem.appendChild(card);
-      h3=document.createElement("h4");
-      h3.appendChild(document.createTextNode(globalcounter+": "+apiname));
-      btn=document.createElement("button");
-      btn.setAttribute("type","button");
-      btn.innerHTML=` <span aria-hidden="true">&times;</span>`;
-      btn.classList.add("close");
-      btn.onclick=function(e){e.target.parentElement.parentElement.remove();};
-      card.appendChild(btn);
-      card.appendChild(h3);      
-      card.classList.add("shadow","p-3","mb-5", "bg-white", "rounded");
-      const formatter = new JSONFormatter(json,1,JFoptions);
-      card.appendChild(formatter.render());     
-    }
-    
-    function loadSLSConfigs(){
-	    globalcounter++;    
-	
-	slsinfo[globalcounter]={itu:{},nr:{},sim:{}};
-        // 3GPP_InH_configA.json 
-        // ITU_InH_configA.json
-        // SIM_InH_configA.json
-        fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/ITU_InH_configB.json").then(d => d.json()).then(
-		d=> {//console.log(d); 
-			slsinfo[globalcounter].itu=d;
-			createJSONCard("itu",d);});
-        fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/3GPP_InH_configB.json").then(d => d.json()).then(
-		d=> {//console.log(d); 
-			slsinfo[globalcounter].nr=d;
-			createJSONCard("nr",d);});
-        fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/SIM_InH_configB.json").then(d => d.json()).then(
-		d=> {//console.log(d); 
-			slsinfo[globalcounter].sim=d;
-			createJSONCard("sim",d);});
-      
-    }
-    
-    
-  document.getElementById('inputfile') 
-            .addEventListener('change', function() { 
-              
-            var fr=new FileReader(); 
-            fr.onload=function(){ 
-              el=document.getElementById('output') ;
-                
-                        // el.textContent=fr.result; 
-                        json=JSON.parse(fr.result);
-
-                        const editor = new JSONEditor(el, {mode:'view',modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds:25}, json);
-
-            }               
-            fr.readAsText(this.files[0]); 
-        });
-
+   
+	  
  
-function runSLS(){
-alert("Trying to run SLS ", slsinfo[globalcounter]);
-// 	slsinfo(globalcounter)={itu:{},nr:{},sim:{}};
-wiless.APIcalls("sls",slsinfo[globalcounter]).then(d=>console.log("Got this",d));	
-}
     
-    function helloclick() {
-    globalcounter++;
-  
-  const options = {
-    mode: 'view',
-           modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], // allowed modes
-maxVisibleChilds:25
-  }
-
-   const apiname="hexgrid";
-    wiless.APIcalls(apiname).then(d => {
-      const myJSON = d;
-
-      // Add all fancy boxes
-     	    
-      elem = document.getElementById("APIresults");
-      card=document.createElement("div");
-      elem.appendChild(card);
-      h3=document.createElement("h4");
-      h3.appendChild(document.createTextNode(globalcounter+": "+apiname));
-      btn=document.createElement("button");
-      btn.setAttribute("type","button");
-      btn.innerHTML=` <span aria-hidden="true">&times;</span>`;
-      btn.classList.add("close");
-      btn.onclick=function(e){e.target.parentElement.parentElement.remove();};
-      card.appendChild(btn);
-      card.appendChild(h3);      
-      jsoneditor=document.createElement("div");
-      card.appendChild(jsoneditor);
-      card.classList.add("shadow","p-3","mb-5", "bg-white", "rounded");
-
-      const editor = new JSONEditor(jsoneditor, options, myJSON);
-// Do the same in the second column 
-      
-
-     // Add all fancy boxes
-      createJSONCard(apiname,myJSON);
-	    
-//       elem = document.getElementById("column2");
-//       card=document.createElement("div");
-//       elem.appendChild(card);
-//       h3=document.createElement("h4");
-//       h3.appendChild(document.createTextNode(globalcounter+": "+apiname));
-//       btn=document.createElement("button");
-//       btn.setAttribute("type","button");
-//       btn.innerHTML=` <span aria-hidden="true">&times;</span>`;
-//       btn.classList.add("close");
-//       btn.onclick=function(e){e.target.parentElement.parentElement.remove();};
-//       card.appendChild(btn);
-//       card.appendChild(h3);      
-//       card.classList.add("shadow","p-3","mb-5", "bg-white", "rounded");
-//       const formatter = new JSONFormatter(myJSON,1,JFoptions);
-//       card.appendChild(formatter.render());    
-
-      return;
-    }
-    );
-  }
   
 </script>
