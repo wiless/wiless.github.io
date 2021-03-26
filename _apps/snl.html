@@ -28,12 +28,12 @@ title: SNL Spectrum Viewer
 <button class="ui float right teal button" name="saveButton" onclick="UpdatePlot()"> Plot </button>	     
 	    <div id="view" class="column"></div>	    
 	    <div  id="vegaspec" style="height:300px"> </div>
-	    <textarea  id="vegadata"> </textarea>
+	    <textarea  id="vegadata" style="width:100%"> </textarea>
     
 
 <div class="ui divider"></div>  
   
-                <div id="output" style="height: 500px;background-color: rgba(202, 244, 247);"> </div>
+                <div id="output" > </div>
  
 <script>
 	
@@ -109,6 +109,7 @@ title: SNL Spectrum Viewer
         vegaEmbed("#view", vegaspec, opt).then(function (result) {
             // Callback receiving the View instance and parsed Vega spec
             // result.view is the View, which resides under the '#vis' element
+		
         }).catch(console.warn);
 
 
@@ -119,13 +120,14 @@ function UpdatePlot() {
         el = document.getElementById('output');
         //  editor = new JSONEditor(el, {mode:'view',modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds:25}, objspec);
         themename = document.getElementById("theme").value;
-        var objspec = editor.get();
+        var objspec = ploteditor.get();
    //     var id_token = guser.getAuthResponse().id_token;
     //    myHeaders.set('Authorization', 'Bearer ' + id_token);
       //  const myloader = { http: { headers: myHeaders } };
       var myloader={};
-      
-      vegaEmbed('#vis2', objspec, { renderer: "canvas", "loader": myloader, "actions": { "export": true, "source": false, "compiled": false, "editor": false }, "theme": themename, "downloadFileName": "FrequencySNL", patch: (s) => {
+      datastr=document.getElementById("vegadata").textContent;
+      data=d3.csvParse(datastr);
+      vegaEmbed('#view', objspec, { renderer: "canvas", "loader": myloader, "actions": { "export": true, "source": false, "compiled": false, "editor": false }, "theme": themename, "downloadFileName": "FrequencySNL", patch: (s) => {
          s.signals.push({
  "name": "barClick",
  "value": 0, 
@@ -141,6 +143,9 @@ function UpdatePlot() {
          console.log("Vega Embed result ", result);
          console.log("Vega View ", result.view);
          vegaview = result.view;
+	 vegaview.insert("snltable", data);
+	  
+	      
          }).catch(console.error);
 
     
