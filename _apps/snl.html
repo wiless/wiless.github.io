@@ -141,9 +141,9 @@ Data format is expected as in this <a target=_blank href="https://www.itu.int/on
   	datastr=document.getElementById("vegadata").value;
 var data;
 		 if (vegaspec.data.format.type=="tsv") {
-			       data=d3.tsvParse(datastr);
+			       data=d3.tsvParse(datastr,d3.autoType);
 	}else{
-	data=d3.csvParse(datastr);
+	data=d3.csvParse(datastr,d3.autoType);
 	}
 	console.log("Parsed Data is ",data);
       
@@ -178,9 +178,9 @@ function UpdatePlot() {
       datastr=document.getElementById("vegadata").value;
       var data;
 		 if (vegaspec.data.format.type=="tsv") {
-			       data=d3.tsvParse(datastr);
+			       data=d3.tsvParse(datastr,d3.autoType);
 	}else{
-	data=d3.csvParse(datastr);
+	data=d3.csvParse(datastr,d3.autoType);
 	}
       console.log("Parsed Data is ",data);
 
