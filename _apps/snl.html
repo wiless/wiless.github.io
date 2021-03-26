@@ -99,7 +99,7 @@ title: SNL Spectrum Viewer
 	
 	 function CallPlots() {
         vegaspec = ploteditor.get();
-  datastr=document.getElementById("vegadata").textContent;
+  	datastr=document.getElementById("vegadata").textContent;
       data=d3.csvParse(datastr);
 	
         // optional argument passed to Vega-Embed to specify Vega-Lite spec. More info at https://github.com/vega/vega-embed
@@ -111,7 +111,7 @@ title: SNL Spectrum Viewer
         vegaEmbed("#view", vegaspec, opt,theme:themename).then(function (result) {
             // Callback receiving the View instance and parsed Vega spec
             // result.view is the View, which resides under the '#vis' element
-		result.view.insert("snltable", data);
+	    result.view.insert("snltable", data);
 	  
         }).catch(console.warn);
 
