@@ -101,7 +101,7 @@ title: SNL Spectrum Viewer
         vegaspec = ploteditor.get();
   	datastr=document.getElementById("vegadata").value;
 var data;
-		 if vegaspec.data.format.type=="tsv" {
+		 if (vegaspec.data.format.type=="tsv") {
 			       data=d3.tsvParse(datastr);
 	}else{
 	data=d3.csvParse(datastr);
@@ -137,7 +137,7 @@ function UpdatePlot() {
       var myloader={};
       datastr=document.getElementById("vegadata").value;
       var data;
-		 if vegaspec.data.format.type=="tsv" {
+		 if (vegaspec.data.format.type=="tsv") {
 			       data=d3.tsvParse(datastr);
 	}else{
 	data=d3.csvParse(datastr);
