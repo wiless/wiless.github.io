@@ -34,30 +34,30 @@ title: SNL Spectrum Viewer
 	    <div  id="vegaspec" style="height:300px"> </div>
 <h2>Some Tips </h2>
 If you are using "csv" format, change the following "tsv" to "csv" in the data section. 
-<pre>
+<code>
 "data": {
     "name": "snltable",
     "format": {
       "type": "csv"
     }
   },
-</pre>
+</code>
 <h2>Apply data filter</h2>
 e.g. Do plot only for BANDWIDTH<360000 
-<pre>
+<code>
  {
       "filter": "datum[BANDWIDTH']>36000"
  }
-</pre>
+</code>
 e.g. Add multiple filters, plot only for BEAMS NAMES containing 'K2'. See more vega <a target=_blank href="https://vega.github.io/vega/docs/expressions/"> expressions </a>
-<pre>
+<code>
  {
       "filter": "datum[BANDWIDTH']>36000"
  },
  {
       "filter": "indexof(datum['BEAM NAME'],'K2')>0"
  }
-</pre>
+</code>
 
 
 
