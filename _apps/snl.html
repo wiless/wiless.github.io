@@ -131,9 +131,8 @@ function UpdatePlot() {
       var myloader={};
       datastr=document.getElementById("vegadata").textContent;
       data=d3.csvParse(datastr);
-     var opts={ renderer: "canvas", "loader": myloader, "actions": { "export": true, "source": false, "compiled": false, "editor": false }, "theme": themename, "downloadFileName": "FrequencySNL"
-      vegaEmbed('#view', objspec, opts)
-     .then(function (result) {
+     var opts={ renderer: "canvas", "loader": myloader, "actions": { "export": true, "source": false, "compiled": false, "editor": false }, "theme": themename, "downloadFileName": "FrequencySNL"};
+      vegaEmbed('#view', objspec, opts).then(function (result) {
          // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
          console.log("Vega Embed result ", result);
          console.log("Vega View ", result.view);
