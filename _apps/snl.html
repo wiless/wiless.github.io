@@ -61,7 +61,7 @@ Data format is expected as in this <a target=_blank href="https://www.itu.int/on
 	
 	function initdata(){
 		
-			fetch("/vg/snlsample.csv").then(d=>d.text()).then(			
+			fetch("/vg/snlsample.tsv").then(d=>d.text()).then(			
 			d=>{				
 				document.getElementById("vegadata").textContent=d;
 			});
