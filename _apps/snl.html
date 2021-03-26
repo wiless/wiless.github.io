@@ -32,6 +32,35 @@ title: SNL Spectrum Viewer
 	</div>
 <button class="ui float right teal button" name="saveButton" onclick="CallPlots()"> Plot </button>	     
 	    <div  id="vegaspec" style="height:300px"> </div>
+<h2>Some Tips </h2>
+If you are using "csv" format, change the following "tsv" to "csv" in the data section. 
+<pre>
+"data": {
+    "name": "snltable",
+    "format": {
+      "type": "csv"
+    }
+  },
+</pre>
+<h2>Apply data filter</h2>
+e.g. Do plot only for BANDWIDTH<360000 
+<pre>
+ {
+      "filter": "datum[BANDWIDTH']>36000"
+ }
+</pre>
+e.g. Add multiple filters, plot only for BEAMS NAMES containing 'K2'. See more vega <a target=_blank href="https://vega.github.io/vega/docs/expressions/"> expressions </a>
+<pre>
+ {
+      "filter": "datum[BANDWIDTH']>36000"
+ },
+ {
+      "filter": "indexof(datum['BEAM NAME'],'K2')>0"
+ }
+</pre>
+
+
+
 <div class="ui divider"></div>  
 Data format is expected as in this <a target=_blank href="https://www.itu.int/online/sns/freqlist.sh?ntc_id=116520362&ie=y&sat_type=G&categ=C&script=&select_list=F&sel_type=&sel_satname=INSAT-KA82.5E&sat_name=INSAT-KA82.5E&plan_id=&ntc_nbr="> ITU Link</a>
 	    <textarea  id="vegadata" style="width:100%" rows=15> </textarea>
