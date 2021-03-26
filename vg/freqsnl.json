@@ -5,7 +5,9 @@
     "height": 250,
     "data": {
         "name":"snltable"
-     
+        "format":{
+        "type":"tsv"
+    }
     },
     "transform": [
         {
