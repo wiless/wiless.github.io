@@ -6,7 +6,7 @@
     "data": {
         "name":"snltable",
         "format":{
-        "type":"tsv"
+        "type":"csv"
         }
     
     },
