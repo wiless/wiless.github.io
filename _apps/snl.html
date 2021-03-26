@@ -57,7 +57,6 @@ title: SNL Spectrum Viewer
 		
 			fetch("/vg/snlsample.csv").then(d=>d.text()).then(			
 			d=>{				
-			console.log(d);
 				document.getElementById("vegadata").textContent=d;
 			});
 				
