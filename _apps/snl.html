@@ -107,13 +107,13 @@ var data;
 	}
 	console.log("Parsed Data is ",data);
       
-	
+   themename = document.getElementById("theme").value;	
         // optional argument passed to Vega-Embed to specify Vega-Lite spec. More info at https://github.com/vega/vega-embed
         var opt = {
             "mode": "vega-lite",
 		"theme":themename
         };
-   themename = document.getElementById("theme").value;
+
         // Embed the visualization in the container with id `vis`
         vegaEmbed("#view", vegaspec, opt).then(function (result) {
             // Callback receiving the View instance and parsed Vega spec
