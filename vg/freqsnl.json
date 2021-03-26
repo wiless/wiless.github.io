@@ -6,13 +6,13 @@
     "data": {
         "name":"snltable",
         "format":{
-        "type":"csv"
+        "type":"tsv"
         }
     
     },
     "transform": [
         {
-            "filter": "datum['FREQUENCY MIN']>0 && datum['FREQUENCY MAX']<100000"
+            "filter": "datum['FREQUENCY MIN']>0"
         }
     ],
     "layer": [
@@ -40,10 +40,8 @@
                     "field": "FREQUENCY MIN",
                     "type": "quantitative",
                     "scale": {
-                        "domain": [
-                            3300,
-                            7200
-                        ]
+                        "domainMin":3000,
+                        "domainMax":7200
                     },
                     "title": "Frequency (MHz)"
                 },
