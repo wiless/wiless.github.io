@@ -6,7 +6,7 @@ title: SNL Spectrum Viewer
 <!--     <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.17.0"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.0.0/build/vega-lite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.12.2"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-themes@2.9.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-themes@2.9.1" onload="loadThemes()"></script>
    <link href="/static/jsoneditor.css" rel="stylesheet" type="text/css">
 <script src="/static/jsoneditor.js"></script>
 <style>
@@ -95,7 +95,8 @@ title: SNL Spectrum Viewer
         
 	}
 	
-	function loadThemes(elname) {
+	function loadThemes() {
+	var elname="theme";
         var keys = [];
         selectobj = document.getElementById(elname);
 
