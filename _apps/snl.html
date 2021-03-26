@@ -99,7 +99,7 @@ title: SNL Spectrum Viewer
 	
 	 function CallPlots() {
         vegaspec = ploteditor.get();
-  	datastr=document.getElementById("vegadata").textContent;
+  	datastr=document.getElementById("vegadata").value;
       data=d3.csvParse(datastr);
 	
         // optional argument passed to Vega-Embed to specify Vega-Lite spec. More info at https://github.com/vega/vega-embed
@@ -129,7 +129,7 @@ function UpdatePlot() {
     //    myHeaders.set('Authorization', 'Bearer ' + id_token);
       //  const myloader = { http: { headers: myHeaders } };
       var myloader={};
-      datastr=document.getElementById("vegadata").textContent;
+      datastr=document.getElementById("vegadata").value;
       data=d3.csvParse(datastr);
      var opts={ renderer: "canvas", "loader": myloader, "actions": { "export": true, "source": false, "compiled": false, "editor": false }, "theme": themename, "downloadFileName": "FrequencySNL"};
       vegaEmbed('#view', objspec, opts).then(function (result) {
