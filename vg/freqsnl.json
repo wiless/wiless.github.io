@@ -4,11 +4,8 @@
     "width": 500,
     "height": 250,
     "data": {
-        "name":"snltable",
-        "url": "freq.tsv",
-        "format": {
-            "type": "tsv"
-        }
+        "name":"snltable"
+     
     },
     "transform": [
         {
