@@ -7,6 +7,8 @@ title: SNL Spectrum Viewer
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.0.0/build/vega-lite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.12.2"></script>
     <script await src="https://cdn.jsdelivr.net/npm/vega-themes@2.9.1"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.6.1/d3.min.js" integrity="sha512-p/VAUGb1SbLKDesTu1qCZOQZX+4/IYi7UpLDBUqRINK8Xs/ozWN/+fnKDgmRrpLa9OGb6/SNLEL714DFCi/+og==" crossorigin="anonymous"></script> 
+
    <link href="/static/jsoneditor.css" rel="stylesheet" type="text/css">
 <script src="/static/jsoneditor.js"></script>
 <style>
@@ -23,12 +25,12 @@ title: SNL Spectrum Viewer
                         Theme
                         <select class="ui teal dropdown" id="theme"> </select>
 	</div>
-
+<button class="ui float right teal button" name="saveButton" onclick="UpdatePlot()"> Plot </button>	     
 	    <div id="view" class="column"></div>	    
-	    <div  id="vegaspec"> </div>
-	    <div  id="vegadata"> </div>
+	    <div  id="vegaspec" style="height:300px"> </div>
+	    <textarea  id="vegadata"> </textarea>
     
-<button class="ui float right teal button" name="saveButton" onclick="UpdatePlot()">Update </button>	     
+
 <div class="ui divider"></div>  
   
                 <div id="output" style="height: 500px;background-color: rgba(202, 244, 247);"> </div>
@@ -49,47 +51,27 @@ title: SNL Spectrum Viewer
 	 
 	var ploteditor;
 	var vegaspec;
-	function initvegaspecs(){
 	
-		fetch("/vg/freqsnl.json").then(d=>d.json()).then(
-			
+	function initdata(){
+		
+			fetch("/vg/snssample.csv").then(d=>d.text()).then(			
+			d=>{				
+			console.log(d);
+				document.getElementByID("vegadata").textContent=d;
+			}
+				
+	}
+	
+	function initvegaspecs(){
+		
+	
+		fetch("/vg/freqsnl.json").then(d=>d.json()).then(			
 			d=>{				
 			console.log(d);
 			vegaspec=d;
 			ploteditor = new JSONEditor(document.getElementById('vegaspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, vegaspec);
 	}
-								);
 	
-// 		var vegaspec =
-//         {
-//             $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-//             data: {
-//                 values: [
-//                     { a: 'C', b: 2 },
-//                     { a: 'C', b: 7 },
-//                     { a: 'C', b: 4 },
-//                     { a: 'D', b: 1 },
-//                     { a: 'D', b: 2 },
-//                     { a: 'D', b: 6 },
-//                     { a: 'E', b: 8 },
-//                     { a: 'E', b: 4 },
-//                     { a: 'E', b: 7 }
-//                 ]
-//             },
-//             mark: 'bar',
-//             encoding: {
-//                 y: { field: 'a', type: 'nominal' },
-//                 x: {
-//                     aggregate: 'average',
-//                     field: 'b',
-//                     type: 'quantitative',
-//                     axis: {
-//                         title: 'Average of b'
-//                     }
-//                 }
-//             }
-//         };
-// ploteditor = new JSONEditor(document.getElementById('vegaspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, vegaspec);
         
 	}
 	
@@ -117,7 +99,7 @@ title: SNL Spectrum Viewer
 	 function CallPlots() {
         vegaspec = ploteditor.get();
 
-
+	
         // optional argument passed to Vega-Embed to specify Vega-Lite spec. More info at https://github.com/vega/vega-embed
         var opt = {
             "mode": "vega-lite"
@@ -141,16 +123,12 @@ function UpdatePlot() {
    //     var id_token = guser.getAuthResponse().id_token;
     //    myHeaders.set('Authorization', 'Bearer ' + id_token);
       //  const myloader = { http: { headers: myHeaders } };
+      var myloader={};
       
-      
-      vegaEmbed('#vis2', objspec, { renderer: "canvas", "loader": myloader, "actions": { "export": true, "source": false, "compiled": false, "editor": false }, "theme": themename, "downloadFileName": "ISRO Frequency", patch: (s) => {
-	      
-//         vegaEmbed('#vis2', objspec, { renderer: "canvas", "loader": myloader, "actions": { "export": true, "source": false, "compiled": false, "editor": false }, "theme": themename, "downloadFileName": "ISRO Frequency", patch: (s) => {
-         
+      vegaEmbed('#vis2', objspec, { renderer: "canvas", "loader": myloader, "actions": { "export": true, "source": false, "compiled": false, "editor": false }, "theme": themename, "downloadFileName": "FrequencySNL", patch: (s) => {
          s.signals.push({
  "name": "barClick",
- "value": 0,
- 
+ "value": 0, 
  "on": [  {"events": "rect:mousedown", "encode": "select"},
 {"events": "rect:mouseup", "encode": "release"} ]
 });
@@ -163,10 +141,9 @@ function UpdatePlot() {
          console.log("Vega Embed result ", result);
          console.log("Vega View ", result.view);
          vegaview = result.view;
-         vegaview.addSignalListener('barClick', myListener);
-     }).catch(console.error);
+         }).catch(console.error);
 
-    //    vegaEmbed('#vis2', objspec, { "loader": myloader, "actions": { "export": true, "source": false, "compiled": false, "editor": false }, "theme": themename, "downloadFileName": "ISRO Frequency" });
+    
     }
    
 	  
