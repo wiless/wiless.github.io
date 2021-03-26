@@ -108,7 +108,7 @@ title: SNL Spectrum Viewer
         };
    themename = document.getElementById("theme").value;
         // Embed the visualization in the container with id `vis`
-        vegaEmbed("#view", vegaspec, opt,theme:themename).then(function (result) {
+        vegaEmbed("#view", vegaspec, opt,"theme":themename).then(function (result) {
             // Callback receiving the View instance and parsed Vega spec
             // result.view is the View, which resides under the '#vis' element
 	    result.view.insert("snltable", data);
