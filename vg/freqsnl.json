@@ -1,8 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Quick plot of the SNS Information from ITU",
+    "title": "SNS Spectrum plot of frequencies",
     "width": 700,
-    "height": 250,
     "padding":"auto",
 
     "data": {
