@@ -1,8 +1,10 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "Quick plot of the SNS Information from ITU",
-    "width": 500,
+    "title": "Quick plot of the SNS Information from ITU",
+    "width": 700,
     "height": 250,
+    "padding":"auto",
+
     "data": {
         "name":"snltable",
         "format":{
