@@ -4,10 +4,11 @@
     "width": 500,
     "height": 250,
     "data": {
-        "name":"snltable"
+        "name":"snltable",
         "format":{
-        "type":"tsv"}
-    }
+        "type":"tsv"
+        }
+    
     },
     "transform": [
         {
