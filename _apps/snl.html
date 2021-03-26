@@ -7,10 +7,8 @@ title: SNL Spectrum Viewer
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.0.0/build/vega-lite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.12.2"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-themes@2.9.1"></script>
-
-<link href="/static/jsoneditor.css" rel="stylesheet" type="text/css">
+   <link href="/static/jsoneditor.css" rel="stylesheet" type="text/css">
 <script src="/static/jsoneditor.js"></script>
-<script async defer src="/static/json-formatter.umd.js" charset="UTF-8"></script>
 <style>
 .json-formatter-row .json-formatter-string,
 .json-formatter-row .json-formatter-stringifiable{
@@ -25,14 +23,10 @@ title: SNL Spectrum Viewer
                         Theme
                         <select class="ui teal dropdown" id="theme"> </select>
                       </div>
-
-
     <div class="card bg-primary text-white">
-	    <div id="view" class="column card-body bg-light text-dark"></div>
-	    
-	    <div class="column card-body bg-light text-dark" id="vegaspec"> </div>
-	    <div class="card-body bg-light text-dark" id="data"> </div>
-	    <div class="column card-body bg-light text-dark" id="vegadata"> </div>
+	    <div id="view" class="column card-body bg-light text-dark"></div>	    
+	    <div class="card-body bg-light text-dark" id="vegaspec"> </div>
+	    <div class="card-body bg-light text-dark" id="vegadata"> </div>
     </div>
 <button class="ui float right teal button" name="saveButton" onclick="UpdatePlot()">Update </button>	     
 <div class="ui divider"></div>  
@@ -48,39 +42,51 @@ title: SNL Spectrum Viewer
 	}
 	
 	var ploteditor;
+	var vegaspec;
 	function initvegaspecs(){
-		 var vegaspec =
-        {
-            $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-            data: {
-                values: [
-                    { a: 'C', b: 2 },
-                    { a: 'C', b: 7 },
-                    { a: 'C', b: 4 },
-                    { a: 'D', b: 1 },
-                    { a: 'D', b: 2 },
-                    { a: 'D', b: 6 },
-                    { a: 'E', b: 8 },
-                    { a: 'E', b: 4 },
-                    { a: 'E', b: 7 }
-                ]
-            },
-            mark: 'bar',
-            encoding: {
-                y: { field: 'a', type: 'nominal' },
-                x: {
-                    aggregate: 'average',
-                    field: 'b',
-                    type: 'quantitative',
-                    axis: {
-                        title: 'Average of b'
-                    }
-                }
-            }
-        };
-
-        ploteditor = new JSONEditor(document.getElementById('vegaspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, vegaspec);
+	
+		fetch("/vg/freqsnl.json").then(d=>d.json()).then(
+			
+			d=>{				
+			console.log(d);
+			vegaspec=d;
+			ploteditor = new JSONEditor(document.getElementById('vegaspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, vegaspec);
 	}
+								);
+	
+// 		var vegaspec =
+//         {
+//             $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+//             data: {
+//                 values: [
+//                     { a: 'C', b: 2 },
+//                     { a: 'C', b: 7 },
+//                     { a: 'C', b: 4 },
+//                     { a: 'D', b: 1 },
+//                     { a: 'D', b: 2 },
+//                     { a: 'D', b: 6 },
+//                     { a: 'E', b: 8 },
+//                     { a: 'E', b: 4 },
+//                     { a: 'E', b: 7 }
+//                 ]
+//             },
+//             mark: 'bar',
+//             encoding: {
+//                 y: { field: 'a', type: 'nominal' },
+//                 x: {
+//                     aggregate: 'average',
+//                     field: 'b',
+//                     type: 'quantitative',
+//                     axis: {
+//                         title: 'Average of b'
+//                     }
+//                 }
+//             }
+//         };
+// ploteditor = new JSONEditor(document.getElementById('vegaspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, vegaspec);
+        
+	}
+	
 	function loadThemes(elname) {
         var keys = [];
         selectobj = document.getElementById(elname);
