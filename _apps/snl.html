@@ -36,12 +36,19 @@ title: SNL Spectrum Viewer
  
 <script>
 	
-	window.onload = function (){
-		console.log("Did window load");
+	$(document).ready(function() {
+
+   window.onload = function(){
+    
+      console.log("Did window load");
 	loadThemes("theme"); 
 	initvegaspecs();
-	}
+
+   };
+});
+
 	
+	 
 	var ploteditor;
 	var vegaspec;
 	function initvegaspecs(){
