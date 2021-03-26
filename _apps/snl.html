@@ -104,11 +104,12 @@ title: SNL Spectrum Viewer
 	
         // optional argument passed to Vega-Embed to specify Vega-Lite spec. More info at https://github.com/vega/vega-embed
         var opt = {
-            "mode": "vega-lite"
+            "mode": "vega-lite",
+		"theme":themename
         };
    themename = document.getElementById("theme").value;
         // Embed the visualization in the container with id `vis`
-        vegaEmbed("#view", vegaspec, opt,"theme":themename).then(function (result) {
+        vegaEmbed("#view", vegaspec, opt).then(function (result) {
             // Callback receiving the View instance and parsed Vega spec
             // result.view is the View, which resides under the '#vis' element
 	    result.view.insert("snltable", data);
@@ -130,7 +131,8 @@ function UpdatePlot() {
       var myloader={};
       datastr=document.getElementById("vegadata").textContent;
       data=d3.csvParse(datastr);
-      vegaEmbed('#view', objspec, { renderer: "canvas", "loader": myloader, "actions": { "export": true, "source": false, "compiled": false, "editor": false }, "theme": themename, "downloadFileName": "FrequencySNL")
+     var opts={ renderer: "canvas", "loader": myloader, "actions": { "export": true, "source": false, "compiled": false, "editor": false }, "theme": themename, "downloadFileName": "FrequencySNL"
+      vegaEmbed('#view', objspec, opts)
      .then(function (result) {
          // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
          console.log("Vega Embed result ", result);
