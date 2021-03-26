@@ -1,0 +1,79 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Quick plot of the SNS Information from ITU",
+    "width": 500,
+    "height": 250,
+    "data": {
+        "url": "freq.tsv",
+        "format": {
+            "type": "tsv"
+        }
+    },
+    "transform": [
+        {
+            "filter": "datum['FREQUENCY MIN']>0 && datum['FREQUENCY MAX']<100000"
+        }
+    ],
+    "layer": [
+        {
+            "mark": {
+                "type": "rect",
+                "cornerRadius": 10
+            },
+            "selection": {
+                "pandz": {
+                    "type": "interval",
+                    "bind": "scales"
+                }
+            },
+            "encoding": {
+                "y": {
+                    "field": "EMISS/REC",
+                    "type": "nominal",
+                    "title": "Emission (s-E) / Reception (e-S)",
+                    "axis": {
+                        "grid": true
+                    }
+                },
+                "x": {
+                    "field": "FREQUENCY MIN",
+                    "type": "quantitative",
+                    "scale": {
+                        "domain": [
+                            3300,
+                            7200
+                        ]
+                    },
+                    "title": "Frequency (MHz)"
+                },
+                "x2": {
+                    "field": "FREQUENCY MAX"
+                },
+                "color": {
+                    "field": "BEAM NAME",
+                    "type": "nominal",
+                    "scale": {
+                        "scheme": "viridis"
+                    }
+                },
+                "opacity": {
+                    "field": "EMISS/REC"
+                },
+                "tooltip": [
+                    {
+                        "field": "EMISS/REC"
+                    },
+                    {
+                        "field": "BEAM NAME"
+                    },
+                    {
+                        "field": "FREQUENCY MIN"
+                    },
+                    {
+                        "field": "FREQUENCY MAX"
+                    }
+                ]
+            }
+        }
+    ]
+}
