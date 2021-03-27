@@ -36,6 +36,7 @@ title: SNL Spectrum Viewer
 	</div>
 <button class="ui float right teal button" name="saveButton" onclick="CallPlots()"> Plot </button>	     
 	    <div  id="vegaspec" style="height:300px"> </div>
+<div class="ui raised segment">
 
 <div class="ui card">
   <div class="content">
@@ -43,56 +44,46 @@ title: SNL Spectrum Viewer
   </div>
   <div class="content"> 
 Change "csv" to "tsv"
-<pre><code class="json">...
+<pre><code class="json">
 "data": {
     "name": "snltable",
     "format": {
       "type": "csv"
     }
-  },
+  }
 </code></pre>
   </div>
 </div>	
-	
-	  
 
-<h2>Some Tips </h2>
-<p>
-If you are using "csv" format, change the following "tsv" to "csv" in the data section. 
-</p>
-<code>
-"data": {
-    "name": "snltable",
-    "format": {
-      "type": "csv"
-    }
-  },
-</code>
-
-
-<h2 class="ui header">Apply data filter</h2>
-
-<div class="ui raised segment">
-
-e.g. Do plot only for BANDWIDTH<360000 
-```
+<div class="ui card">
+  <div class="content">
+    <div class="header">Filter by BandWidth</div>
+  </div>
+  <div class="content"> 
+<pre><code class="json">
+ "transform":[
  {
-      "filter": "datum[BANDWIDTH']>36000"
+      "filter": "datum['BANDWIDTH']>36000"
  }
-```
+ ]
+</code></pre>
+  </div>
+</div>	
 </div>
-e.g. Add multiple filters, plot only for BEAMS NAMES containing 'K2'. See more vega <a target=_blank href="https://vega.github.io/vega/docs/expressions/"> expressions </a>
-<code>
+See more vega <a target=_blank href="https://vega.github.io/vega/docs/expressions/"> expressions </a>
+plot only for BEAMS NAMES containing 'K2'. 
 <pre>
+<code class="json">
  {
       "filter": "datum['BANDWIDTH']>36000"
  },
  {
       "filter": "indexof(datum['BEAM NAME'],'K2')>0"
  }
- </pre>
 </code>
+</pre>
 <div class="ui divider"></div>  
+
 Data format is expected as in this <a target=_blank href="https://www.itu.int/online/sns/freqlist.sh?ntc_id=116520362&ie=y&sat_type=G&categ=C&script=&select_list=F&sel_type=&sel_satname=INSAT-KA82.5E&sat_name=INSAT-KA82.5E&plan_id=&ntc_nbr="> ITU Link</a>
 	    <textarea  id="vegadata" style="width:100%" rows=15> </textarea>
     
