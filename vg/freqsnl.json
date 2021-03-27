@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "SNS Spectrum plot of frequencies",
   "width": 700,
-  "padding": "auto",
+  "padding": "10",
   "data": {
     "name": "snltable",
     "format": {
@@ -50,9 +50,9 @@
         "color": {
           "field": "BEAM NAME",
           "type": "nominal",
-          "legend":{
-            "direction":"horizontal",
-            "orient":"bottom"
+          "legend": {
+            "direction": "horizontal",
+            "orient": "bottom"
           },
           "scale": {
             "scheme": "viridis"
@@ -60,8 +60,8 @@
         },
         "opacity": {
           "field": "EMISS/REC",
-          "title":"",
-         "legend": null
+          "title": "",
+          "legend": null
         },
         "tooltip": [
           {
@@ -71,10 +71,17 @@
             "field": "BEAM NAME"
           },
           {
-            "field": "FREQUENCY MIN"
+            "field": "FREQUENCY MIN",
+            "title":"Freq_start(MHz)"
           },
           {
-            "field": "FREQUENCY MAX"
+            "field": "FREQUENCY MAX",
+            "title":"Freq_stop(MHz)"
+          },
+          {
+            "field": "BANDWIDTH",
+            "format": "2.2F",
+            "title":"Bandwidth(Hz)"
           }
         ]
       }
