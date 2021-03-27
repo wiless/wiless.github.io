@@ -36,16 +36,15 @@ title: SNL Spectrum Viewer
 	</div>
 <button class="ui float right teal button" name="saveButton" onclick="CallPlots()"> Plot </button>	     
 	    <div  id="vegaspec" style="height:300px"> </div>
-<div class="ui raised segment">
-<div class="ui cards">
+      <div class="ui raised segment">
+                <div class="ui cards">
 
-<div class="ui card">
-  <div class="content">
-    <div class="header">Change Data Format</div>
-  </div>
-  <div class="content"> 
-Change "csv" to "tsv"
-<pre><code class="json">
+                    <div class="ui card">
+                        <div class="content">
+                            <div class="header">Change Data Format</div>
+                        </div>
+                        <div class="content">
+                            <pre><code class="json">
 "data": {
     "name": "snltable",
     "format": {
@@ -53,38 +52,46 @@ Change "csv" to "tsv"
     }
   }
 </code></pre>
-  </div>
-</div>	
+                        </div>
+                    </div>
 
-<div class="ui card">
-  <div class="content">
-    <div class="header">Filter by BandWidth</div>
-  </div>
-  <div class="content"> 
-<pre><code class="json">
+                    <div class="ui card">
+                        <div class="content">
+                            <div class="header">Filter by BandWidth</div>
+                        </div>
+                        <div class="content">
+                            <pre><code class="json">
  "transform":[
  {
       "filter": "datum['BANDWIDTH']>36000"
  }
  ]
 </code></pre>
-  </div>
-</div>	
+                        </div>
+                    </div>
 
-See more vega <a target=_blank href="https://vega.github.io/vega/docs/expressions/"> expressions </a>
-plot only for BEAMS NAMES containing 'K2'. 
-<pre>
-<code class="json">
- {
-      "filter": "datum['BANDWIDTH']>36000"
- },
- {
-      "filter": "indexof(datum['BEAM NAME'],'K2')>0"
- }
-</code>
-</pre>
-</div>
-</div>
+                    <div class="ui card">
+                        <div class="content"> <div class="header">Filter by Beam Names</div></div>
+                        <div class="content">
+                            <pre><code class="json">
+                                "transform":[
+                                  {
+                                    "filter": "datum['BANDWIDTH']>36000"
+                                  },
+                                  {
+                                    "filter": "indexof(datum['BEAM NAME'],'K2')>0"
+                                  }
+                                  ]
+                            </code></pre>
+
+                        </div>
+                    </div>
+                </div>
+
+                See more vega <a target=_blank href="https://vega.github.io/vega/docs/expressions/"> expressions
+                </a>
+                
+            </div>
 	<div class="ui divider"></div>  
 
 Data format is expected as in this <a target=_blank href="https://www.itu.int/online/sns/freqlist.sh?ntc_id=116520362&ie=y&sat_type=G&categ=C&script=&select_list=F&sel_type=&sel_satname=INSAT-KA82.5E&sat_name=INSAT-KA82.5E&plan_id=&ntc_nbr="> ITU Link</a>
