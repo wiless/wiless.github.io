@@ -1,79 +1,83 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "SNS Spectrum plot of frequencies",
-    "width": 700,
-    "padding":"auto",
-
-    "data": {
-        "name":"snltable",
-        "format":{
-        "type":"tsv"
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "SNS Spectrum plot of frequencies",
+  "width": 700,
+  "padding": "auto",
+  "data": {
+    "name": "snltable",
+    "format": {
+      "type": "tsv"
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum['FREQUENCY MIN']>0"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "cornerRadius": 5
+      },
+      "selection": {
+        "pandz": {
+          "type": "interval",
+          "bind": "scales"
         }
-    
-    },
-    "transform": [
-        {
-            "filter": "datum['FREQUENCY MIN']>0"
-        }
-    ],
-    "layer": [
-        {
-            "mark": {
-                "type": "rect",
-                "cornerRadius": 10
-            },
-            "selection": {
-                "pandz": {
-                    "type": "interval",
-                    "bind": "scales"
-                }
-            },
-            "encoding": {
-                "y": {
-                    "field": "EMISS/REC",
-                    "type": "nominal",
-                    "title": "Emission (s-E) / Reception (e-S)",
-                    "axis": {
-                        "grid": true
-                    }
-                },
-                "x": {
-                    "field": "FREQUENCY MIN",
-                    "type": "quantitative",
-                    "scale": {
-                        "domainMin":3000,
-                        "domainMax":7200
-                    },
-                    "title": "Frequency (MHz)"
-                },
-                "x2": {
-                    "field": "FREQUENCY MAX"
-                },
-                "color": {
-                    "field": "BEAM NAME",
-                    "type": "nominal",
-                    "scale": {
-                        "scheme": "viridis"
-                    }
-                },
-                "opacity": {
-                    "field": "EMISS/REC"
-                },
-                "tooltip": [
-                    {
-                        "field": "EMISS/REC"
-                    },
-                    {
-                        "field": "BEAM NAME"
-                    },
-                    {
-                        "field": "FREQUENCY MIN"
-                    },
-                    {
-                        "field": "FREQUENCY MAX"
-                    }
-                ]
-            }
-        }
-    ]
+      },
+      "encoding": {
+        "y": {
+          "field": "EMISS/REC",
+          "type": "nominal",
+          "title": "E(s-E) / R (E-s)",
+          "axis": {
+            "grid": true
+          }
+        },
+        "x": {
+          "field": "FREQUENCY MIN",
+          "type": "quantitative",
+          "scale": {
+            "domainMin": 3000,
+            "domainMax": 17200
+          },
+          "title": "Frequency (MHz)"
+        },
+        "x2": {
+          "field": "FREQUENCY MAX"
+        },
+        "color": {
+          "field": "BEAM NAME",
+          "type": "nominal",
+          "legend":{
+            "direction":"horizontal",
+            "orient":"bottom"
+          },
+          "scale": {
+            "scheme": "viridis"
+          }
+        },
+        "opacity": {
+          "field": "EMISS/REC",
+          "title":"",
+         "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "EMISS/REC"
+          },
+          {
+            "field": "BEAM NAME"
+          },
+          {
+            "field": "FREQUENCY MIN"
+          },
+          {
+            "field": "FREQUENCY MAX"
+          }
+        ]
+      }
+    }
+  ]
 }
