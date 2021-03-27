@@ -14,9 +14,9 @@ title: SNL Spectrum Viewer
 <style>
 .json-formatter-row .json-formatter-string,
 .json-formatter-row .json-formatter-stringifiable{
-	color: teal;
-	white-space: normal;
-	word-wrap: break-word;
+	color: "teal";
+	white-space: "normal";
+	word-wrap: "break-word";
 	}
 </style>
 
@@ -33,6 +33,27 @@ title: SNL Spectrum Viewer
 	</div>
 <button class="ui float right teal button" name="saveButton" onclick="CallPlots()"> Plot </button>	     
 	    <div  id="vegaspec" style="height:300px"> </div>
+
+<div class="ui card">
+  <div class="content">
+    <div class="header">Change Data Format</div>
+  </div>
+  <div class="content"> 
+Change "csv"
+<pre><code>
+"data": {
+    "name": "snltable",
+    "format": {
+      "type": "csv"
+    }
+  },
+</code> 
+<pre>
+  </div>
+</div>	
+	
+	  
+
 <h2>Some Tips </h2>
 <p>
 If you are using "csv" format, change the following "tsv" to "csv" in the data section. 
@@ -45,7 +66,10 @@ If you are using "csv" format, change the following "tsv" to "csv" in the data s
     }
   },
 </code>
+
+
 <h2 class="ui header">Apply data filter</h2>
+
 <div class="ui raised segment">
 
 e.g. Do plot only for BANDWIDTH<360000 
