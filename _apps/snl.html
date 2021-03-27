@@ -131,7 +131,6 @@ Data format is expected as in this <a target=_blank href="https://www.itu.int/on
 	
 		fetch("/vg/freqsnl.json").then(d=>d.json()).then(			
 			d=>{				
-			console.log(d);
 			vegaspec=d;
 			ploteditor = new JSONEditor(document.getElementById('vegaspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, vegaspec);
 	});
