@@ -161,7 +161,7 @@ var data;
 	}else{
 	data=d3.csvParse(datastr,d3.autoType);
 	}
-	console.log("Parsed Data is ",data);
+	//console.log("Parsed Data is ",data);
       
    themename = document.getElementById("theme").value;	
         // optional argument passed to Vega-Embed to specify Vega-Lite spec. More info at https://github.com/vega/vega-embed
@@ -180,7 +180,7 @@ var data;
 	    vegaview=result.view;
 	    vegaview.insert("snltable", data);
 	  
-        }).catch(console.warn);
+        }).catch(console.error);
 
 
     }
