@@ -9,6 +9,17 @@
       "type": "tsv"
     }
   },
+  "params":[
+  {
+    "name":"fmax",
+    "value":17000,
+    "bind":{"input":"range","min":400,    "max":15000,     "step":100     }
+  },{
+    "name":"fmin",    
+    "value":3000,
+    "bind":{"input":"range","min":400,    "max":15000,     "step":100     }
+  }
+  ],
   "transform": [
     {
       "filter": "datum['FREQUENCY MIN']>0"
@@ -39,8 +50,8 @@
           "field": "FREQUENCY MIN",
           "type": "quantitative",
           "scale": {
-            "domainMin": 3000,
-            "domainMax": 17200
+            "domainMin": {"expr":"fmin"},
+            "domainMax": {"expr":"fmax"}
           },
           "title": "Frequency (MHz)"
         },
@@ -72,16 +83,16 @@
           },
           {
             "field": "FREQUENCY MIN",
-            "title":"Freq_start(MHz)"
+            "title": "Freq_start(MHz)"
           },
           {
             "field": "FREQUENCY MAX",
-            "title":"Freq_stop(MHz)"
+            "title": "Freq_stop(MHz)"
           },
           {
             "field": "BANDWIDTH",
             "format": "2.2F",
-            "title":"Bandwidth(Hz)"
+            "title": "Bandwidth(Hz)"
           }
         ]
       }
