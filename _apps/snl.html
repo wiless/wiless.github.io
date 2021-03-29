@@ -116,11 +116,13 @@ Data format is expected as in this <a target=_blank href="https://www.itu.int/on
 			d=>{				
 				document.getElementById("vegadata").textContent=d;
 			});
-				
+	data=d3.csvParse(document.getElementById("vegadata").value,d3.autoType);
+	beams=d3.rollup(vegaview.getState().data.snltable,v=>v.length,d=>d["BEAM NAME"]);
+        str=d3.map(beams,d=>console.log(d[0]+"("+d[1]));				
+	console.log(str);
 	}
 	
-	function initvegaspecs(){
-		
+	function initvegaspecs(){		
 	
 		fetch("/vg/freqsnl.json").then(d=>d.json()).then(			
 			d=>{				
@@ -128,7 +130,6 @@ Data format is expected as in this <a target=_blank href="https://www.itu.int/on
 			ploteditor = new JSONEditor(document.getElementById('vegaspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, vegaspec);
 	});
 	
-        
 	}
 	
 	function loadThemes() {
@@ -161,6 +162,10 @@ var data;
 	}else{
 	data=d3.csvParse(datastr,d3.autoType);
 	}
+	
+	beams=d3.rollup(vegaview.getState().data.snltable,v=>v.length,d=>d["BEAM NAME"]);
+        str=d3.map(beams,d=>console.log(d[0]+"("+d[1]));				
+	console.log(str);
 	//console.log("Parsed Data is ",data);
       
    themename = document.getElementById("theme").value;	
