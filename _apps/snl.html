@@ -210,7 +210,9 @@ title: SNL Spectrum Viewer
 		if (vegaview!=undefined) {
 		selectobj = document.getElementById(elname);
 		selbeams=d3.map(selectobj.selectedOptions,d=> d.value);
-		vegaview.signal("beamlist",selbeams);	
+		vegaview.signal("beamlist",selbeams);
+		vegaview.runAsync();
+
 		}     
 	}
 	
