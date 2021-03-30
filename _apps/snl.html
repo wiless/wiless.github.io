@@ -136,7 +136,6 @@ title: SNL Spectrum Viewer
 	loadThemes(); 
 	initvegaspecs();
 	initdata();
-	loadbeams();
 	$('.ui.accordion').accordion();
  	$('.ui.accordion').accordion('refresh');
    
@@ -227,7 +226,7 @@ var data;
 	beams=d3.rollup(data,v=>v.length,d=>d["BEAM NAME"]);
         str=d3.map(beams,d=>d[0]+"("+d[1]+")");				
 	console.log(str);	
-	
+	loadbeams(beams);
 	//console.log("Parsed Data is ",data);
       
    themename = document.getElementById("theme").value;	
