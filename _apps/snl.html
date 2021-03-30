@@ -117,7 +117,8 @@ Data format is expected as in this <a target=_blank href="https://www.itu.int/on
 				document.getElementById("vegadata").textContent=d;
 			});
 	data=d3.csvParse(document.getElementById("vegadata").value,d3.autoType);
-	beams=d3.rollup(vegaview.getState().data.snltable,v=>v.length,d=>d["BEAM NAME"]);
+	
+		beams=d3.rollup(data,v=>v.length,d=>d["BEAM NAME"]);
         str=d3.map(beams,d=>console.log(d[0]+"("+d[1]));				
 	console.log(str);
 	}
