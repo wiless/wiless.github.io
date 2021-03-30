@@ -141,13 +141,14 @@ title: SNL Spectrum Viewer
 	$(document).ready(function() {
 
    
-    
-      console.log("Did window load");
+          console.log("Did window load");
 	loadThemes(); 
 	initvegaspecs();
 	initdata();
 	$('.ui.accordion').accordion();
  	$('.ui.accordion').accordion('refresh');
+	
+	
    
 });
 
@@ -199,8 +200,18 @@ title: SNL Spectrum Viewer
 	option.value=d[0];
 		 selectobj.add(option);
 	});	
-       
-
+		
+       selectobj.onchange=filterbeams;
+	        
+	}
+	
+	function filterbeams(){
+		
+		if (vegaview!=undefined) {
+		selectobj = document.getElementById(elname);
+		selbeams=d3.map(selectobj.selectedOptions,d=> d.value);
+		vegaview.signal("beamlist",selbeams);	
+		}     
 	}
 	
 	function loadThemes() {
