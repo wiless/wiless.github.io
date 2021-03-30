@@ -35,15 +35,19 @@ title: SNL Spectrum Viewer
                         <select class="ui teal dropdown" id="theme"> </select>
 	</div>
 <button class="ui float right teal button" name="saveButton" onclick="CallPlots()"> Plot </button>	     
-         <div class="ui raised segment">
 
+         <div class="ui raised segment">
                 <div class="ui accordion">
                     <div class="title">
                         <i class="dropdown icon"></i>
                         Change Plot ??
                     </div>
                     <div class="content">
-                        <p class="transition visible" style="display: block !important;"> Vega Spec </p>
+                        <p class="transition visible" style="display: block !important;"> Filter Beams ? </p>
+			    <select name="beamnames" id="beams" multiple="" class="ui fluid search dropdown">
+ <option value="">Beam Name</option> </select>
+			    
+			    
                         <div id="vegaspec" style="height:300px"> </div>
 
                     </div>
@@ -132,6 +136,7 @@ title: SNL Spectrum Viewer
 	loadThemes(); 
 	initvegaspecs();
 	initdata();
+	loadbeams();
 	$('.ui.accordion').accordion();
  	$('.ui.accordion').accordion('refresh');
    
@@ -149,13 +154,11 @@ title: SNL Spectrum Viewer
 			d=>{				
 				document.getElementById("vegadata").textContent=d;
 			});
-	data=d3.csvParse(document.getElementById("vegadata").value,d3.autoType);
-	
-		beams=d3.rollup(data,v=>v.length,d=>d["BEAM NAME"]);
-        str=d3.map(beams,d=>console.log(d[0]+"("+d[1]));				
+	data=d3.tsvParse(document.getElementById("vegadata").value,d3.autoType);
+	beams=d3.rollup(data,v=>v.length,d=>d["BEAM NAME"]);
+	loadbeams(beams);	
+        str=d3.map(beams,d=> (d[0]+"("+d[1]+")"));				
 	console.log(str);
-	 	$('.ui.accordion').accordion('refresh');
-
 	}
 	
 	function initvegaspecs(){		
@@ -166,6 +169,29 @@ title: SNL Spectrum Viewer
 			ploteditor = new JSONEditor(document.getElementById('vegaspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, vegaspec);
 	});
 	
+	}
+	
+	funciton loadbeams(beams){
+		
+	var elname="beams";
+        var keys = [];
+        selectobj = document.getElementById(elname);
+	
+	var option = document.createElement("option");	
+	option.text="Beam Name";
+	option.value="";
+        selectobj.add(option);	
+	
+// 	<option value="">Beam Name</option> 
+		
+	d3.map(beams,d=> {
+	  var option = document.createElement("option");
+	option.text=d[0]+"("+ d[1]+")";
+	option.value=d[0];
+		 selectobj.add(option);
+	});	
+       
+
 	}
 	
 	function loadThemes() {
