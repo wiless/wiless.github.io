@@ -162,10 +162,11 @@ var data;
 	}else{
 	data=d3.csvParse(datastr,d3.autoType);
 	}
-	
-	beams=d3.rollup(vegaview.getState().data.snltable,v=>v.length,d=>d["BEAM NAME"]);
+	beams=d3.rollup(data,v=>v.length,d=>d["BEAM NAME"]);
         str=d3.map(beams,d=>console.log(d[0]+"("+d[1]));				
 	console.log(str);
+	
+	
 	//console.log("Parsed Data is ",data);
       
    themename = document.getElementById("theme").value;	
