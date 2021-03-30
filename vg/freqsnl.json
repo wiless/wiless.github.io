@@ -9,21 +9,41 @@
       "type": "tsv"
     }
   },
-  "params":[
-  {
-    "name":"fmax",
-    "value":17000,
-    "bind":{"input":"range","min":400,    "max":15000,     "step":100     }
-  },{
-    "name":"fmin",    
-    "value":3000,
-    "bind":{"input":"range","min":400,    "max":15000,     "step":100     }
-  }
+  "params": [
+    {
+      "name": "fmax",
+      "value": 17000,
+      "bind": {
+        "input": "range",
+        "min": 400,
+        "max": 15000,
+        "step": 100
+      }
+    },
+    {
+      "name": "fmin",
+      "value": 3000,
+      "bind": {
+        "input": "range",
+        "min": 400,
+        "max": 15000,
+        "step": 100
+      }
+    },{
+      "name":"beamlist",
+      "value":[]
+    }
   ],
   "transform": [
     {
       "filter": "datum['FREQUENCY MIN']>0"
-    }
+    },
+{
+      "filter": "datum['FREQUENCY MIN']>0"
+},
+{
+  "filter":"length(beamlist)>0?indexof(beamlist,datum['BEAM NAME'])>=0:true"
+}
   ],
   "layer": [
     {
@@ -50,8 +70,12 @@
           "field": "FREQUENCY MIN",
           "type": "quantitative",
           "scale": {
-            "domainMin": {"expr":"fmin"},
-            "domainMax": {"expr":"fmax"}
+            "domainMin": {
+              "expr": "fmin"
+            },
+            "domainMax": {
+              "expr": "fmax"
+            }
           },
           "title": "Frequency (MHz)"
         },
