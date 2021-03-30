@@ -184,9 +184,8 @@ title: SNL Spectrum Viewer
 	
 	function loadbeams(beams){
 		
-	var elname="beamlist";
-        var keys = [];
-        selectobj = document.getElementById(elname);
+	
+        selectobj = document.getElementById("beamlist");
 	selectobj.options.length=0;
 	var option = document.createElement("option");	
 	option.text="Beam Name";
@@ -209,7 +208,7 @@ title: SNL Spectrum Viewer
 	function filterbeams(){
 		
 		if (vegaview!=undefined) {
-		selectobj = document.getElementById(elname);
+		selectobj = document.getElementById("beamlist");
 		selbeams=d3.map(selectobj.selectedOptions,d=> d.value);
 		vegaview.signal("beamlist",selbeams);
 		vegaview.runAsync();
