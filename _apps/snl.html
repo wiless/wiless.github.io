@@ -35,30 +35,32 @@ title: SNL Spectrum Viewer
                         <select class="ui teal dropdown" id="theme"> </select>
 	</div>
 <button class="ui float right teal button" name="saveButton" onclick="CallPlots()"> Plot </button>	     
-      <div class="ui raised segment">
-	      
-	      <div class="ui accordion">
-  <div class="title">
-    <i class="dropdown icon"></i>
-    Change Plot ??
-  </div>
-  <div class="content">
-	  <p class="transition visible" style="display: block !important;"> Vega Spec </p>
-	    	   <div  id="vegaspec" style="height:300px"> </div>
-	 
-  </div>
-  <div class="title active">
-    <i class="dropdown icon"></i>
-    Show Tips
-  </div>
-  <div class="content active">
-    <p> Tips goes here</p>
-	        
-                <div class="ui cards">
-<div class="ui card">
-<div class="content"><div class="header">Change Data Format</div></div>
-<div class="content">
-<pre><code class="json">
+         <div class="ui raised segment">
+
+                <div class="ui accordion">
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        Change Plot ??
+                    </div>
+                    <div class="content">
+                        <p class="transition visible" style="display: block !important;"> Vega Spec </p>
+                        <div id="vegaspec" style="height:300px"> </div>
+
+                    </div>
+                    <div class="title active">
+                        <i class="dropdown icon"></i>
+                        Show Tips
+                    </div>
+                    <div class="content active">
+                        <p> Tips goes here</p>
+
+                        <div class="ui cards">
+                            <div class="ui card">
+                                <div class="content">
+                                    <div class="header">Change Data Format</div>
+                                </div>
+                                <div class="content">
+                                    <pre><code class="json">
 "data": {
     "name": "snltable",
     "format": {
@@ -66,25 +68,29 @@ title: SNL Spectrum Viewer
     }
   }
 </code></pre>
-</div>
-</div>
-	<div class="ui card">
-        <div class="content"><div class="header">Filter by BandWidth</div></div>
-<div class="content">
-<pre><code class="json">
+                                </div>
+                            </div>
+                            <div class="ui card">
+                                <div class="content">
+                                    <div class="header">Filter by BandWidth</div>
+                                </div>
+                                <div class="content">
+                                    <pre><code class="json">
  "transform":[
  {
       "filter": "datum['BANDWIDTH']>36000"
  }
  ]
 </code></pre>
-</div>
-	</div>
-	
-			<div class="ui card">
-                        <div class="content"> <div class="header">Filter by Beam Names</div></div>
-<div class="content">
-<pre><code class="json">
+                                </div>
+                            </div>
+
+                            <div class="ui card">
+                                <div class="content">
+                                    <div class="header">Filter by Beam Names</div>
+                                </div>
+                                <div class="content">
+                                    <pre><code class="json">
 "transform":[
   {
     "filter": "datum['BANDWIDTH']>36000"
@@ -94,31 +100,26 @@ title: SNL Spectrum Viewer
   }
   ]
 </code></pre>
-</div>
-</div>
-</div>
-See more vega  <a target=_blank href="https://vega.github.io/vega/docs/expressions/"> expressions </a> for using in Filter
-</div>
+                                </div>
+                            </div>
+                        </div>
+                        See more vega <a target=_blank href="https://vega.github.io/vega/docs/expressions/">
+                            expressions</a> for using in Filter
+                    </div>
 
-  <div class="title">
-    <i class="dropdown icon"></i>
-    Show Data
-  </div>
-  <div class="content">
-    Data format is expected as in this <a target=_blank href="https://www.itu.int/online/sns/freqlist.sh?ntc_id=116520362&ie=y&sat_type=G&categ=C&script=&select_list=F&sel_type=&sel_satname=INSAT-KA82.5E&sat_name=INSAT-KA82.5E&plan_id=&ntc_nbr="> ITU Link</a>
-	    <textarea  id="vegadata" style="width:100%" rows=15> </textarea>
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        Show Data
+                    </div>
+                    <div class="content">
+                        Data format is expected as in this <a target=_blank
+                            href="https://www.itu.int/online/sns/freqlist.sh?ntc_id=116520362&ie=y&sat_type=G&categ=C&script=&select_list=F&sel_type=&sel_satname=INSAT-KA82.5E&sat_name=INSAT-KA82.5E&plan_id=&ntc_nbr=">
+                            ITU Link</a>
+                        <textarea id="vegadata" style="width:100%" rows=15> </textarea>
 
-  </div>
-</div>
-	      
-  </div>	      
-	      
-	
-	<div class="ui divider"></div>  
-    
-
-<div class="ui divider"></div>  
-  
+                    </div>
+                </div>
+            </div>
   
  
 <script>
