@@ -193,16 +193,15 @@ title: SNL Spectrum Viewer
 	
 	}
 	
-	function loadbeams(beams){
-		
-	
+	function loadbeams(beams){		
+	console.log("I am called with ",beams);
         selectobj = document.getElementById("beamlist");
 	selectobj.options.length=0;		
 	d3.map(beams,d=> {
-	  var option = document.createElement("option");
+	var option = document.createElement("option");
 	option.text=d[0]+"("+ d[1]+")";
 	option.value=d[0];
-		 selectobj.add(option);
+	selectobj.add(option);
 	});	
 		
        selectobj.onchange=filterbeams;
