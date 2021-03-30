@@ -38,13 +38,6 @@ title: SNL Spectrum Viewer
 	</div>
 <button class="ui float right teal button" name="saveButton" onclick="CallPlots()"> Plot </button>
 
-
-				  
-			    <select name="beamnames" id="beamlist" multiple class="ui fluid multiple search selection dropdown">
-				     <option value="">Beam Name</option> 
-				</select>
-				
-			    
 			    <div class="ui divider"></div>
 
 
@@ -56,8 +49,7 @@ title: SNL Spectrum Viewer
                         Change Plot ??
                     </div>
                     <div class="content">
-                        <p class="transition visible" style="display: block !important;"> Filter Beams ? </p>
-			    
+                        <p class="transition visible" style="display: block !important;"> Filter Beams ? </p>			    
 			    
                         <div id="vegaspec" style="height:300px"> </div>
 
@@ -118,6 +110,24 @@ title: SNL Spectrum Viewer
                                 </div>
                             </div>
                         </div>
+			    
+			    
+			       <div class="ui card">
+                                <div class="content">
+                                    <div class="header">Beams</div>
+                                </div>
+                                <div class="content">
+			    
+<div class="ui float right">				  
+			    <select name="beamnames" id="beamlist" multiple class="ui fluid multiple search selection dropdown">
+				     <option value="">Beam Name</option> 
+				</select>
+				</div>
+			       </div>
+                            </div>
+                        </div>
+			    
+			    
                         See more vega <a target=_blank href="https://vega.github.io/vega/docs/expressions/">
                             expressions</a> for using in Filter
                     </div>
