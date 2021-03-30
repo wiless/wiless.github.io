@@ -155,13 +155,25 @@ title: SNL Spectrum Viewer
 	var vegaview;
 	
 	function initdata(){
-		
+		vegadata=document.getElementById("vegadata")
+		vegadata.onchange=function(){
+			     vegaspec = ploteditor.get();
+  	datastr=document.getElementById("vegadata").value;
+var data;
+		 if (vegaspec.data.format.type=="tsv") {
+			       data=d3.tsvParse(datastr,d3.autoType);
+	}else{
+	data=d3.csvParse(datastr,d3.autoType);
+	}
+				beams=d3.rollup(data,v=>v.length,d=>d["BEAM NAME"]);	
+	loadbeams(beams);
+
+					    }
+
 			fetch("/vg/snlsample.tsv").then(d=>d.text()).then(			
 			d=>{				
 				document.getElementById("vegadata").textContent=d;
-				data=d3.tsvParse(d,d3.autoType);
-	beams=d3.rollup(data,v=>v.length,d=>d["BEAM NAME"]);	
-	loadbeams(beams);	       
+					       
 			});
 		
 	
@@ -234,10 +246,11 @@ var data;
 	}else{
 	data=d3.csvParse(datastr,d3.autoType);
 	}
-	beams=d3.rollup(data,v=>v.length,d=>d["BEAM NAME"]);
-        str=d3.map(beams,d=>d[0]+"("+d[1]+")");				
-	console.log(str);	
-	loadbeams(beams);
+	
+	//beams=d3.rollup(data,v=>v.length,d=>d["BEAM NAME"]);
+        //str=d3.map(beams,d=>d[0]+"("+d[1]+")");				
+	//console.log(str);	
+	//loadbeams(beams);
 	//console.log("Parsed Data is ",data);
       
    themename = document.getElementById("theme").value;	
