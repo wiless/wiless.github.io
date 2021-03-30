@@ -110,21 +110,7 @@ title: SNL Spectrum Viewer
                                 </div>
                             </div>
                         </div>
-			    
-			    
-			       <div class="ui card">
-                                <div class="content">
-                                    <div class="header">Beams</div>
-                                </div>
-                                <div class="content">
-			    
-<div class="ui float right">				  
-			    <select name="beamnames" id="beamlist" multiple class="ui fluid multiple search selection dropdown" >				
-				</select>
-				</div>
-			       </div>
-                            </div>
-                        </div>
+			     			     
 			       <div class="ui card">
                                 <div class="content">
                                     <div class="header">Beams</div>
@@ -189,9 +175,8 @@ title: SNL Spectrum Viewer
 			});
 	data=d3.tsvParse(document.getElementById("vegadata").value,d3.autoType);
 	beams=d3.rollup(data,v=>v.length,d=>d["BEAM NAME"]);
-	loadbeams(beams);	
-        str=d3.map(beams,d=> (d[0]+"("+d[1]+")"));				
-	console.log(str);
+	loadbeams(beams);	       
+	
 	}
 	
 	function initvegaspecs(){		
@@ -208,14 +193,7 @@ title: SNL Spectrum Viewer
 		
 	
         selectobj = document.getElementById("beamlist");
-	selectobj.options.length=0;
-	var option = document.createElement("option");	
-	option.text="Beam Name";
-	option.value="";
-        selectobj.add(option);	
-	
-// 	<option value="">Beam Name</option> 
-		
+	selectobj.options.length=0;		
 	d3.map(beams,d=> {
 	  var option = document.createElement("option");
 	option.text=d[0]+"("+ d[1]+")";
