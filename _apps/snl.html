@@ -173,7 +173,10 @@ var data;
 			fetch("/vg/snlsample.tsv").then(d=>d.text()).then(			
 			d=>{				
 				document.getElementById("vegadata").textContent=d;
-					       
+				data=d3.tsvParse(d,d3.autoType);	   
+				beams=d3.rollup(data,v=>v.length,d=>d["BEAM NAME"]);
+				loadbeams(beams);
+
 			});
 		
 	
