@@ -44,8 +44,11 @@ title: SNL Spectrum Viewer
                     </div>
                     <div class="content">
                         <p class="transition visible" style="display: block !important;"> Filter Beams ? </p>
-			    <select name="beamnames" id="beamlist" multiple="" class="ui fluid search dropdown">
- <option value="">Beam Name</option> </select>
+			    
+				  <div class="ui fluid multiple search selection dropdown">
+			    <select name="beamnames" id="beamlist" multiple="">
+				     <option value="">Beam Name</option> </select>
+			    </div>
 			    <div class="ui divider"></div>
 			    
                         <div id="vegaspec" style="height:300px"> </div>
@@ -175,7 +178,7 @@ title: SNL Spectrum Viewer
 	var elname="beamlist";
         var keys = [];
         selectobj = document.getElementById(elname);
-	
+	selectobj.options.length=0;
 	var option = document.createElement("option");	
 	option.text="Beam Name";
 	option.value="";
