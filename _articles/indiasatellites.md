@@ -3,6 +3,7 @@ layout: wide
 title: Satellites in use notified by India (March '21)
 img: /imgs/isro.jpg
 summary: Visualization of Indian GSO and nGSO satellites notifified to ITU-R till now.
+index:11
 ---
 
 ## Background 
