@@ -5,16 +5,16 @@ img: /imgs/isro.jpg
 summary: Visualization of Indian GSO and nGSO satellites notifified to ITU-R till now.
 ---
 
-# Background 
+## Background 
 
 
-# Space Service 
+## Space Service 
 
 
-# Satellite Orbit and Frequency 
+## Satellite Orbit and Frequency 
 
 
-# Status 
+## Status 
 
 <div id="observablehq-satelliteview-be1cfb5f" style="height: max-content;"></div>
 <div id="observablehq-ngsoview-be1cfb5f"></div>
