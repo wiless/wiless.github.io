@@ -10,13 +10,17 @@ index: 5
 ## Background 
 
 
-## Space Service 
-
 
 ## Satellite Orbit and Frequency 
 
 
 ## Status 
+Based on notification  after Launch till now
+**Source** : ITU-R SNL System : 
+<a href="https://www.itu.int/net/ITU-R/space/snl/listinuse/query-inuse.asp"> Query  </a>
+
+## Space Service 
+
 
 <div id="observablehq-satelliteview-be1cfb5f" style="height: max-content;"></div>
 <div id="observablehq-ngsoview-be1cfb5f"></div>
