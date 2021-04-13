@@ -42,9 +42,9 @@ title: SNL Spectrum Viewer
 
 <div class="ui raised segment">
 	  <div class="ui top attached tabular menu">
-            <a class="active item" data-tab="first">Home</a>
-            <a class="item" data-tab="second">What we do</a>
-            <a class="item" data-tab="third">Jobs</a>
+            <a class="active item" data-tab="first">Plot Code</a>
+            <a class="item" data-tab="second">SNL Data</a>
+            <a class="item" data-tab="third">Tips</a>
         </div>
   
         <div class="ui bottom attached 
@@ -55,15 +55,15 @@ title: SNL Spectrum Viewer
   
         <div class="ui bottom attached 
             tab segment" data-tab="second">
-            Provide tutorials for learning.
+                Data format is expected as in this <a target=_blank
+                            href="https://www.itu.int/online/sns/freqlist.sh?ntc_id=116520362&ie=y&sat_type=G&categ=C&script=&select_list=F&sel_type=&sel_satname=INSAT-KA82.5E&sat_name=INSAT-KA82.5E&plan_id=&ntc_nbr=">
+                            ITU Link</a>
+                        <textarea id="vegadata" style="width:100%" rows=15> </textarea>
         </div>
   
         <div class="ui bottom attached 
             tab segment" data-tab="third">
-               Data format is expected as in this <a target=_blank
-                            href="https://www.itu.int/online/sns/freqlist.sh?ntc_id=116520362&ie=y&sat_type=G&categ=C&script=&select_list=F&sel_type=&sel_satname=INSAT-KA82.5E&sat_name=INSAT-KA82.5E&plan_id=&ntc_nbr=">
-                            ITU Link</a>
-                        <textarea id="vegadata" style="width:100%" rows=15> </textarea>
+ 
 
         </div> 
 </div>
@@ -165,7 +165,7 @@ title: SNL Spectrum Viewer
 	initdata();
 	$('.ui.accordion').accordion();
  	$('.ui.accordion').accordion('refresh');
-	
+	$('.menu .item').tab();   
 	
    
 });
