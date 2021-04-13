@@ -19,6 +19,15 @@
         "max": 15000,
         "step": 100
       }
+    }, {
+      "name": "bwkhz",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 500000,
+        "step": 1000
+      }
     },
     {
       "name": "fmin",
@@ -29,21 +38,29 @@
         "max": 15000,
         "step": 100
       }
-    },{
-      "name":"beamlist",
-      "value":[]
+    },
+    {
+      "name": "beamlist",
+      "value": []
     }
   ],
   "transform": [
     {
+      "calculate":"datum['BANDWIDTH']/1000",
+      "as":"BANDWIDTHMHz"
+    },
+    {
       "filter": "datum['FREQUENCY MIN']>0"
     },
-{
+    {
       "filter": "datum['FREQUENCY MIN']>0"
-},
-{
-  "filter":"length(beamlist)>0?indexof(beamlist,datum['BEAM NAME'])>=0:true"
-}
+    },
+    {
+      "filter": "datum['BANDWIDTH']>bwkhz"
+    },
+    {
+      "filter": "length(beamlist)>0?indexof(beamlist,datum['BEAM NAME'])>=0:true"
+    }
   ],
   "layer": [
     {
@@ -114,9 +131,9 @@
             "title": "Freq_stop(MHz)"
           },
           {
-            "field": "BANDWIDTH",
-            "format": "2.2F",
-            "title": "Bandwidth(Hz)"
+            "field": "BANDWIDTHMHz",
+            "format": "~s",
+            "title": "Bandwidth(MHz)"
           }
         ]
       }
