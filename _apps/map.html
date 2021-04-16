@@ -16,6 +16,10 @@ Locations of Earth-Stations and Radial Distance
 <a class="ui button" onclick="SetCenter(2)">Jodhpur</a>
 <a class="ui button" onclick="SetCenter(3)">Shillong</a>
 
+<div class="ui checkbox">
+  <input type="checkbox" name="fillcircle">  <label>Fill Circle</label>
+</div>
+
 <div class="ui small icon input">
   <input type="text" id="custom" placeholder="Lat,Lng...">
   <i class="inverted circular search link icon" onclick="SetCenter(-1)"></i>
@@ -53,7 +57,10 @@ Locations of Earth-Stations and Radial Distance
         });
       
     distance=Number(document.getElementById("distance").value)*1000;
-    var circle = new google.maps.Circle({map:map,center:latlng ,radius:distance});
+    
+//     fillcircle
+    
+    //var circle = new google.maps.Circle({map:map,center:latlng ,radius:distance});
   }
 
   let esslocations;
