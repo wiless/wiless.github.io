@@ -250,7 +250,7 @@ The journey of official 5G began in 2014 and completed the vision of IMT and ove
 
           <h3>DECT</h3>DECT remained to be a set of pure 3GPP NR and DECT2020.DECT[15a]
           <h3>TSDSI</h3> final submission continued to be a modifed 3GPP Rel 15 NR and a modified Rel.15 LTE
-          specification. TSDSI [https://www.itu.int/md/R15-IMT.2020-C-0019/en] [https://www.itu.int/md/R15-WP5D-C-1301/en]
+          specification. TSDSI Acknowledgement <a href=https://www.itu.int/md/R15-IMT.2020-C-0019/en> IMT2020/19 | 5D/1301 </a> 
           <h3>NuFront</h3> Submitted complete specification in English version, NuFront [15c]
         </div>
 
