@@ -481,3 +481,12 @@ TSDSI-RIT - Are there any trials or demonstrations ??
 
 
 This article will be updated in Nov 2020.
+
+
+<script>
+ //$(document).ready(semantic.accordion.ready);
+  
+ $('.ui.accordion').accordion();
+ 
+ </script>
+ 
