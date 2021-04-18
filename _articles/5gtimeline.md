@@ -468,7 +468,13 @@ TSDSI-RIT - Are there any trials or demonstrations ??
     <div class="content">
       <h2>2020, October & November</h2>
               <p>
-          This meeting will decide the final recommendations of the technology as "Official 5G" by end of 2020
+          In the final meetings held in Oct and Nov 2020, ITU-R approved three technologies as IMT-2020. The technologies approved can be found in Annex of 
+                <a target=_blank href="https://www.itu.int/rec/R-REC-M.2150/en" > ITU-R Recommendation M.2150 </a>
+          <ul>
+<li>  Annex 1 : 3GPP 5G SRIT - LTE+NR Rel 15 and 16 </li>
+<li>  Annex 2 : 3GPP 5G RIT - NR Rel 15 and 16 </li>
+<li>  Annex 3 : 5Gi radio interface technology (by TSDSI) </li>
+      </ul>
         </p>
       
     </div>
