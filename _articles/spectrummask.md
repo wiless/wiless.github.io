@@ -19,7 +19,8 @@ index: 10
 <div id="observablehq-p452_distkm-cbf3a84d"></div>
 <div id="observablehq-viewof-showNoise-cbf3a84d"></div>
 <div id="observablehq-plotMask-cbf3a84d"></div>
-<p>Credit: <a href="https://observablehq.com/@wiless/imt-station-emission-pattern">IMT Station Emission Pattern by ssk</a></p>
+<!-- 
+<p>Credit: <a href="https://observablehq.com/@wiless/imt-station-emission-pattern">IMT Station Emission Pattern by ssk</a></p> -->
 
 <script type="module">
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
