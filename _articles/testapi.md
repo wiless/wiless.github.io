@@ -43,7 +43,8 @@ index: 10
  
        document.getElementById("layout").appendChild(domobj);
  
-  window.module=Inspector;
+  window.Inspector=Inspector;
+  
    //  domobj=new Inspector.into(document.querySelector("#controls"))
      new Inspector(document.querySelector("#controls")).fulfilled(val)
 
