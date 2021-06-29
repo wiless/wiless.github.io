@@ -1,5 +1,5 @@
 ---
-layout: article
+layout: wide
 title: Test of observerable module
 summary: Test page to validate my observable notebook/modules here
 index: 10
