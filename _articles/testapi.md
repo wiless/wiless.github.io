@@ -21,7 +21,7 @@ index: 10
   
   </div>
 <script>
- var module;
+ // var module;
  </script>
 
 <script type="module">
