@@ -31,6 +31,6 @@ index: 10
                 grid: true, marks: [Plot.line(val, { x: d3.range(100), y: val })]
         }
         var domobj = Plot.plot(options)
-        document.getElementByID("layout").appendChild(domobj);
+        document.getElementById("layout").appendChild(domobj);
 
 </script>
