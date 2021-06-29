@@ -42,7 +42,7 @@ index: 10
  
  
    //  domobj=new Inspector.into(document.querySelector("#controls"))
-     new Inspector(document.querySelector("controls")).fulfilled(Gain)
+     new Inspector(document.querySelector("#controls")).fulfilled(Gain)
 
  
  //    document.getElementById("controls").appendChild(val);
