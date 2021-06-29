@@ -7,7 +7,16 @@ index: 10
 --- 
     
 # What to find here 
+ 
+
+## Plot
+
+  <div id="layout">
   
+  
+  </div>
+
+
 <script type="module">
 
         import * as Plot from "https://cdn.skypack.dev/@observablehq/plot@0.1";
@@ -24,9 +33,3 @@ index: 10
         document.getElementByID("layout").appendChild(domobj);
 
 </script>
-## Plot
-
-  <div id="layout">
-  
-  
-  </div>
