@@ -1,8 +1,9 @@
 ---
-layout: wide
+layout: article
 title: Test of observerable module
 summary: Test page to validate my observable notebook/modules here
-index: 10 
+index: 10
+
 --- 
 
 <!--  img: /imgs/<imagefilename.jpg> -->
