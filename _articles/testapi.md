@@ -1,7 +1,7 @@
 ---
 layout: wide
-title: <title of the article>
-summary: <summary of the article>
+title: Test of observerable module
+summary: Test page to validate my observable notebook/modules here
 index: 10 
 <!-- img: /imgs/<imagefilename.jpg> -->
 --- 
