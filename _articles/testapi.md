@@ -19,7 +19,9 @@ index: 10
   
   
   </div>
-
+<script>
+ var module;
+ </script>
 
 <script type="module">
         import { Inspector } from "https://unpkg.com/@observablehq/inspector?module";
@@ -40,9 +42,9 @@ index: 10
  
        document.getElementById("layout").appendChild(domobj);
  
- 
+  window.module=Inspector;
    //  domobj=new Inspector.into(document.querySelector("#controls"))
-     new Inspector(document.querySelector("#controls")).fulfilled(Gain)
+     new Inspector(document.querySelector("#controls")).fulfilled(val)
 
  
  //    document.getElementById("controls").appendChild(val);
