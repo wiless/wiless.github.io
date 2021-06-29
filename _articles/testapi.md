@@ -6,7 +6,7 @@ index: 10
 % img: /imgs/<imagefilename.jpg>
 --- 
     
-# 
+# What to find here 
   
 <script type="module">
 
@@ -24,6 +24,7 @@ index: 10
         document.getElementByID("layout").appendChild(domobj);
 
 </script>
+## Plot
 
   <div id="layout">
   
