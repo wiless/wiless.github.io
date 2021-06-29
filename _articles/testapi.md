@@ -5,6 +5,7 @@ summary: Test page to validate my observable notebook/modules here
 index: 10
 
 --- 
+ <link crossorigin rel="stylesheet" href="https://unpkg.com/@observablehq/inspector@3.2.2/dist/inspector.css">
 
 <!--  img: /imgs/<imagefilename.jpg> -->
 # What to find here 
