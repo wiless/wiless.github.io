@@ -6,8 +6,9 @@ index: 10
 
 --- 
 <link crossorigin rel="stylesheet" href="https://unpkg.com/@observablehq/inspector@3.2.2/dist/inspector.css">
-<script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.1"></script>
+
 <!--  img: /imgs/<imagefilename.jpg> -->
 # What to find here 
  
