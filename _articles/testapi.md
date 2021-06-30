@@ -17,7 +17,7 @@ index: 10
 
 ## Plot
 
-<div style="display:flex">
+<div style="display:block">
   <div id="controls">  </div>  
  <div id="layout">   </div>
  <div>
