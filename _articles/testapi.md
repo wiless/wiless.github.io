@@ -6,9 +6,8 @@ index: 10
 
 --- 
  <link crossorigin rel="stylesheet" href="https://unpkg.com/@observablehq/inspector@3.2.2/dist/inspector.css">
-<script src="https://cdn.jsdelivr.net/npm/d3@6"></script>
 <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.1"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 <!--  img: /imgs/<imagefilename.jpg> -->
 # What to find here 
  
@@ -27,9 +26,9 @@ index: 10
 <script type="module">
         import { Inspector } from "https://unpkg.com/@observablehq/inspector?module";
 
-<!--         import * as Plot from "https://cdn.skypack.dev/@observablehq/plot@0.1";
+        import * as Plot from "https://cdn.skypack.dev/@observablehq/plot@0.1";
         import * as d3 from "https://cdn.skypack.dev/d3@7";
- -->
+
         import * as units from "https://api.observablehq.com/@wiless/units.js?v=3";
         console.log(units)
  
