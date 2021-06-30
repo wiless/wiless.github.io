@@ -6,7 +6,7 @@ index: 10
 
 --- 
 <link crossorigin rel="stylesheet" href="https://unpkg.com/@observablehq/inspector@3.2.2/dist/inspector.css">
-<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3@6"></script>
 <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.1">
 
  var val = Array.from({ length: 100 }, (_, i) => Math.sin(2 * Math.PI * i / 100
