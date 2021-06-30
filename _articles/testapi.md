@@ -13,13 +13,11 @@ index: 10
 
 ## Plot
 
-  <div id="controls">
-  </div>
+<div style="display:flex">
+  <div id="controls">  </div>  
+ <div id="layout">   </div>
+ <div>
   
- <div id="layout">
-  
-  
-  </div>
 <script>
  // var module;
  </script>
