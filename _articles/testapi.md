@@ -17,12 +17,16 @@ index: 10
 
 ## Plot
 
-<div style="display:block">
+<button id="runme"> Click Me</>
+<div style="display:block"> 
   <div id="controls">  </div>  
  <div id="layout">   </div>
  <div>
   
 <script>
+ 
+ document.getElementById("runme").onclick=()=>{
+ 
  // var module;
   var bslocs;
  d3.json("https://wilessapi.appspot.com/geom/hexgrid").then(d=>bslocs=d);
@@ -33,7 +37,7 @@ index: 10
   ]
 });
    document.getElementById("layout").appendChild(el);
- 
+ }
  </script>
 
 <script type="module">
