@@ -24,7 +24,7 @@ index: 10
   
 <script>
  // var module;
-  var bsloc=d3.json("https://wilessapi.appspot.com/geom/hexgrid");
+  var bslocs=d3.json("https://wilessapi.appspot.com/geom/hexgrid");
   var el=Plot.plot({
   marks: [    
     Plot.dot(bslocs, { x: "X", y: "Y" })    
