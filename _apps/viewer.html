@@ -121,44 +121,22 @@ var globalcounter=0;
         // SIM_InH_configA.json
         fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/ITU_InH_configB.json").then(d => d.json()).then(
 		d=> {//console.log(d); 
-			
-			//
-		
-            // use when want to append child 
-            //const root = document.createElement("DIV");
-// 	    root=document.getElementById("itu");
-//             var inspector = new Inspector(root).fulfilled(d);
-//             const element = root.firstChild;
-//             element.remove();
-//             element.value = value; // for viewof
-
-        
-            // console.log("Value of the slider is ", myslider.value)
-            // data = Array.from(data, d3.randomInt(10, 20))
-             new Inspector(document.querySelector("#itu")).fulfilled(d)
-
-            // var domobj = inspect(data);
-//             console.log("Global value found", Range);
-            // document.getElementById("playground").appendChild(domobj);
-        
-
-			
-			//
-			
-			
-			slsinfo[globalcounter].itu=d;
-		//	createJSONCard("itu",d);
-		}
-	);
+		        new Inspector(document.querySelector("#itu")).fulfilled(d)
+ 			slsinfo[globalcounter].itu=d;
+			//createJSONCard("itu",d);
+		});
         fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/3GPP_InH_configB.json").then(d => d.json()).then(
 		d=> {//console.log(d); 
 			slsinfo[globalcounter].nr=d;
-			createJSONCard("nr",d);});
+			new Inspector(document.querySelector("#nr")).fulfilled(d);
+			//createJSONCard("nr",d);
+		});
         fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/SIM_InH_configB.json").then(d => d.json()).then(
 		d=> {//console.log(d); 
+			new Inspector(document.querySelector("#sim")).fulfilled(d);
 			slsinfo[globalcounter].sim=d;
-			createJSONCard("sim",d);});
-      
+			//createJSONCard("sim",d);
+		});      
     }
     
     
