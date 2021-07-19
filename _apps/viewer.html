@@ -125,6 +125,7 @@ var globalcounter=0;
 			  { 
 		 	   var obj=JSON.parse(d);
 			   new Inspector(document.querySelector("#nr")).fulfilled(obj);
+		 	   createJSONCard("nr",obj);
 			  });			 
         }); 
 		 document.getElementById('sim-file').addEventListener('change', event => {	
@@ -134,6 +135,7 @@ var globalcounter=0;
 			  { 
 		 	   var obj=JSON.parse(d);
 			   new Inspector(document.querySelector("#sim")).fulfilled(obj);
+		 	   createJSONCard("sim",obj);
 			  });			 
         }); 
 	
@@ -144,6 +146,7 @@ var globalcounter=0;
 			  { 
 		 	   var obj=JSON.parse(d);
 			   new Inspector(document.querySelector("#itu")).fulfilled(obj);
+		 	  createJSONCard("itu",obj);
 			  });			 
         }); 
 	
