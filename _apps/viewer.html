@@ -38,6 +38,8 @@ title: API logger
 <div class="row">
    
     <div class="col-sm-4">
+	<div class="ui input" id="itu-file">  <input type="file" placeholder="ITU Configuration"> </div>
+	
         <div id="itu" >
             ITU Config Files
           </div>
@@ -111,6 +113,30 @@ var globalcounter=0;
       const formatter = new JSONFormatter(json,1,JFoptions);
       card.appendChild(formatter.render());     
     }
+	
+	//document.getElementById("itu-file").onChange
+	 document.getElementById('itu-file').addEventListener('change', event => {
+	  
+         
+          //for (const file of event.target.files) {
+ 	  var file=event.target.files[0];		  
+	
+          //var d=event.target.files
+	  
+	 file.text().then(d => 
+			  new Inspector(document.querySelector("#itu")).fulfilled(d)	           
+// 			  document.getElementById("drop_zone").innerText = d
+			 );
+		  
+//             const li = document.createElement('li');
+//             const name = file.name ? file.name : 'NOT SUPPORTED';
+//             const type = file.type ? file.type : 'NOT SUPPORTED';
+//             const size = file.size ? file.size : 'NOT SUPPORTED';
+//             li.textContent = `name: ${name}, type: ${type}, size: ${size}`;
+//             output.appendChild(li);
+//           }
+        }); 
+	
     
     function loadSLSConfigs(){
 	    globalcounter++;    
