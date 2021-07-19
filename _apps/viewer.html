@@ -3,6 +3,10 @@ layout: wide
 title: API logger
 ---
 
+  <script src="https://unpkg.com/@observablehq/inspector/dist/inspector.js" crossorigin></script>
+  <link crossorigin rel="stylesheet" href="https://unpkg.com/@observablehq/inspector@3.2.2/dist/inspector.css">
+
+
 <link href="/static/jsoneditor.css" rel="stylesheet" type="text/css">
 <script src="/static/jsoneditor.js"></script>
 <script async defer src="/static/json-formatter.umd.js" charset="UTF-8"></script>
@@ -108,8 +112,35 @@ var globalcounter=0;
         // SIM_InH_configA.json
         fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/ITU_InH_configB.json").then(d => d.json()).then(
 		d=> {//console.log(d); 
+			
+			//
+		
+            // use when want to append child 
+            //const root = document.createElement("DIV");
+// 	    root=document.getElementById("itu");
+//             var inspector = new Inspector(root).fulfilled(d);
+//             const element = root.firstChild;
+//             element.remove();
+//             element.value = value; // for viewof
+
+        
+            // console.log("Value of the slider is ", myslider.value)
+            // data = Array.from(data, d3.randomInt(10, 20))
+             new Inspector(document.querySelector("#itu")).fulfilled(d)
+
+            // var domobj = inspect(data);
+//             console.log("Global value found", Range);
+            // document.getElementById("playground").appendChild(domobj);
+        
+
+			
+			//
+			
+			
 			slsinfo[globalcounter].itu=d;
-			createJSONCard("itu",d);});
+		//	createJSONCard("itu",d);
+		}
+	);
         fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/3GPP_InH_configB.json").then(d => d.json()).then(
 		d=> {//console.log(d); 
 			slsinfo[globalcounter].nr=d;
