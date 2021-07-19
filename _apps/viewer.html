@@ -117,7 +117,7 @@ var globalcounter=0;
 	 document.getElementById('itu-file').addEventListener('change', event => {	
          var file=event.target.files[0];		  
 	 file.text().then(d => 
-			  const obj=JSON.parse(d);
+			  var obj=JSON.parse(d);
 			  new Inspector(document.querySelector("#itu")).fulfilled(obj);	           
 			 );
 		  
