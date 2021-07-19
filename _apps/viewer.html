@@ -72,11 +72,11 @@ title: API logger
 </div>
 
  <script type="module">
-
         var data = [1, 5, 52, 123];
         // const domContainer = document.querySelector('#like_button_container');
         import { Inspector } from "https://unpkg.com/@observablehq/inspector?module";
-        new Inspector(document.querySelector("#itu")).fulfilled(data)
+	window.Inspector=Inspector;
+        
 
 </script>
 
