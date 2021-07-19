@@ -38,18 +38,22 @@ title: API logger
 <div class="row">
    
     <div class="col-sm-4">
-	<div class="ui input" id="itu-file">  <input class="ui blue" type="file" placeholder="ITU Configuration"> </div>
+	<div class="ui input button" id="itu-file">  <input class="ui blue" type="file" placeholder="ITU Configuration"> </div>
 	
         <div id="itu" >
             ITU Config Files
           </div>
     </div>
     <div class="col-sm-4">
+	  <div class="ui input button" id="nr-file">  <input class="ui blue" type="file" placeholder="ITU Configuration"> </div>
+  
          <div id="nr" >
             NR Config Files
           </div>
     </div>
     <div class="col-sm-4">
+         <div class="ui input button" id="sim-file">  <input class="ui blue" type="file" placeholder="SIM Configuration"> </div>
+
          <div id="sim" >
             SIM Config Files
           </div>
@@ -113,6 +117,25 @@ var globalcounter=0;
       const formatter = new JSONFormatter(json,1,JFoptions);
       card.appendChild(formatter.render());     
     }
+	
+	 document.getElementById('nr-file').addEventListener('change', event => {	
+         var file=event.target.files[0];		  
+		 
+	 file.text().then(d => 
+			  { 
+		 	   var obj=JSON.parse(d);
+			   new Inspector(document.querySelector("#nr")).fulfilled(obj);
+			  });			 
+        }); 
+		 document.getElementById('sim-file').addEventListener('change', event => {	
+         var file=event.target.files[0];		  
+		 
+	 file.text().then(d => 
+			  { 
+		 	   var obj=JSON.parse(d);
+			   new Inspector(document.querySelector("#sim")).fulfilled(obj);
+			  });			 
+        }); 
 	
 	 document.getElementById('itu-file').addEventListener('change', event => {	
          var file=event.target.files[0];		  
