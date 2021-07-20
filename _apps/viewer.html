@@ -236,23 +236,28 @@ const registerServiceWorker = async () => {
             document.querySelector('#kind').textContent = 'installing';
         } else if (registration.waiting) {
             serviceWorker = registration.waiting;
+		  logState(serviceWorker.state);
             document.querySelector('#kind').textContent = 'waiting';
         } else if (registration.active) {
             serviceWorker = registration.active;
+		  logState(serviceWorker.state);
             document.querySelector('#kind').textContent = 'active';
         }else if (registration.installed) {
             serviceWorker = registration.installed;
+		  logState(serviceWorker.state);
             document.querySelector('#kind').textContent = 'installed';
         }else if (registration.activating) {
+		  logState(serviceWorker.state);
             serviceWorker = registration.activating;
             document.querySelector('#kind').textContent = 'activating';
         }else if (registration.activated) {
+		  logState(serviceWorker.state);
             serviceWorker = registration.activated;
             document.querySelector('#kind').textContent = 'activated';
         }
 	    
         if (serviceWorker) {
-            logState(serviceWorker.state);
+          
             serviceWorker.addEventListener('statechange', function (e) {
 //                  logState(e.target.state);
             });
