@@ -196,8 +196,51 @@ var globalcounter=0;
         });
 
  
+	
+
+// I added a function that can be used to register a service worker.
+const registerServiceWorker = async () => {
+    console.log("Registering service.js")
+    const swRegistration = await navigator.serviceWorker.register('service.js'); //notice the file name
+    console.log("..done")
+    return swRegistration;
+}
+
+const requestNotificationPermission = async () => {
+    const permission = await window.Notification.requestPermission();
+    // value of permission can be 'granted', 'default', 'denied'
+    // granted: user has accepted the request
+    // default: user has dismissed the notification permission popup by clicking on x
+    // denied: user has denied the request.
+    if (permission !== 'granted') {
+        throw new Error('Permission not granted for Notification');
+    }	
+}
+
+const EnablePushNotification = async () => { //notice I changed main to async function so that I can use await for registerServiceWorker
+    if (!('PushManager' in window)) {
+        throw new Error('No Push API Support!')
+    } else {
+        console.log("client.js: Push API supported !!")
+    }
+	
+    if (!('serviceWorker' in navigator)) {
+        throw new Error('No Service Worker support!')
+    } else {
+        console.log("api.js: Service Worker supported !!")
+    }
+
+
+    const swRegistration = await registerServiceWorker();
+    const permission = await requestNotificationPermission();
+    
+    // showLocalNotification('This is title', 'this is the message', swRegistration);
+}
+
+	
 function runSLS(){
 console.log("Trying to run SLS ", slsinfo[globalcounter]);
+	EnablePushNotification();
 // 	slsinfo(globalcounter)={itu:{},nr:{},sim:{}};	
 //wiless.APIcalls("sls",slsinfo[globalcounter]).then(d=>console.log("Got this",d));	
 	wiless.APIcalls("submitjob",slsinfo[globalcounter]).then(d=>console.log("Got this",d));	
