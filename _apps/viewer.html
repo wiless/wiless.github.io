@@ -300,8 +300,9 @@ title: API logger
 
 
     function runSLS() {
-
-        EnablePushNotification();
+    console.log("Starting.. SLS and service notification");
+        await EnablePushNotification();
+        console.log("Completed.... SLS and service notification");
         console.log("Subscription ",subscription);
         var obj={...slsinfo[globalcounter],gcm:subscription};
         console.log("Trying to run SLS ", obj);
