@@ -228,7 +228,9 @@ const registerServiceWorker = async () => {
   var serviceWorker;
 	if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/static/service.js').then(function (registration) {
-      
+         
+	    document.querySelector('#kind').textContent = registration.;
+	    
         if (registration.installing) {
             serviceWorker = registration.installing;
             document.querySelector('#kind').textContent = 'installing';
@@ -238,11 +240,21 @@ const registerServiceWorker = async () => {
         } else if (registration.active) {
             serviceWorker = registration.active;
             document.querySelector('#kind').textContent = 'active';
+        }else if (registration.installed) {
+            serviceWorker = registration.installed;
+            document.querySelector('#kind').textContent = 'installed';
+        }else if (registration.activating) {
+            serviceWorker = registration.activating;
+            document.querySelector('#kind').textContent = 'activating';
+        }}else if (registration.activated) {
+            serviceWorker = registration.activated;
+            document.querySelector('#kind').textContent = 'activated';
         }
+	    
         if (serviceWorker) {
-            // logState(serviceWorker.state);
+            logState(serviceWorker.state);
             serviceWorker.addEventListener('statechange', function (e) {
-                // logState(e.target.state);
+//                  logState(e.target.state);
             });
         }
     }).catch (function (error) {
