@@ -16,7 +16,8 @@ function API() {
     .set("logout", { path: "/logout", method: "get" })
     .set("hexgrid", { path: "/geom/hexgrid", method: "get" })
     .set("gcr", { path: "/gcr", method: "get" })
-    .set("sls", { path: "/gcr", method: "post" })
+    .set("sls", { path: "/gcr/sls", method: "post" })
+    .set("submitjob", { path: "/submitjob", method: "post" })
     .set("google", { path: "/auth/google", method: "post" });
     
 
