@@ -94,6 +94,7 @@ title: API logger
 </script>
 
 <script>
+     var subscription;
     var globalcounter = 0;
     var slsinfo = {};
     const JFoptions = {
@@ -234,7 +235,7 @@ title: API logger
         navigator.serviceWorker.register('/static/service.js').then(function (registration) {
 
             //document.querySelector('#kind').textContent = registration;
-            var subscription;
+//             var subscription;
             if (registration.installing) {
                 serviceWorker = registration.installing;
                 document.querySelector('#kind').textContent += 'installing';
@@ -318,7 +319,8 @@ title: API logger
         EnablePushNotification();
         // 	slsinfo(globalcounter)={itu:{},nr:{},sim:{}};	
         //wiless.APIcalls("sls",slsinfo[globalcounter]).then(d=>console.log("Got this",d));	
-        wiless.APIcalls("submitjob", slsinfo[globalcounter]).then(d => console.log("Got this", d));
+//         {...slsinfo[1],gcm:"hello"}
+        wiless.APIcalls("submitjob", {...slsinfo[globalcounter],gcm:subscription}).then(d => console.log("Got this", d));
 
     }
 
