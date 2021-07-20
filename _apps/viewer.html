@@ -269,7 +269,19 @@ const registerServiceWorker = async () => {
             document.querySelector('#kind').textContent += 'activated';
         }
 	 
-	    
+	    registration.addEventListener('activate', async () => {
+     // This will be called only once when the service worker is activated.
+     console.log('service.js: Attempting on activate');
+
+//     try {
+//         const options = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" }
+//         const subscription = await self.registration.pushManager.subscribe(options)
+//         console.log(JSON.stringify(subscription))
+//     } catch (err) {
+//         console.log('Error', err)
+//     }	
+ }); 
+		    
 registration.addEventListener('activated', async () => {
     // This will be called only once when the service worker is activated.
     console.log('LOCAL activation ');
