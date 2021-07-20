@@ -298,6 +298,7 @@ title: API logger
     function runSLS() {
 
         EnablePushNotification();
+        console.log("Subscription ",subscription);
         var obj={...slsinfo[globalcounter],gcm:subscription};
         console.log("Trying to run SLS ", obj);
         // 	slsinfo(globalcounter)={itu:{},nr:{},sim:{}};	
