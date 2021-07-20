@@ -206,6 +206,10 @@ title: API logger
         document.querySelector('#states').appendChild(liElement);
     }
 
+// navigator.serviceWorker.getRegistrations().then(function(registrations) {
+//  for(let registration of registrations) {
+//   registration.unregister()
+// } })
 
 
     
@@ -301,16 +305,33 @@ title: API logger
 
     function runSLS() {
     console.log("Starting.. SLS and service notification");
-         EnablePushNotification();
-        console.log("Completed.... SLS and service notification");
-        console.log("Subscription ",subscription);
+         //EnablePushNotification();
+        
+         if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/static/service.js').then(registration=>{
+                   const options = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" };
+                    registration.pushManager.subscribe(options).then(d =>{
+                    subscription=d;console.log(d);
+                    console.log("Received ", JSON.stringify(subscription));
+                    }
+                    );                       
+                console.log("Completed.... SLS and service notification");    
+                
+                console.log("Subscription ",subscription);
         var obj={...slsinfo[globalcounter],gcm:subscription};
         console.log("Trying to run SLS ", obj);
-        // 	slsinfo(globalcounter)={itu:{},nr:{},sim:{}};	
-        //wiless.APIcalls("sls",slsinfo[globalcounter]).then(d=>console.log("Got this",d));	
-//         {...slsinfo[1],gcm:"hello"}
         wiless.APIcalls("submitjob", obj).then(d => console.log("Got this", d));
-
+                
+            });
+         }else{
+        console.log("Subscription ",subscription);
+        var obj=slsinfo[globalcounter];
+        console.log("Trying to run SLS ", obj);
+        wiless.APIcalls("submitjob", obj).then(d => console.log("Got this", d));
+            }
+            
+        
+        
     }
 
     function helloclick() {
