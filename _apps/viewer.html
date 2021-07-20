@@ -33,6 +33,9 @@ title: API logger
 <div class="ui divider"></div>
  <button class="ui button float teal right" type="button" onclick="loadSLSConfigs()">Load Configs</button>        
 <button class="ui button float green right" type="button" onclick="runSLS()">Run SLS</button>        
+  <ol id="states"></ol>
+  <div id="kind"></div>
+
 <div class="ui divider red"></div>
 
 <div class="row">
@@ -195,14 +198,60 @@ var globalcounter=0;
             fr.readAsText(this.files[0]); 
         });
 
- 
+  function logState(state) {
+      var liElement = document.createElement('li');
+      liElement.textContent = state;
+      document.querySelector('#states').appendChild(liElement);
+    }
+
 	
 
 // I added a function that can be used to register a service worker.
 const registerServiceWorker = async () => {
+	
     console.log("Registering service.js")
-    const swRegistration = await navigator.serviceWorker.register('/static/service.js'); //notice the file name
-    console.log("..done")
+    
+//   const swRegistration = await navigator.serviceWorker.register('/static/service.js'); //notice the file name
+//     console.log("..done")		
+// self.addEventListener('activate', async () => {
+//     // This will be called only once when the service worker is activated.
+//     console.log('service.js: Attempting on activate');
+
+
+//     try {
+//         const options = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" }
+//         const subscription = await self.registration.pushManager.subscribe(options)
+//         console.log(JSON.stringify(subscription))
+//     } catch (err) {
+//         console.log('Error', err)
+//     }	
+// })
+  var serviceWorker;
+	if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/static/service.js',{scope: './' }).then(function (registration) {
+      
+        if (registration.installing) {
+            serviceWorker = registration.installing;
+            document.querySelector('#kind').textContent = 'installing';
+        } else if (registration.waiting) {
+            serviceWorker = registration.waiting;
+            document.querySelector('#kind').textContent = 'waiting';
+        } else if (registration.active) {
+            serviceWorker = registration.active;
+            document.querySelector('#kind').textContent = 'active';
+        }
+        if (serviceWorker) {
+            // logState(serviceWorker.state);
+            serviceWorker.addEventListener('statechange', function (e) {
+                // logState(e.target.state);
+            });
+        }
+    }).catch (function (error) {
+        // Something went wrong during registration. The service-worker.js file
+        // might be unavailable or contain a syntax error.
+    });
+} 
+var swRegistration=serviceWorker;
     return swRegistration;
 }
 
@@ -221,13 +270,13 @@ const EnablePushNotification = async () => { //notice I changed main to async fu
     if (!('PushManager' in window)) {
         throw new Error('No Push API Support!')
     } else {
-        console.log("client.js: Push API supported !!")
+        console.log("Push API supported !!")
     }
 	
     if (!('serviceWorker' in navigator)) {
         throw new Error('No Service Worker support!')
     } else {
-        console.log("api.js: Service Worker supported !!")
+        console.log("Service Worker supported !!")
     }
 
 
