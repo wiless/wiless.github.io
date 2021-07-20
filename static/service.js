@@ -30,7 +30,20 @@ self.addEventListener('push', function (event) {
 
 const showLocalNotification = (title, body, swRegistration) => {
     // actions: [{ action: "button", title: "<" }, { action: "right", title: ">" }],
-
+    self.clients.matchAll({type:"window"}).then(function(clientList) {        
+        
+  // do something with your clients list
+         for (var i = 0; i < clientList.length; i++) {
+      var client = clientList[i];
+      if (client.url == '/' && 'focus' in client) {
+        client.focus();
+        break;
+      }
+    }
+        
+        
+});
+    
     const options = {
         body: body,
         // here you can add more properties like icon, image, vibrate, etc.
