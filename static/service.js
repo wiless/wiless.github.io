@@ -1,19 +1,19 @@
 console.log('service.js: Hello from service worker')
 
-self.addEventListener('activate', async () => {
-    // This will be called only once when the service worker is activated.
-    console.log('service.js: Attempting on activate');
+// self.addEventListener('activate', async () => {
+//     // This will be called only once when the service worker is activated.
+//     console.log('service.js: Attempting on activate');
 
 
-    try {
-        const options = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" }
-        const subscription = await self.registration.pushManager.subscribe(options)
-        console.log(JSON.stringify(subscription))
-    } catch (err) {
-        console.log('Error', err)
-    }
+//     try {
+//         const options = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" }
+//         const subscription = await self.registration.pushManager.subscribe(options)
+//         console.log(JSON.stringify(subscription))
+//     } catch (err) {
+//         console.log('Error', err)
+//     }
 
-})
+// })
 
 
 self.addEventListener('push', function (event) {
