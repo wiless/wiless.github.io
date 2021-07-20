@@ -251,7 +251,7 @@ const registerServiceWorker = async () => {
    	     logState(serviceWorker.state);
 		console.log("Active");
 		const options = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" };
-        	const subscription = await self.registration.pushManager.subscribe(options);
+        	registration.pushManager.subscribe(options).then(d=>console.log(d));
         	console.log("Received ",JSON.stringify(subscription));
               document.querySelector('#kind').textContent += 'active';
         }else if (registration.installed) {
@@ -271,9 +271,9 @@ const registerServiceWorker = async () => {
             document.querySelector('#kind').textContent += 'activated';
         }
 	 
-	    registration.addEventListener('activate', async () => {
+// 	    registration.addEventListener('activate', async () => {
      // This will be called only once when the service worker is activated.
-     console.log('service.js: Attempting on activate');
+//      console.log('service.js: Attempting on activate');
 
 //     try {
 //         const options = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" }
@@ -282,38 +282,21 @@ const registerServiceWorker = async () => {
 //     } catch (err) {
 //         console.log('Error', err)
 //     }	
- }); 
+//  }); 
 		    
-registration.addEventListener('activated', async () => {
-    // This will be called only once when the service worker is activated.
-    console.log('LOCAL activation ');
-    try {
-        const options = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" }
-        const subscription = await self.registration.pushManager.subscribe(options)
-        console.log("Received ",JSON.stringify(subscription));
-    } catch (err) {
-        console.log('Error', err)
-    }
-
-})
-	    
-         if (serviceWorker) {
-          
-             serviceWorker.addEventListener('statechange', function (e){
-		     console.log("STATE CHANGED",e);                  });
-		 
-         }
-    }).catch (function (error) {
-        // Something went wrong during registration. The service-worker.js file
-        // might be unavailable or contain a syntax error.
-    });
-} 
-	
-	
-// self.addEventListener('activate', async () => {
+// registration.addEventListener('activated', async () => {
 //     // This will be called only once when the service worker is activated.
-//     console.log('service.js: Attempting on activate');
+//     console.log('LOCAL activation ');
+//     try {
+//         const options = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" }
+//         const subscription = await self.registration.pushManager.subscribe(options)
+//         console.log("Received ",JSON.stringify(subscription));
+//     } catch (err) {
+//         console.log('Error', err)
+//     }
 
+// })
+	    
 
 //     try {
 //         const options = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" }
@@ -323,8 +306,7 @@ registration.addEventListener('activated', async () => {
 //         console.log('Error', err)
 //     }
 
-// }) 
-var swRegistration=serviceWorker;
+    var swRegistration=serviceWorker;
     return swRegistration;
 }
 
