@@ -199,7 +199,9 @@ var globalcounter=0;
 function runSLS(){
 console.log("Trying to run SLS ", slsinfo[globalcounter]);
 // 	slsinfo(globalcounter)={itu:{},nr:{},sim:{}};	
-wiless.APIcalls("sls",slsinfo[globalcounter]).then(d=>console.log("Got this",d));	
+//wiless.APIcalls("sls",slsinfo[globalcounter]).then(d=>console.log("Got this",d));	
+	wiless.APIcalls("submitjob",slsinfo[globalcounter]).then(d=>console.log("Got this",d));	
+	
 }
     
     function helloclick() {
