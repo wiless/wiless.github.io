@@ -217,7 +217,6 @@ const registerServiceWorker = async () => {
 //     // This will be called only once when the service worker is activated.
 //     console.log('service.js: Attempting on activate');
 
-
 //     try {
 //         const options = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" }
 //         const subscription = await self.registration.pushManager.subscribe(options)
@@ -228,7 +227,7 @@ const registerServiceWorker = async () => {
 // })
   var serviceWorker;
 	if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/static/service.js',{scope: './' }).then(function (registration) {
+    navigator.serviceWorker.register('/static/service.js').then(function (registration) {
       
         if (registration.installing) {
             serviceWorker = registration.installing;
