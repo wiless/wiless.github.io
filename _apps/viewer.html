@@ -208,34 +208,14 @@ title: API logger
 
 
 
-    // I added a function that can be used to register a service worker.
-    const registerServiceWorker = async () => {
-
-        console.log("Registering service.js")
-
-        //   const swRegistration = await navigator.serviceWorker.register('/static/service.js'); //notice the file name
-        //     console.log("..done")		
-        // self.addEventListener('activate', async () => {
-        //     // This will be called only once when the service worker is activated.
-        //     console.log('service.js: Attempting on activate');
-
-        //     try {
-        //         const options = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" }
-        //         const subscription = await self.registration.pushManager.subscribe(options)
-        //         console.log(JSON.stringify(subscription))
-        //     } catch (err) {
-        //         console.log('Error', err)
-        //     }	
-        // })
-
+    
+    function registerServiceWorker ()  {
+        console.log("Registering service.js");
         document.querySelector('#controlled').textContent = navigator.serviceWorker.controller ? 'SERVICE worker has CONTROL' : 'SERVICE worker has NO CONTROL';
-
         var serviceWorker;
-        // if ('serviceWorker' in navigator) {
+         if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/static/service.js').then(function (registration) {
 
-            //document.querySelector('#kind').textContent = registration;
-//             var subscription;
             if (registration.installing) {
                 serviceWorker = registration.installing;
                 document.querySelector('#kind').textContent += 'installing';
@@ -278,7 +258,7 @@ title: API logger
             var swRegistration = serviceWorker;
             return swRegistration;
         });
-        // }
+        }
 
 
     };
