@@ -250,6 +250,7 @@ const registerServiceWorker = async () => {
             serviceWorker = registration.active;
 		  logState(serviceWorker.state);
 		console.log("Active");
+		
             document.querySelector('#kind').textContent += 'active';
         }else if (registration.installed) {
             serviceWorker = registration.installed;
@@ -269,7 +270,7 @@ const registerServiceWorker = async () => {
         }
 	 
 	    
-registration.addEventListener('activate', async () => {
+registration.addEventListener('activated', async () => {
     // This will be called only once when the service worker is activated.
     console.log('LOCAL activation ');
     try {
@@ -282,12 +283,12 @@ registration.addEventListener('activate', async () => {
 
 })
 	    
-//         if (serviceWorker) {
+         if (serviceWorker) {
           
-//             serviceWorker.addEventListener('statechange', function (e) {
-// //                  logState(e.target.state);
-//             });
-//         }
+             serviceWorker.addEventListener('statechange', function (e){
+		     console.log("STATE CHANGED",e);                  });
+		 
+         }
     }).catch (function (error) {
         // Something went wrong during registration. The service-worker.js file
         // might be unavailable or contain a syntax error.
