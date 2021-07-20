@@ -293,7 +293,7 @@ title: API logger
         }
     }
 
-    const EnablePushNotification = async () => { //notice I changed main to async function so that I can use await for registerServiceWorker
+    func  EnablePushNotification()  {         
         if (!('PushManager' in window)) {
             throw new Error('No Push API Support!')
         } else {
@@ -315,12 +315,14 @@ title: API logger
 
 
     function runSLS() {
-        console.log("Trying to run SLS ", slsinfo[globalcounter]);
+
         EnablePushNotification();
+        var obj={...slsinfo[globalcounter],gcm:subscription};
+        console.log("Trying to run SLS ", obj);
         // 	slsinfo(globalcounter)={itu:{},nr:{},sim:{}};	
         //wiless.APIcalls("sls",slsinfo[globalcounter]).then(d=>console.log("Got this",d));	
 //         {...slsinfo[1],gcm:"hello"}
-        wiless.APIcalls("submitjob", {...slsinfo[globalcounter],gcm:subscription}).then(d => console.log("Got this", d));
+        wiless.APIcalls("submitjob", obj).then(d => console.log("Got this", d));
 
     }
 
