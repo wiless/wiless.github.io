@@ -201,7 +201,7 @@ var globalcounter=0;
 // I added a function that can be used to register a service worker.
 const registerServiceWorker = async () => {
     console.log("Registering service.js")
-    const swRegistration = await navigator.serviceWorker.register('service.js'); //notice the file name
+    const swRegistration = await navigator.serviceWorker.register('/static/service.js'); //notice the file name
     console.log("..done")
     return swRegistration;
 }
