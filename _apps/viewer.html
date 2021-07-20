@@ -288,9 +288,9 @@ title: API logger
         }
 
 
-        registerServiceWorker();
+        swRegistration=registerServiceWorker();
         requestNotificationPermission();
-        window.swRegistration = swRegistration;
+//         window.swRegistration = swRegistration;
         // showLocalNotification('This is title', 'this is the message', swRegistration);
     }
 
