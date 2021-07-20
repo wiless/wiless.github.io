@@ -3,411 +3,377 @@ layout: wide
 title: API logger
 ---
 
-  <script src="https://unpkg.com/@observablehq/inspector/dist/inspector.js" crossorigin></script>
-  <link crossorigin rel="stylesheet" href="https://unpkg.com/@observablehq/inspector@3.2.2/dist/inspector.css">
+<script src="https://unpkg.com/@observablehq/inspector/dist/inspector.js" crossorigin></script>
+<link crossorigin rel="stylesheet" href="https://unpkg.com/@observablehq/inspector@3.2.2/dist/inspector.css">
 
 
 <link href="/static/jsoneditor.css" rel="stylesheet" type="text/css">
 <script src="/static/jsoneditor.js"></script>
 <script async defer src="/static/json-formatter.umd.js" charset="UTF-8"></script>
 <style>
-.json-formatter-row .json-formatter-string,
-.json-formatter-row .json-formatter-stringifiable{
-	color: teal;
-	white-space: normal;
-	word-wrap: break-word;
-	}
+    .json-formatter-row .json-formatter-string,
+    .json-formatter-row .json-formatter-stringifiable {
+        color: teal;
+        white-space: normal;
+        word-wrap: break-word;
+    }
 </style>
- 
 
 
-    
-  
-    <div class="card bg-primary text-white">
-        <div class="card-header">File Pick 
-            <input type="file" name="inputfile"  id="inputfile"> 
-        </div>
-        <div class="card-body bg-light text-dark" id="output"> </div>
-        
+
+
+
+<div class="card bg-primary text-white">
+    <div class="card-header">File Pick
+        <input type="file" name="inputfile" id="inputfile">
     </div>
-<div class="ui divider"></div>
- <button class="ui button float teal right" type="button" onclick="loadSLSConfigs()">Load Configs</button>        
-<button class="ui button float green right" type="button" onclick="runSLS()">Run SLS</button>        
-  <ol id="states"></ol>
-  <div id="kind"></div>
+    <div class="card-body bg-light text-dark" id="output"> </div>
 
-  <div id="controlled">
-  
+</div>
+<div class="ui divider"></div>
+<button class="ui button float teal right" type="button" onclick="loadSLSConfigs()">Load Configs</button>
+<button class="ui button float green right" type="button" onclick="runSLS()">Run SLS</button>
+<ol id="states"></ol>
+<div id="kind"></div>
+
+<div id="controlled">
+
 </div>
 
 <div class="ui divider red"></div>
 
 <div class="row">
-   
-    <div class="col-sm-4">
-	<div class="ui input" id="itu-file">  <input class="ui blue" type="file" placeholder="ITU Configuration"> </div>
-	
-        <div id="itu"   class="shadow p-3 mb-5 bg-white rounded" >
-            ITU Config Files
-          </div>
-    </div>
-    <div class="col-sm-4">
-	  <div class="ui input" id="nr-file">  <input class="ui blue" type="file" placeholder="ITU Configuration"> </div>
-  
-         <div id="nr" class="shadow p-3 mb-5 bg-white rounded"  >
-            NR Config Files
-          </div>
-    </div>
-    <div class="col-sm-4">
-         <div class="ui input " id="sim-file">  <input class="ui blue" type="file" placeholder="SIM Configuration"> </div>
 
-         <div id="sim" class="shadow p-3 mb-5 bg-white rounded" >
+    <div class="col-sm-4">
+        <div class="ui input" id="itu-file"> <input class="ui blue" type="file" placeholder="ITU Configuration"> </div>
+
+        <div id="itu" class="shadow p-3 mb-5 bg-white rounded">
+            ITU Config Files
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="ui input" id="nr-file"> <input class="ui blue" type="file" placeholder="ITU Configuration"> </div>
+
+        <div id="nr" class="shadow p-3 mb-5 bg-white rounded">
+            NR Config Files
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="ui input " id="sim-file"> <input class="ui blue" type="file" placeholder="SIM Configuration"> </div>
+
+        <div id="sim" class="shadow p-3 mb-5 bg-white rounded">
             SIM Config Files
-          </div>
+        </div>
     </div>
 </div>
 
-    <hr>
-  <button type="button" onclick="helloclick()">Click</button>  
+<hr>
+<button type="button" onclick="helloclick()">Click</button>
 <div class="row">
     <div class="col-sm-6">
-        <div id="APIresults" >
+        <div id="APIresults">
             API Output Responses
-          </div>
+        </div>
 
     </div>
     <div class="col-sm-6">
-    Output JSON Files
-         <div id="hexgrid" >
+        Output JSON Files
+        <div id="hexgrid">
             API Output Responses
-          </div>
+        </div>
     </div>
 </div>
 
- <script type="module">
-        var data = [1, 5, 52, 123];
-        // const domContainer = document.querySelector('#like_button_container');
-        import { Inspector } from "https://unpkg.com/@observablehq/inspector?module";
-	window.Inspector=Inspector;
-        
+<script type="module">
+    var data = [1, 5, 52, 123];
+    // const domContainer = document.querySelector('#like_button_container');
+    import { Inspector } from "https://unpkg.com/@observablehq/inspector?module";
+    window.Inspector = Inspector;
+
 
 </script>
 
 <script>
-var globalcounter=0;
-	 var slsinfo={};
-	const JFoptions=    {
-  hoverPreviewEnabled: true,
-  hoverPreviewArrayCount: 10,
-  hoverPreviewFieldCount: 2,
-  // theme: 'dark',
-  animateOpen: false,
-  animateClose: false,
-  useToJSON: true
-};
-    function createJSONCard(elid,json){
-	    
-      apiname=elid;
-      elem = document.getElementById(elid);
-      card=document.createElement("div");
-      elem.appendChild(card);
-      h3=document.createElement("h4");
-      h3.appendChild(document.createTextNode(globalcounter+": "+apiname));
-      btn=document.createElement("button");
-      btn.setAttribute("type","button");
-      btn.innerHTML=` <span aria-hidden="true">&times;</span>`;
-      btn.classList.add("close");
-      btn.onclick=function(e){e.target.parentElement.parentElement.remove();};
-      card.appendChild(btn);
-      card.appendChild(h3);      
-      card.classList.add("shadow","p-3","mb-5", "bg-white", "rounded");
-      const formatter = new JSONFormatter(json,1,JFoptions);
-      card.appendChild(formatter.render());     
+    var globalcounter = 0;
+    var slsinfo = {};
+    const JFoptions = {
+        hoverPreviewEnabled: true,
+        hoverPreviewArrayCount: 10,
+        hoverPreviewFieldCount: 2,
+        // theme: 'dark',
+        animateOpen: false,
+        animateClose: false,
+        useToJSON: true
+    };
+    function createJSONCard(elid, json) {
+
+        apiname = elid;
+        elem = document.getElementById(elid);
+        card = document.createElement("div");
+        elem.appendChild(card);
+        h3 = document.createElement("h4");
+        h3.appendChild(document.createTextNode(globalcounter + ": " + apiname));
+        btn = document.createElement("button");
+        btn.setAttribute("type", "button");
+        btn.innerHTML = ` <span aria-hidden="true">&times;</span>`;
+        btn.classList.add("close");
+        btn.onclick = function (e) { e.target.parentElement.parentElement.remove(); };
+        card.appendChild(btn);
+        card.appendChild(h3);
+        card.classList.add("shadow", "p-3", "mb-5", "bg-white", "rounded");
+        const formatter = new JSONFormatter(json, 1, JFoptions);
+        card.appendChild(formatter.render());
     }
-	
-	 document.getElementById('nr-file').addEventListener('change', event => {	
-         var file=event.target.files[0];		  
-		 
-	 file.text().then(d => 
-			  { 
-		 	   var obj=JSON.parse(d);
-			   new Inspector(document.querySelector("#nr")).fulfilled(obj);
-		 	   createJSONCard("nr",obj);
-			  });			 
-        }); 
-		 document.getElementById('sim-file').addEventListener('change', event => {	
-         var file=event.target.files[0];		  
-		 
-	 file.text().then(d => 
-			  { 
-		 	   var obj=JSON.parse(d);
-			   new Inspector(document.querySelector("#sim")).fulfilled(obj);
-		 	   createJSONCard("sim",obj);
-			  });			 
-        }); 
-	
-	 document.getElementById('itu-file').addEventListener('change', event => {	
-         var file=event.target.files[0];		  
-		 
-	 file.text().then(d => 
-			  { 
-		 	   var obj=JSON.parse(d);
-			   new Inspector(document.querySelector("#itu")).fulfilled(obj);
-		 	  createJSONCard("itu",obj);
-			  });			 
-        }); 
-	
-    
-    function loadSLSConfigs(){
-	    globalcounter++;    
-	
-	slsinfo[globalcounter]={itu:{},nr:{},sim:{}};
+
+    document.getElementById('nr-file').addEventListener('change', event => {
+        var file = event.target.files[0];
+
+        file.text().then(d => {
+            var obj = JSON.parse(d);
+            new Inspector(document.querySelector("#nr")).fulfilled(obj);
+            createJSONCard("nr", obj);
+        });
+    });
+    document.getElementById('sim-file').addEventListener('change', event => {
+        var file = event.target.files[0];
+
+        file.text().then(d => {
+            var obj = JSON.parse(d);
+            new Inspector(document.querySelector("#sim")).fulfilled(obj);
+            createJSONCard("sim", obj);
+        });
+    });
+
+    document.getElementById('itu-file').addEventListener('change', event => {
+        var file = event.target.files[0];
+
+        file.text().then(d => {
+            var obj = JSON.parse(d);
+            new Inspector(document.querySelector("#itu")).fulfilled(obj);
+            createJSONCard("itu", obj);
+        });
+    });
+
+
+    function loadSLSConfigs() {
+        globalcounter++;
+
+        slsinfo[globalcounter] = { itu: {}, nr: {}, sim: {} };
         // 3GPP_InH_configA.json 
         // ITU_InH_configA.json
         // SIM_InH_configA.json
         fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/ITU_InH_configB.json").then(d => d.json()).then(
-		d=> {//console.log(d); 
-		        new Inspector(document.querySelector("#itu")).fulfilled(d)
- 			slsinfo[globalcounter].itu=d;
-			//createJSONCard("itu",d);
-		});
+            d => {//console.log(d); 
+                new Inspector(document.querySelector("#itu")).fulfilled(d)
+                slsinfo[globalcounter].itu = d;
+                //createJSONCard("itu",d);
+            });
         fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/3GPP_InH_configB.json").then(d => d.json()).then(
-		d=> {//console.log(d); 
-			slsinfo[globalcounter].nr=d;
-			new Inspector(document.querySelector("#nr")).fulfilled(d);
-			//createJSONCard("nr",d);
-		});
+            d => {//console.log(d); 
+                slsinfo[globalcounter].nr = d;
+                new Inspector(document.querySelector("#nr")).fulfilled(d);
+                //createJSONCard("nr",d);
+            });
         fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/SIM_InH_configB.json").then(d => d.json()).then(
-		d=> {//console.log(d); 
-			new Inspector(document.querySelector("#sim")).fulfilled(d);
-			slsinfo[globalcounter].sim=d;
-			//createJSONCard("sim",d);
-		});      
+            d => {//console.log(d); 
+                new Inspector(document.querySelector("#sim")).fulfilled(d);
+                slsinfo[globalcounter].sim = d;
+                //createJSONCard("sim",d);
+            });
     }
-    
-    
-  document.getElementById('inputfile') 
-            .addEventListener('change', function() { 
-              
-            var fr=new FileReader(); 
-            fr.onload=function(){ 
-              el=document.getElementById('output') ;
-                
-                        // el.textContent=fr.result; 
-                        json=JSON.parse(fr.result);
 
-                        const editor = new JSONEditor(el, {mode:'view',modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds:25}, json);
 
-            }               
-            fr.readAsText(this.files[0]); 
+    document.getElementById('inputfile')
+        .addEventListener('change', function () {
+
+            var fr = new FileReader();
+            fr.onload = function () {
+                el = document.getElementById('output');
+
+                // el.textContent=fr.result; 
+                json = JSON.parse(fr.result);
+
+                const editor = new JSONEditor(el, { mode: 'view', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, json);
+
+            }
+            fr.readAsText(this.files[0]);
         });
 
-  function logState(state) {
-      var liElement = document.createElement('li');
-      liElement.textContent = state;
-      document.querySelector('#states').appendChild(liElement);
+    function logState(state) {
+        var liElement = document.createElement('li');
+        liElement.textContent = state;
+        document.querySelector('#states').appendChild(liElement);
     }
 
-	
 
-// I added a function that can be used to register a service worker.
-const registerServiceWorker = async () => {
-	
-    console.log("Registering service.js")
-    
-//   const swRegistration = await navigator.serviceWorker.register('/static/service.js'); //notice the file name
-//     console.log("..done")		
-// self.addEventListener('activate', async () => {
-//     // This will be called only once when the service worker is activated.
-//     console.log('service.js: Attempting on activate');
 
-//     try {
-//         const options = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" }
-//         const subscription = await self.registration.pushManager.subscribe(options)
-//         console.log(JSON.stringify(subscription))
-//     } catch (err) {
-//         console.log('Error', err)
-//     }	
-// })
-	
- document.querySelector('#controlled').textContent = navigator.serviceWorker.controller ? 'SERVICE worker has CONTROL' : 'SERVICE worker has NO CONTROL';
+    // I added a function that can be used to register a service worker.
+    const registerServiceWorker = async () => {
 
-  var serviceWorker;
-	if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/static/service.js').then(function (registration) {
-         
-	    //document.querySelector('#kind').textContent = registration;
-	    
-        if (registration.installing) {
-            serviceWorker = registration.installing;
-            document.querySelector('#kind').textContent += 'installing';
-        } else if (registration.waiting) {
-            serviceWorker = registration.waiting;
-		  logState(serviceWorker.state);
-            document.querySelector('#kind').textContent += 'waiting';
-		console.log("Waiting");
-        } else if (registration.active) {
-            serviceWorker = registration.active;
-   	     logState(serviceWorker.state);
-		console.log("Active");
-		const options = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" };
-        	registration.pushManager.subscribe(options).then(d=>console.log(d));
-        	console.log("Received ",JSON.stringify(subscription));
-              document.querySelector('#kind').textContent += 'active';
-        }else if (registration.installed) {
-            serviceWorker = registration.installed;
-		  logState(serviceWorker.state);
-		console.log("Installed");
-            document.querySelector('#kind').textContent += 'installed';
-        }else if (registration.activating) {
-		  logState(serviceWorker.state);
-		console.log("Activating");
-            serviceWorker = registration.activating;
-            document.querySelector('#kind').textContent += 'activating';
-        }else if (registration.activated) {
-		console.log("Activiated");
-		  logState(serviceWorker.state);
-            serviceWorker = registration.activated;
-            document.querySelector('#kind').textContent += 'activated';
+        console.log("Registering service.js")
+
+        //   const swRegistration = await navigator.serviceWorker.register('/static/service.js'); //notice the file name
+        //     console.log("..done")		
+        // self.addEventListener('activate', async () => {
+        //     // This will be called only once when the service worker is activated.
+        //     console.log('service.js: Attempting on activate');
+
+        //     try {
+        //         const options = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" }
+        //         const subscription = await self.registration.pushManager.subscribe(options)
+        //         console.log(JSON.stringify(subscription))
+        //     } catch (err) {
+        //         console.log('Error', err)
+        //     }	
+        // })
+
+        document.querySelector('#controlled').textContent = navigator.serviceWorker.controller ? 'SERVICE worker has CONTROL' : 'SERVICE worker has NO CONTROL';
+
+        var serviceWorker;
+        // if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/static/service.js').then(function (registration) {
+
+            //document.querySelector('#kind').textContent = registration;
+
+            if (registration.installing) {
+                serviceWorker = registration.installing;
+                document.querySelector('#kind').textContent += 'installing';
+            } else if (registration.waiting) {
+                serviceWorker = registration.waiting;
+                logState(serviceWorker.state);
+                document.querySelector('#kind').textContent += 'waiting';
+                console.log("Waiting");
+            } else if (registration.active) {
+                serviceWorker = registration.active;
+                logState(serviceWorker.state);
+                console.log("Active");
+                const options = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" };
+                registration.pushManager.subscribe(options).then(d => console.log(d));
+                console.log("Received ", JSON.stringify(subscription));
+                document.querySelector('#kind').textContent += 'active';
+            } else if (registration.installed) {
+                serviceWorker = registration.installed;
+                logState(serviceWorker.state);
+                console.log("Installed");
+                document.querySelector('#kind').textContent += 'installed';
+            } else if (registration.activating) {
+                logState(serviceWorker.state);
+                console.log("Activating");
+                serviceWorker = registration.activating;
+                document.querySelector('#kind').textContent += 'activating';
+            } else if (registration.activated) {
+                console.log("Activiated");
+                logState(serviceWorker.state);
+                serviceWorker = registration.activated;
+                document.querySelector('#kind').textContent += 'activated';
+            }
+
+
+            var swRegistration = serviceWorker;
+            return swRegistration;
+        });
+        // }
+
+
+    };
+    const requestNotificationPermission = async () => {
+        const permission = await window.Notification.requestPermission();
+        // value of permission can be 'granted', 'default', 'denied'
+        // granted: user has accepted the request
+        // default: user has dismissed the notification permission popup by clicking on x
+        // denied: user has denied the request.
+        if (permission !== 'granted') {
+            throw new Error('Permission not granted for Notification');
         }
-	 
-// 	    registration.addEventListener('activate', async () => {
-     // This will be called only once when the service worker is activated.
-//      console.log('service.js: Attempting on activate');
-
-//     try {
-//         const options = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" }
-//         const subscription = await self.registration.pushManager.subscribe(options)
-//         console.log(JSON.stringify(subscription))
-//     } catch (err) {
-//         console.log('Error', err)
-//     }	
-//  }); 
-		    
-// registration.addEventListener('activated', async () => {
-//     // This will be called only once when the service worker is activated.
-//     console.log('LOCAL activation ');
-//     try {
-//         const options = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" }
-//         const subscription = await self.registration.pushManager.subscribe(options)
-//         console.log("Received ",JSON.stringify(subscription));
-//     } catch (err) {
-//         console.log('Error', err)
-//     }
-
-// })
-	    
-
-//     try {
-//         const options = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" }
-//         const subscription = await self.registration.pushManager.subscribe(options)
-//         console.log(JSON.stringify(subscription))
-//     } catch (err) {
-//         console.log('Error', err)
-//     }
-
-    var swRegistration=serviceWorker;
-    return swRegistration;
-}
-
-const requestNotificationPermission = async () => {
-    const permission = await window.Notification.requestPermission();
-    // value of permission can be 'granted', 'default', 'denied'
-    // granted: user has accepted the request
-    // default: user has dismissed the notification permission popup by clicking on x
-    // denied: user has denied the request.
-    if (permission !== 'granted') {
-        throw new Error('Permission not granted for Notification');
-    }	
-}
-
-const EnablePushNotification = async () => { //notice I changed main to async function so that I can use await for registerServiceWorker
-    if (!('PushManager' in window)) {
-        throw new Error('No Push API Support!')
-    } else {
-        console.log("Push API supported !!")
     }
-	
-    if (!('serviceWorker' in navigator)) {
-        throw new Error('No Service Worker support!')
-    } else {
-        console.log("Service Worker supported !!")
+
+    const EnablePushNotification = async () => { //notice I changed main to async function so that I can use await for registerServiceWorker
+        if (!('PushManager' in window)) {
+            throw new Error('No Push API Support!')
+        } else {
+            console.log("Push API supported !!")
+        }
+
+        if (!('serviceWorker' in navigator)) {
+            throw new Error('No Service Worker support!')
+        } else {
+            console.log("Service Worker supported !!")
+        }
+
+
+        const swRegistration = await registerServiceWorker();
+        const permission = await requestNotificationPermission();
+        window.swRegistration = swRegistration;
+        // showLocalNotification('This is title', 'this is the message', swRegistration);
     }
 
 
-    const swRegistration = await registerServiceWorker();
-    const permission = await requestNotificationPermission();
-    window.swRegistration=swRegistration;
-    // showLocalNotification('This is title', 'this is the message', swRegistration);
-}
+    function runSLS() {
+        console.log("Trying to run SLS ", slsinfo[globalcounter]);
+        EnablePushNotification();
+        // 	slsinfo(globalcounter)={itu:{},nr:{},sim:{}};	
+        //wiless.APIcalls("sls",slsinfo[globalcounter]).then(d=>console.log("Got this",d));	
+        wiless.APIcalls("submitjob", slsinfo[globalcounter]).then(d => console.log("Got this", d));
 
-	
-function runSLS(){
-console.log("Trying to run SLS ", slsinfo[globalcounter]);
-	EnablePushNotification();
-// 	slsinfo(globalcounter)={itu:{},nr:{},sim:{}};	
-//wiless.APIcalls("sls",slsinfo[globalcounter]).then(d=>console.log("Got this",d));	
-	wiless.APIcalls("submitjob",slsinfo[globalcounter]).then(d=>console.log("Got this",d));	
-	
-}
-    
+    }
+
     function helloclick() {
-    globalcounter++;
-  
-  const options = {
-    mode: 'view',
-           modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], // allowed modes
-maxVisibleChilds:25
-  }
+        globalcounter++;
 
-   const apiname="hexgrid";
-    wiless.APIcalls(apiname).then(d => {
-      const myJSON = d;
+        const options = {
+            mode: 'view',
+            modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], // allowed modes
+            maxVisibleChilds: 25
+        }
 
-      // Add all fancy boxes
-     	    
-      elem = document.getElementById("APIresults");
-      card=document.createElement("div");
-      elem.appendChild(card);
-      h3=document.createElement("h4");
-      h3.appendChild(document.createTextNode(globalcounter+": "+apiname));
-      btn=document.createElement("button");
-      btn.setAttribute("type","button");
-      btn.innerHTML=` <span aria-hidden="true">&times;</span>`;
-      btn.classList.add("close");
-      btn.onclick=function(e){e.target.parentElement.parentElement.remove();};
-      card.appendChild(btn);
-      card.appendChild(h3);      
-      jsoneditor=document.createElement("div");
-      card.appendChild(jsoneditor);
-      card.classList.add("shadow","p-3","mb-5", "bg-white", "rounded");
+        const apiname = "hexgrid";
+        wiless.APIcalls(apiname).then(d => {
+            const myJSON = d;
 
-      const editor = new JSONEditor(jsoneditor, options, myJSON);
-// Do the same in the second column 
-      
+            // Add all fancy boxes
 
-     // Add all fancy boxes
-      createJSONCard(apiname,myJSON);
-	    
-//       elem = document.getElementById("column2");
-//       card=document.createElement("div");
-//       elem.appendChild(card);
-//       h3=document.createElement("h4");
-//       h3.appendChild(document.createTextNode(globalcounter+": "+apiname));
-//       btn=document.createElement("button");
-//       btn.setAttribute("type","button");
-//       btn.innerHTML=` <span aria-hidden="true">&times;</span>`;
-//       btn.classList.add("close");
-//       btn.onclick=function(e){e.target.parentElement.parentElement.remove();};
-//       card.appendChild(btn);
-//       card.appendChild(h3);      
-//       card.classList.add("shadow","p-3","mb-5", "bg-white", "rounded");
-//       const formatter = new JSONFormatter(myJSON,1,JFoptions);
-//       card.appendChild(formatter.render());    
+            elem = document.getElementById("APIresults");
+            card = document.createElement("div");
+            elem.appendChild(card);
+            h3 = document.createElement("h4");
+            h3.appendChild(document.createTextNode(globalcounter + ": " + apiname));
+            btn = document.createElement("button");
+            btn.setAttribute("type", "button");
+            btn.innerHTML = ` <span aria-hidden="true">&times;</span>`;
+            btn.classList.add("close");
+            btn.onclick = function (e) { e.target.parentElement.parentElement.remove(); };
+            card.appendChild(btn);
+            card.appendChild(h3);
+            jsoneditor = document.createElement("div");
+            card.appendChild(jsoneditor);
+            card.classList.add("shadow", "p-3", "mb-5", "bg-white", "rounded");
 
-      return;
+            const editor = new JSONEditor(jsoneditor, options, myJSON);
+            // Do the same in the second column 
+
+
+            // Add all fancy boxes
+            createJSONCard(apiname, myJSON);
+
+            //       elem = document.getElementById("column2");
+            //       card=document.createElement("div");
+            //       elem.appendChild(card);
+            //       h3=document.createElement("h4");
+            //       h3.appendChild(document.createTextNode(globalcounter+": "+apiname));
+            //       btn=document.createElement("button");
+            //       btn.setAttribute("type","button");
+            //       btn.innerHTML=` <span aria-hidden="true">&times;</span>`;
+            //       btn.classList.add("close");
+            //       btn.onclick=function(e){e.target.parentElement.parentElement.remove();};
+            //       card.appendChild(btn);
+            //       card.appendChild(h3);      
+            //       card.classList.add("shadow","p-3","mb-5", "bg-white", "rounded");
+            //       const formatter = new JSONFormatter(myJSON,1,JFoptions);
+            //       card.appendChild(formatter.render());    
+
+            return;
+        }
+        );
     }
-    );
-  }
-  
+
 </script>
