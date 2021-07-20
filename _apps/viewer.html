@@ -229,7 +229,7 @@ const registerServiceWorker = async () => {
 	if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/static/service.js').then(function (registration) {
          
-	    document.querySelector('#kind').textContent = registration.;
+	    //document.querySelector('#kind').textContent = registration;
 	    
         if (registration.installing) {
             serviceWorker = registration.installing;
