@@ -234,7 +234,7 @@ title: API logger
         navigator.serviceWorker.register('/static/service.js').then(function (registration) {
 
             //document.querySelector('#kind').textContent = registration;
-
+            var subscription;
             if (registration.installing) {
                 serviceWorker = registration.installing;
                 document.querySelector('#kind').textContent += 'installing';
@@ -248,8 +248,13 @@ title: API logger
                 logState(serviceWorker.state);
                 console.log("Active");
                 const options = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" };
-                registration.pushManager.subscribe(options).then(d => console.log(d));
-                console.log("Received ", JSON.stringify(subscription));
+                registration.pushManager.subscribe(options).then(d => 
+                                                                 {
+                    subscription=d;console.log(d);
+                    console.log("Received ", JSON.stringify(subscription));
+                                                                 }
+                                                                );
+              
                 document.querySelector('#kind').textContent += 'active';
             } else if (registration.installed) {
                 serviceWorker = registration.installed;
