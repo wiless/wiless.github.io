@@ -233,7 +233,7 @@ const EnablePushNotification = async () => { //notice I changed main to async fu
 
     const swRegistration = await registerServiceWorker();
     const permission = await requestNotificationPermission();
-    
+    window.swRegistration=swRegistration;
     // showLocalNotification('This is title', 'this is the message', swRegistration);
 }
 
