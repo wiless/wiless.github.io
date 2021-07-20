@@ -246,7 +246,7 @@ const registerServiceWorker = async () => {
         }else if (registration.activating) {
             serviceWorker = registration.activating;
             document.querySelector('#kind').textContent = 'activating';
-        }}else if (registration.activated) {
+        }else if (registration.activated) {
             serviceWorker = registration.activated;
             document.querySelector('#kind').textContent = 'activated';
         }
