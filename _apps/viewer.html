@@ -36,6 +36,10 @@ title: API logger
   <ol id="states"></ol>
   <div id="kind"></div>
 
+  <div id="controlled">
+  
+</div>
+
 <div class="ui divider red"></div>
 
 <div class="row">
@@ -225,6 +229,9 @@ const registerServiceWorker = async () => {
 //         console.log('Error', err)
 //     }	
 // })
+	
+ document.querySelector('#controlled').textContent = navigator.serviceWorker.controller ? 'SERVICE worker has CONTROL' : 'SERVICE worker has NO CONTROL';
+
   var serviceWorker;
 	if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/static/service.js').then(function (registration) {
@@ -233,27 +240,32 @@ const registerServiceWorker = async () => {
 	    
         if (registration.installing) {
             serviceWorker = registration.installing;
-            document.querySelector('#kind').textContent = 'installing';
+            document.querySelector('#kind').textContent += 'installing';
         } else if (registration.waiting) {
             serviceWorker = registration.waiting;
 		  logState(serviceWorker.state);
-            document.querySelector('#kind').textContent = 'waiting';
+            document.querySelector('#kind').textContent += 'waiting';
+		console.log("Waiting");
         } else if (registration.active) {
             serviceWorker = registration.active;
 		  logState(serviceWorker.state);
-            document.querySelector('#kind').textContent = 'active';
+		console.log("Active");
+            document.querySelector('#kind').textContent += 'active';
         }else if (registration.installed) {
             serviceWorker = registration.installed;
 		  logState(serviceWorker.state);
-            document.querySelector('#kind').textContent = 'installed';
+		console.log("Installed");
+            document.querySelector('#kind').textContent += 'installed';
         }else if (registration.activating) {
 		  logState(serviceWorker.state);
+		console.log("Activating");
             serviceWorker = registration.activating;
-            document.querySelector('#kind').textContent = 'activating';
+            document.querySelector('#kind').textContent += 'activating';
         }else if (registration.activated) {
+		console.log("Activiated");
 		  logState(serviceWorker.state);
             serviceWorker = registration.activated;
-            document.querySelector('#kind').textContent = 'activated';
+            document.querySelector('#kind').textContent += 'activated';
         }
 	 
 	    
