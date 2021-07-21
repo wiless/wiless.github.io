@@ -220,9 +220,28 @@ title: API logger
          if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('service.js').then(function (registration) {
             
+             registration.pushManager.getSubscription().then(function(subscription) { 
+              if (!subscription) {
+                    console.log("No subscription found");
+                  
+                  //    const options = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" };
+                // registration.pushManager.subscribe(options).then(d =>{
+                  //  subscription=d;console.log(d);
+                   // console.log("Received ", JSON.stringify(subscription));
+                   // }
+                //
+                return;
+                }else{
+                    console.log("Found old subscriptions",subscription);
+                console.log("Found old subscriptions ID ",subscription.subscriptionId);
+                    console.log("Found old subscriptions JSON",subscription.toJSON());
+                
+                }
+
+             }
             
 
-            if (registration.installing) {
+           /* if (registration.installing) {
                 serviceWorker = registration.installing;
                 document.querySelector('#kind').textContent += 'installing';
                 const options = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" };
@@ -271,8 +290,8 @@ title: API logger
                 serviceWorker = registration.activated;
                 document.querySelector('#kind').textContent += 'activated';
             }
-
-            console.log("Service Worker ",typeof serviceWorker);
+*/
+      //      console.log("Service Worker ",typeof serviceWorker);
             var swRegistration = serviceWorker;
             return swRegistration;
         });
