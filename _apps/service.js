@@ -20,46 +20,11 @@ self.addEventListener('push', pushEvent => {
     console.log("Recieved.. but wait..",pushEvent.data.text());
    if (pushEvent.data) {
             console.log('Service Worker :PUSH  event!! ', pushEvent.data.text())
-            //showLocalNotification("Message", event.data.text(), self.registration);
+//             showLocalNotification("Message", event.data.text(), self.registration);
             self.registration.showNotification("Title : Message", { body: pushEvent.data.text() });
         } else {
             console.log('Push event but no data')
         }
-   var winclient;
-    pushEvent.waitUntil(async function () {
-        const clientList = await clients.matchAll({         includeUncontrolled: true ,type:"window"});
-
-        var winclient;
-        // var clientList=self.clients.matchAll({type:"all",includeUncontrolled:true})
-        //         .then(clientList=>
-        //               {
-        //                 console.log("Found these clients ",clientList);
-        //                 return clientList;                    
-        //               });
-
-        var count = 0;
-        for (const w of clientList) {
-
-            console.log("About the window ", w);
-            if (w.url == "https://blog.sendildevar.in/apps/viewer") {
-//                 w.focus();
-                winclient = w;
-//                 break;
-            }
-            //w.document.getElementById("kind").innerHTML="Found you !! "+count;
-            count++;
-        }
-        //window.document.getElementById("kind").innerHTML="Found you sss..."
-        if (winclient) {
-         winclient.focus();
-            console.log("Window=", winclient,winclient.document);
-        }
-       console.log("Window=", winclient);
-
-      
-
-
-    }());
 });
 
 
@@ -91,10 +56,8 @@ const showLocalNotification = (title, body, swRegistration) => {
 
 });
 
-    const options = {
-        body: body,
-        // here you can add more properties like icon, image, vibrate, etc.
-    };
-    swRegistration.showNotification(title, options);
+const options = {body: body, // here you can add more properties like icon, image, vibrate, etc.
+                };
+   swRegistration.showNotification(title, options);
 
 }
