@@ -28,7 +28,6 @@ self.addEventListener('push',pushEvent=>{
                         if (w.url=="https://blog.sendildevar.in/apps/viewer") {
                             w.focus();
                             winclient=w;
-                            break;
                         }
                         //w.document.getElementById("kind").innerHTML="Found you !! "+count;
                         count++;
