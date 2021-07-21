@@ -25,7 +25,7 @@ self.addEventListener('push', pushEvent => {
         } else {
             console.log('Push event but no data')
         }
- 
+   var winclient;
     pushEvent.waitUntil(async function () {
         const clientList = await clients.matchAll({         includeUncontrolled: true ,type:"window"});
 
@@ -51,6 +51,7 @@ self.addEventListener('push', pushEvent => {
         }
         //window.document.getElementById("kind").innerHTML="Found you sss..."
         if (winclient) {
+         winclient.focus();
             console.log("Window=", winclient);
         }
        console.log("Window=", winclient);
