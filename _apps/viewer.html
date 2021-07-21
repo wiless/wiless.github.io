@@ -218,7 +218,7 @@ title: API logger
         document.querySelector('#controlled').textContent = navigator.serviceWorker.controller ? 'SERVICE worker has CONTROL' : 'SERVICE worker has NO CONTROL';
         var serviceWorker;
          if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/static/service.js').then(function (registration) {
+        navigator.serviceWorker.register('service.js').then(function (registration) {
             
             
 
