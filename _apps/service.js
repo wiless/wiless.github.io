@@ -15,13 +15,26 @@ console.log('service.js: Hello from service worker')
 
 // })
 
+
+self.addEventListener('notificationclick', function(event) {
+  console.log('[Service Worker] Notification click Received.');
+ console.log('[Service Worker] ',event);
+
+  event.notification.close();
+
+  event.waitUntil(
+    clients.openWindow('https://blog.sendildevar.in/apps/viewer')
+  );
+});
+
+
  
 self.addEventListener('push', pushEvent => {
     console.log("Recieved.. but wait..",pushEvent.data.text());
    if (pushEvent.data) {
             console.log('Service Worker :PUSH  event!! ', pushEvent.data.text())
 //             showLocalNotification("Message", event.data.text(), self.registration);
-            self.registration.showNotification("Title : Message", { body: pushEvent.data.text() });
+           event.waitUntil(self.registration.showNotification("Title : Message", { body: pushEvent.data.text() }));
         } else {
             console.log('Push event but no data')
         }
@@ -40,24 +53,20 @@ self.addEventListener('push', pushEvent => {
 
 
 
-const showLocalNotification = (title, body, swRegistration) => {
+function showLocalNotification (title, body, swRegistration) {
     // actions: [{ action: "button", title: "<" }, { action: "right", title: ">" }],
-    self.clients.matchAll({type:"window"}).then(function(clientList) {        
-
-  // do something with your clients list
-         for (var i = 0; i < clientList.length; i++) {
-      var client = clientList[i];
-      if (client.url == '/' && 'focus' in client) {
-        client.focus();
-        break;
-      }
-    }
-
-
-});
-
-const options = {body: body, // here you can add more properties like icon, image, vibrate, etc.
-                };
+//     self.clients.matchAll({type:"window"}).then(function(clientList) {        
+//   // do something with your clients list
+//          for (var i = 0; i < clientList.length; i++) {
+//       var client = clientList[i];
+//       if (client.url == '/' && 'focus' in client) {
+//         client.focus();
+//         break;
+//       }
+//     }
+//    });
+ 
+   const options = {body: body,          };
    swRegistration.showNotification(title, options);
 
 }
