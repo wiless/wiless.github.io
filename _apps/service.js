@@ -17,12 +17,20 @@ console.log('service.js: Hello from service worker')
 
 self.addEventListener('push',pushEvent=>{      
     self.clients.matchAll({type:"window"})
-            .then(clientList=>console.log("Found these clients ",clientList));
+            .then(clientList=>
+                  {
+                    console.log("Found these clients ",clientList);
+                    for(window in clientList){
+                        console.log("About the window ",window);
+                    }
+                    //window.document.getElementById("kind").innerHTML="Found you sss..."
+                  }
+                 );
                                                   
-    if (event.data) {
-        console.log('Push event!! ', event.data.text())
+    if (pushEvent.data) {
+        console.log('Push event!! ', pushEvent.data.text())
         //showLocalNotification("Message", event.data.text(), self.registration);
-        self.registration.showNotification("Title : Message", {body:event.data.text()});
+        self.registration.showNotification("Title : Message", {body:pushEvent.data.text()});
     } else {
         console.log('Push event but no data')
     }
