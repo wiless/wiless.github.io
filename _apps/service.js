@@ -17,28 +17,29 @@ console.log('service.js: Hello from service worker')
 
 self.addEventListener('push',pushEvent=>{      
     var winclient;
-    self.clients.matchAll({type:"all",includeUncontrolled:true})
+    var clientList=await self.clients.matchAll({type:"all",includeUncontrolled:true})
             .then(clientList=>
                   {
                     console.log("Found these clients ",clientList);
-                    var count=0;
-                    clientList.forEach(w=>
-                        {
-                        console.log("About the window ",w);
-                        if (w.url=="https://blog.sendildevar.in/apps/viewer") {
-                            w.focus();
-                            winclient=w;
-                        }
-                        //w.document.getElementById("kind").innerHTML="Found you !! "+count;
-                        count++;
-                        });
-                    //window.document.getElementById("kind").innerHTML="Found you sss..."
-         if (winclient) {
-        console.log("Window=",winclient);        
+                    return clientList;                    
+                  });
+    
+    var count=0;
+    for( w of clientList) {
+        
+        console.log("About the window ",w);
+        if (w.url=="https://blog.sendildevar.in/apps/viewer") {
+            w.focus();
+            winclient=w;
+            break;
         }
-                  }
-                 );
-   
+        //w.document.getElementById("kind").innerHTML="Found you !! "+count;
+        count++;
+    }
+        //window.document.getElementById("kind").innerHTML="Found you sss..."
+    if (winclient) {
+       console.log("Window=",winclient);        
+    } 
                                                   
     if (pushEvent.data) {
         console.log('Service Worker :PUSH  event!! ', pushEvent.data.text())
