@@ -18,6 +18,14 @@ console.log('service.js: Hello from service worker')
  
 self.addEventListener('push', pushEvent => {
     console.log("Recieved.. but wait..",pushEvent.data.text());
+   if (pushEvent.data) {
+            console.log('Service Worker :PUSH  event!! ', pushEvent.data.text())
+            //showLocalNotification("Message", event.data.text(), self.registration);
+            self.registration.showNotification("Title : Message", { body: pushEvent.data.text() });
+        } else {
+            console.log('Push event but no data')
+        }
+ 
     pushEvent.waitUntil(async function () {
         const clientList = await clients.matchAll({         includeUncontrolled: true ,type:"window"});
 
@@ -47,13 +55,7 @@ self.addEventListener('push', pushEvent => {
         }
        console.log("Window=", winclient);
 
-        if (pushEvent.data) {
-            console.log('Service Worker :PUSH  event!! ', pushEvent.data.text())
-            //showLocalNotification("Message", event.data.text(), self.registration);
-            self.registration.showNotification("Title : Message", { body: pushEvent.data.text() });
-        } else {
-            console.log('Push event but no data')
-        }
+      
 
 
     }());
