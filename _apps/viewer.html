@@ -211,36 +211,36 @@ title: API logger
 //   registration.unregister()
 // } })
  
-    function registerServiceWorker ()  {
-        console.log("Registering service.js");
-        document.querySelector('#controlled').textContent = navigator.serviceWorker.controller ? 'SERVICE worker has CONTROL' : 'SERVICE worker has NO CONTROL';
-        var serviceWorker;
-         if ('serviceWorker' in navigator) {
+//     function registerServiceWorker ()  {
+//         console.log("Registering service.js");
+//         document.querySelector('#controlled').textContent = navigator.serviceWorker.controller ? 'SERVICE worker has CONTROL' : 'SERVICE worker has NO CONTROL';
+//         var serviceWorker;
+//          if ('serviceWorker' in navigator) {
                
-             navigator.serviceWorker.register('service.js').then(function (registration) {            
+//              navigator.serviceWorker.register('service.js').then(function (registration) {            
                 
-                 registration.pushManager.getSubscription().then(function(subscription) { 
-                    if (!subscription) {
-                            console.log("No subscription found");                  
-                            console.log("Registring now... No subscription found");                  
-                            const options = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" };
-                            registration.pushManager.subscribe(options).then(d =>{
-                            subscription=d;
-                            console.log(d);
-                            console.log("Received ", JSON.stringify(subscription));}                       
-                        }else{
-                            console.log("Found old subscriptions",subscription);
-                            console.log("Found old subscriptions ID ",subscription.subscriptionId);
-                            console.log("Found old subscriptions JSON",subscription.toJSON());                
-                    }
-                 });             
-            var swRegistration = serviceWorker;
-            return swRegistration;
-        });   // complete registration 
-        }
+//                  registration.pushManager.getSubscription().then(function(subscription) { 
+//                     if (!subscription) {
+//                             console.log("No subscription found");                  
+//                             console.log("Registring now... No subscription found");                  
+//                             const options = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" };
+//                             registration.pushManager.subscribe(options).then(d =>{
+//                             subscription=d;
+//                             console.log(d);
+//                             console.log("Received ", JSON.stringify(subscription));}                       
+//                         }else{
+//                             console.log("Found old subscriptions",subscription);
+//                             console.log("Found old subscriptions ID ",subscription.subscriptionId);
+//                             console.log("Found old subscriptions JSON",subscription.toJSON());                
+//                     }
+//                  });             
+//             var swRegistration = serviceWorker;
+//             return swRegistration;
+//         });   // complete registration 
+//         }
 
 
-    };
+//     };
 //     function requestNotificationPermission() {
 //         const permission = window.Notification.requestPermission();
 //         // value of permission can be 'granted', 'default', 'denied'
