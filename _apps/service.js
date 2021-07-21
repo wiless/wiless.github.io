@@ -15,11 +15,10 @@ console.log('service.js: Hello from service worker')
 
 // })
 
+ 
 self.addEventListener('push', pushEvent => {
     pushEvent.waitUntil(async function () {
-        const clientList = await clients.matchAll({
-            includeUncontrolled: true
-        });
+        const clientList = await clients.matchAll({         includeUncontrolled: true    });
 
         var winclient;
         // var clientList=self.clients.matchAll({type:"all",includeUncontrolled:true})
@@ -55,9 +54,8 @@ self.addEventListener('push', pushEvent => {
         }
 
 
-    });
-}
-
+    }());
+});
 // self.addEventListener('push', function (event) {
 //     if (event.data) {
 //         console.log('Push event!! ', event.data.text())
