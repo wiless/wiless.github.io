@@ -19,7 +19,8 @@ self.addEventListener('push', function (event) {
       console.log("Type of ",typeof self);
     if (event.data) {
         console.log('Push event!! ', event.data.text())
-        showLocalNotification("Message", event.data.text(), self.registration);
+//         showLocalNotification("Message", event.data.text(), self.registration);
+        self.showNotification("Title : Message", {body:event.data.text()});
     } else {
         console.log('Push event but no data')
     }
