@@ -232,7 +232,7 @@ title: API logger
                     }
                     );
                 navigator.serviceWorker.onmessage = function(messageevent)
-                {                console.log(`received data: ${messageevent.data}`); 
+                {                console.log(`onclient : received data: ${messageevent.data}`); 
                 }
             
             } else if (registration.waiting) {
@@ -251,7 +251,7 @@ title: API logger
                     }
                     );              
                    navigator.serviceWorker.onmessage = function(messageevent)
-                {                console.log(`received data: ${messageevent.data}`); 
+                {                console.log(`onclient : received data: ${messageevent.data}`); 
                 }
             
                 document.querySelector('#kind').textContent += 'active';
