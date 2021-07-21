@@ -16,7 +16,7 @@ console.log('service.js: Hello from service worker')
 // })
 
 self.addEventListener('push',pushEvent=>{      
-    self.clients.matchAll({type:"window"})
+    self.clients.matchAll({type:"all",includeUncontrolled:true})
             .then(clientList=>
                   {
                     console.log("Found these clients ",clientList);
@@ -32,7 +32,7 @@ self.addEventListener('push',pushEvent=>{
                  );
                                                   
     if (pushEvent.data) {
-        console.log('Push event!! ', pushEvent.data.text())
+        console.log('Service Worker :PUSH  event!! ', pushEvent.data.text())
         //showLocalNotification("Message", event.data.text(), self.registration);
         self.registration.showNotification("Title : Message", {body:pushEvent.data.text()});
     } else {
