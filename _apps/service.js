@@ -15,44 +15,48 @@ console.log('service.js: Hello from service worker')
 
 // })
 
-self.addEventListener('push',pushEvent=>{      
-    var winclient;
-    var clientList=self.clients.matchAll({type:"all",includeUncontrolled:true})
-            .then(clientList=>
-                  {
-                    console.log("Found these clients ",clientList);
-                    return clientList;                    
-                  });
-    clientList.then(
-        ()=>{
-        var count=0;
-    for( w of clientList) {
-        
-        console.log("About the window ",w);
-        if (w.url=="https://blog.sendildevar.in/apps/viewer") {
-            w.focus();
-            winclient=w;
-            break;
-        }
-        //w.document.getElementById("kind").innerHTML="Found you !! "+count;
-        count++;
-    }
-        //window.document.getElementById("kind").innerHTML="Found you sss..."
-    if (winclient) {
-       console.log("Window=",winclient);        
-    } 
-                                                  
-    if (pushEvent.data) {
-        console.log('Service Worker :PUSH  event!! ', pushEvent.data.text())
-        //showLocalNotification("Message", event.data.text(), self.registration);
-        self.registration.showNotification("Title : Message", {body:pushEvent.data.text()});
-    } else {
-        console.log('Push event but no data')
-    }
-    );
-    
-});
+self.addEventListener('push', pushEvent => {
+    pushEvent.waitUntil(async function () {
+        const clientList = await clients.matchAll({
+            includeUncontrolled: true
+        });
 
+        var winclient;
+        // var clientList=self.clients.matchAll({type:"all",includeUncontrolled:true})
+        //         .then(clientList=>
+        //               {
+        //                 console.log("Found these clients ",clientList);
+        //                 return clientList;                    
+        //               });
+
+        var count = 0;
+        for (const w of clientList) {
+
+            console.log("About the window ", w);
+            if (w.url == "https://blog.sendildevar.in/apps/viewer") {
+                w.focus();
+                winclient = w;
+                break;
+            }
+            //w.document.getElementById("kind").innerHTML="Found you !! "+count;
+            count++;
+        }
+        //window.document.getElementById("kind").innerHTML="Found you sss..."
+        if (winclient) {
+            console.log("Window=", winclient);
+        }
+
+        if (pushEvent.data) {
+            console.log('Service Worker :PUSH  event!! ', pushEvent.data.text())
+            //showLocalNotification("Message", event.data.text(), self.registration);
+            self.registration.showNotification("Title : Message", { body: pushEvent.data.text() });
+        } else {
+            console.log('Push event but no data')
+        }
+
+
+    });
+}
 
 // self.addEventListener('push', function (event) {
 //     if (event.data) {
@@ -69,7 +73,7 @@ self.addEventListener('push',pushEvent=>{
 // const showLocalNotification = (title, body, swRegistration) => {
 //     // actions: [{ action: "button", title: "<" }, { action: "right", title: ">" }],
 //     self.clients.matchAll({type:"window"}).then(function(clientList) {        
-        
+
 //   // do something with your clients list
 //          for (var i = 0; i < clientList.length; i++) {
 //       var client = clientList[i];
@@ -78,10 +82,10 @@ self.addEventListener('push',pushEvent=>{
 //         break;
 //       }
 //     }
-        
-        
+
+
 // });
-    
+
 //     const options = {
 //         body: body,
 //         // here you can add more properties like icon, image, vibrate, etc.
