@@ -24,6 +24,7 @@ self.addEventListener('push',pushEvent=>{
                     return clientList;                    
                   });
     clientList.then(
+        ()=>{
         var count=0;
     for( w of clientList) {
         
