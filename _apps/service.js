@@ -15,9 +15,8 @@ console.log('service.js: Hello from service worker')
 
 // })
 
-self.addEventListener('push', function (event) {
-      
-      self.clients.matchAll({type:"window"})
+self.addEventListener('push',pushEvent=>{      
+    self.clients.matchAll({type:"window"})
             .then(clientList=>console.log("Found these clients ",clientList));
                                                   
     if (event.data) {
@@ -27,7 +26,7 @@ self.addEventListener('push', function (event) {
     } else {
         console.log('Push event but no data')
     }
-})
+});
 
 
 // self.addEventListener('push', function (event) {
