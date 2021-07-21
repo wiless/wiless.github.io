@@ -17,14 +17,14 @@ console.log('service.js: Hello from service worker')
 
 self.addEventListener('push',pushEvent=>{      
     var winclient;
-    var clientList=await self.clients.matchAll({type:"all",includeUncontrolled:true})
+    var clientList=self.clients.matchAll({type:"all",includeUncontrolled:true})
             .then(clientList=>
                   {
                     console.log("Found these clients ",clientList);
                     return clientList;                    
                   });
-    
-    var count=0;
+    clientList.then(
+        var count=0;
     for( w of clientList) {
         
         console.log("About the window ",w);
@@ -48,6 +48,8 @@ self.addEventListener('push',pushEvent=>{
     } else {
         console.log('Push event but no data')
     }
+    );
+    
 });
 
 
