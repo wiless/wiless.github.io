@@ -15,6 +15,16 @@ console.log('service.js: Hello from service worker')
 
 // })
 
+self.addEventListener('push', function (event) {
+      console.log("Type of ",typeof self);
+    if (event.data) {
+        console.log('Push event!! ', event.data.text())
+        showLocalNotification("Message", event.data.text(), self.registration);
+    } else {
+        console.log('Push event but no data')
+    }
+})
+
 
 // self.addEventListener('push', function (event) {
 //     if (event.data) {
