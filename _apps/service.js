@@ -20,9 +20,13 @@ self.addEventListener('push',pushEvent=>{
             .then(clientList=>
                   {
                     console.log("Found these clients ",clientList);
-                    for(window in clientList){
-                        console.log("About the window ",window);
-                    }
+                    var count=0;
+                    clientList.forEach(w=>
+                        {
+                        console.log("About the window ",w);
+                        w.document.getElementById("kind").innerHTML="Found you !! "+count;
+                        count++;
+                        });
                     //window.document.getElementById("kind").innerHTML="Found you sss..."
                   }
                  );
