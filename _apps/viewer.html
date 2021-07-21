@@ -19,7 +19,7 @@ title: API logger
     }
 </style>
 
-
+ 
 
 
 
@@ -219,6 +219,8 @@ title: API logger
         var serviceWorker;
          if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/static/service.js').then(function (registration) {
+            
+            
 
             if (registration.installing) {
                 serviceWorker = registration.installing;
@@ -229,6 +231,10 @@ title: API logger
                     console.log("Received ", JSON.stringify(subscription));
                     }
                     );
+                navigator.serviceWorker.onmessage = function(messageevent)
+                {                console.log(`received data: ${messageevent.data}`); 
+                }
+            
             } else if (registration.waiting) {
                 serviceWorker = registration.waiting;
                 logState(serviceWorker.state);
@@ -244,6 +250,10 @@ title: API logger
                     console.log("Received ", JSON.stringify(subscription));
                     }
                     );              
+                   navigator.serviceWorker.onmessage = function(messageevent)
+                {                console.log(`received data: ${messageevent.data}`); 
+                }
+            
                 document.querySelector('#kind').textContent += 'active';
             } else if (registration.installed) {
                 serviceWorker = registration.installed;
@@ -262,7 +272,7 @@ title: API logger
                 document.querySelector('#kind').textContent += 'activated';
             }
 
-
+            console.log("Service Worker ",typeof serviceWorker);
             var swRegistration = serviceWorker;
             return swRegistration;
         });
