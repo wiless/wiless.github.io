@@ -17,8 +17,9 @@ console.log('service.js: Hello from service worker')
 
  
 self.addEventListener('push', pushEvent => {
+    console.log("Recieved.. but wait..",pushEvent.data.text());
     pushEvent.waitUntil(async function () {
-        const clientList = await clients.matchAll({         includeUncontrolled: true    });
+        const clientList = await clients.matchAll({         includeUncontrolled: true ,type:"window"});
 
         var winclient;
         // var clientList=self.clients.matchAll({type:"all",includeUncontrolled:true})
@@ -33,9 +34,9 @@ self.addEventListener('push', pushEvent => {
 
             console.log("About the window ", w);
             if (w.url == "https://blog.sendildevar.in/apps/viewer") {
-                w.focus();
+//                 w.focus();
                 winclient = w;
-                break;
+//                 break;
             }
             //w.document.getElementById("kind").innerHTML="Found you !! "+count;
             count++;
@@ -44,6 +45,7 @@ self.addEventListener('push', pushEvent => {
         if (winclient) {
             console.log("Window=", winclient);
         }
+       console.log("Window=", winclient);
 
         if (pushEvent.data) {
             console.log('Service Worker :PUSH  event!! ', pushEvent.data.text())
