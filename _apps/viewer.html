@@ -318,7 +318,7 @@ title: API logger
          //EnablePushNotification();
         
          if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/static/service.js').then(registration=>{
+            navigator.serviceWorker.register('service.js').then(registration=>{
                    const options = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" };
                     registration.pushManager.subscribe(options).then(d =>{
                     subscription=d;console.log(d);
