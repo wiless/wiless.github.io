@@ -33,11 +33,12 @@ self.addEventListener('push',pushEvent=>{
                         count++;
                         });
                     //window.document.getElementById("kind").innerHTML="Found you sss..."
+         if (winclient) {
+        console.log("Window=",winclient);        
+        }
                   }
                  );
-    if (winclient) {
-        console.log("Window=",winclient);        
-    }
+   
                                                   
     if (pushEvent.data) {
         console.log('Service Worker :PUSH  event!! ', pushEvent.data.text())
