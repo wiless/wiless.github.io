@@ -15,6 +15,14 @@ console.log('service.js: Hello from service worker')
 
 // })
 
+// On the Service Worker side we have to listen to the message event
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'MESSAGE_IDENTIFIER') {
+    console.log("Wow someone sent me somthing.. thanks, I will follow-up");
+    // do something
+  }
+});
+
 
 self.addEventListener('notificationclick', function(event) {
   console.log('[Service Worker] Notification click Received.');
