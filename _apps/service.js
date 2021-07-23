@@ -60,6 +60,8 @@ self.addEventListener('notificationclick', function(event) {
 self.addEventListener('push', pushEvent => {
     console.log("Recieved.. but wait..",pushEvent.data.text());
    if (pushEvent.data) {
+     count++;
+       bc.postMessage({ payload: {count:count,text:pushEvent.data.text() }});
             console.log('Service Worker :PUSH  event!! ', pushEvent.data.text())
 //             showLocalNotification("Message", event.data.text(), self.registration);
            pushEvent.waitUntil(self.registration.showNotification("Title : Message", { body: pushEvent.data.text() }));
