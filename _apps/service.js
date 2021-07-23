@@ -65,7 +65,7 @@ self.addEventListener('push', pushEvent => {
    if (pushEvent.data) {
             console.log('Service Worker :PUSH  event!! ', pushEvent.data.text())
 //             showLocalNotification("Message", event.data.text(), self.registration);
-           event.waitUntil(self.registration.showNotification("Title : Message", { body: pushEvent.data.text() }));
+           pushEvent.waitUntil(self.registration.showNotification("Title : Message", { body: pushEvent.data.text() }));
         } else {
             console.log('Push event but no data')
         }
