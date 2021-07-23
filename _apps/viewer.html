@@ -276,15 +276,15 @@ title: API logger
 //     }
 
    const messageChannel = new MessageChannel();
-   navigator.serviceWorker.controller.postMessage({
-  type: 'INIT_PORT',
-}, [messageChannel.port2]);
+   if ( navigator.serviceWorker.controller) {      
+        navigator.serviceWorker.controller.postMessage({type: 'INIT_PORT' }, [messageChannel.port2]);
+   }
 
     // Listen to the response
 messageChannel.port1.onmessage = (event) => {
   // Print the result
   document.getElementById("kind").innerText=event.data.payload;
-  console.log("Received MESSAGE on Message Channel PORT1 ",event.data.payload);
+  console.log("PORT1 received :  MESSAGE ",event.data.payload);
 };
     
 
