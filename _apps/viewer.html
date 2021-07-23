@@ -275,7 +275,24 @@ title: API logger
 //         // showLocalNotification('This is title', 'this is the message', swRegistration);
 //     }
 
+   const messageChannel = new MessageChannel();
+   navigator.serviceWorker.controller.postMessage({
+  type: 'INIT_PORT',
+}, [messageChannel.port2]);
 
+    // Listen to the response
+messageChannel.port1.onmessage = (event) => {
+  // Print the result
+  document.getElementById("kind").innerText=event.data.payload;
+  console.log("Received MESSAGE on Message Channel PORT1 ",Mevent.data.payload);
+};
+    
+// Then we send our first message
+navigator.serviceWorker.controller.postMessage({
+  type: 'INCREASE_COUNT',
+});    
+    
+    
     function runSLS() {
     console.log("Starting.. SLS and service notification");
          //EnablePushNotification();
