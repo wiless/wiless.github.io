@@ -316,22 +316,24 @@ messageChannel.port1.onmessage = (event) => {
                                 subscription=subs;
                                 console.log("Found old subscriptions",subs);
                                 console.log("Found old subscriptions ID ",subs.subscriptionId);
-                                console.log("Found old subscriptions JSON",subs.toJSON());                
+                                console.log("Found old subscriptions JSON",subs.toJSON());       
+
+                                //  const options = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" };
+                                // registration.pushManager.subscribe(options).then(d =>{
+                                // subscription=d;console.log(d);
+                                // console.log("Received ", JSON.stringify(subscription));
+                                // });                                       
+                                console.log("Completed.... SERVICE WORKER REGISTRATION and Subscription");                    
+                                console.log("Subscription ",subscription);
+                                console.log("Submitting JOB Information WITH subSCRIPTION token");
+
+                                var obj={...slsinfo[globalcounter],gcm:subscription};
+                                console.log("Trying to run SLS ", obj);
+                                wiless.APIcalls("submitjob", obj).then(d => console.log("Got this", d));                            
                         }
                  });  
                 
-                //  const options = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" };
-                // registration.pushManager.subscribe(options).then(d =>{
-                // subscription=d;console.log(d);
-                // console.log("Received ", JSON.stringify(subscription));
-                // });                                       
-                console.log("Completed.... SERVICE WORKER REGISTRATION and Subscription");                    
-                // console.log("Subscription ",subscription);
-                console.log("Submitting JOB Information WITH subSCRIPTION token");
-                
-                var obj={...slsinfo[globalcounter],gcm:subscription};
-                console.log("Trying to run SLS ", obj);
-                wiless.APIcalls("submitjob", obj).then(d => console.log("Got this", d));
+         
                 
             });
              
