@@ -23,6 +23,8 @@ self.addEventListener('message', (event) => {
   }
 });
 
+// Connection to a broadcast channel
+const bc = new BroadcastChannel('counterupdates');
 
 let getVersionPort;
 let count = 0;
@@ -33,7 +35,14 @@ self.addEventListener("message", event => {
 
   if (event.data && event.data.type === 'INCREASE_COUNT') {
     getVersionPort.postMessage({ payload: ++count });
+    
+    // Also broadcast to other tabs and windows
+    bc.postMessage({ payload: ++count });
   }
+  
+  }
+  
+  
 });
 
 
