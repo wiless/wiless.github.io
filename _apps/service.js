@@ -24,6 +24,20 @@ self.addEventListener('message', (event) => {
 });
 
 
+let getVersionPort;
+let count = 0;
+self.addEventListener("message", event => {
+  if (event.data && event.data.type === 'INIT_PORT') {
+    getVersionPort = event.ports[0];
+  }
+
+  if (event.data && event.data.type === 'INCREASE_COUNT') {
+    getVersionPort.postMessage({ payload: ++count });
+  }
+}
+
+
+
 self.addEventListener('notificationclick', function(event) {
   console.log('[Service Worker] Notification click Received.');
  console.log('[Service Worker] ',event);
