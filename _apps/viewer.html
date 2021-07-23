@@ -280,6 +280,9 @@ title: API logger
         navigator.serviceWorker.controller.postMessage({type: 'INIT_PORT' }, [messageChannel.port2]);
    }
 
+    const bc=BroadcastChannel("counterupdates") 
+    bc.onmessage=(event)=>{console.log("BC received message",event.type,event.data); document.getElementById("kind").innerText=JSON.stringify(event.data);} 
+    
     // Listen to the response
 messageChannel.port1.onmessage = (event) => {
   // Print the result
