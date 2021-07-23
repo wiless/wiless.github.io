@@ -284,7 +284,7 @@ title: API logger
 messageChannel.port1.onmessage = (event) => {
   // Print the result
   document.getElementById("kind").innerText=event.data.payload;
-  console.log("Received MESSAGE on Message Channel PORT1 ",Mevent.data.payload);
+  console.log("Received MESSAGE on Message Channel PORT1 ",event.data.payload);
 };
     
 // Then we send our first message
