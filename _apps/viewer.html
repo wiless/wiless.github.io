@@ -287,11 +287,7 @@ messageChannel.port1.onmessage = (event) => {
   console.log("Received MESSAGE on Message Channel PORT1 ",event.data.payload);
 };
     
-// Then we send our first message
-navigator.serviceWorker.controller.postMessage({
-  type: 'INCREASE_COUNT',
-});    
-    
+
     
     function runSLS() {
     console.log("Starting.. SLS and service notification");
@@ -335,6 +331,14 @@ navigator.serviceWorker.controller.postMessage({
                 wiless.APIcalls("submitjob", obj).then(d => console.log("Got this", d));
                 
             });
+             
+            // Then we send our first message
+navigator.serviceWorker.controller.postMessage({
+  type: 'INCREASE_COUNT',
+    data:"Submitted job"
+});    
+    
+             
              
             navigator.serviceWorker.controller.postMessage({
             type: 'MESSAGE_IDENTIFIER',
