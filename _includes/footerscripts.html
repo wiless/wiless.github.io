@@ -21,13 +21,13 @@ $(document).ready(function() {
 });
 
  
-    const bc=new BroadcastChannel("counterupdates") 
-    bc.onmessage=(event)=>{
-        badge=document.getElementById("badge");
-        console.log("BC received message",badge.value,event.type,event.data);
-        badge.value++;
-        badge.innerText=JSON.stringify(event.data);
-    } 
+//     const bc=new BroadcastChannel("counterupdates") 
+//     bc.onmessage=(event)=>{
+//         badge=document.getElementById("badge");
+//         console.log("BC received message",badge.value,event.type,event.data);
+//         badge.value++;
+//         badge.innerText=JSON.stringify(event.data);
+//     } 
 
 </script>
 
