@@ -238,8 +238,9 @@ function setProfilePic(elid){
 
 const bc=new BroadcastChannel("counterupdates") 
 bc.onmessage=(event)=>{
-    updateBadge(event.data);
+      updateBadge(event.data);
       console.log("BC received message",event.type,event.data);       
+      appendLog(event.data);
     } 
   
 function updateBadge(){ 
