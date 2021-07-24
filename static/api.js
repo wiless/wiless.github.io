@@ -238,15 +238,15 @@ function setProfilePic(elid){
 
 const bc=new BroadcastChannel("counterupdates") 
 bc.onmessage=(event)=>{
-      updateBadge(event.data);
+      updateBadge(event.data.count);
       console.log("BC received message",event.type,event.data);       
       appendLog(event.data);
     } 
   
-function updateBadge(){ 
-  
-  document.getElementById("badge")
-  var logbox=document.getElementById("logbox");
-  if (logbox)
-    logbox.innerText+=JSON.stringify(event.data);     
+function updateBadge(count){ 
+var  badge=document.getElementById("badge")
+  badge.innerText=count;
+//   var logbox=document.getElementById("logbox");
+//   if (logbox)
+//     logbox.innerText+=JSON.stringify(event.data);     
 }
