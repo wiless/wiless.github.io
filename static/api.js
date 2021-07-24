@@ -235,3 +235,17 @@ function setProfilePic(elid){
 
       //wiless.APIcalls("logout").then(console.log("Logged out Wiless API"));
     }
+
+const bc=new BroadcastChannel("counterupdates") 
+bc.onmessage=(event)=>{
+    UpdateBadge(event.data);
+      console.log("BC received message",event.type,event.data);       
+    } 
+  
+function updateBadge(){ 
+  
+  document.getElementById("badge")
+  logbox=document.getElementById("logbox");
+  if (logbox)
+    logbox.innerText+=JSON.stringify(event.data);     
+}
