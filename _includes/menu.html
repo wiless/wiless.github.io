@@ -76,15 +76,27 @@
 
 </div>
 
-<div class="ui modal">
+<div class="ui basic modal">
   <div id="logboxheader" class="header">Log Messages</div>
   <div id="logbox" class="scrolling content">
       logs go here
   </div>
+     <div class="actions">
+    <div class="ui red basic cancel inverted button">
+      <i class="remove icon"></i>
+      Clear
+    </div>
+    <div class="ui green ok inverted button">
+      <i class="checkmark icon"></i>
+      Close
+    </div>
+  </div>
+    
 </div>
 <script>
 function showLogbox(){   
-    document.getElementById("logbox").modal('show');
+    $('#logbox').modal('show')
+    //document.getElementById("logbox").modal('show');
 }
     
 </script>
