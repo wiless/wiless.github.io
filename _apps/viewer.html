@@ -291,6 +291,12 @@ title: API logger
 // };
     
 
+    function doSubscription(){
+    // Register, Subscription and 
+    // Post subscription info to BACKEND along with USERID important
+        
+    }
+    
     
     function runSLS() {
     console.log("Starting.. SLS and service notification");
@@ -298,9 +304,10 @@ title: API logger
 
         
          if ('serviceWorker' in navigator) {
+             
             navigator.serviceWorker.register('service.js').then(registration=>{
                   var subscription;  
-                
+                  var uid;   
                   registration.pushManager.getSubscription().then(function(subs) { 
                         if (!subs) {
                                 console.log("No subscription found");                  
@@ -329,7 +336,11 @@ title: API logger
 
                                 var obj={...slsinfo[globalcounter],gcm:subscription};
                                 console.log("Trying to run SLS ", obj);
-                                wiless.APIcalls("submitjob", obj).then(d => console.log("Got this", d));                            
+                                wiless.APIcalls("submitjob", obj).then(d => 
+                                                                       {
+                                    console.log("Got this", d);
+                                    uid=d.data;
+                                                                       });                            
                         }
                  });  
                 
@@ -340,7 +351,8 @@ title: API logger
             // Then we send our first message
             navigator.serviceWorker.controller.postMessage({
               type: 'INCREASE_COUNT',
-                data:"Submitted job"
+                uid:uid,
+                msg:"Submitted job"
             });    
 
             
