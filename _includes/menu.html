@@ -99,9 +99,13 @@
     
 </div>
 <script>
+    function appendLog(msg){
+    document.getElementById("logbox").innerHTML+=msg;    
+    }
+    
     function clearLogbox(){       
     document.getElementById("logbox").innerText="";
-}
+     }
     
 function showLogbox(){   
     $('.ui.basic.modal').modal('show')
