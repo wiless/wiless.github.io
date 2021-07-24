@@ -58,8 +58,8 @@ self.addEventListener('push', pushEvent => {
     console.log("Recieved.. but wait..",pushEvent.data.text());
    if (pushEvent.data) {
      count++;
-       bc.postMessage({count:count,msg:pushEvent.data.text()}});
-      console.log('Service Worker :PUSH  event!! ', pushEvent.data.text())
+       bc.postMessage({count:count,msg:pushEvent.data.text()});
+      console.log('Service Worker :PUSH  event!! ', pushEvent.data.text()); 
 //     showLocalNotification("Message", event.data.text(), self.registration);
            pushEvent.waitUntil(self.registration.showNotification("Title : Message", { body: pushEvent.data.text() }));
         } else {
