@@ -32,7 +32,7 @@
         <a id="badge" class="ui teal circular label empty"></a>
                 <div href="#" class="ui right floated dropdown item">        
       
-             <i class="bell outline icon" ></i>
+             <i class="bell outline icon" onclick="showLogbox()" ></i>
                     
             <div class="menu">
 
@@ -82,4 +82,9 @@
       logs go here
   </div>
 </div>
-
+<script>
+function showLogbox(){   
+    document.getElementById("logbox").modal('show');
+}
+    
+</script>
