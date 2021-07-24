@@ -246,7 +246,7 @@ bc.onmessage=(event)=>{
 function updateBadge(){ 
   
   document.getElementById("badge")
-  logbox=document.getElementById("logbox");
+  var logbox=document.getElementById("logbox");
   if (logbox)
     logbox.innerText+=JSON.stringify(event.data);     
 }
