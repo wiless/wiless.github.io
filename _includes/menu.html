@@ -82,11 +82,8 @@
  <div class="ui icon header">
     <i class="terminal icon"></i>
    Log Messages
-  </div>
-    
-  
-    
-  <div id="logbox" class="scrolling content">
+  </div>    
+  <div id="logbox" class="scrolling content" style="background-color:black">
       logs go here
   </div>
      <div class="actions">
@@ -102,6 +99,10 @@
     
 </div>
 <script>
+    function clearLogbox(){       
+    document.getElementById("logbox").innerText="";
+}
+    
 function showLogbox(){   
     $('.ui.basic.modal').modal('show')
     //document.getElementById("logbox").modal('show');
