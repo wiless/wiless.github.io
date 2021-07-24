@@ -35,9 +35,9 @@ self.addEventListener("message", event => {
   }
 
   if (event.data && event.data.type === 'INCREASE_COUNT') {
-    getVersionPort.postMessage({ payload: ++count });    
+//     getVersionPort.postMessage({ payload: ++count });    
     // Also broadcast to other tabs and windows
-    bc.postMessage({ payload: ++count });
+    bc.postMessage({ count: ++count, uid:event.data.uid });
   }
   
 });
@@ -49,10 +49,7 @@ self.addEventListener('notificationclick', function(event) {
  console.log('[Service Worker] ',event);
 
   event.notification.close();
-
-  event.waitUntil(
-    clients.openWindow('https://blog.sendildevar.in/apps/viewer')
-  );
+  event.waitUntil(    clients.openWindow('https://blog.sendildevar.in/apps/viewer')  );
 });
 
 
@@ -61,9 +58,9 @@ self.addEventListener('push', pushEvent => {
     console.log("Recieved.. but wait..",pushEvent.data.text());
    if (pushEvent.data) {
      count++;
-       bc.postMessage({ payload: {count:count,text:pushEvent.data.text() }});
-            console.log('Service Worker :PUSH  event!! ', pushEvent.data.text())
-//             showLocalNotification("Message", event.data.text(), self.registration);
+       bc.postMessage({count:count,msg:pushEvent.data.text()}});
+      console.log('Service Worker :PUSH  event!! ', pushEvent.data.text())
+//     showLocalNotification("Message", event.data.text(), self.registration);
            pushEvent.waitUntil(self.registration.showNotification("Title : Message", { body: pushEvent.data.text() }));
         } else {
             console.log('Push event but no data')
