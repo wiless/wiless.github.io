@@ -245,7 +245,9 @@ bc.onmessage=(event)=>{
   
 function updateBadge(count){ 
 var  badge=document.getElementById("badge")
-  badge.innerText=count;
+badge.childNodes[1].nodeValue=count;
+//   badge.innerText=count;
+//   document.getElementById("badge").childNodes[1].nodeValue++
 //   var logbox=document.getElementById("logbox");
 //   if (logbox)
 //     logbox.innerText+=JSON.stringify(event.data);     
