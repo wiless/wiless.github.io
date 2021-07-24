@@ -275,20 +275,20 @@ title: API logger
 //         // showLocalNotification('This is title', 'this is the message', swRegistration);
 //     }
 
-   const messageChannel = new MessageChannel();
-   if ( navigator.serviceWorker.controller) {      
-        navigator.serviceWorker.controller.postMessage({type: 'INIT_PORT' }, [messageChannel.port2]);
-   }
+//    const messageChannel = new MessageChannel();
+//    if ( navigator.serviceWorker.controller) {      
+//         navigator.serviceWorker.controller.postMessage({type: 'INIT_PORT' }, [messageChannel.port2]);
+//    }
 
-    const bc=new BroadcastChannel("counterupdates") 
-    bc.onmessage=(event)=>{console.log("BC received message",event.type,event.data); document.getElementById("kind").innerText=JSON.stringify(event.data);} 
+//     const bc=new BroadcastChannel("counterupdates") 
+//     bc.onmessage=(event)=>{console.log("BC received message",event.type,event.data); document.getElementById("kind").innerText=JSON.stringify(event.data);} 
     
     // Listen to the response
-messageChannel.port1.onmessage = (event) => {
-  // Print the result
-  document.getElementById("kind").innerText=event.data.payload;
-  console.log("PORT1 received :  MESSAGE ",event.data.payload);
-};
+// messageChannel.port1.onmessage = (event) => {
+//   // Print the result
+//   document.getElementById("kind").innerText=event.data.payload;
+//   console.log("PORT1 received :  MESSAGE ",event.data.payload);
+// };
     
 
     
@@ -338,17 +338,16 @@ messageChannel.port1.onmessage = (event) => {
             });
              
             // Then we send our first message
-navigator.serviceWorker.controller.postMessage({
-  type: 'INCREASE_COUNT',
-    data:"Submitted job"
-});    
-    
-             
-             
             navigator.serviceWorker.controller.postMessage({
-            type: 'MESSAGE_IDENTIFIER',
-            data: 'I am just submitted the JOB'
-        });
+              type: 'INCREASE_COUNT',
+                data:"Submitted job"
+            });    
+
+            
+//             navigator.serviceWorker.controller.postMessage({
+//             type: 'MESSAGE_IDENTIFIER',
+//             data: 'I am just submitted the JOB'
+//             });
              
         }else{
         // No serviceworker support
