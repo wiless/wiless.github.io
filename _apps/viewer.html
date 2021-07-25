@@ -335,7 +335,12 @@ title: API logger
                             console.log("local bc receiver",eventdata.msg);                          
                             //iconel=document.querySelector("#kind>div").classList.remove("hidden");
                           var  iconel=document.querySelector("#kind>div>i")
-                            if (iconel)                                iconel.classList.add("loading");
+                            if (iconel)                                
+                            { 
+                                iconel.classList.add("loading");
+                                iconel.classList.remove("green");
+                                iconel.classList.add("orange");
+                            }
                             
                             //document.querySelector("#kind>div>i").classList.toggle("teal")
                             document.querySelector("#kind>div>div>div").textContent=eventdata.msg.uid;
@@ -348,7 +353,12 @@ title: API logger
                              
                             //iconel=document.querySelector("#kind>div").classList.remove("hidden");
                           var  iconel=document.querySelector("#kind>div>i")
-                            if (iconel)                                iconel.classList.remove("loading");
+                            if (iconel)                           
+                            { 
+                                iconel.classList.remove("loading");
+                                iconel.classList.remove("orange");
+                                iconel.classList.add("green");
+                            }
 //                              document.querySelector("#kind>div>i").classList.remove("loading");
 //                              document.querySelector("#kind>div>i").classList.toggle("green");
                          }
