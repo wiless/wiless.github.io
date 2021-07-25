@@ -39,13 +39,13 @@ title: API logger
 <ol id="states"></ol>
 <div id="kind">
     
-<div class="ui icon message">
+<div class="ui icon message hidden">
   <i class="notched circle loading icon"></i>
   <div class="content">
     <div class="header">
-      Just one second
+      SLS ID
     </div>
-    <a target=_blank href="">We're fetching that content for you.</a>
+    <a target=_blank href=""> </a>
   </div>
 </div>
     
@@ -331,9 +331,20 @@ title: API logger
                         var eventdata=d.data;
                         console.log("local bc receiver",eventdata);
                         if (eventdata.msg.type=="CREATED") {
+                            
+                            document.querySelector("#kind>div>i").classList.add("loading");
+                            document.querySelector("#kind>div>i").classList.toggle("teal")
+                            document.querySelector("#kind>div>div>div").innerText=eventdata.msg.uid;
+                            document.querySelector("#kind>div>div>a").href= eventdata.msg.url;
+                            
+                            
                             document.getElementById("kind").innerText= eventdata.msg.url;
                             console.log("local bc receiver",d);
                         }
+                         if (eventdata.msg.type=="COMPLETED"   ) {
+                            document.querySelector("#kind>div>i").classList.remove("loading");
+                             document.querySelector("#kind>div>i").classList.toggle("green");
+                         }
                     };
                                         // Then we send our first message
                       });
