@@ -40,7 +40,7 @@ title: API logger
 <div id="kind">
     
 <div class="ui icon message">
-  <i class="notched circle loading icon"></i>
+  <i class="notched circle  icon"></i>
   <div class="content">
     <div class="header">
       SLS ID
@@ -344,7 +344,7 @@ title: API logger
 //                             document.getElementById("kind").innerText= eventdata.msg.url;
                             
                         }
-                         if (eventdata.msg.type=="COMPLETED"   ) {
+                         if (eventdata.msg &&  eventdata.msg.type=="COMPLETED"   ) {
                              
                             //iconel=document.querySelector("#kind>div").classList.remove("hidden");
                           var  iconel=document.querySelector("#kind>div>i")
