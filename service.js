@@ -1,4 +1,4 @@
-const version="1.4"
+const version="1.5"
 console.log('service.js: Hello from service worker : version ',version);
 
 // self.addEventListener('activate', async () => {
