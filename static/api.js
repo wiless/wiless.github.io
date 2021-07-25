@@ -166,9 +166,12 @@ function setProfilePic(elid){
       }   
 }
 
-
+function getSubscriptionToken(){
+  return subsriptiontoken;
+}
+  var subsriptiontoken;
 function RegisterSubscription() {
-    var subsriptiontoken;
+  
  
     if ('serviceWorker' in navigator) {
      console.log("Registering for subscription");
