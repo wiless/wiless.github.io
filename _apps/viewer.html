@@ -300,8 +300,24 @@ title: API logger
         
     }
     
-    
     function runSLS() {
+         if ('serviceWorker' in navigator) {
+             wiless.APIcalls("submitjob", obj).then(d => 
+                                    {
+                
+                                        console.log("Got this", d);
+                                        uid=d.data;
+                                        // Then we send our first message
+                                        navigator.serviceWorker.controller.postMessage({
+                                          type: 'INCREASE_COUNT',
+                                            uid:uid,
+                                            msg:"Submitted job"
+                                        });    
+                                    });
+         }
+    }
+    
+    function runSLS2() {
     console.log("Starting.. SLS and service notification");
          //EnablePushNotification();
 
@@ -345,17 +361,16 @@ title: API logger
                                 var obj={...slsinfo[globalcounter],gcm:subscription};
                                 console.log("Trying to run SLS ", obj);
                                 wiless.APIcalls("submitjob", obj).then(d => 
-                                                                       {
-                                    console.log("Got this", d);
-                                    uid=d.data;
-                                      // Then we send our first message
-            navigator.serviceWorker.controller.postMessage({
-              type: 'INCREASE_COUNT',
-                uid:uid,
-                msg:"Submitted job"
-            });    
-
-                                                                       });                            
+                                    {
+                                        console.log("Got this", d);
+                                        uid=d.data;
+                                        // Then we send our first message
+                                        navigator.serviceWorker.controller.postMessage({
+                                          type: 'INCREASE_COUNT',
+                                            uid:uid,
+                                            msg:"Submitted job"
+                                        });    
+                                    });                            
                         }
                  });  
                 
