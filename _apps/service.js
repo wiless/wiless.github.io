@@ -1,4 +1,4 @@
-const version="1.2"
+const version="1.3"
 console.log('service.js: Hello from service worker : version ',version);
 
 // self.addEventListener('activate', async () => {
@@ -56,16 +56,15 @@ self.addEventListener('notificationclick', function(event) {
 
 
  
-self.addEventListener('push', pushEvent => {
-   
+self.addEventListener('push', pushEvent => {   
+  console.login("Inside .. service.js : push listener");
    if (pushEvent.data) {
      count++;
        var data=pushEvent.data;
        var obj={count:count,data:data};     
         console.log('Service Worker :PUSH Received and Broadcasting now : ', obj);   
         var bcpush = new BroadcastChannel('counterupdates');
-        bcpush.postMessage({count:count,data:data});
-       
+        bcpush.postMessage({count:count,data:data});       
 //     showLocalNotification("Message", event.data.text(), self.registration);
         pushEvent.waitUntil(self.registration.showNotification("Title : Message", { body: pushEvent.data.text() }));
         } else {
