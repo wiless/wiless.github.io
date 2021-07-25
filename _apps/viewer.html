@@ -340,6 +340,13 @@ title: API logger
                                                                        {
                                     console.log("Got this", d);
                                     uid=d.data;
+                                      // Then we send our first message
+            navigator.serviceWorker.controller.postMessage({
+              type: 'INCREASE_COUNT',
+                uid:uid,
+                msg:"Submitted job"
+            });    
+
                                                                        });                            
                         }
                  });  
@@ -348,13 +355,7 @@ title: API logger
                 
             });
              
-            // Then we send our first message
-            navigator.serviceWorker.controller.postMessage({
-              type: 'INCREASE_COUNT',
-                uid:uid,
-                msg:"Submitted job"
-            });    
-
+          
             
 //             navigator.serviceWorker.controller.postMessage({
 //             type: 'MESSAGE_IDENTIFIER',
