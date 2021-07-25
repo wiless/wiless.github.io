@@ -33,6 +33,9 @@ title: API logger
 <div class="ui divider"></div>
 <button class="ui button float teal right" type="button" onclick="loadSLSConfigs()">Load Configs</button>
 <button class="ui button float green right" type="button" onclick="runSLS()">Run SLS</button>
+<button class="ui button float right" type="button" id="btnreload" >Reload ServiceWorker</button>
+
+
 <ol id="states"></ol>
 <div id="kind"></div>
 
@@ -308,6 +311,11 @@ title: API logger
             navigator.serviceWorker.register('service.js').then(registration=>{
                   var subscription;  
                   var uid;   
+                var btnreload=document.getElementById("btnreload");
+                 btnreload.onclick = function() {
+                      registration.update();
+                    }
+                
                   registration.pushManager.getSubscription().then(function(subs) { 
                         if (!subs) {
                                 console.log("No subscription found");                  
