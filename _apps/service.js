@@ -1,4 +1,5 @@
-console.log('service.js: Hello from service worker')
+const version="1.1"
+console.log('service.js: Hello from service worker : version ',version);
 
 // self.addEventListener('activate', async () => {
 //     // This will be called only once when the service worker is activated.
@@ -58,10 +59,11 @@ self.addEventListener('push', pushEvent => {
    
    if (pushEvent.data) {
      count++;
-     var data=pushEvent.data;
+       var data=pushEvent.data;
        var obj={count:count,data:data};     
         console.log('Service Worker :PUSH Received and Broadcasting now : ', obj);   
-        bc.postMessage({count:count,data:data});
+        var bcpush = new BroadcastChannel('counterupdates');
+        bcpush.postMessage({count:count,data:data});
        
 //     showLocalNotification("Message", event.data.text(), self.registration);
         pushEvent.waitUntil(self.registration.showNotification("Title : Message", { body: pushEvent.data.text() }));
