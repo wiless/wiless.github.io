@@ -1,4 +1,4 @@
-const version="1.9"
+const version="1.9a"
 console.log('service.js: Hello from service worker : version ',version);
 
 // self.addEventListener('activate', async () => {
@@ -67,7 +67,7 @@ self.addEventListener('push', pushEvent => {
    if (pushEvent.data) {
        count++;
        var data=pushEvent.data.text();
-       var obj={count:count,data:JSON.parse(data)};     
+       var obj={count:count,msg:JSON.parse(data)};     
         console.log("Inside .. service.js : push listener : Constructed with count ",obj);     
         console.log('Service Worker :PUSH Received : ', pushEvent.data.text());   
 //         var bcpush = new BroadcastChannel('counterupdates');
