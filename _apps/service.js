@@ -58,9 +58,10 @@ self.addEventListener('push', pushEvent => {
    
    if (pushEvent.data) {
      count++;
-       var obj={count:count,msg:pushEvent.data};
-       bc.postMessage(obj);
-       console.log('Service Worker :PUSH Received : ', obj); 
+       var obj={count:count,msg:pushEvent.data};     
+        console.log('Service Worker :PUSH Received and Broadcasting now : ', obj);   
+        bc.postMessage(obj);
+       
 //     showLocalNotification("Message", event.data.text(), self.registration);
         pushEvent.waitUntil(self.registration.showNotification("Title : Message", { body: pushEvent.data.text() }));
         } else {
