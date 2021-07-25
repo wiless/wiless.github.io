@@ -37,9 +37,9 @@ title: API logger
 
 
 <ol id="states"></ol>
-<div id="kind">
+<div id="kind"  >
     
-<div class="ui icon message">
+<div class="ui icon hidden  message">
   <i class="notched circle  icon"></i>
   <div class="content">
     <div class="header">
@@ -314,6 +314,7 @@ title: API logger
     
     function runSLS() {
              //temporary solution
+             document.querySelector("#kind>div").classList.remove("hidden");
              var subscription=getSubscriptionToken();
              var obj={...slsinfo[globalcounter],gcm:subscription};
              wiless.APIcalls("submitjob", obj).then(d => {
