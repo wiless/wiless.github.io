@@ -1,4 +1,4 @@
-const version="1.7a"
+const version="1.8"
 console.log('service.js: Hello from service worker : version ',version);
 
 // self.addEventListener('activate', async () => {
@@ -69,12 +69,12 @@ self.addEventListener('push', pushEvent => {
        var data=pushEvent.data;
        var obj={count:count,data:data};     
         obj = JSON.parse(JSON.stringify(obj));     
-     console.log("Extra " ,obj.toString());
-//         console.log("Inside .. service.js : push listener",pushEvent.data.text());     
+
+        console.log("Inside .. service.js : push listener : Constructed with count ",obj);     
         console.log('Service Worker :PUSH Received : ', pushEvent.data.text());   
-        var bcpush = new BroadcastChannel('counterupdates');
-        console.log("Broadcast channel exists ?? ",bcpush);
-        //  bcpush.postMessage(obj);       
+//         var bcpush = new BroadcastChannel('counterupdates');
+        console.log("Broadcast channel exists ?? ",bc);
+        bc.postMessage(obj);       
      
         pushEvent.waitUntil(self.registration.showNotification("Title : GCM Message ", { body: pushEvent.data.text() }));
      
