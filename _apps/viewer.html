@@ -332,8 +332,7 @@ title: API logger
                         console.log("local bc receiver",eventdata);
                         
                         if (eventdata.msg && eventdata.msg.type=="CREATED") {
-                            console.log("local bc receiver",d);
-                          
+                            console.log("local bc receiver",eventdata.msg);                          
                             //iconel=document.querySelector("#kind>div").classList.remove("hidden");
                           var  iconel=document.querySelector("#kind>div>i")
                             if (iconel)                                iconel.classList.add("loading");
@@ -341,6 +340,7 @@ title: API logger
                             //document.querySelector("#kind>div>i").classList.toggle("teal")
                             document.querySelector("#kind>div>div>div").textContent=eventdata.msg.uid;
                             document.querySelector("#kind>div>div>a").href= eventdata.msg.url;                                                        
+                            document.querySelector("#kind>div>div>a").textContent= eventdata.msg.url;            
 //                             document.getElementById("kind").innerText= eventdata.msg.url;
                             
                         }
