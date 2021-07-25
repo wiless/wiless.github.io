@@ -1,4 +1,4 @@
-const version="1.7"
+const version="1.7a"
 console.log('service.js: Hello from service worker : version ',version);
 
 // self.addEventListener('activate', async () => {
@@ -16,13 +16,16 @@ console.log('service.js: Hello from service worker : version ',version);
 
 // })
 
-// On the Service Worker side we have to listen to the message event
-self.addEventListener('message', (event) => {
-  if (event.data && event.data.type === 'MESSAGE_IDENTIFIER') {
-    console.log("Wow someone sent me somthing.. thanks, I will follow-up");
-    // do something
-  }
-});
+// // On the Service Worker side we have to listen to the message event
+// self.addEventListener('message', (event) => {
+//   if (event.data && event.data.type === 'MESSAGE_IDENTIFIER') {
+//     console.log("Wow someone sent me somthing.. thanks, I will follow-up");
+//     // do something
+//   }else
+//   {
+//       console.log("UNKNOWN  thanks, I will follow-up ",event.data,event.data.type);
+//   }
+// });
 
 // Connection to a broadcast channel
 const bc = new BroadcastChannel('counterupdates');
@@ -40,7 +43,10 @@ self.addEventListener("message", event => {
     // Also broadcast to other tabs and windows
     console.log("Broadcasting about new submission : ","INCREASE_COUNT");
     bc.postMessage({ count: ++count, type:"SUBMITTED",uid:event.data.uid });
+    return;
   }
+  
+  console.log("UNKNOWN  thanks, I will follow-up ",event.data,event.data.type);
   
 });
 
@@ -57,19 +63,21 @@ self.addEventListener('notificationclick', function(event) {
 
  
 self.addEventListener('push', pushEvent => {   
-  console.log("Inside .. service.js : push listener",pushEvent.data.text());
+
    if (pushEvent.data) {
-     count++;
+       count++;
        var data=pushEvent.data;
        var obj={count:count,data:data};     
-       obj = JSON.parse(JSON.stringify(obj));     
-        console.log('Service Worker :PUSH Received and Broadcasting now : ', obj);   
+        obj = JSON.parse(JSON.stringify(obj));     
+     console.log("Extra " ,obj.toString());
+//         console.log("Inside .. service.js : push listener",pushEvent.data.text());     
+        console.log('Service Worker :PUSH Received : ', pushEvent.data.text());   
         var bcpush = new BroadcastChannel('counterupdates');
         console.log("Broadcast channel exists ?? ",bcpush);
         //  bcpush.postMessage(obj);       
      
-//     showLocalNotification("Message", event.data.text(), self.registration);
-        pushEvent.waitUntil(self.registration.showNotification("Title : Message", { body: pushEvent.data.text() }));
+        pushEvent.waitUntil(self.registration.showNotification("Title : GCM Message ", { body: pushEvent.data.text() }));
+     
         } else {
             console.log('Push event but no data')
         }
