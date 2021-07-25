@@ -107,7 +107,9 @@
         var div = document.createElement('div');
 //         div.textContent = new Date().toLocaleTimeString();        
         new Inspector(div).fulfilled({time:new Date().toLocaleTimeString(),...msg})
-        document.querySelector('#logbox').appendChild(div);
+        var logbox=document.querySelector('#logbox')
+        logbox.insertBefore(div, logbox.firstChild);        
+        //logbox.appendChild(div);
         
 //         new Inspector(document.getElementById("logbox")).fulfilled({time:new Date().toLocaleTimeString(),...temp1})
         
