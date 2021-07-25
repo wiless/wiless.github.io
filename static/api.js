@@ -179,7 +179,9 @@ function RegisterSubscription() {
                 if (!subs) {
                     console.log("No subscription found");
                     console.log("Creating new subscription...");
-                    const opts = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" };
+                   
+
+                    const opts = { userVisibleOnly: true, applicationServerKey: "BD2HbjsgFOqfDxRYffjEw0xBNQYObUkQ32YkPAoa0a-Pr_9nTMNa55mTQToqQ_l3zZS-GGRarxMjDcK5IMOkAGo" };
                     registration.pushManager.subscribe(opts)
                         .then(newsub => {
                             subsriptiontoken = newsub;
