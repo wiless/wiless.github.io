@@ -39,7 +39,7 @@ title: API logger
 <ol id="states"></ol>
 <div id="kind">
     
-<div class="ui icon message hidden">
+<div class="ui icon message">
   <i class="notched circle loading icon"></i>
   <div class="content">
     <div class="header">
@@ -331,19 +331,22 @@ title: API logger
                         var eventdata=d.data;
                         console.log("local bc receiver",eventdata);
                         if (eventdata.msg.type=="CREATED") {
-                            document.querySelector("#kind>div").classList.remove("hidden");
-                            document.querySelector("#kind>div>i").classList.add("loading");
-                            document.querySelector("#kind>div>i").classList.toggle("teal")
-                            document.querySelector("#kind>div>div>div").innerText=eventdata.msg.uid;
-                            document.querySelector("#kind>div>div>a").href= eventdata.msg.url;
-                            
-                            
-                            document.getElementById("kind").innerText= eventdata.msg.url;
                             console.log("local bc receiver",d);
+                            var iconel;
+                            //iconel=document.querySelector("#kind>div").classList.remove("hidden");
+                            iconel=document.querySelector("#kind>div>i")
+                            if (iconnel)
+                                iconel.classList.add("loading");
+                            
+                            //document.querySelector("#kind>div>i").classList.toggle("teal")
+                            document.querySelector("#kind>div>div>div").innerText=eventdata.msg.uid;
+                            document.querySelector("#kind>div>div>a").href= eventdata.msg.url;                                                        
+//                             document.getElementById("kind").innerText= eventdata.msg.url;
+                            
                         }
                          if (eventdata.msg.type=="COMPLETED"   ) {
-                            document.querySelector("#kind>div>i").classList.remove("loading");
-                             document.querySelector("#kind>div>i").classList.toggle("green");
+//                              document.querySelector("#kind>div>i").classList.remove("loading");
+//                              document.querySelector("#kind>div>i").classList.toggle("green");
                          }
                     };
                                         // Then we send our first message
