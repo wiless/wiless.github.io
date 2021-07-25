@@ -306,16 +306,18 @@ title: API logger
              var obj={...slsinfo[globalcounter],gcm:subscription};
              wiless.APIcalls("submitjob", obj).then(d => {
                     console.log("Got this", d);
-                    uid=d.data;
-                    
-                          if ('serviceWorker' in navigator) {
-                             
+                    uid=d.data;                    
+                          if ('serviceWorker' in navigator) {                             
                               var info={type: 'INCREASE_COUNT',uid:uid,msg:"Submitted job"};
                               navigator.serviceWorker.controller.postMessage(info);    
                           }else{
                               var info={type: 'INCREASE_COUNT',uid:uid,msg:"Submitted job"};
-                              bc.postMessage(info);                       
+                              bc.postMessage(info);                                  
                           }
+                    var localbc=new BroadcastChannel("counterupdates");
+                    localbc.onmessage=d=>{
+                        console.log("local bc receiver",d);
+                    };
                                         // Then we send our first message
                       });
           
