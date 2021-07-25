@@ -169,12 +169,12 @@ function setProfilePic(elid){
 
     function RegisterSubscription()  {
       var subsriptiontoken;
-      
+     console.log("Registering for subscription"); 
       return subsriptiontoken
     }
 
    function UnSubscribe()  {
-     
+     console.log("Unscribing from FCM");
      
     }
 
