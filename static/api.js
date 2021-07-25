@@ -169,17 +169,16 @@ function setProfilePic(elid){
 
 function RegisterSubscription() {
     var subsriptiontoken;
-    console.log("Registering for subscription");
-
+ 
     if ('serviceWorker' in navigator) {
+     console.log("Registering for subscription");
 
-        navigator.serviceWorker.register('service.js').then(registration => {
+        navigator.serviceWorker.register('/service.js').then(registration => {
             ///  Find if pushManager found.. 
             registration.pushManager.getSubscription().then(function (subs) {
                 if (!subs) {
                     console.log("No subscription found");
-                    console.log("Creating new subscription...");
-                   
+                    console.log("Creating new subscription...");                   
 
                     const opts = { userVisibleOnly: true, applicationServerKey: "BD2HbjsgFOqfDxRYffjEw0xBNQYObUkQ32YkPAoa0a-Pr_9nTMNa55mTQToqQ_l3zZS-GGRarxMjDcK5IMOkAGo" };
                     registration.pushManager.subscribe(opts)
@@ -191,8 +190,6 @@ function RegisterSubscription() {
                         
                 } else {
                     subsriptiontoken = subs;
-                    console.log("Found old subscriptions", subsriptiontoken);
-                    console.log("Found old subscriptions ID ", subsriptiontoken.subscriptionId);
                     console.log("Found old subscriptions JSON", subsriptiontoken.toJSON());
                     return subsriptiontoken;
                 }
@@ -203,6 +200,7 @@ function RegisterSubscription() {
       
             
     }
+    console.log("Service Worker not supported");
     return subsriptiontoken
 }
 
