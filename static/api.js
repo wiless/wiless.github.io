@@ -199,8 +199,8 @@ function setProfilePic(elid){
       console.log('Logged in as ' + userprofile.getEmail()); // This is null if the 'email' scope is not present.
       setProfilePic("profile");
       var token=googleUser.getAuthResponse().id_token;      
-      
-      initBackend(token);
+      var subscription=RegisterSubscription(); 
+      initBackend(token); // Update new initBackend with subscription info as second parameter
       
       // var opts = { "token": gtoken };
 //       wiless.LoginViaGoogle(gtoken).then(
