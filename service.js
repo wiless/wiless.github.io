@@ -66,7 +66,8 @@ self.addEventListener('push', pushEvent => {
         console.log('Service Worker :PUSH Received and Broadcasting now : ', obj);   
         var bcpush = new BroadcastChannel('counterupdates');
         console.log("Broadcast channel exists ?? ",bcpush);
-        bcpush.postMessage(obj.text());       
+        //  bcpush.postMessage(obj);       
+     
 //     showLocalNotification("Message", event.data.text(), self.registration);
         pushEvent.waitUntil(self.registration.showNotification("Title : Message", { body: pushEvent.data.text() }));
         } else {
