@@ -316,8 +316,8 @@ title: API logger
                           }
                     var localbc=new BroadcastChannel("counterupdates");
                     localbc.onmessage=d=>{                        
-                        if (d.msg && d.msg.type=="CREATED")
-                        {
+                        console.log("local bc receiver",d);
+                        if (d.msg && d.msg.type && d.msg.type=="CREATED") {
                             document.getElementById("kind").innerText= d.msg.url;
                             console.log("local bc receiver",d);
                         }
