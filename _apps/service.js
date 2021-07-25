@@ -30,9 +30,9 @@ let getVersionPort;
 let count = 0;
 self.addEventListener("message", event => {
   
-  if (event.data && event.data.type === 'INIT_PORT') {
-    getVersionPort = event.ports[0];
-  }
+//   if (event.data && event.data.type === 'INIT_PORT') {
+//     getVersionPort = event.ports[0];
+//   }
 
   if (event.data && event.data.type === 'INCREASE_COUNT') {
 //     getVersionPort.postMessage({ payload: ++count });    
@@ -55,13 +55,13 @@ self.addEventListener('notificationclick', function(event) {
 
  
 self.addEventListener('push', pushEvent => {
-    console.log("Recieved.. but wait..",pushEvent.data.text());
+   
    if (pushEvent.data) {
      count++;
-       bc.postMessage({count:count,msg:pushEvent.data.text()});
-      console.log('Service Worker :PUSH  event!! ', pushEvent.data.text()); 
+       bc.postMessage({count:count,msg:pushEvent.data});
+      console.log('Service Worker :PUSH Received : ', pushEvent.data.text()); 
 //     showLocalNotification("Message", event.data.text(), self.registration);
-           pushEvent.waitUntil(self.registration.showNotification("Title : Message", { body: pushEvent.data.text() }));
+        pushEvent.waitUntil(self.registration.showNotification("Title : Message", { body: pushEvent.data.text() }));
         } else {
             console.log('Push event but no data')
         }
