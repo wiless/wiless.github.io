@@ -248,7 +248,7 @@ const bc=new BroadcastChannel("counterupdates")
 bc.onmessage=(event)=>{
       console.log("Broadcast Message received : type=",event.type,"event.data = ",event.data);       
       updateBadge(event.data.count);      
-      appendLog(event.data);
+      appendLog(event.data.text());
     } 
   
 function updateBadge(count){ 
