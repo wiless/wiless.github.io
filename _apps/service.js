@@ -37,7 +37,7 @@ self.addEventListener("message", event => {
   if (event.data && event.data.type === 'INCREASE_COUNT') {
 //     getVersionPort.postMessage({ payload: ++count });    
     // Also broadcast to other tabs and windows
-    bc.postMessage({ count: ++count, uid:event.data.uid });
+    bc.postMessage({ count: ++count, type:"SUBMITTED",uid:event.data.uid });
   }
   
 });
