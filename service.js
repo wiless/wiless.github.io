@@ -1,4 +1,4 @@
-const version="1.5"
+const version="1.6"
 console.log('service.js: Hello from service worker : version ',version);
 
 // self.addEventListener('activate', async () => {
@@ -62,10 +62,11 @@ self.addEventListener('push', pushEvent => {
      count++;
        var data=pushEvent.data;
        var obj={count:count,data:data};     
+       obj = JSON.parse(JSON.stringify(obj));     
         console.log('Service Worker :PUSH Received and Broadcasting now : ', obj);   
         var bcpush = new BroadcastChannel('counterupdates');
         console.log("Broadcast channel exists ?? ",bcpush);
-        bcpush.postMessage({count:count,data:data});       
+        bcpush.postMessage(obj.text());       
 //     showLocalNotification("Message", event.data.text(), self.registration);
         pushEvent.waitUntil(self.registration.showNotification("Title : Message", { body: pushEvent.data.text() }));
         } else {
