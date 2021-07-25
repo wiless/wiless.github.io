@@ -330,7 +330,8 @@ title: API logger
                     localbc.onmessage=d=>{  
                         var eventdata=d.data;
                         console.log("local bc receiver",eventdata);
-                        if (eventdata.msg.type=="CREATED") {
+                        
+                        if (eventdata.msg && eventdata.msg.type=="CREATED") {
                             console.log("local bc receiver",d);
                           
                             //iconel=document.querySelector("#kind>div").classList.remove("hidden");
