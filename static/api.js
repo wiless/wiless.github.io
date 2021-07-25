@@ -166,10 +166,20 @@ function setProfilePic(elid){
       }   
 }
 
-    function onSignIn(googleUser) {
+
+    function RegisterSubscription()  {
+      var subsriptiontoken;
       
-//       <button class="ui item button" id="btnsignin" onclick="signIn()">Sign In</button>
-//       <button class="ui item button" id="btnsignout" onclick="signOut()">Sign Out</button> 
+      return subsriptiontoken
+    }
+
+   function UnSubscribe()  {
+     
+     
+    }
+
+    function onSignIn(googleUser) {
+    
       
         el = document.getElementById("btnsignin");
       if (el!=null){        
@@ -186,15 +196,10 @@ function setProfilePic(elid){
       }  
         
       userprofile = googleUser.getBasicProfile();
-      
-      // The ID token you need to pass to your backend:      
-      // The ID token you need to pass to your backend:
-//       console.log('ID: ' + userprofile.getId()); // Do not send to your backend! Use an ID token instead.
-//       console.log('Name: ' + userprofile.getName());
-//       console.log('Image URL: ' + userprofile.getImageUrl());
       console.log('Logged in as ' + userprofile.getEmail()); // This is null if the 'email' scope is not present.
       setProfilePic("profile");
       var token=googleUser.getAuthResponse().id_token;      
+      
       initBackend(token);
       
       // var opts = { "token": gtoken };
@@ -208,7 +213,10 @@ function setProfilePic(elid){
 
  function signOut() {
        var auth2 = gapi.auth2.getAuthInstance();       
+        
+        UnSubscribe(); // Unsubscribe user-specific notifications from backend
         auth2.signOut().then(function () {
+          
           var el = document.getElementById("btnsignin");
       if (el!=null){        
         if (el.nodeName=="BUTTON"){          
@@ -238,8 +246,8 @@ function setProfilePic(elid){
 
 const bc=new BroadcastChannel("counterupdates") 
 bc.onmessage=(event)=>{
-      updateBadge(event.data.count);
-      console.log("BC received message",event.type,event.data);       
+      console.log("Broadcast Message received : type=",event.type,"event.data = ",event.data);       
+      updateBadge(event.data.count);      
       appendLog(event.data);
     } 
   
