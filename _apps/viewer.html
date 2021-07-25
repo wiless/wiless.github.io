@@ -315,10 +315,11 @@ title: API logger
                               bc.postMessage(info);                                  
                           }
                     var localbc=new BroadcastChannel("counterupdates");
-                    localbc.onmessage=d=>{                        
-                        console.log("local bc receiver",d);
-                        if (d.msg && d.msg.type && d.msg.type=="CREATED") {
-                            document.getElementById("kind").innerText= d.msg.url;
+                    localbc.onmessage=d=>{  
+                        var eventdata=d.data;
+                        console.log("local bc receiver",eventdata);
+                        if (eventdata.msg.type=="CREATED") {
+                            document.getElementById("kind").innerText= eventdata.msg.url;
                             console.log("local bc receiver",d);
                         }
                     };
