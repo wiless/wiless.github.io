@@ -167,11 +167,39 @@ function setProfilePic(elid){
 }
 
 
-    function RegisterSubscription()  {
+ function RegisterSubscription()  {
       var subsriptiontoken;
      console.log("Registering for subscription"); 
+        
+         if ('serviceWorker' in navigator) {
+             
+            navigator.serviceWorker.register('service.js').then(registration=>{
+              ///  Find if pushManager found.. 
+                   registration.pushManager.getSubscription().then(function(subs) { 
+                        if (!subs) {
+                                console.log("No subscription found");                  
+                                console.log("Creating new subscription...");
+                                const opts = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" };
+                                registration.pushManager.subscribe(opts)
+                                    .then(newsub =>
+                                          {
+                                            subsriptiontoken=newsub;
+                                            console.log("Received ", JSON.stringify(newsub));
+                                          });                       
+                        }else{
+                                subsriptiontoken=subs;
+                                console.log("Found old subscriptions",subsriptiontoken);
+                                console.log("Found old subscriptions ID ",subsriptiontoken.subscriptionId);
+                                console.log("Found old subscriptions JSON",subsriptiontoken.toJSON());       
+                        }              
+              ///
+            });
+         }
+      
+      
+      
       return subsriptiontoken
-    }
+    } 
 
    function UnSubscribe()  {
      console.log("Unscribing from FCM");
