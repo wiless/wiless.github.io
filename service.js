@@ -1,4 +1,4 @@
-const version="1.3"
+const version="1.4"
 console.log('service.js: Hello from service worker : version ',version);
 
 // self.addEventListener('activate', async () => {
@@ -57,7 +57,7 @@ self.addEventListener('notificationclick', function(event) {
 
  
 self.addEventListener('push', pushEvent => {   
-  console.login("Inside .. service.js : push listener");
+  console.log("Inside .. service.js : push listener");
    if (pushEvent.data) {
      count++;
        var data=pushEvent.data;
