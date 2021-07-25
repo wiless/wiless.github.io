@@ -100,7 +100,15 @@
 </div>
 <script>
     function appendLog(msg){
-    document.getElementById("logbox").innerHTML+="</br>"+msg;    
+        
+        var div = document.createElement('div');
+//         div.textContent = new Date().toLocaleTimeString();        
+        new Inspector(div).fulfilled({time:new Date().toLocaleTimeString(),...msg})
+        document.querySelector('#logbox').appendChild(div);
+        
+//         new Inspector(document.getElementById("logbox")).fulfilled({time:new Date().toLocaleTimeString(),...temp1})
+        
+//        document.getElementById("logbox").innerHTML+="</br>"+msg;    
     }
     
     function clearLogbox(){       
