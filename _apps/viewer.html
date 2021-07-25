@@ -332,19 +332,22 @@ title: API logger
                         console.log("local bc receiver",eventdata);
                         if (eventdata.msg.type=="CREATED") {
                             console.log("local bc receiver",d);
-                            var iconel;
+                          
                             //iconel=document.querySelector("#kind>div").classList.remove("hidden");
-                            iconel=document.querySelector("#kind>div>i")
-                            if (iconnel)
-                                iconel.classList.add("loading");
+                          var  iconel=document.querySelector("#kind>div>i")
+                            if (iconel)                                iconel.classList.add("loading");
                             
                             //document.querySelector("#kind>div>i").classList.toggle("teal")
-                            document.querySelector("#kind>div>div>div").innerText=eventdata.msg.uid;
+                            document.querySelector("#kind>div>div>div").textContent=eventdata.msg.uid;
                             document.querySelector("#kind>div>div>a").href= eventdata.msg.url;                                                        
 //                             document.getElementById("kind").innerText= eventdata.msg.url;
                             
                         }
                          if (eventdata.msg.type=="COMPLETED"   ) {
+                             
+                            //iconel=document.querySelector("#kind>div").classList.remove("hidden");
+                          var  iconel=document.querySelector("#kind>div>i")
+                            if (iconel)                                iconel.classList.remove("loading");
 //                              document.querySelector("#kind>div>i").classList.remove("loading");
 //                              document.querySelector("#kind>div>i").classList.toggle("green");
                          }
