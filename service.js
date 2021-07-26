@@ -1,4 +1,4 @@
-const version="1.9a"
+const version="1.10"
 console.log('service.js: Hello from service worker : version ',version);
 
 // self.addEventListener('activate', async () => {
@@ -73,8 +73,12 @@ self.addEventListener('push', pushEvent => {
 //         var bcpush = new BroadcastChannel('counterupdates');
         console.log("Broadcast channel exists ?? ",bc);
         var result=bc.postMessage(obj);       
-       console.log("Broadcast channel sent ?? ",result);
-        pushEvent.waitUntil(self.registration.showNotification("Title : GCM Message ", { body: pushEvent.data.text() }));
+        console.log("Broadcast channel sent ?? ",result);
+     
+        // Skip messages of "RUNNING" type
+        if !(obj.msg.type && obj.msg.type=="RUNNING") {
+          pushEvent.waitUntil(self.registration.showNotification("Title : GCM Message ", { body: pushEvent.data.text() }));
+        }
      
         } else {
             console.log('Push event but no data')
