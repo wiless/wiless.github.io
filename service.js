@@ -76,8 +76,10 @@ self.addEventListener('push', pushEvent => {
         console.log("Broadcast channel sent ?? ",result);
      
         // Skip messages of "RUNNING" type
-        if !(obj.msg.type && obj.msg.type=="RUNNING") {
-          pushEvent.waitUntil(self.registration.showNotification("Title : GCM Message ", { body: pushEvent.data.text() }));
+        if (obj.msg.type && obj.msg.type=="RUNNING") {
+        
+        }else{
+            pushEvent.waitUntil(self.registration.showNotification("Title : GCM Message ", { body: pushEvent.data.text() }));
         }
      
         } else {
