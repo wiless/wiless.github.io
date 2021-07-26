@@ -33,7 +33,7 @@ title: API logger
 <div class="ui divider"></div>
 <button class="ui button float teal right" type="button" onclick="loadSLSConfigs()">Load Configs</button>
 <button class="ui button float green right" type="button" onclick="runSLS()">Run SLS</button>
-<button class="ui button float right" type="button" id="btnreload" >Reload ServiceWorker</button>
+<!-- <button class="ui button float right" type="button" id="btnreload" >Reload ServiceWorker</button> -->
 
 
 <ol id="states"></ol>
@@ -359,7 +359,8 @@ title: API logger
                             a.classList.add("ui","label");
                             a.href=eventdata.msg.url;
                              a.textContent=eventdata.msg.url;
-                             a.textContent=eventdata.msg.data;                             
+                             a.textContent=eventdata.msg.data;    
+                             a.target="_blank";
                              document.querySelector("#kind>div>div").appendChild(a);
                          }
                              
