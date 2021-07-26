@@ -125,8 +125,11 @@ var googleauth;
 
  function signIn() {
       //{prompt:"select_account"}
+   
+    var scopes="https://www.googleapis.com/auth/devstorage.read_only profile email"; 
+   console.log("Trying to log with more scope",scopes);
      var gauth = gapi.auth2.getAuthInstance();
-     gauth.signIn().then(guser => onSignIn(guser));   
+     gauth.signIn({  scope: scopes}).then(guser => onSignIn(guser));   
     
     }
 
@@ -135,7 +138,7 @@ var googleauth;
       console.log("Loaded Google Platform Library");
       gapi.load('auth2', function () {
         /* Ready. Make a call to gapi.auth2.init or some other API */        
-        var SCOPES = "https://www.googleapis.com/auth/contacts.readonly";
+        var SCOPES = "https://www.googleapis.com/auth/devstorage.read_only profile email"; 
         var param = { client_id: '565126014426-fis7623ann950k0i711upje0o5kt3qhp.apps.googleusercontent.com',scope:SCOPES };
         googleauth = gapi.auth2.init(param);
      //   google.auth.https://www.googleapis.com/auth/cloud-platform
