@@ -352,6 +352,20 @@ title: API logger
 //                             document.getElementById("kind").innerText= eventdata.msg.url;
                             
                         }
+                        
+                        // 
+                         if (eventdata.msg &&  eventdata.msg.type=="RUNNING"   ) {
+                           var a=document.createElement("a");
+                            a.classList.add("ui","label");
+                            a.href=eventdata.msg.url;
+                             a.textContent=eventdata.msg.url;
+                             a.textContent=eventdata.msg.data;                             
+                             document.querySelector("#kind>div>div").appendChild(a);
+                         }
+                             
+                        
+                        
+                        //
                          if (eventdata.msg &&  eventdata.msg.type=="COMPLETED"   ) {
                              
                             //iconel=document.querySelector("#kind>div").classList.remove("hidden");
