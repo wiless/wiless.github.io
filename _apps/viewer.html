@@ -337,7 +337,7 @@ title: API logger
                         
                         if (eventdata.msg && eventdata.msg.type=="CREATED") {
                             console.log("local bc receiver",eventdata.msg);    
-                            localStorage.setItem(eventdata.msg.uid,{timestamp:new Date(),url:eventdata.msg.url});
+                            localStorage.setItem(eventdata.msg.uid,JSON.stringify({timestamp:new Date(),url:eventdata.msg.url}));
                             //iconel=document.querySelector("#kind>div").classList.remove("hidden");
                           var  iconel=document.querySelector("#kind>div>i")
                             if (iconel)                                
