@@ -1,4 +1,65 @@
 <!-- ui inverted vertical footer segment -->
+<!-- LOG BOX  -->
+ <style>
+        #logbox::-webkit-scrollbar-thumb{background:"green"}
+        
+.logmessage {
+  line-height: 24pt;
+/*   border: solid 1px black; */
+}
+
+#logbox>div:nth-of-type(odd) {
+  background: #e0e0e0;
+}
+    </style>
+  
+
+    
+  <div id="logbox" class="scrolling content" style="background-color:white">
+      
+  </div>
+     <div class="actions">
+    <div class="ui red basic cancel inverted button" onclick="clearLogbox()">
+      <i class="remove icon"></i>
+      Clear
+    </div>
+    <div class="ui green ok inverted button">
+      <i class="checkmark icon"></i>
+      Close
+    </div>
+  </div>
+    
+</div>
+<script>
+    function appendLog(msg){
+        
+        var div = document.createElement('div');
+        div.classList.add("logmessage");
+//         div.textContent = new Date().toLocaleTimeString();        
+        new Inspector(div).fulfilled({time:new Date().toLocaleTimeString(),...msg})
+        var logbox=document.querySelector('#logbox')
+        logbox.insertBefore(div, logbox.firstChild);        
+        //logbox.appendChild(div);
+        
+//         new Inspector(document.getElementById("logbox")).fulfilled({time:new Date().toLocaleTimeString(),...temp1})
+        
+//        document.getElementById("logbox").innerHTML+="</br>"+msg;    
+    }
+             
+    function clearLogbox(){       
+        console.log("Clearing logbox");
+    document.getElementById("logbox").innerText="";
+     }
+    
+function showLogbox(){   
+    $('.ui.basic.modal').modal('show')
+    //document.getElementById("logbox").modal('show');
+}
+    
+</script>
+
+
+
 <div class="ui  inverted footer segment ">
     <div class="ui center aligned container">
         <div class="ui stackable divided grid">
