@@ -231,14 +231,14 @@ title: API logger
             d => {//console.log(d); 
                 slsinfo[globalcounter].nr = d;
                 new Inspector(document.querySelector("#nr")).fulfilled(d);
-		nreditor = new JSONEditor(document.getElementById('ituspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, d);
+		nreditor = new JSONEditor(document.getElementById('nrspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, d);
                 //createJSONCard("nr",d);
             });
         fetch(simfilename).then(d => d.json()).then(
             d => {//console.log(d); 
                 new Inspector(document.querySelector("#sim")).fulfilled(d);
                 slsinfo[globalcounter].sim = d;
-		simeditor = new JSONEditor(document.getElementById('ituspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, d);
+		simeditor = new JSONEditor(document.getElementById('simspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, d);
                 //createJSONCard("sim",d);
             });
     }
