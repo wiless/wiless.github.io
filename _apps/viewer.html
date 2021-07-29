@@ -71,15 +71,15 @@ title: API logger
   
         <div class="ui bottom attached active tab segment" data-tab="itucfg">
             From M.2150
-		   <div id="ituspec" style="height:400px;padding-bottom:40px"> itu SPEC </div>
+		   <div id="ituspec" style="height:400px;padding-bottom:40px"></div>
         </div>
       <div class="ui bottom attached   tab segment" data-tab="nrcfg">
             Technology Specific (NR cfg)
-		   <div id="nrspec" style="height:400px;padding-bottom:40px"> nr spec </div>	      
+		   <div id="nrspec" style="height:400px;padding-bottom:40px"></div>	      
         </div>
       <div class="ui bottom attached   tab segment" data-tab="simcfg">
             Simulator Specific (SIM cfg)
-		   <div id="simspec" style="height:400px;padding-bottom:40px"> SIM cfg </div>
+		   <div id="simspec" style="height:400px;padding-bottom:40px"></div>
         </div>        
  
 	
@@ -224,6 +224,7 @@ title: API logger
             d => {//console.log(d); 
                 new Inspector(document.querySelector("#itu")).fulfilled(d)
                 slsinfo[globalcounter].itu = d;
+		document.getElementById("ituspec").firstElementChild.remove();
 		itueditor = new JSONEditor(document.getElementById('ituspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, d);
                 //createJSONCard("itu",d);
             });
@@ -231,13 +232,16 @@ title: API logger
             d => {//console.log(d); 
                 slsinfo[globalcounter].nr = d;
                 new Inspector(document.querySelector("#nr")).fulfilled(d);
+		document.getElementById("nrspec").firstElementChild.remove();
 		nreditor = new JSONEditor(document.getElementById('nrspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, d);
+		    
                 //createJSONCard("nr",d);
             });
         fetch(simfilename).then(d => d.json()).then(
             d => {//console.log(d); 
                 new Inspector(document.querySelector("#sim")).fulfilled(d);
                 slsinfo[globalcounter].sim = d;
+		document.getElementById("simspec").firstElementChild.remove();
 		simeditor = new JSONEditor(document.getElementById('simspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, d);
                 //createJSONCard("sim",d);
             });
