@@ -58,8 +58,8 @@ title: API logger
 </div>
 
 <div class="ui divider red"></div>
-   <div class="ui input" id="itu-file"> <input class="ui blue" type="file" placeholder="ITU Configuration"> </div>
-    <div class="ui input" id="nr-file"> <input class="ui blue" type="file" placeholder="ITU Configuration"> </div>
+   <div class="ui input" id="itu-file"> <input class="ui blue" type="file" placeholder="ITU Configuration"> ITU Config</div>
+    <div class="ui input" id="nr-file"> <input class="ui blue" type="file" placeholder="NR Configuration"> </div>
     <div class="ui input " id="sim-file"> <input class="ui blue" type="file" placeholder="SIM Configuration"> </div>
 
 <div class="ui raised segment">
@@ -82,14 +82,15 @@ title: API logger
 		   <div id="simspec" style="height:300px"> SIM cfg </div>
         </div>        
  
+	
+</div>
 
 <div class="row">
     <div class="col-sm-4">  <div id="itu"></div> </div>
     <div class="col-sm-4"> <div id="nr"></div> </div>
     <div class="col-sm-4"> <div id="sim"></div> </div>
 </div>
-	
-</div>
+
 
 <!-- <div class="row">
 
@@ -204,30 +205,40 @@ title: API logger
         });
     });
 
+	var itueditor,simeditor,nreditor;
 
     function loadSLSConfigs() {
         globalcounter++;
 
         slsinfo[globalcounter] = { itu: {}, nr: {}, sim: {} };
-        // 3GPP_InH_configA.json 
+        // 3GPP_InH_configA.json "https://raw.githubusercontent.com/5gif/ituset/main/configs/3GPP_InH_configB.json"
         // ITU_InH_configA.json
         // SIM_InH_configA.json
-        fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/ITU_InH_configB.json").then(d => d.json()).then(
+        var itufilename="https://raw.githubusercontent.com/5gif/ituset/main/DECT/ITU_UMa_mMTC_configA.json";
+	var nrfilename="https://raw.githubusercontent.com/5gif/ituset/main/DECT/DECT_UMa_mMTC_configA.json";
+	var simfilename="https://raw.githubusercontent.com/5gif/ituset/main/DECT/SIM_UMa_mMTC_configA.json";
+	
+	
+	    
+	fetch(itufilename).then(d => d.json()).then(
             d => {//console.log(d); 
                 new Inspector(document.querySelector("#itu")).fulfilled(d)
                 slsinfo[globalcounter].itu = d;
+		itueditor = new JSONEditor(document.getElementById('ituspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, d);
                 //createJSONCard("itu",d);
             });
-        fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/3GPP_InH_configB.json").then(d => d.json()).then(
+        fetch(nrfilename).then(d => d.json()).then(
             d => {//console.log(d); 
                 slsinfo[globalcounter].nr = d;
                 new Inspector(document.querySelector("#nr")).fulfilled(d);
+		nreditor = new JSONEditor(document.getElementById('ituspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, d);
                 //createJSONCard("nr",d);
             });
-        fetch("https://raw.githubusercontent.com/5gif/ituset/main/configs/SIM_InH_configB.json").then(d => d.json()).then(
+        fetch(simfilename).then(d => d.json()).then(
             d => {//console.log(d); 
                 new Inspector(document.querySelector("#sim")).fulfilled(d);
                 slsinfo[globalcounter].sim = d;
+		simeditor = new JSONEditor(document.getElementById('ituspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, d);
                 //createJSONCard("sim",d);
             });
     }
