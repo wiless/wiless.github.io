@@ -1,4 +1,5 @@
 [
+   
     {
         "id":1,
         "Link": "https://www.linkedin.com/feed/update/urn:li:activity:6666291276842971136/",
@@ -34,5 +35,11 @@
         "Link": "https://www.linkedin.com/pulse/5g-disruptive-spectrum-policy-new-business-part-1-2-kumar/",
         "Description": "New Disruptive Spectrum policy",
         "Title": "My view on disruptive policies for 5G"
-    }
+    },
+    {
+        "id":7,
+        "Link": "https://gtprn.org/2020/11/14/rural-connectivity-some-challenges-and-opportunities/",
+        "Description": "Article on GTPRN on rural connectivity",
+        "Title": "Rural Connectivity - Challenges and Opportunities"        
+    },
 ]
