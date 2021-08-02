@@ -16,6 +16,10 @@ $(document).ready(function() {
       {      
         $('.ui.accordion').accordion();
       }
+    
+    $('.ui.sidebar')
+        .sidebar('attach events', '.toc.item')
+      ;
 
    };
 });
