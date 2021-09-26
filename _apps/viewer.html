@@ -69,7 +69,7 @@ title: API logger
     </div>
     <div class="col-sm-4">
         <div class="ui input" id="nr-file">
-            NR Config
+
             <input class="ui blue" type="file" placeholder="NR Configuration">
         </div>
         <!-- <div id="nr"></div> -->
@@ -206,7 +206,25 @@ title: API logger
         const formatter = new JSONFormatter(json, 1, JFoptions);
         card.appendChild(formatter.render());
     }
+    document.getElementById('itucfg').addEventListener('change', event => {
+        var file = event.target.files[0];
 
+        file.text().then(d => {
+            var obj = JSON.parse(d);
+            new Inspector(document.querySelector("#nr")).fulfilled(obj);
+            //  createJSONCard("nr", obj);
+            if (slsinfo[globalcounter] == undefined) {
+                slsinfo[globalcounter] = { itu: {}, nr: {}, sim: {} };
+            }
+            slsinfo[globalcounter].nr = obj;
+
+            if (document.getElementById("nrspec").firstElementChild)
+                document.getElementById("nrspec").firstElementChild.remove();
+            simeditor = new JSONEditor(document.getElementById('nrspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, obj);
+
+
+        });
+    });
     document.getElementById('nr-file').addEventListener('change', event => {
         var file = event.target.files[0];
 
