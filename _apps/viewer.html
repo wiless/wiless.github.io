@@ -207,6 +207,11 @@ title: API logger
             var obj = JSON.parse(d);
             new Inspector(document.querySelector("#itu")).fulfilled(obj);
             createJSONCard("itu", obj);
+			if (document.getElementById("ituspec").firstElementChild)
+			document.getElementById("ituspec").firstElementChild.remove();
+		itueditor = new JSONEditor(document.getElementById('ituspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, d);
+     
+		
         });
     });
 
