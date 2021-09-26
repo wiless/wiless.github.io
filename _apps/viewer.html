@@ -93,8 +93,34 @@ title: API logger
         <a class="item" data-tab="nrcfg">NR Config</a>
         <a class="item" data-tab="simcfg">SIM Config</a>
     </div>
-
-    <div class="ui bottom attached active tab segment" data-tab="itucfg">
+    <style>
+    .highighted{
+        background-color:red;
+        }
+     <style>
+    <script>
+         function dragover(ev){
+              ev.preventDefault();
+            console.log("Drag Over",ev.target);
+         }
+        function dragover(ev){
+            ev.preventDefault();
+            ev.target.toggleClass("highighted");
+            console.log("Drag Over",ev.target);
+        }
+        function dropfile(ev){            
+            ev.preventDefault();
+            ev.target.toggleClass("highighted");
+            console.log("Drop Event",ev.target);
+            files=ev.dataTransfer.files;
+            console.log("Found File",ev.dataTransfer.files);
+            if 
+            console.log("Found File",ev.dataTransfer.files);
+            
+        }
+        
+    </script>
+    <div class="ui bottom attached active tab segment" data-tab="itucfg" ondrop="dropfile(event)" ondragover="dragover(event)" ondragover="dragOver(event)">
         From M.2150
         <div id="ituspec" style="height:400px;padding-bottom:40px"></div>
     </div>
