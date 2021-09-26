@@ -94,10 +94,11 @@ title: API logger
         <a class="item" data-tab="simcfg">SIM Config</a>
     </div>
     <style>
-    .highighted{
+        
+    .highlight{
         background-color:red;
         }
-     <style>
+     </style>
     <script>
          function dragover(ev){
               ev.preventDefault();
@@ -105,12 +106,12 @@ title: API logger
          }
         function dragover(ev){
             ev.preventDefault();
-            ev.target.toggleClass("highighted");
+            ev.target.toggleClass("highlight");
             console.log("Drag Over",ev.target);
         }
         function dropfile(ev){            
             ev.preventDefault();
-            ev.target.toggleClass("highighted");
+            ev.target.toggleClass("highlight");
             console.log("Drop Event",ev.target);
             files=ev.dataTransfer.files;
             console.log("Found File",ev.dataTransfer.files);
