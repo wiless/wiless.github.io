@@ -21,7 +21,7 @@ title: API logger
     }
 </style>
 
- 
+
 
 
 
@@ -39,18 +39,18 @@ title: API logger
 
 
 <ol id="states"></ol>
-<div id="kind"  >
-    
-<div class="ui icon hidden  message">
-  <i class="notched circle  icon"></i>
-  <div class="content">
-    <div class="header">
-      SLS ID
+<div id="kind">
+
+    <div class="ui icon hidden  message">
+        <i class="notched circle  icon"></i>
+        <div class="content">
+            <div class="header">
+                SLS ID
+            </div>
+            <a target=_blank href=""> </a>
+        </div>
     </div>
-    <a target=_blank href=""> </a>
-  </div>
-</div>
-    
+
 </div>
 
 <div id="controlled">
@@ -58,42 +58,50 @@ title: API logger
 </div>
 
 <div class="ui divider red"></div>
-   <div class="ui input" id="itu-file"> 
-	   ITU Config <input class="ui blue" type="file" placeholder="ITU Configuration"> </div>
-    <div class="ui input" id="nr-file"> 
-	    NR Config
-	    <input class="ui blue" type="file" placeholder="NR Configuration"> </div>
-    <div class="ui input " id="sim-file"> 
-	    SIM Config
-	    <input class="ui blue" type="file" placeholder="SIM Configuration"> </div>
+<div class="ui input" id="itu-file">
+    ITU Config <input class="ui blue" type="file" placeholder="ITU Configuration"> </div>
+<div class="ui input" id="nr-file">
+    NR Config
+    <input class="ui blue" type="file" placeholder="NR Configuration">
+</div>
+<div class="ui input " id="sim-file">
+    SIM Config
+    <input class="ui blue" type="file" placeholder="SIM Configuration">
+</div>
 
 <div class="ui raised segment">
-	  <div class="ui top attached tabular menu">
-            <a class="active item" data-tab="itucfg">ITU Config</a>
-            <a class="item" data-tab="nrcfg">NR Config</a>
-            <a class="item" data-tab="simcfg">SIM Config</a>
-         </div>
-  
-        <div class="ui bottom attached active tab segment" data-tab="itucfg">
-            From M.2150
-		   <div id="ituspec" style="height:400px;padding-bottom:40px"></div>
-        </div>
-      <div class="ui bottom attached   tab segment" data-tab="nrcfg">
-            Technology Specific (NR cfg)
-		   <div id="nrspec" style="height:400px;padding-bottom:40px"></div>	      
-        </div>
-      <div class="ui bottom attached   tab segment" data-tab="simcfg">
-            Simulator Specific (SIM cfg)
-		   <div id="simspec" style="height:400px;padding-bottom:40px"></div>
-        </div>        
- 
-	
+    <div class="ui top attached tabular menu">
+        <a class="active item" data-tab="itucfg">ITU Config</a>
+        <a class="item" data-tab="nrcfg">NR Config</a>
+        <a class="item" data-tab="simcfg">SIM Config</a>
+    </div>
+
+    <div class="ui bottom attached active tab segment" data-tab="itucfg">
+        From M.2150
+        <div id="ituspec" style="height:400px;padding-bottom:40px"></div>
+    </div>
+    <div class="ui bottom attached   tab segment" data-tab="nrcfg">
+        Technology Specific (NR cfg)
+        <div id="nrspec" style="height:400px;padding-bottom:40px"></div>
+    </div>
+    <div class="ui bottom attached   tab segment" data-tab="simcfg">
+        Simulator Specific (SIM cfg)
+        <div id="simspec" style="height:400px;padding-bottom:40px"></div>
+    </div>
+
+
 </div>
 
 <div class="row">
-    <div class="col-sm-4">  <div id="itu"></div> </div>
-    <div class="col-sm-4"> <div id="nr"></div> </div>
-    <div class="col-sm-4"> <div id="sim"></div> </div>
+    <div class="col-sm-4">
+        <div id="itu"></div>
+    </div>
+    <div class="col-sm-4">
+        <div id="nr"></div>
+    </div>
+    <div class="col-sm-4">
+        <div id="sim"></div>
+    </div>
 </div>
 
 
@@ -149,7 +157,7 @@ title: API logger
 </script>
 
 <script>
-     var subscription;
+    var subscription;
     var globalcounter = 0;
     var slsinfo = {};
     const JFoptions = {
@@ -188,12 +196,14 @@ title: API logger
             var obj = JSON.parse(d);
             new Inspector(document.querySelector("#nr")).fulfilled(obj);
             createJSONCard("nr", obj);
-	
-	if (document.getElementById("nrspec").firstElementChild)
-		document.getElementById("nrspec").firstElementChild.remove();
-	simeditor = new JSONEditor(document.getElementById('nrspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, obj);
-		
-		
+
+            slsinfo[globalcounter].nr = obj;
+
+            if (document.getElementById("nrspec").firstElementChild)
+                document.getElementById("nrspec").firstElementChild.remove();
+            simeditor = new JSONEditor(document.getElementById('nrspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, obj);
+
+
         });
     });
     document.getElementById('sim-file').addEventListener('change', event => {
@@ -203,10 +213,11 @@ title: API logger
             var obj = JSON.parse(d);
             new Inspector(document.querySelector("#sim")).fulfilled(obj);
             createJSONCard("sim", obj);
-	if (document.getElementById("simspec").firstElementChild)
-		document.getElementById("simspec").firstElementChild.remove();
-	simeditor = new JSONEditor(document.getElementById('simspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, obj);
-		
+            slsinfo[globalcounter].sim = obj;
+            if (document.getElementById("simspec").firstElementChild)
+                document.getElementById("simspec").firstElementChild.remove();
+            simeditor = new JSONEditor(document.getElementById('simspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, obj);
+
         });
     });
 
@@ -217,15 +228,16 @@ title: API logger
             var obj = JSON.parse(d);
             new Inspector(document.querySelector("#itu")).fulfilled(obj);
             createJSONCard("itu", obj);
-	if (document.getElementById("ituspec").firstElementChild)
-		document.getElementById("ituspec").firstElementChild.remove();
-	itueditor = new JSONEditor(document.getElementById('ituspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, obj);
-     
-		
+            slsinfo[globalcounter].itu = obj;
+            if (document.getElementById("ituspec").firstElementChild)
+                document.getElementById("ituspec").firstElementChild.remove();
+            itueditor = new JSONEditor(document.getElementById('ituspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, obj);
+
+
         });
     });
 
-	var itueditor,simeditor,nreditor;
+    var itueditor, simeditor, nreditor;
 
     function loadSLSConfigs() {
         globalcounter++;
@@ -234,38 +246,38 @@ title: API logger
         // 3GPP_InH_configA.json "https://raw.githubusercontent.com/5gif/ituset/main/configs/3GPP_InH_configB.json"
         // ITU_InH_configA.json
         // SIM_InH_configA.json
-        var itufilename="https://raw.githubusercontent.com/5gif/ituset/main/DECT/ITU_UMa_mMTC_configA.json";
-	var nrfilename="https://raw.githubusercontent.com/5gif/ituset/main/DECT/DECT_UMa_mMTC_configA.json";
-	var simfilename="https://raw.githubusercontent.com/5gif/ituset/main/DECT/SIM_UMa_mMTC_configA.json";
-	
-	
-	    
-	fetch(itufilename).then(d => d.json()).then(
+        var itufilename = "https://raw.githubusercontent.com/5gif/ituset/main/DECT/ITU_UMa_mMTC_configA.json";
+        var nrfilename = "https://raw.githubusercontent.com/5gif/ituset/main/DECT/DECT_UMa_mMTC_configA.json";
+        var simfilename = "https://raw.githubusercontent.com/5gif/ituset/main/DECT/SIM_UMa_mMTC_configA.json";
+
+
+
+        fetch(itufilename).then(d => d.json()).then(
             d => {//console.log(d); 
                 new Inspector(document.querySelector("#itu")).fulfilled(d)
                 slsinfo[globalcounter].itu = d;
-		if (document.getElementById("ituspec").firstElementChild)
-			document.getElementById("ituspec").firstElementChild.remove();
-		itueditor = new JSONEditor(document.getElementById('ituspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, d);
+                if (document.getElementById("ituspec").firstElementChild)
+                    document.getElementById("ituspec").firstElementChild.remove();
+                itueditor = new JSONEditor(document.getElementById('ituspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, d);
                 //createJSONCard("itu",d);
             });
         fetch(nrfilename).then(d => d.json()).then(
             d => {//console.log(d); 
                 slsinfo[globalcounter].nr = d;
                 new Inspector(document.querySelector("#nr")).fulfilled(d);
-		    if (document.getElementById("nrspec").firstElementChild)
-		document.getElementById("nrspec").firstElementChild.remove();
-		nreditor = new JSONEditor(document.getElementById('nrspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, d);
-		    
+                if (document.getElementById("nrspec").firstElementChild)
+                    document.getElementById("nrspec").firstElementChild.remove();
+                nreditor = new JSONEditor(document.getElementById('nrspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, d);
+
                 //createJSONCard("nr",d);
             });
         fetch(simfilename).then(d => d.json()).then(
             d => {//console.log(d); 
                 new Inspector(document.querySelector("#sim")).fulfilled(d);
                 slsinfo[globalcounter].sim = d;
-		if (document.getElementById("simspec").firstElementChild)
-		document.getElementById("simspec").firstElementChild.remove();
-		simeditor = new JSONEditor(document.getElementById('simspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, d);
+                if (document.getElementById("simspec").firstElementChild)
+                    document.getElementById("simspec").firstElementChild.remove();
+                simeditor = new JSONEditor(document.getElementById('simspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, d);
                 //createJSONCard("sim",d);
             });
     }
@@ -293,247 +305,243 @@ title: API logger
         document.querySelector('#states').appendChild(liElement);
     }
 
-//     navigator.serviceWorker.c
-    
-// navigator.serviceWorker.getRegistrations().then(function(registrations) {
-//  for(let registration of registrations) {
-//   registration.unregister()
-// } })
- 
-//     function registerServiceWorker ()  {
-//         console.log("Registering service.js");
-//         document.querySelector('#controlled').textContent = navigator.serviceWorker.controller ? 'SERVICE worker has CONTROL' : 'SERVICE worker has NO CONTROL';
-//         var serviceWorker;
-//          if ('serviceWorker' in navigator) {
-               
-//              navigator.serviceWorker.register('service.js').then(function (registration) {            
-                
-//                  registration.pushManager.getSubscription().then(function(subscription) { 
-//                     if (!subscription) {
-//                             console.log("No subscription found");                  
-//                             console.log("Registring now... No subscription found");                  
-//                             const options = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" };
-//                             registration.pushManager.subscribe(options).then(d =>{
-//                             subscription=d;
-//                             console.log(d);
-//                             console.log("Received ", JSON.stringify(subscription));}                       
-//                         }else{
-//                             console.log("Found old subscriptions",subscription);
-//                             console.log("Found old subscriptions ID ",subscription.subscriptionId);
-//                             console.log("Found old subscriptions JSON",subscription.toJSON());                
-//                     }
-//                  });             
-//             var swRegistration = serviceWorker;
-//             return swRegistration;
-//         });   // complete registration 
-//         }
+    //     navigator.serviceWorker.c
+
+    // navigator.serviceWorker.getRegistrations().then(function(registrations) {
+    //  for(let registration of registrations) {
+    //   registration.unregister()
+    // } })
+
+    //     function registerServiceWorker ()  {
+    //         console.log("Registering service.js");
+    //         document.querySelector('#controlled').textContent = navigator.serviceWorker.controller ? 'SERVICE worker has CONTROL' : 'SERVICE worker has NO CONTROL';
+    //         var serviceWorker;
+    //          if ('serviceWorker' in navigator) {
+
+    //              navigator.serviceWorker.register('service.js').then(function (registration) {            
+
+    //                  registration.pushManager.getSubscription().then(function(subscription) { 
+    //                     if (!subscription) {
+    //                             console.log("No subscription found");                  
+    //                             console.log("Registring now... No subscription found");                  
+    //                             const options = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" };
+    //                             registration.pushManager.subscribe(options).then(d =>{
+    //                             subscription=d;
+    //                             console.log(d);
+    //                             console.log("Received ", JSON.stringify(subscription));}                       
+    //                         }else{
+    //                             console.log("Found old subscriptions",subscription);
+    //                             console.log("Found old subscriptions ID ",subscription.subscriptionId);
+    //                             console.log("Found old subscriptions JSON",subscription.toJSON());                
+    //                     }
+    //                  });             
+    //             var swRegistration = serviceWorker;
+    //             return swRegistration;
+    //         });   // complete registration 
+    //         }
 
 
-//     };
-//     function requestNotificationPermission() {
-//         const permission = window.Notification.requestPermission();
-//         // value of permission can be 'granted', 'default', 'denied'
-//         // granted: user has accepted the request
-//         // default: user has dismissed the notification permission popup by clicking on x
-//         // denied: user has denied the request.
-//         return permission;
-// //         if (permission !== 'granted') {
-// //             throw new Error('Permission not granted for Notification');
-// //         }
-//     }
+    //     };
+    //     function requestNotificationPermission() {
+    //         const permission = window.Notification.requestPermission();
+    //         // value of permission can be 'granted', 'default', 'denied'
+    //         // granted: user has accepted the request
+    //         // default: user has dismissed the notification permission popup by clicking on x
+    //         // denied: user has denied the request.
+    //         return permission;
+    // //         if (permission !== 'granted') {
+    // //             throw new Error('Permission not granted for Notification');
+    // //         }
+    //     }
 
-//     function  EnablePushNotification()  {         
-//         if (!('PushManager' in window)) {
-//             throw new Error('No Push API Support!')
-//         } else {
-//             console.log("Push API supported !!")
-//         }
+    //     function  EnablePushNotification()  {         
+    //         if (!('PushManager' in window)) {
+    //             throw new Error('No Push API Support!')
+    //         } else {
+    //             console.log("Push API supported !!")
+    //         }
 
-//         if (!('serviceWorker' in navigator)) {
-//             throw new Error('No Service Worker support!')
-//         } else {
-//             console.log("Service Worker supported !!")
-//         }
+    //         if (!('serviceWorker' in navigator)) {
+    //             throw new Error('No Service Worker support!')
+    //         } else {
+    //             console.log("Service Worker supported !!")
+    //         }
 
 
-//         swRegistration=registerServiceWorker();
-//         requestNotificationPermission();
-// //         window.swRegistration = swRegistration;
-//         // showLocalNotification('This is title', 'this is the message', swRegistration);
-//     }
+    //         swRegistration=registerServiceWorker();
+    //         requestNotificationPermission();
+    // //         window.swRegistration = swRegistration;
+    //         // showLocalNotification('This is title', 'this is the message', swRegistration);
+    //     }
 
-//    const messageChannel = new MessageChannel();
-//    if ( navigator.serviceWorker.controller) {      
-//         navigator.serviceWorker.controller.postMessage({type: 'INIT_PORT' }, [messageChannel.port2]);
-//    }
+    //    const messageChannel = new MessageChannel();
+    //    if ( navigator.serviceWorker.controller) {      
+    //         navigator.serviceWorker.controller.postMessage({type: 'INIT_PORT' }, [messageChannel.port2]);
+    //    }
 
-//     const bc=new BroadcastChannel("counterupdates") 
-//     bc.onmessage=(event)=>{console.log("BC received message",event.type,event.data); document.getElementById("kind").innerText=JSON.stringify(event.data);} 
-    
+    //     const bc=new BroadcastChannel("counterupdates") 
+    //     bc.onmessage=(event)=>{console.log("BC received message",event.type,event.data); document.getElementById("kind").innerText=JSON.stringify(event.data);} 
+
     // Listen to the response
-// messageChannel.port1.onmessage = (event) => {
-//   // Print the result
-//   document.getElementById("kind").innerText=event.data.payload;
-//   console.log("PORT1 received :  MESSAGE ",event.data.payload);
-// };
-    
+    // messageChannel.port1.onmessage = (event) => {
+    //   // Print the result
+    //   document.getElementById("kind").innerText=event.data.payload;
+    //   console.log("PORT1 received :  MESSAGE ",event.data.payload);
+    // };
 
-    function doSubscription(){
-    // Register, Subscription and 
-    // Post subscription info to BACKEND along with USERID important
-        
+
+    function doSubscription() {
+        // Register, Subscription and 
+        // Post subscription info to BACKEND along with USERID important
+
     }
-    
+
     function runSLS() {
-             //temporary solution
-             document.querySelector("#kind>div").classList.remove("hidden");
-             var subscription=getSubscriptionToken();
-//              info={ ...subsriptiontoken.toJSON(),useremail:userprofile.getEmail()}
-        
-             var obj={...slsinfo[globalcounter],gcm:subscription,useremail:userprofile.getEmail()};
-             wiless.APIcalls("submitjob", obj).then(d => {
-                    console.log("Got this", d);
-                    uid=d.data;                    
-                          if ('serviceWorker' in navigator) {                             
-                              var info={type: 'INCREASE_COUNT',uid:uid,msg:"Submitted job"};
-                              navigator.serviceWorker.controller.postMessage(info);    
-                          }else{
-                              var info={type: 'INCREASE_COUNT',uid:uid,msg:"Submitted job"};
-                              bc.postMessage(info);                                  
-                          }
-                    var localbc=new BroadcastChannel("counterupdates");
-                    localbc.onmessage=d=>{  
-                        var eventdata=d.data;
-                        console.log("local bc receiver",eventdata);
-                        
-                        if (eventdata.msg && eventdata.msg.type=="CREATED") {
-                            console.log("local bc receiver",eventdata.msg);    
-                            localStorage.setItem(eventdata.msg.uid,JSON.stringify({timestamp:new Date(),url:eventdata.msg.url}));
-                            //iconel=document.querySelector("#kind>div").classList.remove("hidden");
-                          var  iconel=document.querySelector("#kind>div>i")
-                            if (iconel)                                
-                            { 
-                                iconel.classList.add("loading");
-                                iconel.classList.remove("green");
-                                iconel.classList.add("orange");
-                            }
-                            
-                            //document.querySelector("#kind>div>i").classList.toggle("teal")
-                            document.querySelector("#kind>div>div>div").textContent=eventdata.msg.uid;
-                            document.querySelector("#kind>div>div>a").href= eventdata.msg.url;                                                        
-                            document.querySelector("#kind>div>div>a").textContent= eventdata.msg.url;            
-//                             document.getElementById("kind").innerText= eventdata.msg.url;
-                            
-                        }
-                        
-                        // 
-                         if (eventdata.msg &&  eventdata.msg.type=="RUNNING"   ) {
-                           var a=document.createElement("a");
-                            a.classList.add("ui","label");
-                            a.href=eventdata.msg.url;
-                             a.textContent=eventdata.msg.url;
-                             a.textContent=eventdata.msg.data;    
-                             a.target="_blank";
-                             document.querySelector("#kind>div>div").appendChild(a);
-                         }
-                             
-                        
-                        
-                        //
-                         if (eventdata.msg &&  eventdata.msg.type=="COMPLETED"   ) {
-                             
-                            //iconel=document.querySelector("#kind>div").classList.remove("hidden");
-                          var  iconel=document.querySelector("#kind>div>i")
-                            if (iconel)                           
-                            { 
-                                iconel.classList.remove("loading");
-                                iconel.classList.remove("orange");
-                                iconel.classList.add("green");
-                            }
-//                              document.querySelector("#kind>div>i").classList.remove("loading");
-//                              document.querySelector("#kind>div>i").classList.toggle("green");
-                         }
-                    };
-                                        // Then we send our first message
-                      });
-          
-    }
-    
-    function runSLS2() {
-    console.log("Starting.. SLS and service notification");
-         //EnablePushNotification();
+        //temporary solution
+        document.querySelector("#kind>div").classList.remove("hidden");
+        var subscription = getSubscriptionToken();
+        //              info={ ...subsriptiontoken.toJSON(),useremail:userprofile.getEmail()}
 
-        
-         if ('serviceWorker' in navigator) {
-             
-            navigator.serviceWorker.register('service.js').then(registration=>{
-                  var subscription;  
-                  var uid;   
-                var btnreload=document.getElementById("btnreload");
-                 btnreload.onclick = function() {
-                      registration.update();
+        var obj = { ...slsinfo[globalcounter], gcm: subscription, useremail: userprofile.getEmail() };
+        wiless.APIcalls("submitjob", obj).then(d => {
+            console.log("Got this", d);
+            uid = d.data;
+            if ('serviceWorker' in navigator) {
+                var info = { type: 'INCREASE_COUNT', uid: uid, msg: "Submitted job" };
+                navigator.serviceWorker.controller.postMessage(info);
+            } else {
+                var info = { type: 'INCREASE_COUNT', uid: uid, msg: "Submitted job" };
+                bc.postMessage(info);
+            }
+            var localbc = new BroadcastChannel("counterupdates");
+            localbc.onmessage = d => {
+                var eventdata = d.data;
+                console.log("local bc receiver", eventdata);
+
+                if (eventdata.msg && eventdata.msg.type == "CREATED") {
+                    console.log("local bc receiver", eventdata.msg);
+                    localStorage.setItem(eventdata.msg.uid, JSON.stringify({ timestamp: new Date(), url: eventdata.msg.url }));
+                    //iconel=document.querySelector("#kind>div").classList.remove("hidden");
+                    var iconel = document.querySelector("#kind>div>i")
+                    if (iconel) {
+                        iconel.classList.add("loading");
+                        iconel.classList.remove("green");
+                        iconel.classList.add("orange");
                     }
-                
-                  registration.pushManager.getSubscription().then(function(subs) { 
-                        if (!subs) {
-                                console.log("No subscription found");                  
-                                console.log("Creating new subscription...");
-                                const opts = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" };
-                                registration.pushManager.subscribe(opts)
-                                    .then(newsub =>
-                                          {
-                                            subscription=newsub;
-                                            console.log("Received ", JSON.stringify(newsub));
-                                          });                       
-                        }else{
-                                subscription=subs;
-                                console.log("Found old subscriptions",subs);
-                                console.log("Found old subscriptions ID ",subs.subscriptionId);
-                                console.log("Found old subscriptions JSON",subs.toJSON());       
 
-                                //  const options = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" };
-                                // registration.pushManager.subscribe(options).then(d =>{
-                                // subscription=d;console.log(d);
-                                // console.log("Received ", JSON.stringify(subscription));
-                                // });                                       
-                                console.log("Completed.... SERVICE WORKER REGISTRATION and Subscription");                    
-                                console.log("Subscription ",subscription);
-                                console.log("Submitting JOB Information WITH subSCRIPTION token");
+                    //document.querySelector("#kind>div>i").classList.toggle("teal")
+                    document.querySelector("#kind>div>div>div").textContent = eventdata.msg.uid;
+                    document.querySelector("#kind>div>div>a").href = eventdata.msg.url;
+                    document.querySelector("#kind>div>div>a").textContent = eventdata.msg.url;
+                    //                             document.getElementById("kind").innerText= eventdata.msg.url;
 
-                                var obj={...slsinfo[globalcounter],gcm:subscription};
-                                console.log("Trying to run SLS ", obj);
-                                wiless.APIcalls("submitjob", obj).then(d => 
-                                    {
-                                        console.log("Got this", d);
-                                        uid=d.data;
-                                        // Then we send our first message
-                                        navigator.serviceWorker.controller.postMessage({
-                                          type: 'INCREASE_COUNT',
-                                            uid:uid,
-                                            msg:"Submitted job"
-                                        });    
-                                    });                            
-                        }
-                 });  
-                
-         
-                
+                }
+
+                // 
+                if (eventdata.msg && eventdata.msg.type == "RUNNING") {
+                    var a = document.createElement("a");
+                    a.classList.add("ui", "label");
+                    a.href = eventdata.msg.url;
+                    a.textContent = eventdata.msg.url;
+                    a.textContent = eventdata.msg.data;
+                    a.target = "_blank";
+                    document.querySelector("#kind>div>div").appendChild(a);
+                }
+
+
+
+                //
+                if (eventdata.msg && eventdata.msg.type == "COMPLETED") {
+
+                    //iconel=document.querySelector("#kind>div").classList.remove("hidden");
+                    var iconel = document.querySelector("#kind>div>i")
+                    if (iconel) {
+                        iconel.classList.remove("loading");
+                        iconel.classList.remove("orange");
+                        iconel.classList.add("green");
+                    }
+                    //                              document.querySelector("#kind>div>i").classList.remove("loading");
+                    //                              document.querySelector("#kind>div>i").classList.toggle("green");
+                }
+            };
+            // Then we send our first message
+        });
+
+    }
+
+    function runSLS2() {
+        console.log("Starting.. SLS and service notification");
+        //EnablePushNotification();
+
+
+        if ('serviceWorker' in navigator) {
+
+            navigator.serviceWorker.register('service.js').then(registration => {
+                var subscription;
+                var uid;
+                var btnreload = document.getElementById("btnreload");
+                btnreload.onclick = function () {
+                    registration.update();
+                }
+
+                registration.pushManager.getSubscription().then(function (subs) {
+                    if (!subs) {
+                        console.log("No subscription found");
+                        console.log("Creating new subscription...");
+                        const opts = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" };
+                        registration.pushManager.subscribe(opts)
+                            .then(newsub => {
+                                subscription = newsub;
+                                console.log("Received ", JSON.stringify(newsub));
+                            });
+                    } else {
+                        subscription = subs;
+                        console.log("Found old subscriptions", subs);
+                        console.log("Found old subscriptions ID ", subs.subscriptionId);
+                        console.log("Found old subscriptions JSON", subs.toJSON());
+
+                        //  const options = { userVisibleOnly: true, applicationServerKey: "BEveyLxjdgvClfx_ddbGnFkqdhUcdf8eEX_3KiDST1o6T5_12MhUaDV-rVMNOYorGhph5vCzxNY0G-yvGfrUcPk" };
+                        // registration.pushManager.subscribe(options).then(d =>{
+                        // subscription=d;console.log(d);
+                        // console.log("Received ", JSON.stringify(subscription));
+                        // });                                       
+                        console.log("Completed.... SERVICE WORKER REGISTRATION and Subscription");
+                        console.log("Subscription ", subscription);
+                        console.log("Submitting JOB Information WITH subSCRIPTION token");
+
+                        var obj = { ...slsinfo[globalcounter], gcm: subscription };
+                        console.log("Trying to run SLS ", obj);
+                        wiless.APIcalls("submitjob", obj).then(d => {
+                            console.log("Got this", d);
+                            uid = d.data;
+                            // Then we send our first message
+                            navigator.serviceWorker.controller.postMessage({
+                                type: 'INCREASE_COUNT',
+                                uid: uid,
+                                msg: "Submitted job"
+                            });
+                        });
+                    }
+                });
+
+
+
             });
-             
-          
-            
-//             navigator.serviceWorker.controller.postMessage({
-//             type: 'MESSAGE_IDENTIFIER',
-//             data: 'I am just submitted the JOB'
-//             });
-             
-        }else{
-        // No serviceworker support
-        var obj=slsinfo[globalcounter];
-        console.log("Trying to run SLS ", obj);
-        wiless.APIcalls("submitjob", obj).then(d => console.log("Got this", d));
+
+
+
+            //             navigator.serviceWorker.controller.postMessage({
+            //             type: 'MESSAGE_IDENTIFIER',
+            //             data: 'I am just submitted the JOB'
+            //             });
+
+        } else {
+            // No serviceworker support
+            var obj = slsinfo[globalcounter];
+            console.log("Trying to run SLS ", obj);
+            wiless.APIcalls("submitjob", obj).then(d => console.log("Got this", d));
         }
-        
+
     }
 
     function helloclick() {
@@ -594,8 +602,8 @@ title: API logger
         }
         );
     }
-	
-// Activate TABs	
-$('.menu .item').tab();   
-	
+
+    // Activate TABs	
+    $('.menu .item').tab();
+
 </script>
