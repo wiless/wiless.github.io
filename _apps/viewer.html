@@ -110,10 +110,18 @@ title: API logger
             ev.preventDefault();
             ev.target.toggleClass("highlight");
             console.log("Drop Event",ev.target);
-            files=ev.dataTransfer.files;
+            var files=ev.dataTransfer.files;
             console.log("Found File",ev.dataTransfer.files);
-            if 
-            console.log("Found File",ev.dataTransfer.files);
+            if(files.length>0)
+            {
+                
+                console.log("File Name",ev.dataTransfer.files[0].name);
+                console.log("File Type",ev.dataTransfer.files[0].type);
+                var content = await ev.dataTransfer.files[0].text();
+                console.log("Content is ",content);
+                
+            }
+            
             
         }
         
