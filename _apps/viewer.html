@@ -96,20 +96,20 @@ title: API logger
     <style>
         
     .highlight{
-        background-color:red;
+        background-color:#1c445326;
         }
      </style>
     <script>
          
         function dragover(ev){
             ev.preventDefault();
-            ev.target.classList.toggle("highlight");
+            ev.target.classList.add("highlight");
             //ev.target.toggleClass("highlight");
             console.log("Drag Over",ev.target);
         }
        async function dropfile(ev){            
             ev.preventDefault();
-            ev.target.classList.toggle("highlight");
+            ev.target.classList.remove("highlight");
             console.log("Drop Event",ev.target);
             var files=ev.dataTransfer.files;
             console.log("Found File",ev.dataTransfer.files);
