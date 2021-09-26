@@ -100,10 +100,7 @@ title: API logger
         }
      </style>
     <script>
-         function dragover(ev){
-              ev.preventDefault();
-            console.log("Drag Over",ev.target);
-         }
+         
         function dragover(ev){
             ev.preventDefault();
             ev.target.toggleClass("highlight");
@@ -121,7 +118,7 @@ title: API logger
         }
         
     </script>
-    <div class="ui bottom attached active tab segment" data-tab="itucfg" ondrop="dropfile(event)" ondragover="dragover(event)" ondragover="dragOver(event)">
+    <div class="ui bottom attached active tab segment" data-tab="itucfg" ondrop="dropfile(event)" ondragover="dragover(event)" >
         From M.2150
         <div id="ituspec" style="height:400px;padding-bottom:40px"></div>
     </div>
