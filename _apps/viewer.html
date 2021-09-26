@@ -196,7 +196,9 @@ title: API logger
             var obj = JSON.parse(d);
             new Inspector(document.querySelector("#nr")).fulfilled(obj);
             createJSONCard("nr", obj);
-
+            if (slsinfo[globalcounter] == undefined) {
+                slsinfo[globalcounter] = { itu: {}, nr: {}, sim: {} };
+            }
             slsinfo[globalcounter].nr = obj;
 
             if (document.getElementById("nrspec").firstElementChild)
@@ -213,6 +215,9 @@ title: API logger
             var obj = JSON.parse(d);
             new Inspector(document.querySelector("#sim")).fulfilled(obj);
             createJSONCard("sim", obj);
+            if (slsinfo[globalcounter] == undefined) {
+                slsinfo[globalcounter] = { itu: {}, nr: {}, sim: {} };
+            }
             slsinfo[globalcounter].sim = obj;
             if (document.getElementById("simspec").firstElementChild)
                 document.getElementById("simspec").firstElementChild.remove();
@@ -228,6 +233,9 @@ title: API logger
             var obj = JSON.parse(d);
             new Inspector(document.querySelector("#itu")).fulfilled(obj);
             createJSONCard("itu", obj);
+            if (slsinfo[globalcounter] == undefined) {
+                slsinfo[globalcounter] = { itu: {}, nr: {}, sim: {} };
+            }
             slsinfo[globalcounter].itu = obj;
             if (document.getElementById("ituspec").firstElementChild)
                 document.getElementById("ituspec").firstElementChild.remove();
