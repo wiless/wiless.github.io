@@ -195,7 +195,7 @@ title: API logger
         file.text().then(d => {
             var obj = JSON.parse(d);
             new Inspector(document.querySelector("#nr")).fulfilled(obj);
-            createJSONCard("nr", obj);
+            //  createJSONCard("nr", obj);
             if (slsinfo[globalcounter] == undefined) {
                 slsinfo[globalcounter] = { itu: {}, nr: {}, sim: {} };
             }
@@ -214,7 +214,7 @@ title: API logger
         file.text().then(d => {
             var obj = JSON.parse(d);
             new Inspector(document.querySelector("#sim")).fulfilled(obj);
-            createJSONCard("sim", obj);
+            //  createJSONCard("sim", obj);
             if (slsinfo[globalcounter] == undefined) {
                 slsinfo[globalcounter] = { itu: {}, nr: {}, sim: {} };
             }
@@ -232,7 +232,7 @@ title: API logger
         file.text().then(d => {
             var obj = JSON.parse(d);
             new Inspector(document.querySelector("#itu")).fulfilled(obj);
-            createJSONCard("itu", obj);
+            // createJSONCard("itu", obj);
             if (slsinfo[globalcounter] == undefined) {
                 slsinfo[globalcounter] = { itu: {}, nr: {}, sim: {} };
             }
