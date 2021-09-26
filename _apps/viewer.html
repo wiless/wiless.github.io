@@ -103,12 +103,13 @@ title: API logger
          
         function dragover(ev){
             ev.preventDefault();
-            ev.target.toggleClass("highlight");
+            ev.target.classList.toggle("highlight");
+            //ev.target.toggleClass("highlight");
             console.log("Drag Over",ev.target);
         }
        async function dropfile(ev){            
             ev.preventDefault();
-            ev.target.toggleClass("highlight");
+            ev.target.classList.toggle("highlight");
             console.log("Drop Event",ev.target);
             var files=ev.dataTransfer.files;
             console.log("Found File",ev.dataTransfer.files);
