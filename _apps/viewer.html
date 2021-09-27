@@ -36,11 +36,8 @@ title: API logger
 <button class="ui button float teal right" type="button" onclick="loadSLSConfigs()">Load Configs</button>
 <button class="ui button float green right" type="button" onclick="runSLS()">Run SLS</button>
 <!-- <button class="ui button float right" type="button" id="btnreload" >Reload ServiceWorker</button> -->
-
-
 <ol id="states"></ol>
 <div id="kind">
-
     <div class="ui icon hidden  message">
         <i class="notched circle  icon"></i>
         <div class="content">
@@ -62,24 +59,48 @@ title: API logger
 
 <div class="row">
     <div class="col-sm-4">
+        
+        
+<div class="card bg-primary text-white">
+    <div class="card-header">ITU Config
+        <input type="file" name="inputfile" id="itu-file">
+    </div>    
+</div>
+        
+        
         <!-- <div id="itu"></div> -->
-        ITU Config
+<!--         ITU Config
         <div class="ui input" id="itu-file">
-             <input class="ui blue" type="file" placeholder="ITU Configuration"> </div>
+             <input class="ui blue" type="file" placeholder="ITU Configuration"> </div> -->
 
     </div>
     <div class="col-sm-4">
-        NR Config
+        
+           
+<div class="card bg-primary text-white">
+    <div class="card-header"> NR Config
+        <input type="file" name="inputfile" id="nr-file">
+    </div>    
+</div>
+        
+<!--         
+        
+       
         <div class="ui input" id="nr-file">
             <input class="ui blue" type="file" placeholder="NR Configuration">
-        </div>
+        </div> -->
         <!-- <div id="nr"></div> -->
     </div>
     <div class="col-sm-4">
         <!-- <div id="sim"></div> -->
-        SIM Config
+      
+        <div class="card bg-primary text-white">
+    <div class="card-header">   SIM Config
+        <input type="file" name="inputfile" id="sim-file">
+    </div>    
+</div>
 <!--         <div class="ui input " id="sim-file"> -->
-            <input class="ui blue" id="sim-file" type="file" placeholder="SIM Configuration">
+<!--             <input class="ui blue" id="sim-file" type="file" placeholder="SIM Configuration"> -->
 <!--         </div> -->
     </div>
 </div>
