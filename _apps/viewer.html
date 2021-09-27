@@ -101,7 +101,12 @@ title: API logger
         }
      </style>
     <script>
-         
+         function dragleave(ev){
+             ev.target.classList.remove("highlight");
+//             ev.("#drop_zone").classList.remove("active");
+         }
+        
+        
         function dragover(ev){
             ev.stopPropagation();
             ev.preventDefault();
@@ -165,15 +170,15 @@ title: API logger
         }
         
     </script>
-    <div class="ui bottom attached active tab segment" data-tab="itucfg" ondrop="dropfile(event)" ondragover="dragover(event)" >
+    <div class="ui bottom attached active tab segment" data-tab="itucfg" ondrop="dropfile(event)" ondragover="dragover(event)" ondragleave="dragleave(event)" >
         From M.2150
         <div id="ituspec" style="height:400px;padding-bottom:40px"></div>
     </div>
-    <div class="ui bottom attached   tab segment" data-tab="nrcfg" ondrop="dropfile(event)" ondragover="dragover(event)">
+    <div class="ui bottom attached   tab segment" data-tab="nrcfg" ondrop="dropfile(event)" ondragover="dragover(event)" ondragleave="dragleave(event)">
         Technology Specific (NR cfg)
         <div id="nrspec" style="height:400px;padding-bottom:40px"></div>
     </div>
-    <div class="ui bottom attached   tab segment" data-tab="simcfg" ondrop="dropfile(event)" ondragover="dragover(event)">
+    <div class="ui bottom attached   tab segment" data-tab="simcfg" ondrop="dropfile(event)" ondragover="dragover(event)" ondragleave="dragleave(event)">
         Simulator Specific (SIM cfg)
         <div id="simspec" style="height:400px;padding-bottom:40px"></div>
     </div>
