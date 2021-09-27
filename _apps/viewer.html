@@ -103,7 +103,9 @@ title: API logger
     <script>
          
         function dragover(ev){
+            ev.stopPropagation();
             ev.preventDefault();
+            
             ev.target.classList.add("highlight");
             //ev.target.toggleClass("highlight");
             //console.log("Drag Over",ev.target);
