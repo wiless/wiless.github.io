@@ -78,9 +78,9 @@ title: API logger
     <div class="col-sm-4">
         <!-- <div id="sim"></div> -->
         SIM Config
-        <div class="ui input " id="sim-file">
-            <input class="ui blue" type="file" placeholder="SIM Configuration">
-        </div>
+<!--         <div class="ui input " id="sim-file"> -->
+            <input class="ui blue" id="sim-file" type="file" placeholder="SIM Configuration">
+<!--         </div> -->
     </div>
 </div>
 
@@ -139,7 +139,7 @@ title: API logger
                     if (slsinfo[globalcounter] == undefined) {
                 slsinfo[globalcounter] = { itu: {}, nr: {}, sim: {} };
             }
-            slsinfo[globalcounter].itu = obj;
+            slsinfo[globalcounter].nr = obj;
             if (document.getElementById("nrspec").firstElementChild)
                 document.getElementById("nrspec").firstElementChild.remove();
             itueditor = new JSONEditor(document.getElementById('nrspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, obj);
@@ -149,7 +149,7 @@ title: API logger
                      if (slsinfo[globalcounter] == undefined) {
                 slsinfo[globalcounter] = { itu: {}, nr: {}, sim: {} };
             }
-            slsinfo[globalcounter].itu = obj;
+            slsinfo[globalcounter].sim = obj;
             if (document.getElementById("simspec").firstElementChild)
                 document.getElementById("simspec").firstElementChild.remove();
             itueditor = new JSONEditor(document.getElementById('simspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, obj);
