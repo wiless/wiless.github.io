@@ -101,6 +101,10 @@ title: API logger
         }
      </style>
     <script>
+         function dragenter(ev){
+            ev.stopPropagation();
+            ev.preventDefault();
+         }
          function dragleave(ev){
              ev.target.classList.remove("highlight");
 //             ev.("#drop_zone").classList.remove("active");
@@ -116,7 +120,7 @@ title: API logger
             //console.log("Drag Over",ev.target);
         }
        async function dropfile(ev){            
-             
+            ev.stopPropagation();
             ev.preventDefault();
             ev.target.classList.remove("highlight");
             console.log("Drop Event",ev.target);
@@ -137,8 +141,14 @@ title: API logger
             }
             slsinfo[globalcounter].itu = obj;
             if (document.getElementById("ituspec").firstElementChild)
-                document.getElementById("ituspec").firstElementChild.remove();
-            itueditor = new JSONEditor(document.getElementById('ituspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, obj);
+            {
+                document.getElementById("ituspec").firstElementChild.remove();    
+                itueditor = new JSONEditor(document.getElementById('ituspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, obj);
+            }else{
+                          itueditor.set(obj);
+                
+                    }
+            
 
                 }
                 
@@ -147,19 +157,26 @@ title: API logger
                 slsinfo[globalcounter] = { itu: {}, nr: {}, sim: {} };
             }
             slsinfo[globalcounter].nr = obj;
-            if (document.getElementById("nrspec").firstElementChild)
+            if (document.getElementById("nrspec").firstElementChild){
+                
                 document.getElementById("nrspec").firstElementChild.remove();
-            itueditor = new JSONEditor(document.getElementById('nrspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, obj);
-  
+            nreditor = new JSONEditor(document.getElementById('nrspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, obj);
+            }else{
+                nreditor.set(obj);
+            }
                 }
                 if (target.id=="simspec") {
                      if (slsinfo[globalcounter] == undefined) {
                 slsinfo[globalcounter] = { itu: {}, nr: {}, sim: {} };
             }
             slsinfo[globalcounter].sim = obj;
-            if (document.getElementById("simspec").firstElementChild)
+            if (document.getElementById("simspec").firstElementChild) {
+                
                 document.getElementById("simspec").firstElementChild.remove();
-            itueditor = new JSONEditor(document.getElementById('simspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, obj);
+            simeditor = new JSONEditor(document.getElementById('simspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, obj);
+            }else{
+                simeditor.set(obj);
+            }
  
                 }
 //                 console.log("Content is ",content);
