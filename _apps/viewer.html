@@ -105,12 +105,14 @@ title: API logger
             ev.preventDefault();
             ev.target.classList.add("highlight");
             //ev.target.toggleClass("highlight");
-            console.log("Drag Over",ev.target);
+            //console.log("Drag Over",ev.target);
         }
        async function dropfile(ev){            
+             
             ev.preventDefault();
             ev.target.classList.remove("highlight");
             console.log("Drop Event",ev.target);
+            var target=ev.target;
             var files=ev.dataTransfer.files;
             console.log("Found File",ev.dataTransfer.files);
             if(files.length>0)
@@ -119,8 +121,41 @@ title: API logger
                 console.log("File Name",ev.dataTransfer.files[0].name);
                 console.log("File Type",ev.dataTransfer.files[0].type);
                 var content = await ev.dataTransfer.files[0].text();
-                console.log("Content is ",content);
+                var obj=JSON.parse(content);
+//                 temp1.getAttribute["data-tab"]
+                if (target.id=="ituspec") {
+                      if (slsinfo[globalcounter] == undefined) {
+                slsinfo[globalcounter] = { itu: {}, nr: {}, sim: {} };
+            }
+            slsinfo[globalcounter].itu = obj;
+            if (document.getElementById("ituspec").firstElementChild)
+                document.getElementById("ituspec").firstElementChild.remove();
+            itueditor = new JSONEditor(document.getElementById('ituspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, obj);
+
+                }
                 
+                if (target.id=="nrspec") {
+                    if (slsinfo[globalcounter] == undefined) {
+                slsinfo[globalcounter] = { itu: {}, nr: {}, sim: {} };
+            }
+            slsinfo[globalcounter].itu = obj;
+            if (document.getElementById("nrspec").firstElementChild)
+                document.getElementById("nrspec").firstElementChild.remove();
+            itueditor = new JSONEditor(document.getElementById('nrspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, obj);
+  
+                }
+                if (target.id=="simspec") {
+                     if (slsinfo[globalcounter] == undefined) {
+                slsinfo[globalcounter] = { itu: {}, nr: {}, sim: {} };
+            }
+            slsinfo[globalcounter].itu = obj;
+            if (document.getElementById("simspec").firstElementChild)
+                document.getElementById("simspec").firstElementChild.remove();
+            itueditor = new JSONEditor(document.getElementById('simspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, obj);
+ 
+                }
+//                 console.log("Content is ",content);
+                // temp1.getAttribute("data-tab")
             }
             
             
@@ -239,25 +274,7 @@ title: API logger
         const formatter = new JSONFormatter(json, 1, JFoptions);
         card.appendChild(formatter.render());
     }
-/*     document.getElementById('itucfg').addEventListener('change', event => {
-        var file = event.target.files[0];
 
-        file.text().then(d => {
-            var obj = JSON.parse(d);
-            new Inspector(document.querySelector("#nr")).fulfilled(obj);
-            //  createJSONCard("nr", obj);
-            if (slsinfo[globalcounter] == undefined) {
-                slsinfo[globalcounter] = { itu: {}, nr: {}, sim: {} };
-            }
-            slsinfo[globalcounter].nr = obj;
-
-            if (document.getElementById("nrspec").firstElementChild)
-                document.getElementById("nrspec").firstElementChild.remove();
-            simeditor = new JSONEditor(document.getElementById('nrspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, obj);
-
-
-        });
-    }); */
     document.getElementById('nr-file').addEventListener('change', event => {
         var file = event.target.files[0];
 
