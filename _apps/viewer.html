@@ -163,11 +163,12 @@ title: API logger
             slsinfo[globalcounter].itu = obj;
             if (document.getElementById("ituspec").firstElementChild)
             {
-                document.getElementById("ituspec").firstElementChild.remove();    
-                itueditor = new JSONEditor(document.getElementById('ituspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, obj);
+                                          itueditor.set(obj);
+
+//                 document.getElementById("ituspec").firstElementChild.remove();    
+   
             }else{
-                          itueditor.set(obj);
-                
+                itueditor = new JSONEditor(document.getElementById('ituspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, obj);             
                     }
             
 
@@ -178,9 +179,9 @@ title: API logger
                 slsinfo[globalcounter] = { itu: {}, nr: {}, sim: {} };
             }
             slsinfo[globalcounter].nr = obj;
-            if (document.getElementById("nrspec").firstElementChild){
+            if (!document.getElementById("nrspec").firstElementChild){
                 
-                document.getElementById("nrspec").firstElementChild.remove();
+               // document.getElementById("nrspec").firstElementChild.remove();
             nreditor = new JSONEditor(document.getElementById('nrspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, obj);
             }else{
                 nreditor.set(obj);
@@ -191,9 +192,9 @@ title: API logger
                 slsinfo[globalcounter] = { itu: {}, nr: {}, sim: {} };
             }
             slsinfo[globalcounter].sim = obj;
-            if (document.getElementById("simspec").firstElementChild) {
+            if (!document.getElementById("simspec").firstElementChild) {
                 
-                document.getElementById("simspec").firstElementChild.remove();
+//                 document.getElementById("simspec").firstElementChild.remove();
             simeditor = new JSONEditor(document.getElementById('simspec'), { mode: 'code', modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], maxVisibleChilds: 25 }, obj);
             }else{
                 simeditor.set(obj);
