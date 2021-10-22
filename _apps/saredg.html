@@ -299,7 +299,7 @@ title: DG Monitor from firebase
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
-                    console.log("Error signing in ", errorCode, errorMessage);
+                    console.log("Error signing in ", error); //errorCode, errorMessage);
                     closeForm();
                 });
 
