@@ -233,7 +233,7 @@ title: DG Monitor from firebase
 
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"
         import { getAuth, signOut, signInWithPopup, EmailAuthProvider, GoogleAuthProvider, SignInMethod, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js"
-        import { getDatabase, ref, onChildAdded, update, set, onValue } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js"
+        import { getDatabase,get, query,limitToLast, ref, onChildAdded, update, set, onValue } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js"
 
          import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-analytics.js";
 
@@ -321,6 +321,10 @@ title: DG Monitor from firebase
 
                 console.log("Seems login changed ", user);
                 
+                const recentPostsRef = query(ref(db, basepath+"/log/bootevents"), limitToLast(1));
+                get(recentPostsRef).then(snapshot=>{
+                console.log(snapshot.val());
+                })
                 onValue(ref(db, livepath + "/heartbeat"), (d) => {
                     const lastseen = d.val();
                     var tmp = moment.unix(lastseen / 1000);
