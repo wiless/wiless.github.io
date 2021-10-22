@@ -322,8 +322,11 @@ title: DG Monitor from firebase
                 console.log("Seems login changed ", user);
                 
                 const recentPostsRef = query(ref(db, basepath+"/log/bootevents"), limitToLast(1));
-                get(recentPostsRef).then(snapshot=>{
-                console.log(snapshot.val());
+              onValue(recentPostsRef).then(snapshot=>{
+                    var event=snapshot.val();
+                    document.getElementById("bootreason").innerText=event.Reason;
+                    console.log(snapshot);                  
+                    console.log(snapshot.val());
                 })
                 onValue(ref(db, livepath + "/heartbeat"), (d) => {
                     const lastseen = d.val();
@@ -337,12 +340,12 @@ title: DG Monitor from firebase
 
                 });
  
- var logref=ref(db, basepath + "/log/bootevents");
-                onChildAdded(logref,data=>{
-                    var event=data.val();
-                    document.getElementById("bootreason").innerText=event.Reason;
-                    console.log(data);
-                });
+//  var logref=ref(db, basepath + "/log/bootevents");
+//                 onChildAdded(logref,data=>{
+//                     var event=data.val();
+//                     document.getElementById("bootreason").innerText=event.Reason;
+//                     console.log(data);
+//                 });
 //  , (d) => {
 //                     const lastseen = d.val();
 //                     var tmp = moment.unix(lastseen / 1000);
