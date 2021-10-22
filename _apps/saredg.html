@@ -306,10 +306,7 @@ title: DG Monitor from firebase
         }
         document.getElementById("signin").onclick = function () {
             console.log("Clicked");
-            signInWithPopup(auth, provider).then(
-                d => displayUserInfo(d)
-
-            );
+            signInWithPopup(auth, provider).then(d => displayUserInfo(d) );
 
         };
         // signOut(auth).then(() => {
