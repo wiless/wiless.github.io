@@ -323,9 +323,12 @@ title: DG Monitor from firebase
                 
                 const recentPostsRef = query(ref(db, basepath+"/log/bootevents"), limitToLast(1));
               onValue(recentPostsRef, snapshot=>{
-                    var event=snapshot.val();
+                  var child=snapshot.val();
+                    var event=child(keys(child)[0]); 
+                  
                     document.getElementById("bootreason").innerText=event.Reason;
-                    console.log(snapshot);                  
+                    console.log(snapshot);   
+                  
                     console.log(snapshot.val());
                 });
                 onValue(ref(db, livepath + "/heartbeat"), (d) => {
