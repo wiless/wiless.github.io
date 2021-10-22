@@ -1,0 +1,509 @@
+---
+layout: wide
+title: DG Monitor from firebase
+<!-- img:   -->
+---
+
+    <style media="screen">
+        body {
+            background: #ECEFF1;
+            color: rgba(0, 0, 0, 0.87);
+            font-family: Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #message button[status=false] {
+            display: block;
+            text-align: center;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: white;
+            padding: 16px;
+            border-radius: 4px;
+            background-color: red;
+        }
+
+        #message button[status=true] {
+            display: block;
+            text-align: center;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: white;
+            padding: 16px;
+            border-radius: 4px;
+            background-color: green;
+        }
+
+        #message {
+            background: white;
+            max-width: 360px;
+            margin: 100px auto 16px;
+            padding: 32px 24px;
+            border-radius: 3px;
+        }
+
+        #message h2 {
+            color: #ffa100;
+            font-weight: bold;
+            font-size: 16px;
+            margin: 0 0 8px;
+        }
+
+        #message h1 {
+            font-size: 22px;
+            font-weight: 300;
+            color: rgba(0, 0, 0, 0.6);
+            margin: 0 0 16px;
+        }
+
+        #message p {
+            line-height: 140%;
+            margin: 16px 0 24px;
+            font-size: 14px;
+        }
+
+        #message a {
+            display: block;
+            text-align: center;
+            background: #039be5;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: white;
+            padding: 16px;
+            border-radius: 4px;
+        }
+
+
+
+        #message,
+        #message a {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+
+        #load {
+            color: rgba(0, 0, 0, 0.4);
+            text-align: center;
+            font-size: 13px;
+        }
+
+
+
+        @media (max-width: 600px) {
+
+            body,
+            #message {
+                margin-top: 0;
+                background: white;
+                box-shadow: none;
+            }
+
+            body {
+                border-top: 16px solid #ffa100;
+            }
+        }
+    </style>
+
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Button used to open the contact form - fixed at the bottom of the page */
+        .open-button {
+            background-color: #555;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            opacity: 0.8;
+            position: fixed;
+            bottom: 23px;
+            right: 28px;
+            width: 280px;
+        }
+
+        /* The popup form - hidden by default */
+        .form-popup {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            right: 15px;
+            border: 3px solid #f1f1f1;
+            z-index: 9;
+        }
+
+        /* Add styles to the form container */
+        .form-container {
+            max-width: 300px;
+            padding: 10px;
+            background-color: white;
+        }
+
+        /* Full-width input fields */
+        .form-container input[type=text],
+        .form-container input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        /* When the inputs get focus, do something */
+        .form-container input[type=text]:focus,
+        .form-container input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        /* Set a style for the submit/login button */
+        .form-container .btn {
+            background-color: #04AA6D;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        /* Add a red background color to the cancel button */
+        .form-container .cancel {
+            background-color: red;
+        }
+
+        /* Add some hover effects to buttons */
+        .form-container .btn:hover,
+        .open-button:hover {
+            opacity: 1;
+        }
+    </style>
+
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/5.0.0/firebase-ui-auth.css" />
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+
+</head>
+
+<body>
+
+
+    <div class="form-popup" id="myForm" style="background-color: #04AA6D;">
+        <form action="#" class="form-container">
+
+            <h1>Login</h1>
+
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+
+            <button id="submit" type="button" class="btn">Login</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+    </div>
+
+    <div id="message">
+        <h1>SARE DG Status</h1>
+        <h2 id="boot">Turned On</h2>
+        <h3 id="lastseen">Last Seen</h3>
+
+        <h3 id="DGstatus">Current Status </h3>
+        <h3 id="updated">Updated</h3>
+        <p> Status updated from DG bot at SARE HOMES</p>
+        <button id="signin">Google Sign In</button>
+        <button onclick="openForm()">Email Signin</button>
+        <button id="toggle" style="visibility: hidden;" status=false>Toggle</button>
+        <div id="firebaseui-auth-container"></div>
+
+        <!-- class="open-button" -->
+
+    </div>
+
+    <p id="load">Builty by &hellip;</p>
+
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        var currentstatus;
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"
+        import { getAuth, signOut, signInWithPopup, EmailAuthProvider, GoogleAuthProvider, SignInMethod, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js"
+        import { getDatabase, ref, update, set, onValue } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js"
+
+         import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-analytics.js";
+
+
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCA2SJwPEXnWB9MBJgvNbrCzNydrMctFpc",
+            authDomain: "sendildevar.firebaseapp.com",
+            databaseURL: "https://kiot.firebaseio.com/", // https://sendildevar-default-rtdb.asia-southeast1.firebasedatabase.app
+            projectId: "sendildevar",
+            storageBucket: "sendildevar.appspot.com",
+            messagingSenderId: "554219100937",
+            appId: "1:554219100937:web:7e8dc521b4a7e94b23d1d8",
+            measurementId: "G-TW4LTM2R0Y"
+        };
+
+
+        // Initialize Firebase
+        // let app = firebase.app();
+        // firebase.initializeApp(firebaseConfig);
+        const app = initializeApp(firebaseConfig);
+        //const analytics = getAnalytics(app);
+        console.log(app.name);  // "[DEFAULT]"
+        console.log(app);
+
+        // Initialize the FirebaseUI Widget using Firebase.
+        const auth = getAuth();
+        // var ui = new firebaseui.auth.AuthUI(auth);
+        const db = getDatabase();
+
+        const provider = new GoogleAuthProvider();
+        // const emailprovider = new PhoneAuthProvider();
+        // The start method will wait until the DOM is loaded.
+
+        function displayUserInfo(d) {
+            console.log("After Sign Popop", d);
+
+        };
+
+        document.getElementById("submit").onclick = function () {
+
+            var email = document.getElementsByName("email")[0].value;
+            var psw = document.getElementsByName("psw")[0].value;
+            signInWithEmailAndPassword(auth, email, psw)
+                .then((userCredential) => {
+                    // Signed in 
+                    closeForm();
+                    const user = userCredential.user;
+                    console.log("user (from credential) ", user.email); c
+                    // ...
+                    const userId = auth.currentUser; // .uid
+                    console.log("User - Check token", userId);
+                    console.log("User ID ", userId.uid);
+                    auth.updateCurrentUser(user).then(() => console.log("success "));
+                    displayUserInfo(d);
+
+
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.log("Error signing in ", errorCode, errorMessage);
+                    closeForm();
+                });
+
+        }
+        document.getElementById("signin").onclick = function () {
+            console.log("Clicked");
+            signInWithPopup(auth, provider).then(
+                d => displayUserInfo(d)
+
+            );
+
+        };
+        // signOut(auth).then(() => {
+        //     // Sign-out successful.
+        // }).catch((error) => {
+        //     // An error happened.
+        // });
+        var recentstatus;
+        auth.onAuthStateChanged(user => {
+            if (user != null) {
+
+                console.log("Seems login changed ", user);
+
+                onValue(ref(db, livepath + "/heartbeat"), (d) => {
+                    const lastseen = d.val();
+                    var tmp = moment.unix(lastseen / 1000);
+                    document.querySelector("#lastseen").innerText = "Last seen " + moment.unix(lastseen / 1000).format('MMMM Do YYYY, h:mm:ss a');
+
+                    // console.log("calendar", tmp.calendar());
+                    // console.log("since ", tmp.fromNow());
+                    // console.log("time ", tmp);
+                    // console.log("livepath: Data Snapshot ", d);
+
+                });
+
+                onValue(ref(db, livepath + "/status"), (d) => {
+                    const status = d.val();
+                    recentstatus = status;
+                    console.log("Status is ", status);
+                    var tmp = moment.unix(status.boottime / 1000);
+
+                    document.querySelector("#boot").innerText = "Unit booted  : " + tmp.calendar();
+                    document.querySelector("#DGstatus").innerText = "DG is " + (status.DG ? "ON" : "OFF");
+                    document.querySelector("#updated").innerText = "Status updated at " + moment.unix(status.updatedtime / 1000).calendar();
+                    document.getElementById("toggle").setAttribute("status", status.DG);
+                    // console.log("calendar", tmp.calendar());
+                    // console.log("since ", tmp.fromNow());
+                    // console.log("time ", tmp);
+                    // console.log("livepath: Data Snapshot ", d);
+
+                });
+
+                // onValue(ref(db, livepath + "/status/updatedtime"), (d) => {
+                //     const data = d.val();
+                //     // const timestamp = new Date(0);
+                //     // timestamp.setUTCMilliseconds(data);
+                //     var tmp = moment.unix(data / 1000);
+                //     document.querySelector("h2").innerText = tmp.calendar();
+                //     console.log("calendar", tmp.calendar());
+                //     console.log("since ", tmp.fromNow());
+                //     console.log("time ", tmp);
+                //     console.log("livepath: Data Snapshot ", d);
+
+                // });
+
+                // onValue(ref(db, livepath + "/status/DG"), (d) => {
+                //     const data = d.val();
+                //     currentstatus = data;
+                //     document.querySelector("h3").innerText = "Current Status " + (data ? "ON" : "OFF");
+                //     // console.log("/DGbot/DGstatus : ", data);
+                //     document.getElementById("toggle").setAttribute("status", currentstatus);
+
+
+
+                // }, d => console.log("/status/DG : Error reading ", d));
+
+                var butn = document.getElementById("toggle");
+                butn.style.visibility = "visible";
+                butn.onclick = function () {
+                    console.log("Toggle Button clicked ", recentstatus.DG);
+                    const db = getDatabase();
+                    var obj = {};
+                    // obj["/DG"] = currentstatus;
+                    // obj["/timestamp"] = (new Date()).getTime();
+                    // if boottime
+                    obj = recentstatus;
+                    obj.DG = !recentstatus.DG;
+                    obj.updatedtime = (new Date()).getTime();
+
+
+
+                    set(ref(db, livepath + "/status"), obj).catch(d => {
+                        if (d.code == "PERMISSION_DENIED") {
+                            alert("Permission denied");
+                        }
+                        console.log("type of ", d.code, d);
+                    });
+
+                }
+
+
+                return;
+            }
+            var butn = document.getElementById("toggle");
+            butn.style.visibility = "hidden";
+            console.log("Null user - Did logout  ");
+        }
+        );
+
+
+
+        // var dref = ref(db, "/DGbot/name");
+        // set(dref, "LIVEoff");
+
+
+
+    </script>
+    <script>
+
+
+        var basepath = "/SAREPH3/dg1";
+        var adminpath = basepath + "/admin";
+        var livepath = basepath + "/live";
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const loadEl = document.querySelector('#load');
+            var footer = "App built by <a href=//twitter.com/iamssk>@iamssk</a>";
+
+            loadEl.innerHTML = `${footer} `;
+        });
+
+        document.addEventListener('DOMContentLoadedx', function () {
+            const loadEl = document.querySelector('#load');
+            // // The Firebase SDK is initialized and available here!
+            //
+            // firebase.auth().onAuthStateChanged(user => { });
+            firebase.database().ref(livepath).on('value', snapshot => {
+                console.log(snapshot);
+            });
+            // firebase.firestore().doc('/foo/bar').get().then(() => { });
+            // firebase.functions().httpsCallable('yourFunction')().then(() => { });
+            // firebase.messaging().requestPermission().then(() => { });
+            // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+            // firebase.analytics(); // call to activate
+            // firebase.analytics().logEvent('tutorial_completed');
+            // firebase.performance(); // call to activate
+            //
+
+
+            try {
+                let app = firebase.app();
+
+                let features = [
+                    'auth',
+                    'database',
+                    'firestore',
+                    'functions',
+                    'messaging',
+                    'storage',
+                    'analytics',
+                    'remoteConfig',
+                    'performance',
+                ].filter(feature => typeof app[feature] === 'function');
+                loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
+                firebase.initializeApp(firebaseConfig);
+                console.log("App created ");
+                var database = firebase.database();
+                console.log("database created ");
+                // database.ref('users/' + "ssk").set({
+                // username: "sendil",
+                // email: "email",
+                // profile_picture: "imageUrl"
+                // });
+
+                var starCountRef = database.ref(livepath);
+                starCountRef.on('value', (snapshot) => {
+                    const data = snapshot.val();
+                    console.log("Data is", data);
+                    document.querySelector("h2").innerText = data;
+                    // updateStarCount(postElement, data);
+                });
+
+
+
+            } catch (e) {
+                console.error(e);
+                loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+            }
+        });
+    </script>
+
+    <script>
+        function openForm() {
+            document.getElementById("myForm").style.display = "block";
+        }
+
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
+    </script>
+
+
