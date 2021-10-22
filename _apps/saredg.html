@@ -291,8 +291,8 @@ title: DG Monitor from firebase
                     const userId = auth.currentUser; // .uid
                     console.log("User - Check token", userId);
                     console.log("User ID ", userId.uid);
-                    auth.updateCurrentUser(user).then(() => console.log("success "));
-                    displayUserInfo(d);
+                    auth.updateCurrentUser(user).then((d) => console.log("success "));
+                    displayUserInfo(user);
 
 
                 })
