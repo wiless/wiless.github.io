@@ -331,6 +331,22 @@ title: DG Monitor from firebase
                     // console.log("livepath: Data Snapshot ", d);
 
                 });
+ 
+ var logref=ref(db, basepath + "/log/bootevents");
+                onChildAdded(logref,data=>{
+                    console.log(data)
+                });
+//  , (d) => {
+//                     const lastseen = d.val();
+//                     var tmp = moment.unix(lastseen / 1000);
+//                     document.querySelector("#lastseen").innerText = "Last seen " + moment.unix(lastseen / 1000).format('MMMM Do YYYY, h:mm:ss a');
+
+//                     // console.log("calendar", tmp.calendar());
+//                     // console.log("since ", tmp.fromNow());
+//                     // console.log("time ", tmp);
+//                     // console.log("livepath: Data Snapshot ", d);
+
+//                 });
 
                 onValue(ref(db, livepath + "/status"), (d) => {
                     const status = d.val();
