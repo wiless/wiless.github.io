@@ -322,12 +322,12 @@ title: DG Monitor from firebase
                 console.log("Seems login changed ", user);
                 
                 const recentPostsRef = query(ref(db, basepath+"/log/bootevents"), limitToLast(1));
-              onValue(recentPostsRef).then(snapshot=>{
+              onValue(recentPostsRef, snapshot=>{
                     var event=snapshot.val();
                     document.getElementById("bootreason").innerText=event.Reason;
                     console.log(snapshot);                  
                     console.log(snapshot.val());
-                })
+                });
                 onValue(ref(db, livepath + "/heartbeat"), (d) => {
                     const lastseen = d.val();
                     var tmp = moment.unix(lastseen / 1000);
