@@ -209,6 +209,7 @@ title: DG Monitor from firebase
     <div id="message">
         <h1>SARE DG Status</h1>
         <h2 id="boot">Turned On</h2>
+        <h2 id="bootreason" style="font-size:0.7em"></h2>
         <h3 id="lastseen">Last Seen</h3>
 
         <h3 id="DGstatus">Current Status </h3>
@@ -319,7 +320,7 @@ title: DG Monitor from firebase
             if (user != null) {
 
                 console.log("Seems login changed ", user);
-
+                
                 onValue(ref(db, livepath + "/heartbeat"), (d) => {
                     const lastseen = d.val();
                     var tmp = moment.unix(lastseen / 1000);
@@ -334,7 +335,9 @@ title: DG Monitor from firebase
  
  var logref=ref(db, basepath + "/log/bootevents");
                 onChildAdded(logref,data=>{
-                    console.log(data)
+                    var event=data.val();
+                    document.getElementById("bootreason").innerText=event.Reason;
+                    console.log(data);
                 });
 //  , (d) => {
 //                     const lastseen = d.val();
