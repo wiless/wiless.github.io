@@ -297,6 +297,12 @@ hidesocial: true
   // ...
 });
 
+
+fcm.onMessage((payload) => {
+    console.log('Message received. ', payload);
+    // Update the UI to include the received message.
+    alert ("Hello");
+  });
         
         const provider = new GoogleAuthProvider();
         // const emailprovider = new PhoneAuthProvider();
