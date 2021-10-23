@@ -233,12 +233,13 @@ hidesocial: true
         var currentstatus;
 
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"
+        
         import { getAuth, signOut, signInWithPopup, EmailAuthProvider, GoogleAuthProvider, SignInMethod, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js"
         import { getDatabase,get, query,limitToLast, ref, onChildAdded, update, set, onValue } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js"
-
+        import { getMessaging,getToken } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-messaging.js"
          import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-analytics.js";
 
-
+        
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -264,12 +265,33 @@ hidesocial: true
         //const analytics = getAnalytics(app);
         console.log(app.name);  // "[DEFAULT]"
         console.log(app);
-
+        
         // Initialize the FirebaseUI Widget using Firebase.
         const auth = getAuth();
         // var ui = new firebaseui.auth.AuthUI(auth);
         const db = getDatabase();
+        
+        const fcm=getMessaging(app);
+//         getToken(fcm,{});
+        var vapidkey="BDpC-XQ-_VeLgLWpO4ucd3xN1WdJ1gJt0cYeUOWSBQdCc3b9M651b2ImFUx5T_-A98WCVJdC8d_1q7mm0hLDnGY";
+//         fcm.getToken({vapidKey: "BDpC-XQ-_VeLgLWpO4ucd3xN1WdJ1gJt0cYeUOWSBQdCc3b9M651b2ImFUx5T_-A98WCVJdC8d_1q7mm0hLDnGY"});
+        
+        getToken(messaging, { vapidKey: vapidkey}).then((currentToken) => {
+  if (currentToken) {
+    // Send the token to your server and update the UI if necessary
+    // ...
+      console.log("key=",currentToken);
+  } else {
+    // Show permission request UI
+    console.log('No registration token available. Request permission to generate one.');
+    // ...
+  }
+}).catch((err) => {
+  console.log('An error occurred while retrieving token. ', err);
+  // ...
+});
 
+        
         const provider = new GoogleAuthProvider();
         // const emailprovider = new PhoneAuthProvider();
         // The start method will wait until the DOM is loaded.
@@ -412,13 +434,13 @@ hidesocial: true
                     
                     
                 
-            Notification.requestPermission(function (result) {
-                if (result === 'granted') {
-                    navigator.serviceWorker.ready.then(function (registration) {
-                        registration.showNotification("DG is " + (status.DG ? "ON" : "OFF"));
-                    });
-                }
-            });
+//             Notification.requestPermission(function (result) {
+//                 if (result === 'granted') {
+//                     navigator.serviceWorker.ready.then(function (registration) {
+//                         registration.showNotification("DG is " + (status.DG ? "ON" : "OFF"));
+//                     });
+//                 }
+//             });
                     
                     // console.log("calendar", tmp.calendar());
                     // console.log("since ", tmp.fromNow());
