@@ -333,7 +333,7 @@ title: DG Monitor from firebase
                   
                   
                   
-                  if (this.Notification) {
+                  if ('Notification' in window ) {
   Notification.requestPermission(function(permission) {
     if (permission === 'granted') {
       return   new Notification('Unit Rebooted',{ body: 'Reason : '+event.Reason});
