@@ -275,16 +275,18 @@ hidesocial: true
 //         getToken(fcm,{});
         var vapidkey="BDpC-XQ-_VeLgLWpO4ucd3xN1WdJ1gJt0cYeUOWSBQdCc3b9M651b2ImFUx5T_-A98WCVJdC8d_1q7mm0hLDnGY";
 //         fcm.getToken({vapidKey: "BDpC-XQ-_VeLgLWpO4ucd3xN1WdJ1gJt0cYeUOWSBQdCc3b9M651b2ImFUx5T_-A98WCVJdC8d_1q7mm0hLDnGY"});
-        onMessage(fcm, (payload) => {
-  console.log('Message received. ', payload);
-  // ...
-});
+      
         
         getToken(fcm, { vapidKey: vapidkey}).then((currentToken) => {
   if (currentToken) {
     // Send the token to your server and update the UI if necessary
     // ...
       console.log("key=",currentToken);
+        onMessage(fcm, (payload) => {
+  console.log('Message received. ', payload);
+  // ...
+});
+      
   } else {
     // Show permission request UI
     console.log('No registration token available. Request permission to generate one.');
