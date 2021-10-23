@@ -316,6 +316,8 @@ title: DG Monitor from firebase
         //     // An error happened.
         // });
         var recentstatus;
+        
+        
         auth.onAuthStateChanged(user => {
             if (user != null) {
 
@@ -327,11 +329,23 @@ title: DG Monitor from firebase
                     var event=child[Object.keys(child)[0]]; 
                   
                     document.getElementById("bootreason").innerText=event.Reason;
-                    console.log(snapshot);   
-                  const greeting = new Notification('Unit Rebooted',{
-  body: 'Reason : '+event.Reason
-
-});
+                    console.log(snapshot);  
+                  
+                  
+                  const greeting = new Notification('Unit Rebooted',{ body: 'Reason : '+event.Reason});
+                  
+                  if (this.Notification) {
+  Notification.requestPermission(function(permission) {
+    if (permission === 'granted') {
+      return new Notification('hi this is a test');
+    } else {
+      return alert("Notifications not permitted");
+    }
+  });
+} else {
+  alert('Notifications not supported');
+}
+                  
 
 //   icon: './img/goodday.png'
                     console.log(snapshot.val());
