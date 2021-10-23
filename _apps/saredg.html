@@ -262,7 +262,7 @@ hidesocial: true
         // let app = firebase.app();
         // firebase.initializeApp(firebaseConfig);
         const app = initializeApp(firebaseConfig);
-        //const analytics = getAnalytics(app);
+        // analytics = getAnalytics(app);
         console.log(app.name);  // "[DEFAULT]"
         console.log(app);
         
@@ -282,7 +282,10 @@ hidesocial: true
     // Send the token to your server and update the UI if necessary
     // ...
       console.log("key=",currentToken);
-      document.getElementById("bootreason").innerText=currentToken;
+navigator.serviceWorker.ready.then(function (registration) {
+                        registration.showNotification('FCM',{ body: payload,vibrate: [200, 100, 200, 100, 200, 100, 200],tag:'Reboot'});
+                    });
+     // document.getElementById("bootreason").innerText=currentToken;
   // ...
       
   } else {
