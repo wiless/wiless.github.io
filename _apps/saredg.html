@@ -296,7 +296,9 @@ hidesocial: true
 onMessage(fcm ,(payload) => {
     console.log('Message received. ', payload);
     // Update the UI to include the received message.
-
+navigator.serviceWorker.ready.then(function (registration) {
+                        registration.showNotification('FCM',{ body: payload,vibrate: [200, 100, 200, 100, 200, 100, 200],tag:'Reboot'});
+                    });
 document.getElementById("bootreason").innerText=payload;
   });
         
