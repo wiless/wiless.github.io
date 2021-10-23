@@ -332,17 +332,34 @@ title: DG Monitor from firebase
                     console.log(snapshot);  
                   
                   
-                  const greeting = new Notification('Unit Rebooted',{ body: 'Reason : '+event.Reason});
                   
                   if (this.Notification) {
   Notification.requestPermission(function(permission) {
     if (permission === 'granted') {
-      return new Notification('hi this is a test');
+      return   new Notification('Unit Rebooted',{ body: 'Reason : '+event.Reason});
+//       return new Notification('hi this is a test');
     } else {
-      return alert("Notifications not permitted");
+        console.log("Not permitted");
+//       return alert("Notifications not permitted");
     }
   });
 } else {
+//     console.log("Not supported");
+     
+            Notification.requestPermission(function (result) {
+                if (result === 'granted') {
+                    navigator.serviceWorker.ready.then(function (registration) {
+                        registration.showNotification('Unit Rebooted',{ body: 'Reason : '+event.Reason,vibrate: [200, 100, 200, 100, 200, 100, 200],tag:'Reboot'});
+                    });
+                }
+            });
+    
+//     {
+//           body: 'Buzz! Buzz!',
+//           icon: '../images/touch/chrome-touch-icon-192x192.png',
+//           vibrate: [200, 100, 200, 100, 200, 100, 200],
+//           tag: 'vibration-sample'
+//         }
   alert('Notifications not supported');
 }
                   
@@ -392,11 +409,11 @@ title: DG Monitor from firebase
                     document.getElementById("toggle").setAttribute("status", status.DG);
                     
                     
-                    navigator.serviceWorker.register("/empty.js");
+                
             Notification.requestPermission(function (result) {
                 if (result === 'granted') {
                     navigator.serviceWorker.ready.then(function (registration) {
-                        registration.showNotification('ServiceWorker '+"DG is " + (status.DG ? "ON" : "OFF"));
+                        registration.showNotification("DG is " + (status.DG ? "ON" : "OFF"));
                     });
                 }
             });
@@ -475,7 +492,7 @@ title: DG Monitor from firebase
     </script>
     <script>
 var permission =  Notification.requestPermission();
-
+    navigator.serviceWorker.register("/empty.js");
         var basepath = "/SAREPH3/dg1";
         var adminpath = basepath + "/admin";
         var livepath = basepath + "/live";
