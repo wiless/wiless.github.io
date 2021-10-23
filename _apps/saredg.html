@@ -376,6 +376,17 @@ title: DG Monitor from firebase
                     document.querySelector("#DGstatus").innerText = "DG is " + (status.DG ? "ON" : "OFF");
                     document.querySelector("#updated").innerText = "Status updated at " + moment.unix(status.updatedtime / 1000).calendar();
                     document.getElementById("toggle").setAttribute("status", status.DG);
+                    
+                    
+                    navigator.serviceWorker.register("/empty.js");
+            Notification.requestPermission(function (result) {
+                if (result === 'granted') {
+                    navigator.serviceWorker.ready.then(function (registration) {
+                        registration.showNotification('ServiceWorker '+"DG is " + (status.DG ? "ON" : "OFF"));
+                    });
+                }
+            });
+                    
                     // console.log("calendar", tmp.calendar());
                     // console.log("since ", tmp.fromNow());
                     // console.log("time ", tmp);
