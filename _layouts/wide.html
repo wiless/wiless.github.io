@@ -10,7 +10,9 @@
     {% include menu.html %}
 
     <div class="ui container">
+   {% if !page.hidesocial %}
    {% include socialbar.html %}
+{% endif %}
 
    {% if page.img %}
    <img class="ui fluid bordered image" src="{{page.img}}">
