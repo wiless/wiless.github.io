@@ -329,7 +329,7 @@ title: DG Monitor from firebase
                     document.getElementById("bootreason").innerText=event.Reason;
                     console.log(snapshot);   
                   const greeting = new Notification('Unit Rebooted',{
-  body: 'Reason : '+event.Reason;
+  body: 'Reason : '+event.Reason
 
 });
 
@@ -449,7 +449,7 @@ title: DG Monitor from firebase
 
     </script>
     <script>
-//var permission =  Notification.requestPermission();
+var permission =  Notification.requestPermission();
 
         var basepath = "/SAREPH3/dg1";
         var adminpath = basepath + "/admin";
