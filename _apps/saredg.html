@@ -298,7 +298,7 @@ hidesocial: true
 });
 
 
-fcm.onMessage((payload) => {
+onMessage(fcm ,(payload) => {
     console.log('Message received. ', payload);
     // Update the UI to include the received message.
     alert ("Hello");
