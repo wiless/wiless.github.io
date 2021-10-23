@@ -282,9 +282,7 @@ hidesocial: true
     // Send the token to your server and update the UI if necessary
     // ...
       console.log("key=",currentToken);
-        onMessage(fcm, (payload) => {
-document.getElementById("bootreason").innerText+=payload;
-  console.log('Message received. ', payload);
+      document.getElementById("bootreason").innerText=currentToken;
   // ...
 });
       
@@ -302,7 +300,8 @@ document.getElementById("bootreason").innerText+=payload;
 onMessage(fcm ,(payload) => {
     console.log('Message received. ', payload);
     // Update the UI to include the received message.
-    alert ("Hello");
+
+document.getElementById("bootreason").innerText=payload;
   });
         
         const provider = new GoogleAuthProvider();
