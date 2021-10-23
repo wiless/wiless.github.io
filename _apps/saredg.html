@@ -283,6 +283,7 @@ hidesocial: true
     // ...
       console.log("key=",currentToken);
         onMessage(fcm, (payload) => {
+document.getElementById("bootreason").innerText+=payload;
   console.log('Message received. ', payload);
   // ...
 });
@@ -528,7 +529,7 @@ onMessage(fcm ,(payload) => {
     </script>
     <script>
 var permission =  Notification.requestPermission();
-    navigator.serviceWorker.register("/empty.js");
+    navigator.serviceWorker.register("/firebase-messsaging-sw.js");
         var basepath = "/SAREPH3/dg1";
         var adminpath = basepath + "/admin";
         var livepath = basepath + "/live";
