@@ -283,7 +283,7 @@ hidesocial: true
     // ...
       console.log("key=",currentToken);
 navigator.serviceWorker.ready.then(function (registration) {
-                        registration.showNotification('FCM',{ body: payload,vibrate: [200, 100, 200, 100, 200, 100, 200],tag:'Reboot'});
+                        registration.showNotification('FCM',{ body: currentToken,vibrate: [200, 100, 200, 100, 200, 100, 200],tag:'Reboot'});
                     });
      // document.getElementById("bootreason").innerText=currentToken;
   // ...
