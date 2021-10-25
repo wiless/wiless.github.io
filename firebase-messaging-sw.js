@@ -1,7 +1,7 @@
 console.log("Global firebase-messaging-sw.js loaded...");
 importScripts('https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js');
 importScripts('https://www.gstatic.com/firebasejs/9.1.0/firebase-messaging.js');
-importScripts('https://www.gstatic.com/firebasejs/9.1.0/init.js');
+
 
  const firebaseConfig = {
             apiKey: "AIzaSyCA2SJwPEXnWB9MBJgvNbrCzNydrMctFpc",
