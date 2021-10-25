@@ -1,6 +1,6 @@
 console.log("FB messaging loaded..");
 // firebase-messsaging-sw.js
-importScripts('hhttps://www.gstatic.com/firebasejs/9.1.0/firebase-app.js');
+importScripts('https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js');
 importScripts('https://www.gstatic.com/firebasejs/9.1.0/firebase-messaging.js');
 importScripts('https://www.gstatic.com/firebasejs/9.1.0/init.js');
 
