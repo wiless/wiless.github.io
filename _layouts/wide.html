@@ -9,7 +9,7 @@
     {% include jumboheader.html %}
     {% include menu.html %}
 
-    <div class="ui container">
+    <div class="ui container">        
    {% if !page.hidesocial %}
    {% include socialbar.html %}
 {% endif %}
@@ -19,6 +19,7 @@
    {% endif %}
    <br>
                              <div class="contentfont">
+                                 <p>hidesocial={{page.hidesocial}}</p>
 <a target=_blank href="https://github.com/wiless/wiless.github.io/edit/master/{{page.path}}"><i class="linkify small icon"></i></a>                                 
                                 {{content}}
 
