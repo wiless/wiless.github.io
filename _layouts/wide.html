@@ -10,17 +10,16 @@
     {% include menu.html %}
 
     <div class="ui container">        
-   {% if !page.hidesocial %}
+   {% unless page.hidesocial==true %}
    {% include socialbar.html %}
-{% endif %}
+{% endunless %}
 
    {% if page.img %}
    <img class="ui fluid bordered image" src="{{page.img}}">
    {% endif %}
    <br>
                              <div class="contentfont">
-                                 <p>hidesocial={{page.hidesocial}}</p>
-<a target=_blank href="https://github.com/wiless/wiless.github.io/edit/master/{{page.path}}"><i class="linkify small icon"></i></a>                                 
+ <a target=_blank href="https://github.com/wiless/wiless.github.io/edit/master/{{page.path}}"><i class="linkify small icon"></i></a>                                 
                                 {{content}}
 
                                 {% if page.comments %}
