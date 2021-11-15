@@ -360,10 +360,11 @@ document.getElementById("bootreason").innerText=payload;
                 console.log("Seems login changed ", user);
                 
                 const recentPostsRef = query(ref(db, basepath+"/log/bootevents"), limitToLast(1));
-              onValue(recentPostsRef, snapshot=>{
+            console.log("checking ",basepath+"/log/bootevents");
+  onValue(recentPostsRef, snapshot=>{
                   var child=snapshot.val();
                     var event=child[Object.keys(child)[0]]; 
-                  
+                  console.log(event);
                     document.getElementById("bootreason").innerText=event.Reason;
                     console.log(snapshot);  
                   
