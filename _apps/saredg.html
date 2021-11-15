@@ -352,12 +352,11 @@ document.getElementById("bootreason").innerText=payload;
         // });
         var recentstatus;
         
-        
+        var currentversion="v5_15";
         auth.onAuthStateChanged(user => {
             if (user != null) {
 
-                console.log("Seems login changed ", user);
-                var currentversion="";
+                console.log("Seems login changed ", user);            
                 
                  //get(ref(db, basepath+"/log/bootevents/currentversion"))
                 get(ref(db, basepath+"/log/bootevents/currentversion")).then((snapshot) => {
@@ -372,8 +371,9 @@ document.getElementById("bootreason").innerText=payload;
                 
                 
                 const recentPostsRef = query(ref(db, basepath+"/log/bootevents/"+currentversion), limitToLast(1));
-            console.log("checking ",basepath+"/log/bootevents/v5_15");
+         
   onValue(recentPostsRef, snapshot=>{
+      
                   var child=snapshot.val();
                     var event=child[Object.keys(child)[0]]; 
                   console.log(event);
