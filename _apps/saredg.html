@@ -285,8 +285,7 @@ hidesocial: true
 navigator.serviceWorker.ready.then(function (registration) {
                         registration.showNotification('FCM',{ body: currentToken,vibrate: [200, 100, 200, 100, 200, 100, 200],tag:'Reboot'});
                     });
-     // document.getElementById("bootreason").innerText=currentToken;
-  // ...
+   
       
   } else {
     // Show permission request UI
@@ -358,9 +357,18 @@ document.getElementById("bootreason").innerText=payload;
             if (user != null) {
 
                 console.log("Seems login changed ", user);
+                var currentversion="";
+                
+                 //get(ref(db, basepath+"/log/bootevents/currentversion"))
+                get(ref(db, basepath+"/log/bootevents/currentversion")).then((snapshot) => {
+  if (snapshot.exists()) {
+    console.log(snapshot.val());
+  }
+});
+                
                 
                 const recentPostsRef = query(ref(db, basepath+"/log/bootevents"), limitToLast(1));
-            console.log("checking ",basepath+"/log/bootevents");
+            console.log("checking ",basepath+"/log/bootevents/v5_15");
   onValue(recentPostsRef, snapshot=>{
                   var child=snapshot.val();
                     var event=child[Object.keys(child)[0]]; 
