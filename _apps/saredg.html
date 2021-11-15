@@ -362,12 +362,16 @@ document.getElementById("bootreason").innerText=payload;
                  //get(ref(db, basepath+"/log/bootevents/currentversion"))
                 get(ref(db, basepath+"/log/bootevents/currentversion")).then((snapshot) => {
   if (snapshot.exists()) {
-    console.log(snapshot.val());
+      currentversion=snapshot.val();
+    console.log("Current Version",snapshot.val());
+      
+      
+      
   }
 });
                 
                 
-                const recentPostsRef = query(ref(db, basepath+"/log/bootevents"), limitToLast(1));
+                const recentPostsRef = query(ref(db, basepath+"/log/bootevents/"+currentversion), limitToLast(1));
             console.log("checking ",basepath+"/log/bootevents/v5_15");
   onValue(recentPostsRef, snapshot=>{
                   var child=snapshot.val();
