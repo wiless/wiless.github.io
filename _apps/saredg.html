@@ -564,14 +564,7 @@ var permission =  Notification.requestPermission();
             firebase.database().ref(livepath).on('value', snapshot => {
                 console.log(snapshot);
             });
-            // firebase.firestore().doc('/foo/bar').get().then(() => { });
-            // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-            // firebase.messaging().requestPermission().then(() => { });
-            // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-            // firebase.analytics(); // call to activate
-            // firebase.analytics().logEvent('tutorial_completed');
-            // firebase.performance(); // call to activate
-            //
+          
 
 
             try {
@@ -593,12 +586,7 @@ var permission =  Notification.requestPermission();
                 console.log("App created ");
                 var database = firebase.database();
                 console.log("database created ");
-                // database.ref('users/' + "ssk").set({
-                // username: "sendil",
-                // email: "email",
-                // profile_picture: "imageUrl"
-                // });
-
+              
                 var starCountRef = database.ref(livepath);
                 starCountRef.on('value', (snapshot) => {
                     const data = snapshot.val();
