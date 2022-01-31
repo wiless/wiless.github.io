@@ -1,0 +1,764 @@
+---
+layout: wide
+title: DG Monitor from firebase
+hidesocial: true
+<!-- img:   -->
+---
+
+ <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css"> -->
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="css/mystyle.css">
+    <!-- FONT  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+    <!-- CSS  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <!-- <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/skeleton.css">
+    <link rel="stylesheet" href="/css/custom.css"> -->
+
+    <!-- Scripts  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+    <style>
+        .material-icons.md-dark {
+            color: rgb(7, 241, 19);
+        }
+
+        .material-icons.md-dark.md-inactive {
+            color: rgba(10, 24, 7, 0.5);
+        }
+
+
+        .mdl-card {
+            width: auto;
+            background-color: rgba(250, 235, 215, 0.842);
+        }
+
+        div.column,
+        div.columns {
+            background-color: rgb(219, 209, 195);
+            box-shadow: chartreuse;
+            min-height: 100px;
+
+            border-radius: 1%;
+        }
+    </style>
+
+
+ <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer">
+        <header class="mdl-layout__header mdl-layout__header--scroll ">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title">FCM Testing Dashboard</span>
+                <div class="mdl-layout-spacer"></div>
+
+                <nav class="mdl-navigation">
+                    <!-- Add MDL Navigation Links here -->
+                    <button id="demo-menu-top-left" class="mdl-button mdl-js-button mdl-button--icon">
+                        <i class="material-icons">more_vert</i>
+                    </button>
+                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                        for="demo-menu-top-left">
+                        <!-- Add MDL Menu Items here -->
+                        <li class="mdl-menu__item">About</li>
+                        <li class="mdl-menu__item">Version</li>
+                    </ul>
+
+                </nav>
+
+
+            </div>
+        </header>
+
+        <div class="form-popup" id="myForm" style="background-color: #04AA6D;">
+            <form action="#" class="form-container">
+
+                <h1>Login</h1>
+
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+
+                <button id="submit" type="button" class="btn">Login</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+        </div>
+        <div class="mdl-layout__drawer">
+            <div
+                style="background-color: rgb(198, 228, 31);background-image: url('https://blog.sendildevar.in/assets/images/avatar/linkedin.jpg');min-height: 100px;background-position: center;">
+                <span class="mdl-layout-title">Guest User</span>
+                <span class="material-icons md-dark " style="float: right;border-style: dotted;border-radius: 2px;"
+                    id="clickme">push_pin</span>
+
+            </div>
+
+
+
+            <nav class="mdl-navigation">
+
+                <!-- Add MDL Navigation Links here -->
+                <a class="mdl-navigation__link" id="login" onclick="openForm()">Login</a>
+
+
+
+            </nav>
+            <!-- <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect"
+                id="clickme">
+                <i class="material-icons md-dark md-inactive">push_pin</i>
+
+            </button> -->
+            <script>
+                document.querySelector("#clickme").addEventListener("click", () => {
+                    var layout = $('.mdl-layout');
+
+                    layout.toggleClass("mdl-layout--fixed-drawer");
+                    // layout.MaterialLayout.toggleDrawer();
+                    if (layout.hasClass("mdl-layout--fixed-drawer")) {
+                        $('#clickme').removeClass("md-inactive");
+                        console.log("Added fixed.. ");
+                        document.querySelector(".mdl-layout").MaterialLayout.toggleDrawer();
+                        // layout.removeClass("mdl-layout--fixed-drawer");
+                        // console.log("check ", $("#clickme"));
+                        // layout.MaterialLayout.toggleDrawer();
+                    }
+                    else {
+                        console.log("NOT fixed");
+                        $('#clickme').addClass("md-inactive");
+
+
+                    }
+                })
+            </script>
+        </div>
+        <main class="mdl-layout__content mdl-color--grey-800">
+            <!-- <div class="row">
+                <div class="one column">One</div>
+                <div class="eleven columns">Eleven</div>
+            </div> -->
+
+            <div class="mdl-grid container mdl-layout-spacer">
+                <!-- CARDS  -->
+                <!-- CARD#1 Logged In User Info can be moved to left later  -->
+                <div class="mdl-cell mdl-cell--3-col mdl-cell--8-col-tablet  ">
+                    <div class="mdl-card mdl-shadow--2dp mdl-card-full">
+                        <div class="mdl-card__title " id="username">
+                        </div>
+                        <div class="mdl-card__actions mdl-card--border" id="userinfo">
+
+                        </div>
+                    </div>
+                </div>
+                <!-- CARD#2 DEVICE Status   -->
+                <div class="mdl-cell mdl-cell--stretch mdl-cell--3-col mdl-cell--8-col-tablet ">
+                    <div class="mdl-card mdl-shadow--2dp mdl-card-full">
+                        <div class="mdl-card__title" id="DGstatus">
+
+                        </div>
+                        <div class="mdl-card__actions mdl-card--border">
+
+                            <div>
+                                <p id="boot">Turned On</p>
+                                <p id="bootreason" style="font-size:0.7em"></p>
+                                <p id="updated">Updated</p>
+                                <p id="lastseen"> Last Seen : </p>
+                                <!-- <div id="firebaseui-auth-container"></div> -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- CARD#3a DEVICE Status   -->
+                <div class="mdl-cell mdl-cell--stretch mdl-cell--3-col mdl-cell--8-col-tablet ">
+                    <div class="mdl-card mdl-shadow--2dp mdl-card-full">
+                        <div class="mdl-card__title" id="DGstatusDevel">
+
+                        </div>
+                        <div class="mdl-card__actions mdl-card--border">
+
+                            <div>
+                                <p id="bootDevel">Turned On</p>
+                                <p id="bootreasonDevel" style="font-size:0.7em"></p>
+                                <p id="updatedDevel">Updated</p>
+                                <p id="lastseenDevel"> Last Seen : </p>
+                                <!-- <div id="firebaseui-auth-container"></div> -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- CARD#3b DEVICE Status   -->
+                <div class="mdl-cell mdl-cell--stretch mdl-cell--3-col mdl-cell--8-col-tablet ">
+                    <div class="mdl-card  mdl-shadow--2dp mdl-card-full ">
+                        <div class="mdl-card__title ">
+                            DG Source
+                            <!-- <i class="material-icons"> settings </i> DG Source -->
+
+                        </div>
+
+                        <div class="mdl-card__actions mdl-card--border">
+                            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+                                <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="dg1"
+                                    checked>
+                                <span class="mdl-radio__label">DG Bot</span>
+                            </label>
+                            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+                                <input type="radio" id="option-2" class="mdl-radio__button" name="options"
+                                    value="devel">
+                                <span class="mdl-radio__label">PES Indicator</span>
+                            </label>
+                        </div>
+
+                        <div class="mdl-card__menu">
+                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"
+                                id="menu-source">
+                                <i class="material-icons">more_vert</i>
+                            </button>
+
+                            <!-- <button id="demo-menu-lower-left" class="mdl-button mdl-js-button mdl-button--icon">
+                                <i class="material-icons">more_vert</i>
+                            </button> -->
+
+                            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                                for="menu-source">
+                                <li class="mdl-menu__item">DG Bot</li>
+                                <li class="mdl-menu__item">PES Indicator</li>
+                                <!-- <li class="mdl-menu__item mdl-menu__item--full-bleed-divider">PES Indicator</li> -->
+                                <!-- <li disabled class="mdl-menu__item">Disabled Action</li> -->
+                                <!-- <li class="mdl-menu__item">Yet Another Action</li> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD#4 PLOT   -->
+                <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet ">
+                    <div class="mdl-card mdl-shadow--2dp mdl-card-full">
+                        <div class="mdl-card__title ">
+                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="reload"> DG
+                                Events
+                                <i class="material-icons">event</i>
+                            </a>
+                        </div>
+                        <div class="mdl-card__actions mdl-card--border">
+
+                            <div id="plot">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD#5 Chat Events   -->
+                <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet ">
+                    <div class="mdl-card mdl-shadow--2dp mdl-card-full">
+                        <div class="mdl-card__title ">
+                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
+                                id="reloadchat">
+                                Chat Events
+                                <i class="material-icons">event</i>
+                            </a>
+
+                        </div>
+                        <div class="mdl-card__actions mdl-card--border">
+
+                            <div id="chatplot">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="mdl-snackbar mdl-js-snackbar">
+
+                    <div class="mdl-snackbar__text">
+
+                    </div>
+                    <!-- <h3></h3> -->
+                    <button type="button" class="mdl-snackbar__action"></button>
+                </div>
+        </main>
+
+
+    </div>
+    <script>
+
+        var basepath = "/SAREPH3/dg1";
+        var adminpath = basepath + "/admin";
+        var livepath = basepath + "/live";
+        var basepath2 = "/SAREPH3/devel";
+        var livepath2 = basepath2 + "/live";
+        function displayUserInfo(user) {
+            // console.log("After Sign Popop", user);
+            document.getElementById("username").innerText = user.email;
+            document.getElementById("userinfo").innerHTML = "Last loggged on " + user.metadata.lastSignInTime
+            user.getIdTokenResult().then(
+
+                d => {
+                    var admin = d.claims["admin"];
+                    document.getElementById("userinfo").innerHTML += `\n Admin ? = ${admin}`;
+                }
+            );
+        }
+
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.4"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-analytics.js";
+        import { getAuth, signOut, signInWithPopup, EmailAuthProvider, GoogleAuthProvider, SignInMethod, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js";
+        import { getDatabase, get, query, orderByKey, limitToLast, ref, onChildAdded, update, set, onValue } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-database.js"
+        import { getMessaging, getToken, onMessage } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-messaging.js";
+
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        
+         const firebaseConfig = {
+            apiKey: "AIzaSyCA2SJwPEXnWB9MBJgvNbrCzNydrMctFpc",
+            authDomain: "sendildevar.firebaseapp.com",
+            databaseURL: "https://sare.asia-southeast1.firebasedatabase.app/", // https://sendildevar-default-rtdb.asia-southeast1.firebasedatabase.app
+            projectId: "sendildevar",
+            storageBucket: "sendildevar.appspot.com",
+            messagingSenderId: "554219100937",
+            appId: "1:554219100937:web:7e8dc521b4a7e94b23d1d8",
+            measurementId: "G-TW4LTM2R0Y"
+        };
+        
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth();
+        const provider = new GoogleAuthProvider();
+
+        const db = getDatabase();
+
+        // All module related callback functions
+
+        auth.onAuthStateChanged(user => {
+            if (user != null) {
+                user.getIdToken(/* forceRefresh */ false).then(function (idToken) {
+                    // Send token to your backend via HTTPS
+                    // ...
+                    // console.log("ID token is ", idToken);
+                }).catch(function (error) {
+                    // Handle error
+                });
+
+                // console.log("Seems login changed ", user);
+                displayUserInfo(user);
+            }
+
+        });
+        var recentstatus;
+
+        onValue(ref(db, livepath + "/status"), (d) => {
+            const status = d.val();
+            recentstatus = status;
+            console.log("Status is ", status);
+            var tmp = moment.unix(status.boottime / 1000);
+
+            document.querySelector("#boot").innerText = "Unit booted  : " + tmp.calendar();
+            var dgstat = status.DG ? " ON" : " OFF";
+            document.querySelector("#DGstatus").innerHTML = `DG Status (${dgstat})`;
+            document.querySelector("#updated").innerText = "Status updated at " + moment.unix(status.updatedtime / 1000).calendar();
+
+
+
+
+            //             Notification.requestPermission(function (result) {
+            //                 if (result === 'granted') {
+            //                     navigator.serviceWorker.ready.then(function (registration) {
+            //                         registration.showNotification("DG is " + (status.DG ? "ON" : "OFF"));
+            //                     });
+            //                 }
+            //             });
+
+            // console.log("calendar", tmp.calendar());
+            // console.log("since ", tmp.fromNow());
+            // console.log("time ", tmp);
+            // console.log("livepath: Data Snapshot ", d);
+
+        });
+
+        onValue(ref(db, livepath2 + "/status"), (d) => {
+            const status = d.val();
+            recentstatus = status;
+            console.log("Status is ", status);
+            var tmp = moment.unix(status.boottime / 1000);
+
+            document.querySelector("#bootDevel").innerText = "Unit booted  : " + tmp.calendar();
+            var dgstat = status.DG ? " ON" : " OFF";
+            document.querySelector("#DGstatusDevel").innerHTML = `DG Status (${dgstat})`;
+            document.querySelector("#updatedDevel").innerText = "Status updated at " + moment.unix(status.updatedtime / 1000).calendar();
+
+
+
+
+            //             Notification.requestPermission(function (result) {
+            //                 if (result === 'granted') {
+            //                     navigator.serviceWorker.ready.then(function (registration) {
+            //                         registration.showNotification("DG is " + (status.DG ? "ON" : "OFF"));
+            //                     });
+            //                 }
+            //             });
+
+            // console.log("calendar", tmp.calendar());
+            // console.log("since ", tmp.fromNow());
+            // console.log("time ", tmp);
+            // console.log("livepath: Data Snapshot ", d);
+
+        });
+
+        onValue(ref(db, livepath + "/heartbeat"), (d) => {
+            const lastseen = d.val();
+            var tmp = moment.unix(lastseen / 1000);
+            $("#lastseen").fadeOut();
+            // moment.unix(status.updatedtime / 1000).calendar()
+            // document.querySelector("#lastseen").innerText = "Last seen " + moment.unix(lastseen / 1000).format('MMMM Do YYYY, h:mm:ss a');
+            document.querySelector("#lastseen").innerText = "Last seen " + moment.unix(lastseen / 1000).calendar();
+            $("#lastseen").fadeIn();
+
+            // console.log("calendar", tmp.calendar());
+            // console.log("since ", tmp.fromNow());
+            // console.log("time ", tmp);
+            // console.log("livepath: Data Snapshot ", d);
+
+        });
+
+
+
+        onValue(ref(db, livepath2 + "/heartbeat"), (d) => {
+            const lastseen = d.val();
+            var tmp = moment.unix(lastseen / 1000);
+            $("#lastseen").fadeOut();
+            // document.querySelector("#lastseenDevel").innerText = "Last seen " + moment.unix(lastseen / 1000).format('MMMM Do YYYY, h:mm:ss a');
+            document.querySelector("#lastseenDevel").innerText = "Last seen " + moment.unix(lastseen / 1000).calendar();
+            $("#lastseen").fadeIn();
+
+            // console.log("calendar", tmp.calendar());
+            // console.log("since ", tmp.fromNow());
+            // console.log("time ", tmp);
+            // console.log("livepath: Data Snapshot ", d);
+
+        });
+
+
+        // DOM Event handlers
+        plotDGevents();
+        plotChatevents();
+
+        document.getElementById("submit").onclick = function () {
+            var email = document.getElementsByName("email")[0].value;
+            var psw = document.getElementsByName("psw")[0].value;
+            signInWithEmailAndPassword(auth, email, psw)
+                .then((userCredential) => {
+                    // Signed in 
+                    closeForm();
+                    const user = userCredential.user;
+                    console.log("Current User ", user);
+                    // ...
+                    const userId = auth.currentUser; // .uid
+                    console.log("User - Check token", userId);
+                    console.log("User ID ", userId.uid);
+
+
+                    auth.updateCurrentUser(user).then(
+                        (d) => {
+                            console.log("success ");
+                            // displayUserInfo(user);
+                        }
+                    );
+                    displayUserInfo(user);
+
+
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.log("Error signing in ", error); //errorCode, errorMessage);
+                    closeForm();
+                });
+
+        }
+
+
+
+        function plotDGevents(ev) {
+            const radioButtons = document.querySelectorAll('input[name="options"]');
+            let selectedPath;
+            for (const radioButton of radioButtons) {
+                if (radioButton.checked) {
+                    selectedPath = radioButton.value;
+                    break;
+                }
+            }
+            let path = "/SAREPH3/" + selectedPath;
+
+            console.log("Reload clicked");
+            //get(ref(db, basepath+"/log/bootevents/currentversion"))
+            get(query(ref(db, path + "/log/dgevents"), orderByKey())).then((snapshot) => {
+                // get(ref(db, basepath + "/log/dgevents")).then((snapshot) => {
+                if (snapshot.exists()) {
+                    var data = snapshot.val();
+                    var dgevents = [];
+                    const d3parser = d3.timeParse("%s")
+                    for (const [key, value] of Object.entries(data)) {
+                        var newvalue = { StartTime: d3parser(value.StartTime), StopTime: d3parser(value.StopTime) }
+                        dgevents.push(newvalue)
+                    }
+                    const formatMonth = d3.timeFormat("%B");
+                    const formatDay = d3.timeFormat("%a");
+                    // const epochparser = d3.timeParse("%s");
+                    // formatMonth(date); // "May"
+                    var currentmonth = (new Date()).getMonth() + 1;
+                    dgevents = dgevents.filter(d => d.StopTime > 0 && [currentmonth].includes((d.StopTime).getMonth() + 1));
+                    console.log("DGEvents ", dgevents);
+                    //                     facet: {
+                    //     data: anscombe,
+                    //     x: "series"
+                    //   },
+                    var theplot =
+                        Plot.plot({
+                            grid: true,
+                            width: "1500", marginBottom: 50,
+                            style: { background: `rgba(250, 235, 215, 0.842) ` },
+                            y: { nice: true, zero: true, label: "Day of Month", }, ///domain: [0, 31]
+                            x: { nice: true, tickRotate: -30 }, ///domain: [0, 31]
+                            color: {
+                                legend: true,
+                            },
+                            facet: {
+                                data: dgevents,
+                                grid: true,
+                                x: d => formatMonth((d.StopTime))
+                            },
+                            marks: [
+                                Plot.frame(),
+                                Plot.barX(dgevents, {
+                                    facet: "include",
+                                    // x1: d => d.StartTime.getHours(),
+                                    // x2: d => d.StopTime.getHours(),
+
+                                    x1: d => d.StartTime,
+                                    x2: d => d.StopTime,
+                                    // .getHours()
+                                    // y1: d => (d.StartTime).getDate() + ".0",
+                                    y: d => formatDay(d.StartTime),
+                                    // y: d => (d.StartTime).getDate(),
+                                    // y1: (d, i) => (d.StartTime).getHours(),
+                                    // stroke: "black",
+                                    fillOpacity: 0.5,
+
+                                    fill: (d) => formatDay((d.StartTime)),
+                                    strokeWidth: 1,
+                                    strokeOpacity: 1,
+                                    stroke: (d) => formatDay((d.StartTime))
+                                }),
+                                // Plot.text(dgevents, {
+                                //     x: (d) => (d.StartTime).getHours(),
+                                //     y: (d) => (d.StartTime).getDate(),
+                                //     text: (d) => [6, 0].includes((d.StartTime).getDay()) ? formatDay((d.StartTime)) : ""
+
+                                // })
+                            ]
+                        });
+                    var x = document.getElementById("plot");
+                    x.removeChild(x.lastChild);
+                    x.appendChild(theplot);
+                }
+            });
+        }
+
+        function plotChatevents(ev) {
+            const radioButtons = document.querySelectorAll('input[name="options"]');
+            let selectedPath;
+            for (const radioButton of radioButtons) {
+                if (radioButton.checked) {
+                    selectedPath = radioButton.value;
+                    break;
+                }
+            }
+            let path = "/SAREPH3/" + selectedPath;
+            console.log("Reload Chat Event");
+            //get(ref(db, basepath+"/log/bootevents/currentversion"))
+            get(query(ref(db, path + "/log/chatevents"), orderByKey())).then((snapshot) => {
+                if (snapshot.exists()) {
+                    var data = snapshot.val();
+                    var chatevents = [];
+                    for (const [key, value] of Object.entries(data)) {
+                        chatevents.push(value)
+                    }
+                    const formatMonth = d3.timeFormat("%B"), formatDay = d3.timeFormat("%a");
+                    // const epochparser = d3.timeParse("%s");
+                    // formatMonth(date); // "May"
+                    var currentmonth = (new Date()).getMonth();
+                    // chatevents = chatevents.filter(d => d.StopTime > 0 && [12, 1].includes(epochparser(d.StopTime).getMonth() + 1));
+                    console.log("chatevents ", chatevents);
+                    //                     facet: {
+                    //     data: anscombe,
+                    //     x: "series"
+                    //   },
+                    var theplot =
+                        Plot.plot({
+                            grid: true,
+                            marginLeft: 120,
+                            width: "1500",
+                            style: { background: `rgba(250, 235, 215, 0.842) ` },
+                            y: { nice: true, zero: true, tickRotate: -30 },
+                            x: { tickRotate: -30 },
+                            color: {
+                                legend: false,
+                            },
+
+                            marks: [
+                                Plot.frame(),
+                                Plot.dot(chatevents, {
+                                    x: (d) => new Date(d.Timestamp),
+                                    y: "From",
+                                    // strokeWidth: 15,
+                                    // strokeOpacity: 0.5,
+                                    // stroke: "Command",
+                                    fill: "From", // (d) => formatDay(epochparser(d.StopTime))
+                                }),
+                                // Plot.text(dgevents, {
+                                //     x: (d) => epochparser(d.StartTime).getHours(),
+                                //     y: (d) => epochparser(d.StartTime).getDate(),
+                                //     text: (d) => [6, 0].includes(epochparser(d.StartTime).getDay()) ? formatDay(epochparser(d.StartTime)) : ""
+
+                                // })
+                            ]
+                        });
+                    var x = document.getElementById("chatplot");
+                    x.removeChild(x.lastChild);
+                    x.appendChild(theplot);
+                }
+            });
+
+        }
+        document.getElementById("reload").onclick = plotDGevents;
+        document.getElementById("reloadchat").onclick = plotChatevents;
+
+        // document.getElementById("signin").onclick = function () {
+        //     console.log("Clicked");
+        //     signInWithPopup(auth, provider).then(d => displayUserInfo(d));
+
+        // };
+        // document.getElementById("login").addEventListener("click", () => {
+
+        //     console.log("Clicked");
+
+        //     signInWithPopup(auth, provider)
+        //         .then((result) => {
+        //             // This gives you a Google Access Token. You can use it to access the Google API.
+        //             const credential = GoogleAuthProvider.credentialFromResult(result);
+        //             const token = credential.accessToken;
+        //             // The signed-in user info.
+        //             const user = result.user;
+        //             // ...
+        //         }).catch((error) => {
+        //             // Handle Errors here.
+        //             const errorCode = error.code;
+        //             const errorMessage = error.message;
+        //             // The email of the user's account used.
+        //             const email = error.email;
+        //             // The AuthCredential type that was used.
+        //             const credential = GoogleAuthProvider.credentialFromError(error);
+        //             // ...
+        //         });
+
+
+        // });
+
+        // Get registration token. Initially this makes a network call, once retrieved
+        // subsequent calls to getToken will return from cache.
+        // const messaging = getMessaging();
+
+        // getToken(messaging, { vapidKey: 'BDpC-XQ-_VeLgLWpO4ucd3xN1WdJ1gJt0cYeUOWSBQdCc3b9M651b2ImFUx5T_-A98WCVJdC8d_1q7mm0hLDnGY' }).then((currentToken) => {
+        //     if (currentToken) {
+        //         // Send the token to your server and update the UI if necessary
+        //         // ...
+        //         console.log("Current token ", currentToken);
+        //         var idtoken = { idtoken: currentToken, topic: "global" };
+        //         console.log("sending ", idtoken);
+        //         fetch("https://home.sendildevar.in/subscribe", {
+        //             method: 'POST',
+        //             headers: {
+        //                 'Content-Type': 'application/json'
+        //             },
+        //             body: JSON.stringify(idtoken)
+        //         }).then(r =>
+        //             r.json()
+        //         ).then(d => console.log("data is", d));
+
+
+        //     } else {
+        //         // Show permission request UI
+        //         console.log('No registration token available. Request permission to generate one.');
+        //         // ...
+        //     }
+        // }).catch((err) => {
+        //     console.log('An error occurred while retrieving token. ', err);
+        //     // ...
+        // });
+
+
+        // onMessage(messaging, (payload) => {
+        //     console.log("INDEX - HMTL Received ", payload);
+
+        //     // console.log("notfications ", notification);
+        //     var data = {};
+        //     if (payload.notification !== undefined) {
+        //         data = {
+        //             message: payload.notification.body,
+        //             actionHandler: function (event) { console.log("Clicked hide"); },
+        //             actionText: 'Hide',
+        //             timeout: 5000
+        //         };
+        //     } else if (payload.data !== undefined) {
+        //         data = {
+        //             message: JSON.stringify(payload.data),
+        //             actionHandler: function (event) { console.log("Clicked hide"); },
+        //             actionText: 'Hide',
+        //             timeout: 5000
+        //         };
+        //     }
+
+        //     var notification = document.querySelector('.mdl-js-snackbar');
+        //     // var h2 = document.querySelector('.mdl-js-snackbar>h3')
+        //     // h2.innerHTML = payload.notification.title;
+        //     // var snackbarContainer = document.querySelector('#demo-toast-example');
+        //     // var data = { message: 'Example Message !' };
+        //     notification.MaterialSnackbar.showSnackbar(data);
+
+
+        //     // setTimeout(function () {
+        //     //     var notification = document.querySelector('.mdl-js-snackbar');
+        //     //     // var snackbarContainer = document.querySelector('#demo-toast-example');
+        //     //     var data = { message: 'Example Message !' };
+        //     //     notification.MaterialSnackbar.showSnackbar(data);
+        //     // }, 0);
+        // });
+
+
+
+
+    </script>
+    <script>
+        function openForm() {
+            console.log("Opening login form");
+            document.getElementById("myForm").style.display = "block";
+        }
+
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
+    </script>
