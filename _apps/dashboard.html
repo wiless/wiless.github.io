@@ -47,29 +47,6 @@ hidesocial: true
     </style>
 
 
- <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer">
-        <header class="mdl-layout__header mdl-layout__header--scroll ">
-            <div class="mdl-layout__header-row">
-                <span class="mdl-layout-title">FCM Testing Dashboard</span>
-                <div class="mdl-layout-spacer"></div>
-
-                <nav class="mdl-navigation">
-                    <!-- Add MDL Navigation Links here -->
-                    <button id="demo-menu-top-left" class="mdl-button mdl-js-button mdl-button--icon">
-                        <i class="material-icons">more_vert</i>
-                    </button>
-                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-                        for="demo-menu-top-left">
-                        <!-- Add MDL Menu Items here -->
-                        <li class="mdl-menu__item">About</li>
-                        <li class="mdl-menu__item">Version</li>
-                    </ul>
-
-                </nav>
-
-
-            </div>
-        </header>
 
         <div class="form-popup" id="myForm" style="background-color: #04AA6D;">
             <form action="#" class="form-container">
@@ -86,25 +63,9 @@ hidesocial: true
                 <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
             </form>
         </div>
-        <div class="mdl-layout__drawer">
-            <div
-                style="background-color: rgb(198, 228, 31);background-image: url('https://blog.sendildevar.in/assets/images/avatar/linkedin.jpg');min-height: 100px;background-position: center;">
-                <span class="mdl-layout-title">Guest User</span>
-                <span class="material-icons md-dark " style="float: right;border-style: dotted;border-radius: 2px;"
-                    id="clickme">push_pin</span>
-
-            </div>
-
-
-
-            <nav class="mdl-navigation">
-
-                <!-- Add MDL Navigation Links here -->
                 <a class="mdl-navigation__link" id="login" onclick="openForm()">Login</a>
 
-
-
-            </nav>
+ 
             <!-- <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect"
                 id="clickme">
                 <i class="material-icons md-dark md-inactive">push_pin</i>
@@ -132,13 +93,9 @@ hidesocial: true
                     }
                 })
             </script>
-        </div>
-        <main class="mdl-layout__content mdl-color--grey-800">
-            <!-- <div class="row">
-                <div class="one column">One</div>
-                <div class="eleven columns">Eleven</div>
-            </div> -->
 
+        <main class="mdl-layout__content mdl-color--grey-800">
+ 
             <div class="mdl-grid container mdl-layout-spacer">
                 <!-- CARDS  -->
                 <!-- CARD#1 Logged In User Info can be moved to left later  -->
@@ -283,7 +240,6 @@ hidesocial: true
         </main>
 
 
-    </div>
     <script>
 
         var basepath = "/SAREPH3/dg1";
