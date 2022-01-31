@@ -439,14 +439,14 @@ hidesocial: true
 
             console.log("Reload clicked");
             //get(ref(db, basepath+"/log/bootevents/currentversion"))
-            get(query(ref(db, path + "/log/dgevents"), orderByKey())).then((snapshot) => {
+            get(query(ref(db, path + "/log/dgevents"), orderByKey(),limitToLast(100)).then((snapshot) => {
                 // get(ref(db, basepath + "/log/dgevents")).then((snapshot) => {
                 if (snapshot.exists()) {
                     var data = snapshot.val();
                     var dgevents = [];
                     const d3parser = d3.timeParse("%s")
                     for (const [key, value] of Object.entries(data)) {
-                        var newvalue = { StartTime: d3parser(value.StartTime), StopTime: d3parser(value.StopTime) }
+                        var newvalue = {key:key,Comment:value.Comment, StartTime: d3parser(value.StartTime), StopTime: d3parser(value.StopTime) }
                         dgevents.push(newvalue)
                     }
                     const formatMonth = d3.timeFormat("%B");
