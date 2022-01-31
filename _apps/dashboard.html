@@ -20,7 +20,7 @@ hidesocial: true
     <link rel="stylesheet" href="/css/custom.css"> -->
 
     <!-- Scripts  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!--     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
     <style>
         .material-icons.md-dark {
@@ -30,7 +30,6 @@ hidesocial: true
         .material-icons.md-dark.md-inactive {
             color: rgba(10, 24, 7, 0.5);
         }
-
 
         .mdl-card {
             width: auto;
@@ -61,7 +60,7 @@ hidesocial: true
                 <h1>Login</h1>
 
                 <label for="email"><b>Email</b></label>
-                <input type="text" placeholder="Enter Email" name="email" required>
+                <input type="text" placeholder="Enter Email" name="email" required autocomplete="username">
 
                 <label for="psw"><b>Password</b></label>
                 <input type="password" placeholder="Enter Password" name="psw"  autocomplete="current-password" required>
