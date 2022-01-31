@@ -1,6 +1,6 @@
 ---
 layout: wide
-title: DG Monitor from firebase
+title: Dasboard for DG logs
 hidesocial: true
 <!-- img:   -->
 ---
@@ -33,18 +33,19 @@ hidesocial: true
 
         .mdl-card {
             width: auto;
-            background-color: rgba(250, 235, 215, 0.842);
+/*             background-color: rgba(250, 235, 215, 0.842); */
         }
 
         div.column,
         div.columns {
-            background-color: rgb(219, 209, 195);
+/*             background-color: rgb(219, 209, 195); */
             box-shadow: chartreuse;
             min-height: 100px;
 
             border-radius: 1%;
         }
     </style>
+  <a class="mdl-navigation__link" id="login" onclick="openForm()">Login</a>
 
 
 
@@ -63,14 +64,8 @@ hidesocial: true
                 <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
             </form>
         </div>
-                <a class="mdl-navigation__link" id="login" onclick="openForm()">Login</a>
-
- 
-            <!-- <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect"
-                id="clickme">
-                <i class="material-icons md-dark md-inactive">push_pin</i>
-
-            </button> -->
+              
+  
             <script>
                 document.querySelector("#clickme").addEventListener("click", () => {
                     var layout = $('.mdl-layout');
