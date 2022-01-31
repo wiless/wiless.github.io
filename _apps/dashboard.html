@@ -46,8 +46,13 @@ hidesocial: true
             border-radius: 1%;
         }
     </style>
-  <a class="mdl-navigation__link" id="login" onclick="openForm()">Login</a>
+  <a class="mdl-navigation__link" id="xlogin" onclick="openForm()">X Login</a>
 
+
+   <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"
+                                id="login" onclick="openForm()"> LOGIN
+<!--                                 <i class="material-icons">more_vert</i> -->
+                            </button>
 
 
         <div class="form-popup" id="myForm" style="background-color: #04AA6D;">
@@ -59,7 +64,7 @@ hidesocial: true
                 <input type="text" placeholder="Enter Email" name="email" required>
 
                 <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
+                <input type="password" placeholder="Enter Password" name="psw"  autocomplete="current-password" required>
 
                 <button id="submit" type="button" class="btn">Login</button>
                 <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
