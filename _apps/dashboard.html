@@ -255,6 +255,12 @@ console.log(selecteddate);
 
 
     </script>
+         <style>
+          svg, #plot{
+        height: 100%;
+        width: 100%;
+    }
+         </style>
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
     <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.4"></script>
     <script type="module">
@@ -487,7 +493,7 @@ console.log(selecteddate);
                     //   },
                     var theplot =
                         Plot.plot({
-                         width:"auto",
+                         width:"100%",
                             grid: true, marginBottom: 50,height:250,
                             y: { nice: true, zero: true, label: "Day of Month", }, ///domain: [0, 31]
                             x: { nice: true, tickRotate: -30 }, ///domain: [0, 31]
