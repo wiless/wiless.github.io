@@ -468,8 +468,15 @@ console.log(selecteddate);
                     // const epochparser = d3.timeParse("%s");
                     // formatMonth(date); // "May"
                  
-                    var currentmonth = (new Date()).getMonth() + 1;
+                    var selecteddate;
+                 if (document.getElementById("startdate").value==""){
+                 selecteddate=new Date();
+                  selecteddate.setHours();
+                  selecteddate.setHours(selecteddate.getHours()-24*31);
+                 }else{
                     var selecteddate=new Date(document.getElementById("startdate").value);
+                 }
+                  
 //                  currentmonth=selecteddate.getMonth()+1;
                   console.log("Reference date is",selecteddate);
                     dgevents = dgevents.filter(d => d.StopTime > 0 && d.StartTime>selecteddate);
