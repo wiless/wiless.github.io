@@ -465,7 +465,11 @@ console.log(selecteddate);
                     const formatDay = d3.timeFormat("%a");
                     // const epochparser = d3.timeParse("%s");
                     // formatMonth(date); // "May"
+                 
                     var currentmonth = (new Date()).getMonth() + 1;
+                    var selecteddate=new Date(document.getElementById("startdate").value);
+                 currentmonth=selecteddate.getMonth();
+                 
                     dgevents = dgevents.filter(d => d.StopTime > 0 && [currentmonth].includes((d.StopTime).getMonth() + 1));
                     console.log("DGEvents ", dgevents);
                     //                     facet: {
