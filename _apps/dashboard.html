@@ -91,7 +91,7 @@ hidesocial: true
                         <div class="mdl-card__title" >
                          <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="dg1">
   <input type="checkbox" id="dg1" class="mdl-switch__input" checked>
-  <span class="mdl-switch__label"></span>
+  <span class="mdl-switch__label">DG </span>
 </label>
                          <div id="DGstatus"></div>
                          
@@ -112,9 +112,15 @@ hidesocial: true
                 <!-- CARD#3a DEVICE Status   -->
                 <div class="mdl-cell mdl-cell--stretch mdl-cell--3-col mdl-cell--8-col-tablet ">
                     <div class="mdl-card mdl-shadow--2dp mdl-card-full">
-                        <div class="mdl-card__title" id="DGstatusDevel">
-
+                        <div class="mdl-card__title" >
+   <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="pes">
+  <input type="checkbox" id="pes" class="mdl-switch__input" checked>
+  <span class="mdl-switch__label">PES Indicator</span>
+</label>
+                         <div id="DGstatusDevel"></div>
+                         
                         </div>
+                     
                         <div class="mdl-card__actions mdl-card--border">
 
                             <div>
@@ -362,7 +368,11 @@ console.log(selecteddate);
 
             document.querySelector("#bootDevel").innerText = "Unit booted  : " + tmp.calendar();
             var dgstat = status.DG ? " ON" : " OFF";
-            document.querySelector("#DGstatusDevel").innerHTML = `DG Status (${dgstat})`;
+            document.querySelector("#DGstatusDevel").innerHTML = `PES Indicator (${dgstat})`;
+            if(document.getElementById('pes').checked!=status.DG){
+          document.getElementById('pes').click();
+         }
+         
             document.querySelector("#updatedDevel").innerText = "Status updated at " + moment.unix(status.updatedtime / 1000).calendar();
 
 
