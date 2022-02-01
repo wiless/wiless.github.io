@@ -243,12 +243,12 @@ hidesocial: true
         }
 
                 
-                         var selecteddate=document.getElementById("startdate").value;
+//  var selecteddate=document.getElementById("startdate").value;
 document.getElementById("startdate").oninput=(d=>
 {
-selecteddate=new Date(document.getElementById("startdate").value);
+var selecteddate=new Date(document.getElementById("startdate").value);
 console.log(selecteddate);
-}
+});
        
 
 
