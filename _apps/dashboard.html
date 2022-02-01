@@ -471,7 +471,7 @@ console.log(selecteddate);
                     var currentmonth = (new Date()).getMonth() + 1;
                     var selecteddate=new Date(document.getElementById("startdate").value);
 //                  currentmonth=selecteddate.getMonth()+1;
-                 
+                  console.log("Reference date is",selecteddate);
                     dgevents = dgevents.filter(d => d.StopTime > 0 && d.StartTime>selecteddate));
                     console.log("DGEvents ", dgevents);
                     //                     facet: {
