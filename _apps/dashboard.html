@@ -93,7 +93,7 @@ hidesocial: true
   <input type="checkbox" id="dg1" class="mdl-switch__input" checked>
   <span class="mdl-switch__label">DG </span>
 </label>
-                         <div id="DGstatus"></div>
+                         
                          
                         </div>
                         <div class="mdl-card__actions mdl-card--border">
@@ -117,8 +117,7 @@ hidesocial: true
   <input type="checkbox" id="pes" class="mdl-switch__input" checked>
   <span class="mdl-switch__label">PES Indicator</span>
 </label>
-                         <div id="DGstatusDevel"></div>
-                         
+                          
                         </div>
                      
                         <div class="mdl-card__actions mdl-card--border">
@@ -331,7 +330,7 @@ console.log(selecteddate);
             var tmp = moment.unix(status.boottime / 1000);
             document.querySelector("#boot").innerText = "Unit booted  : " + tmp.calendar();
             var dgstat = status.DG ? " ON" : " OFF";
-            document.querySelector("#DGstatus").innerHTML = `DG Status (${dgstat})`;
+//             document.querySelector("#DGstatus").innerHTML = `DG Status (${dgstat})`;
          if(document.getElementById('dg1').checked!=status.DG){
           document.getElementById('dg1').click();
          }
@@ -368,7 +367,7 @@ console.log(selecteddate);
 
             document.querySelector("#bootDevel").innerText = "Unit booted  : " + tmp.calendar();
             var dgstat = status.DG ? " ON" : " OFF";
-            document.querySelector("#DGstatusDevel").innerHTML = `PES Indicator (${dgstat})`;
+//             document.querySelector("#DGstatusDevel").innerHTML = `PES Indicator (${dgstat})`;
             if(document.getElementById('pes').checked!=status.DG){
           document.getElementById('pes').click();
          }
