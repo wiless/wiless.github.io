@@ -177,8 +177,10 @@ hidesocial: true
                             </button>
                          <i class="material-icons">event</i>
                          <label for="startdate">Starting Date:</label>
-                        <input type="datetime-local" id="startdate" name="startdate">
-                                
+                         
+                        <input type="date" id="startdate" name="startdate" >
+                         
+                         
 <!--                          datetime-local -->
                         </div>
                         <div class="mdl-card__actions mdl-card--border">
@@ -468,9 +470,9 @@ console.log(selecteddate);
                  
                     var currentmonth = (new Date()).getMonth() + 1;
                     var selecteddate=new Date(document.getElementById("startdate").value);
-                 currentmonth=selecteddate.getMonth();
+//                  currentmonth=selecteddate.getMonth()+1;
                  
-                    dgevents = dgevents.filter(d => d.StopTime > 0 && [currentmonth].includes((d.StopTime).getMonth() + 1));
+                    dgevents = dgevents.filter(d => d.StopTime > 0 && d.StartTime>selecteddate));
                     console.log("DGEvents ", dgevents);
                     //                     facet: {
                     //     data: anscombe,
