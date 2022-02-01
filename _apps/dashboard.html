@@ -326,7 +326,12 @@ console.log(selecteddate);
             document.querySelector("#boot").innerText = "Unit booted  : " + tmp.calendar();
             var dgstat = status.DG ? " ON" : " OFF";
             document.querySelector("#DGstatus").innerHTML = `DG Status (${dgstat})`;
-//            document.querySelector("#dg1").innerHTML = `DG Status (${dgstat})`;
+         if(document.getElementById('dg1').checked!=status.DG){
+          document.getElementById('dg1').click();
+         }
+         
+           document.querySelector("#dg1").checked = status.DG; 
+         //`DG Status (${dgstat})`;
 //          dg1
          
             document.querySelector("#updated").innerText = "Status updated at " + moment.unix(status.updatedtime / 1000).calendar();
