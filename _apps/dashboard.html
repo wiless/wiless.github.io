@@ -171,12 +171,14 @@ hidesocial: true
                 <!-- CARD#4 PLOT   -->
                 <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet ">
                     <div class="mdl-card mdl-shadow--2dp mdl-card-full">
-                        <div class="mdl-card__title ">
-                         
+                        <div class="mdl-card__title ">                         
                             <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="reload"> DG
-                                Events
-                                <i class="material-icons">event</i>
+                                Events<i class="material-icons">event</i>
                             </button>
+                         <label for="startdate">Birthday:</label>
+                        <input type="datetime-local" id="startdate" name="startdate">
+                                
+<!--                          datetime-local -->
                         </div>
                         <div class="mdl-card__actions mdl-card--border">
 
@@ -239,6 +241,14 @@ hidesocial: true
             );
         }
 
+                
+                         var selecteddate=document.getElementById("startdate").value;
+document.getElementById("startdate").oninput=(d=>
+{
+selecteddate=new Date(document.getElementById("startdate").value);
+console.log(selecteddate);
+}
+       
 
 
     </script>
