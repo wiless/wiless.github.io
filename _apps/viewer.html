@@ -545,6 +545,7 @@ hidesocial: true
         //              info={ ...subsriptiontoken.toJSON(),useremail:userprofile.getEmail()}
 
         var obj = { ...slsinfo[globalcounter], gcm: subscription, useremail: userprofile.getEmail() };
+        console.log("Sending this",obj);
         wiless.APIcalls("submitjob", obj).then(d => {
             console.log("Got this", d);
             uid = d.data;
