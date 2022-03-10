@@ -655,7 +655,7 @@ hidesocial: true
 
                         var obj = { ...slsinfo[globalcounter], gcm: subscription };
                         console.log("Trying to run SLS ", obj);
-                        wiless.APIcalls("submitjob", obj).then(d => {
+                        wiless.APIcalls("submitjobv2", obj).then(d => {
                             console.log("Got this", d);
                             uid = d.data;
                             // Then we send our first message
@@ -683,7 +683,7 @@ hidesocial: true
             // No serviceworker support
             var obj = slsinfo[globalcounter];
             console.log("Trying to run SLS ", obj);
-            wiless.APIcalls("submitjob", obj).then(d => console.log("Got this", d));
+            wiless.APIcalls("submitjobv2", obj).then(d => console.log("Got this", d));
         }
 
     }
