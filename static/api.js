@@ -17,7 +17,7 @@ function API() {
     .set("hexgrid", { path: "/geom/hexgrid", method: "get" })
     .set("gcr", { path: "/gcr", method: "get" })
     .set("sls", { path: "/gcr/sls", method: "post" })
-    .set("submitjob", { path: "/submitjob", method: "post" })
+    .set("submitjob", { path: "/submitjobv2", method: "post" })   
     .set("google", { path: "/auth/google", method: "post" });
     
 
