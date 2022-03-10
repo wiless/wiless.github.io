@@ -655,7 +655,7 @@ hidesocial: true
 
                         var obj = { ...slsinfo[globalcounter], gcm: subscription };
                         console.log("Trying to run SLS ", obj);
-                        wiless.APIcalls("submitjobv2", obj).then(d => {
+                        wiless.APIcalls("submitjob", obj).then(d => {
                             console.log("Got this", d);
                             uid = d.data;
                             // Then we send our first message
