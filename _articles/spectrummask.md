@@ -40,3 +40,14 @@ new Runtime().module(define, name => {
   return ["txpowerpsd","aclr1","aclr2","updateDistance","couplingMargin","txpower"].includes(name);
 });
 </script>
+
+<div id="observablehq-fssplot-a5139f63"></div>
+<p>Credit: <a href="https://observablehq.com/d/2c820b76ba28aa14">FSS AP30B Elevations by ssk</a></p>
+
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+import define from "https://api.observablehq.com/d/2c820b76ba28aa14@2387.js?v=3";
+new Runtime().module(define, name => {
+  if (name === "fssplot") return new Inspector(document.querySelector("#observablehq-fssplot-a5139f63"));
+});
+</script>
