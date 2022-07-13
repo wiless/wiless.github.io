@@ -40,14 +40,15 @@ index: 10
  </script>
 
 <script type="module">
-<!--         import { Inspector } from "https://unpkg.com/@observablehq/inspector?module"; -->
+//       import { Inspector } from "https://unpkg.com/@observablehq/inspector?module"; 
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
     //    import * as Plot from "https://cdn.skypack.dev/@observablehq/plot@0.1";
     //    import * as d3 from "https://cdn.skypack.dev/d3@7";
 
         import * as units from "https://api.observablehq.com/@wiless/units.js?v=3";
         console.log(units)
- 
+ ![image](https://user-images.githubusercontent.com/4603031/178706087-cef07944-2cc0-474e-bf77-d27a9023e48e.png)
+
  var val = Array.from({ length: 100 }, (_, i) => Math.sin(2 * Math.PI * i / 100
         ))
         var options = {
@@ -57,21 +58,21 @@ import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/run
        // document.getElementById("layout").appendChild(domobj);
        document.getElementById("layout").appendChild(domobj);
  
-<!--   window.Inspector=Inspector; -->
+
   
    //  domobj=new Inspector.into(document.querySelector("#controls"))
      new Inspector(document.querySelector("#controls")).fulfilled(val)
 
-<!-- <p>Credit: <a href="https://observablehq.com/d/789a850521ffd0e0">India Microwave Backhaul by ssk</a></p> -->
+
 
 
 import define from "https://api.observablehq.com/d/789a850521ffd0e0@4799.js?v=3";
 new Runtime().module(define, name => {
   if (name === "viewof ydomainfilterd") return new Inspector(document.querySelector("#observablehq-viewof-ydomainfilterd-996c2a08"));
 });
-<!-- </script> -->
+
  
- //    document.getElementById("controls").appendChild(val);
+    document.getElementById("controls").appendChild(val);
 
   
 </script>
