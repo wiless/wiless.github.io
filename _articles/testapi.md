@@ -5,11 +5,10 @@ summary: Various WRC-23 Agenda Items and spectrum bands
 index: 10
 
 --- 
+
 <link crossorigin rel="stylesheet" href="https://unpkg.com/@observablehq/inspector@3.2.2/dist/inspector.css">
 <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-<script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.1">
-
-</script>
+<script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.1"></script>
 
 <!--  img: /imgs/<imagefilename.jpg> -->
 # WRC-23 Agenda Items
@@ -23,7 +22,7 @@ index: 10
  <div>
   <div id="observablehq-viewof-ydomainfilterd-996c2a08"></div>
 <script>
-
+/*
  document.getElementById("runme").onclick=()=>{
  
  // var module;
@@ -36,7 +35,7 @@ index: 10
   ]
 });
    document.getElementById("layout").appendChild(el);
- }
+ }*/
  </script>
 
 <script type="module">
@@ -46,8 +45,8 @@ import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/run
     //    import * as d3 from "https://cdn.skypack.dev/d3@7";
 
         import * as units from "https://api.observablehq.com/@wiless/units.js?v=3";
-        console.log(units)
- ![image](https://user-images.githubusercontent.com/4603031/178706087-cef07944-2cc0-474e-bf77-d27a9023e48e.png)
+// <!--         console.log(units) -->
+// <!--  ![image](https://user-images.githubusercontent.com/4603031/178706087-cef07944-2cc0-474e-bf77-d27a9023e48e.png) -->
 
  var val = Array.from({ length: 100 }, (_, i) => Math.sin(2 * Math.PI * i / 100
         ))
