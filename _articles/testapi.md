@@ -15,33 +15,17 @@ index: 10
  
 
 ## Chapter 4
-<button id="runme"> Click Me</>
+<button id="runme"> Click Me </button>
 <div style="display:block"> 
   <div id="controls">  </div>  
  <div id="layout">   </div>
  <div>
   <div id="observablehq-viewof-ydomainfilterd-996c2a08"></div>
-<script>
-/*
- document.getElementById("runme").onclick=()=>{
  
- // var module;
-  var bslocs;
- d3.json("https://wilessapi.appspot.com/geom/hexgrid").then(d=>bslocs=d);
- var opts;
-  var el=Plot.plot({...opts,
-  marks: [    
-    Plot.dot(bslocs, { x: "X", y: "Y" })    
-  ]
-});
-   document.getElementById("layout").appendChild(el);
- }*/
- </script>
-
 <script type="module">
 //       import { Inspector } from "https://unpkg.com/@observablehq/inspector?module"; 
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
-    //    import * as Plot from "https://cdn.skypack.dev/@observablehq/plot@0.1";
+ //      import * as Plot from "https://cdn.skypack.dev/@observablehq/plot@0.1";
     //    import * as d3 from "https://cdn.skypack.dev/d3@7";
 
         import * as units from "https://api.observablehq.com/@wiless/units.js?v=3";
