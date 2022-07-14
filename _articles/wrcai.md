@@ -15,13 +15,15 @@ index: 10
  
 
 ## Chapter 4
+
+
 <button id="runme"> Click Me </button>
 <div style="display:block"> 
   <div id="controls">  </div>  
  <div id="layout">   </div>
  </div>
   <div id="aifilter" ></div>
-  <div id="AIplots" ></div>
+  <div id="AIplots" style="height:300px"></div>
   
 
   
