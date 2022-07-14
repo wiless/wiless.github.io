@@ -57,7 +57,7 @@ new Runtime().module(define, name => {
 });
 
  
-    document.getElementById("controls").appendChild(val);
+ //   document.getElementById("controls").appendChild(val);
 
   
 </script>
