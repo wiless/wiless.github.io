@@ -20,7 +20,7 @@ index: 10
   <div id="controls">  </div>  
  <div id="layout">   </div>
  <div>
-  <div id="observablehq-viewof-ydomainfilterd-996c2a08" style="height:180px"></div>
+  <div id="observablehq-viewof-ydomainfilterd-996c2a08" style="height:220px"></div>
  
 <script type="module">
 //       import { Inspector } from "https://unpkg.com/@observablehq/inspector?module"; 
