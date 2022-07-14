@@ -20,9 +20,11 @@ index: 10
   <div id="controls">  </div>  
  <div id="layout">   </div>
  <div>
-  <div id="observablehq-viewof-ydomainfilterd-996c2a08" ></div>
-  <div id="observablehq-WRCAI" ></div>
- 
+  <div id="aifilter" ></div>
+  <div id="AIplots" ></div>
+  
+
+  
 <script type="module">
 //       import { Inspector } from "https://unpkg.com/@observablehq/inspector?module"; 
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
@@ -52,9 +54,10 @@ import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/run
 
 import define from "https://api.observablehq.com/d/789a850521ffd0e0@4799.js?v=3";
 new Runtime().module(define, name => {
-  if (name === "WRCAI") return new Inspector(document.querySelector("#observablehq-WRCAI"));
+  if (name === "WRCAI") return new Inspector(document.querySelector("#AIplots"));
+   if (name === "viewof ydomainfilterd") return  Inspector(document.querySelector("#aifilter"));
  
-   if (name === "viewof ydomainfilterd") return  Inspector(document.querySelector("#observablehq-viewof-ydomainfilterd-996c2a08"));
+
 
 });
 
