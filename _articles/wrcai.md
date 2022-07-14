@@ -19,7 +19,7 @@ index: 10
 <div style="display:block"> 
   <div id="controls">  </div>  
  <div id="layout">   </div>
- <div>
+ </div>
   <div id="aifilter" ></div>
   <div id="AIplots" ></div>
   
