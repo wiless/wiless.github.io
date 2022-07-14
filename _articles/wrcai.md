@@ -20,7 +20,8 @@ index: 10
   <div id="controls">  </div>  
  <div id="layout">   </div>
  <div>
-  <div id="observablehq-viewof-ydomainfilterd-996c2a08" style="height:220px"></div>
+  <div id="observablehq-viewof-ydomainfilterd-996c2a08" ></div>
+  <div id="observablehq-WRCAI" ></div>
  
 <script type="module">
 //       import { Inspector } from "https://unpkg.com/@observablehq/inspector?module"; 
@@ -51,8 +52,9 @@ import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/run
 
 import define from "https://api.observablehq.com/d/789a850521ffd0e0@4799.js?v=3";
 new Runtime().module(define, name => {
-  if (name === "WRCAI") return new Inspector(document.querySelector("#observablehq-viewof-ydomainfilterd-996c2a08"));
-   if (name === "viewof ydomainfilterd") return new Inspector(document.querySelector("#observablehq-viewof-ydomainfilterd-996c2a08"));
+  if (name === "WRCAI") return new Inspector(document.querySelector("#observablehq-WRCAI"));
+ 
+   if (name === "viewof ydomainfilterd") return  Inspector(document.querySelector("#observablehq-viewof-ydomainfilterd-996c2a08"));
 
 });
 
