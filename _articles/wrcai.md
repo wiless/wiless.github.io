@@ -27,7 +27,7 @@ index: 10
   
 
   
-<script type="module">
+<script type="module" defer async>
 //       import { Inspector } from "https://unpkg.com/@observablehq/inspector?module"; 
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
  //      import * as Plot from "https://cdn.skypack.dev/@observablehq/plot@0.1";
