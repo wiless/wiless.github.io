@@ -1,79 +1,80 @@
-<div class="ui  main menu ">
-
-    <div class="ui  container">
-        <a href="/" class="header item">
-             <i class="icon home"></i>
-         </a>
-        <div href="#" class="ui dropdown item">
-            <i class="icon bars red"></i>
-            <div class="menu">
-                <a class="item"  href="/aboutme"><i class="icon user circle outline"></i>About Me</a>
-                <a class="item" target=_blank href="https://twitter.com/iamssk"> <i class="icon twitter"></i>@iamssk</a>
-                <a class="item" target=_blank href="https://github.com/wiless"><i class="github icon"></i>wiless</a>
-                <a class="item" target=_blank href="https://linkedin.com/in/skdevar"><i
-               class="linkedin icon"></i>skdevar</a>
-         
-            </div>
-        </div>
-
-
-        <a href="/articles" class="item">Articles</a>
-        <a href="/tutorial" class="item">Tutorial</a>
-        <a href="/podcast" class="item"> <i class="icon headphones"></i> </a>
-
-        <div class="g-signin2" data-onsuccess="onSignIn" data-content="Click to Switch Account"></div>
-       
-<!--           <button class="ui primary button right floated " id="btnsignin" onclick="signIn()">Sign In</button> -->
-<!--          <button class="ui  primary button right floated" id="btnsignout" onclick="signOut()">Sign Out</button>  -->
-        
-         <a class="ui label">
-<img id="profile" class="right mini ui image " src="" alt="Profile" onclick="signOut()" data-content="Click to Sign out">
-        </a> 
-        
-        
-<!--         <a id="badge" class="ui teal circular label empty"></a> -->
-                <div href="#" class="ui right floated dropdown item">        
-  <div id="badge" class="ui label" onclick="showLogbox()"><i class="bell outline icon"  ></i>   </div> 
-<!--              <div class="menu">
-
-                  <div class="ui relaxed divided list">
-                      <div class="item">
-                        <i class="large github middle aligned icon"></i>
-                        <div class="content">
-                          <a class="header">Semantic-Org/Semantic-UI</a>
-                          <div class="description">Updated 10 mins ago</div>
-                        </div>
-                      </div>
-                      <div class="item">
-                        <i class="large bell middle aligned icon"></i>
-                        <div class="content">
-                          <a class="header">Semantic-Org/Semantic-UI-Meteor</a>
-                          <div class="description">Updated 34 mins ago</div>
-                        </div>
-                      </div>
-                </div>
-            </div> -->
-        
-    </div>
-        
-        <div href="#" class="ui right floated dropdown item">        
-            <i class="cube icon" ></i>
-            
-            <div class="menu">
-                <a class="item" href="/apps/snl.html"><i class="icon cube"></i>SNL Spectrum viewer</a>
-                <a class="item" href="/apps/map.html"><i class="icon map outline"></i>FSS Impact</a>
-                <a class="item" href="/apps/cellular"><i class="icon cube"></i>Celluar Results</a>
-                <a class="item" href="/apps/api"><i class="icon cube"></i>API Test</a>
-                <a class="item" href="/apps/viewer"><i class="icon cube"></i>Simulator Viewer</a>
-                <a class="item" href="/apps/gcsbucket"><i class="icon cube"></i>GCS Bucket</a>                
-                  <a class="item" href="/apps/saredg"><i class="icon cube"></i>SARE DG dashboard</a>              
-            </div>
-        </div>
-
- 
+<div class="ui  main      menu ">
+  <div class="ui container">
+    <a href="/" class="header item">
+      <i class="icon home"></i>
+    </a>
+    <div href="#" class="ui dropdown item ">
+      <i class="id card outline icon"></i>
+      <div class="menu">
+        <a class="item" href="/aboutme"><i class="icon user circle outline"></i>About Me</a>
+        <a class="item" target=_blank href="https://twitter.com/iamssk"> <i class="icon twitter"></i>@iamssk</a>
+        <a class="item" target=_blank href="https://github.com/wiless"><i class="github icon"></i>wiless</a>
+        <a class="item" target=_blank href="https://linkedin.com/in/skdevar"><i class="linkedin icon"></i>skdevar</a>
+        <a href="/podcast" class="item"> <i class="icon headphones"></i> Podcast </a>
+      </div>
 
     </div>
+
+    <a href="/articles" class="item">Articles</a>
+    <a href="/tutorial" class="item">Tutorial</a>
+    <a class="browse item  ">
+      <i class="cube icon"></i>
+    </a>
+    <div href="#" class="ui right dropdown item">
+
+      <i class="user circle icon"></i>
+
+      <div class="ui vertical menu">
+
+        <div class="g-signin2 ui item" data-onsuccess="onSignIn" data-content="Click to Switch Account"></div>
+        <a class="ui item label">
+          <img id="profile" class="right mini ui image " src="" alt="Profile" onclick="signOut()"
+            data-content="Click to Sign out">
+        </a>
+        <a class="teal item">
+          <i class="bell outline icon"></i> LogBox
+          <div onclick="showLogbox()" id=" badge" class="ui teal right  label icon"></div>
+        </a>
+
+
+        <!-- <div id="badge" class="item ui label right" onclick="showLogbox()"><i class="bell outline icon"></i> Log Box -->
+      </div>
+    </div>
+  </div>
+
+
 
 </div>
- 
-  
+
+</div>
+
+<div class="ui flowing basic admission  popup ">
+  <div class="ui three column relaxed divided grid">
+    <div class="column">
+      <h4 class="ui header">Wireless</h4>
+      <div class="ui link list">
+        <a class="item" href="/apps/snl.html">SNL Spectrum viewer</a>
+        <a class="item" href="/apps/map.html"><i class="icon map outline"></i>FSS Impact</a>
+        <a class="item" href="/apps/cellular">Celluar Results</a>
+        <a class="item" href="/apps/api">API Test</a>
+        <a class="item" href="/apps/viewer"> Simulator Viewer</a>
+      </div>
+    </div>
+    <div class="column">
+      <h4 class="ui header">Personal</h4>
+      <div class="ui link list">
+        <a class="item" href="/apps/gcsbucket"><i class="icon cube"></i>GCS Bucket</a>
+        <a class="item" href="/apps/saredg"><i class="icon cube"></i>SARE DG dashboard</a>
+
+
+      </div>
+    </div>
+    <div class="column">
+      <h4 class="ui header">Misc</h4>
+      <div class="ui link list">
+        <label>Nothing yet </label>
+
+      </div>
+    </div>
+  </div>
+</div>

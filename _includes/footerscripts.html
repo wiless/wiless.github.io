@@ -1,30 +1,49 @@
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <!-- <script async defer src="https://buttons.github.io/buttons.js"></script> -->
- <!-- <script src="mermaid.full.min.js"></script> -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.7.0/mermaid.js" integrity="sha512-9w32sjmI+kTxqsUqYeLO6E/WXYgpfBTGlnODrAloVusB03s4yT0sl8rmVG5TywWPJmJBxJmPoRlQGBeST8eW5w==" crossorigin="anonymous" async defer></script>
- <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js" ></script>
+<!-- <script src="mermaid.full.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.7.0/mermaid.js"
+   integrity="sha512-9w32sjmI+kTxqsUqYeLO6E/WXYgpfBTGlnODrAloVusB03s4yT0sl8rmVG5TywWPJmJBxJmPoRlQGBeST8eW5w=="
+   crossorigin="anonymous" async defer></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/languages/go.min.js"> </script>
- <script>hljs.initHighlightingOnLoad(); </script> 
+<script>hljs.initHighlightingOnLoad(); </script>
 
 <script type="text/javascript">
 
-$(document).ready(function() {
+   $(document).ready(function () {
 
-   window.onload = function(){
-    
-      if (document.getElementsByClassName('.ui.accordion').length>0)
-      {      
-        $('.ui.accordion').accordion();
-      }
-    
-//     $('.ui.sidebar')
-//         .sidebar('attach events', '.toc.item')
-//       ;
+      $('.browse.item')
+         .popup({
+            popup: '.admission.popup',
+            hoverable: true,
+            position: 'bottom left',
+            delay: {
+               show: 300,
+               hide: 800
+            }
+         })
+         ;
 
-   };
-});
 
- 
+      window.onload = function () {
+
+         if (document.getElementsByClassName('.ui.accordion').length > 0) {
+            $('.ui.accordion').accordion();
+         }
+
+         $('.ui.sidebar')
+            .sidebar('attach events', '.toc.item')
+
+
+      };
+
+      //       $('.ui.sidebar')
+      //   .sidebar('toggle');
+
+   });
+
+
+
 //     const bc=new BroadcastChannel("counterupdates") 
 //     bc.onmessage=(event)=>{
 //         badge=document.getElementById("badge");
@@ -34,5 +53,3 @@ $(document).ready(function() {
 //     } 
 
 </script>
-
- 
