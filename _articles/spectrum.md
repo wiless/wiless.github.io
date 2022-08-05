@@ -9,13 +9,47 @@ img: https://user-images.githubusercontent.com/4603031/183054139-147a65c8-5069-4
 # India's 5G Spectrum Auction 
 <br>
 
-India might be late in launching #5G compared to other countries, but the recent #spectrum #auction shows a promising #future #5G #experience with 100MHz (and even more ) of midband (3.5GHz) spectrum in all the 22 circles secured by #Airtel and #Jio. This is the 5G band supported by all the 5G phones sold in India. mmwave band both the leading operators have secured 1000/800MHz in all the circles. (See the assignments. Credit : Pooja Phugat)
+>> India might be late in launching #5G compared to other countries, but the recent #spectrum #auction shows a promising #future #5G #experience with 100MHz (and even more ) of midband (3.5GHz) spectrum in all the 22 circles secured by #Airtel and #Jio. This is the 5G band supported by all the 5G phones sold in India. mmwave band both the leading operators have secured 1000/800MHz in all the circles. (See the assignments. Credit : Pooja Phugat)
+
+All the 5G bands (except for the 600MHz band) was sold at the base price recommended by TRAI. The operators have secured the license for next 20years (Aug 2042).
 
 See below the frequency assignments to operators in the 3500MHz band.
 ![image](https://user-images.githubusercontent.com/4603031/183051497-3b1cfc72-b3f9-4754-b725-acf12f33f925.png)
 
 See below the frequency assignments to operators in the 26GHz (also called the mmwave band)
 ![image](https://user-images.githubusercontent.com/4603031/183052791-dd9eded4-2981-4add-9420-9a9ae2e04183.png)
+
+
+## 4G bands
+
+Though all the 4G bands were put for auction, there was very little or neglible demand except for the 1800MHz band in the UP-East circle. Figure below is the new assignments in the sub-GHz (700,800 and 900) band.
+![image](https://user-images.githubusercontent.com/4603031/183056576-060d5803-c5d4-45f4-87d2-b1235a706554.png)
+
+Spectrum in mid-band FDD bands (1800MHz and 2100MHz) had lot of fragemented portions that got freed. Some are due to expiry of licenses or migration of govt. agencies to other bands. 
+
+![image](https://user-images.githubusercontent.com/4603031/183056971-1477f4ef-a9b7-42fc-8811-93467b0c6e3a.png)
+
+
+Spectrum in mid-band TDD bands (2300 and 2500MHz) - a key 4G band.
+As seen in the figure, only VI secured a total 20MHz (10MHz in AP and Punjab). This can lead to improved experience of its 4G users in these circles.
+![image](https://user-images.githubusercontent.com/4603031/183057293-cfb35978-8945-4b5e-95d3-1c27a5fc2f57.png)
+
+## Spectrum - raw fuel 
+
+
+Figure below is the spectrum holdings to operators in the sub-GHz band. The subGHz band is key for indoor coverage and rural areas. As seen in the figure, on an average the subGHz spectrum is around 43MHz (Note - 10MHz is from the recent 700MHz band). 
+![image](https://user-images.githubusercontent.com/4603031/183057752-36ee41ea-e6f6-47f2-8d80-c1a5a5532814.png)
+
+The mid-band spectrum is balance to provide coverage as well as moderate data connectivity. Shown below is the spectrum holdings in (1800MHz - a premier 3G band) and 2100MHz band.
+![image](https://user-images.githubusercontent.com/4603031/183058465-014892f1-1f57-4538-86d1-105ed9621d69.png)
+
+### 4G data band -
+The mid-band that drives the 4G data connectivity today are these bands 2300MHz and 2500MHz band. Note that these two bands being the TDD band, the downlink speed experienced should be mapped to 50% of the spectrum holdings.
+
+![image](https://user-images.githubusercontent.com/4603031/183058559-bb86c73f-e419-48c5-8916-77c49d60c1b8.png)
+
+
+
 
 
 
