@@ -12,7 +12,9 @@ img: https://user-images.githubusercontent.com/4603031/183054139-147a65c8-5069-4
 
 >> India might be late in launching #5G compared to other countries, but the recent #spectrum #auction shows a promising #future #5G #experience with 100MHz (and even more ) of midband (3.5GHz) spectrum in all the 22 circles secured by #Airtel and #Jio. This is the 5G band supported by all the 5G phones sold in India. mmwave band both the leading operators have secured 1000/800MHz in all the circles. 
 
-LinkedIn : https://www.linkedin.com/posts/skdevar_5g-spectrum-auction-activity-6960542081924644866-qWep?utm_source=linkedin_share&utm_medium=member_desktop_web 
+<a href="https://www.linkedin.com/posts/skdevar_5g-spectrum-auction-activity-6960542081924644866-qWep?utm_source=linkedin_share&utm_medium=member_desktop_web "> LinkedIn Post </a>
+
+
 
 All the 5G bands (except for the 600MHz band) was sold at the base price recommended by TRAI. The operators have secured the license for next 20years (Aug 2042).
 
