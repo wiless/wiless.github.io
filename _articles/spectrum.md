@@ -1,7 +1,7 @@
 ---
 layout: wide
 title: India's 5G Spectrum Auction 
-summary: Summary of the recently (Aug'22) completed spectrum auction in India. A good amount of 5G spectrum were secured by the operators in both mid-band and mmwave band.
+summary: Summary of the recently completed spectrum auction in India. 5G spectrum were secured by the operators in both mid-band and mmwave band.
 index: 12 
 img: https://user-images.githubusercontent.com/4603031/183054139-147a65c8-5069-4e7f-ad28-5554f8c9664d.png
 --- 
