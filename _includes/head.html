@@ -1,5 +1,5 @@
 <head>
-    
+
     <!-- Standard Meta -->
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -9,115 +9,123 @@
 
     <!-- Site Properties -->
     {% if page.title %}
-    <title>{{page.title}}</title>    
+    <title>{{page.title}}</title>
     {% else %}
     <title>Digital Portal - sendildevar.in</title>
-     {% endif %}
-    
-
-<!-- Twitter Card data -->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:site" content="{{site.twitter}}">
-<meta name="twitter:title" content="{{page.title}}">
-<meta name="twitter:description" content="{{page.summary}}">
-<meta name="twitter:creator" content="@iamssk">
- {% if page.img %}
-         <meta name="twitter:image" content="https://blog.sendildevar.in{{page.img}}">
-    {% else %}
-     <meta name="twitter:image" content="https://blog.sendildevar.in/assets/headerdark-card.jpeg">
- {% endif %}
-
-    
-<meta itemprop="url" content="{{site.url}}{{page.url}}" />
-
-<meta prefix="og: http://ogp.me/ns#" property="og:type" content="blog" />
-<meta prefix="og: http://ogp.me/ns#" property="og:url" content="{{site.url}}{{page.url}}" />
-<meta prefix="og: http://ogp.me/ns#" property="og:title" content="Article | {{page.title}}" />
-<meta prefix="og: http://ogp.me/ns#" property="og:description" content="{{page.summary}}" />
-{% if page.img %}
-<meta prefix="og: http://ogp.me/ns#" property="og:image" content="https://blog.sendildevar.in{{page.img}}"/>
-    {% else %}
-<meta prefix="og: http://ogp.me/ns#" property="og:image" content="https://blog.sendildevar.in/assets/headerdark-card.jpeg"/>
     {% endif %}
 
-    
-    
-    
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="{{site.twitter}}">
+    <meta name="twitter:title" content="{{page.title}}">
+    <meta name="twitter:description" content="{{page.summary}}">
+    <meta name="twitter:creator" content="@iamssk">
+    {% if page.img %}
+    {% if page.img contains "https://" %}
+    <meta name="twitter:image" content="{{page.img}}">
+    {% else %}
+    <meta name="twitter:image" content="https://blog.sendildevar.in/{{page.img}}">
+    {% endif %}
+
+    {% else %}
+    <meta name="twitter:image" content="https://blog.sendildevar.in/assets/headerdark-card.jpeg">
+    {% endif %}
+
+
+    <meta itemprop="url" content="{{site.url}}{{page.url}}" />
+
+    <meta prefix="og: http://ogp.me/ns#" property="og:type" content="blog" />
+    <meta prefix="og: http://ogp.me/ns#" property="og:url" content="{{site.url}}{{page.url}}" />
+    <meta prefix="og: http://ogp.me/ns#" property="og:title" content="Article | {{page.title}}" />
+    <meta prefix="og: http://ogp.me/ns#" property="og:description" content="{{page.summary}}" />
+    {% if page.img %}
+    <meta prefix="og: http://ogp.me/ns#" property="og:image" content="https://blog.sendildevar.in{{page.img}}" />
+    {% else %}
+    <meta prefix="og: http://ogp.me/ns#" property="og:image"
+        content="https://blog.sendildevar.in/assets/headerdark-card.jpeg" />
+    {% endif %}
+
+
+
+
     <link rel="stylesheet" type="text/css" href="/static/semantic.css">
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Share+Tech+Mono&display=swap"
         rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Josefin+Sans&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="/static/beagle.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="/static/beagle.css" type="text/css" media="screen" charset="utf-8">
 
     <script src="/static/jquery.min.js"></script>
     <script src="/static/semantic.min.js"></script>
-   
-<!--     <script src="/static/custom.js"></script> -->
+
+    <!--     <script src="/static/custom.js"></script> -->
 
     <link rel="stylesheet" type="text/css" href="/static/custom.css">
-<!--     <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/atom-one-light.css"> -->
-    <link rel="stylesheet" href="https://raw.githubusercontent.com/highlightjs/highlight.js/master/src/styles/atom-one-light.css">
-    
+    <!--     <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/atom-one-light.css"> -->
+    <link rel="stylesheet"
+        href="https://raw.githubusercontent.com/highlightjs/highlight.js/master/src/styles/atom-one-light.css">
+
     <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> -->
     <!-- <link rel="stylesheet" type="text/css" href="/static/gfm.css"> -->
 
     <link href="https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer+SC&display=swap" rel="stylesheet">
- 
+
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-  
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-   <script src="/static/api.js"></script>
-    
+    <script src="/static/api.js"></script>
+
     <meta name="google-signin-scope" content="profile email  ">
-   <meta name="google-signin-client_id"  content="565126014426-fis7623ann950k0i711upje0o5kt3qhp.apps.googleusercontent.com">           
-   <script src="https://apis.google.com/js/platform.js" async defer> </script>
-<!--    <script src="https://apis.google.com/js/platform.js?onload=initgapi" async defer></script> -->
-    
-  
+    <meta name="google-signin-client_id"
+        content="565126014426-fis7623ann950k0i711upje0o5kt3qhp.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer> </script>
+    <!--    <script src="https://apis.google.com/js/platform.js?onload=initgapi" async defer></script> -->
+
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-56542209-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-56542209-2');
-    
-    $(document)
-    .ready(function() {
-        // fix main menu to page on passing
-        $('.main.menu').visibility({
-            type: 'fixed'
-        });
-        $('.overlay').visibility({
-            type: 'fixed',
-            offset: 10
-        });
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56542209-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-56542209-2');
 
-        // lazy load images
-        $('.image').visibility({
-            type: 'image',
-            transition: 'vertical flip in',
-            duration: 500
-        });
+        $(document)
+            .ready(function () {
+                // fix main menu to page on passing
+                $('.main.menu').visibility({
+                    type: 'fixed'
+                });
+                $('.overlay').visibility({
+                    type: 'fixed',
+                    offset: 10
+                });
 
-        // show dropdown on hover
-        $('.main.menu  .ui.dropdown').dropdown({
-            on: 'hover'
-        });
+                // lazy load images
+                $('.image').visibility({
+                    type: 'image',
+                    transition: 'vertical flip in',
+                    duration: 500
+                });
+
+                // show dropdown on hover
+                $('.main.menu  .ui.dropdown').dropdown({
+                    on: 'hover'
+                });
 
 
-    });
+            });
 
-    
-</script>
-<!-- <script>
+
+    </script>
+    <!-- <script>
     "use strict";
 
     function sayHello(){
@@ -140,10 +148,9 @@
     }
   </script> -->
 
-  <style>
-      #map {
-        height: 100%;
-      }
-  </style>
+    <style>
+        #map {
+            height: 100%;
+        }
+    </style>
 </head>
-
