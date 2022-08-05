@@ -24,12 +24,16 @@
     {% if page.img %}
     {% if page.img contains "https://" %}
     <meta name="twitter:image" content="{{page.img}}">
+    <meta name="image" property="og:image" content="{{page.img}}">
+
     {% else %}
     <meta name="twitter:image" content="https://blog.sendildevar.in/{{page.img}}">
+    <meta name="image" property="og:image" content="https://blog.sendildevar.in/{{page.img}}">
     {% endif %}
 
     {% else %}
     <meta name="twitter:image" content="https://blog.sendildevar.in/assets/headerdark-card.jpeg">
+    <meta name="image" property="og:image" content="https://blog.sendildevar.in/assets/headerdark-card.jpeg">
     {% endif %}
 
     <meta name="author" content="Sendil Kumar">
@@ -41,7 +45,12 @@
     <meta prefix="og: http://ogp.me/ns#" property="og:title" content="Article | {{page.title}}" />
     <meta prefix="og: http://ogp.me/ns#" property="og:description" content="{{page.summary}}" />
     {% if page.img %}
-    <meta prefix="og: http://ogp.me/ns#" property="og:image" content="https://blog.sendildevar.in{{page.img}}" />
+
+    {% if page.img contains "https://" %}
+    <meta prefix="og: http://ogp.me/ns#" property="og:image" content="{{page.img}}" />
+    {% else %}
+    <meta prefix="og: http://ogp.me/ns#" property="og:image" content="https://blog.sendildevar.in/{{page.img}}" />
+    {% endif %}
     {% else %}
     <meta prefix="og: http://ogp.me/ns#" property="og:image"
         content="https://blog.sendildevar.in/assets/headerdark-card.jpeg" />
