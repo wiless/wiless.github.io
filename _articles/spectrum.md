@@ -19,24 +19,24 @@ All the 5G bands (except for the 600MHz band) was sold at the base price recomme
 
 See below the frequency assignments to operators in the 3500MHz band.
 
-![image](https://user-images.githubusercontent.com/4603031/183051497-3b1cfc72-b3f9-4754-b725-acf12f33f925.png){:class="ui image"}
+![image](https://user-images.githubusercontent.com/4603031/183051497-3b1cfc72-b3f9-4754-b725-acf12f33f925.png){:class="ui rounded bordered image"}
 
 <!-- <img class="ui fluid bordered image" src="https://user-images.githubusercontent.com/4603031/183051497-3b1cfc72-b3f9-4754-b725-acf12f33f925.png"> -->
 
 See below the frequency assignments to operators in the 26GHz (also called the mmwave band)
 
-![image](https://user-images.githubusercontent.com/4603031/183052791-dd9eded4-2981-4add-9420-9a9ae2e04183.png){:class="ui image"}
+![image](https://user-images.githubusercontent.com/4603031/183052791-dd9eded4-2981-4add-9420-9a9ae2e04183.png){:class="ui  rounded bordered  image"}
 
 
 ## 4G bands
 
 Though all the 4G bands were put for auction, there was very little or neglible demand except for the 1800MHz band in the UP-East circle. Figure below is the new assignments in the sub-GHz (700,800 and 900) band.
 
-![image](https://user-images.githubusercontent.com/4603031/183056576-060d5803-c5d4-45f4-87d2-b1235a706554.png){:class="ui image"}
+![image](https://user-images.githubusercontent.com/4603031/183056576-060d5803-c5d4-45f4-87d2-b1235a706554.png){:class="ui  rounded bordered  image"}
 
 Spectrum in the mid-band  (FDD bands : 1800MHz and 2100MHz) had lot of fragemented portions that got freed and put for auction. Some are due to expiry of licenses or migration of govt. agencies to other bands. 
 
-![image](https://user-images.githubusercontent.com/4603031/183056971-1477f4ef-a9b7-42fc-8811-93467b0c6e3a.png){:class="ui image"}
+![image](https://user-images.githubusercontent.com/4603031/183056971-1477f4ef-a9b7-42fc-8811-93467b0c6e3a.png){:class="ui  rounded bordered  image"}
 
 Spectrum in mid-band TDD bands (2300 and 2500MHz) - a key 4G band.
 As seen in the figure, only VI secured a total 20MHz (10MHz in AP and Punjab). This can lead to improved experience of its 4G users in these circles.
@@ -57,7 +57,7 @@ The mid-band spectrum are good for coverage as well as moderate data connectivit
 
 The mid-bands that drives the 4G data connectivity today in India are  2300MHz and 2500MHz band. Note that these two bands being the TDD band, the expected downlink speed should be related to 50% of the spectrum holdings.
 
-![image](https://user-images.githubusercontent.com/4603031/183058559-bb86c73f-e419-48c5-8916-77c49d60c1b8.png){:class="ui image"}
+![image](https://user-images.githubusercontent.com/4603031/183058559-bb86c73f-e419-48c5-8916-77c49d60c1b8.png){:class="ui  rounded bordered image"}
 
 
 
