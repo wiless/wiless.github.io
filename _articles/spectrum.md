@@ -68,7 +68,7 @@ Figure below shows the distribution of the price (m$/MHz). The 22 telecom circle
 The detailed selling price of spectrum across bands and 22 circles is shown in the figure below. There was only one circle (UP-East) where there was demand of spectrum in the 1800MHz band that led to price shoot-up by +80.86%. In the odhisa (in 1800MHz) there was slight increase in the price. 
 
 
-![image](https://user-images.githubusercontent.com/4603031/183865062-f8ca3d78-7da8-4b59-a40f-d06200135729.png){:class="ui image centered"}
 
+![image](https://user-images.githubusercontent.com/4603031/183865509-36ae023e-f035-4cbe-8c05-527387982d3c.png){:class="ui image centered"}
 
 
