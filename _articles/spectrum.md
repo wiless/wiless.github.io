@@ -60,7 +60,14 @@ The mid-bands that drives the 4G data connectivity today in India are  2300MHz a
 ![image](https://user-images.githubusercontent.com/4603031/183058559-bb86c73f-e419-48c5-8916-77c49d60c1b8.png){:class="ui centered rounded bordered image"}
 
 
+## Price Distribution
 
+Figure below shows the distribution of the price (m$/MHz) put for auction. The 22 telecom circles are classified into Type-A (e.g. AP, Karnataka, Gujarat etc.,), B and C (Bihar,Odhisa,J&K etc). The three metros are (Delhi, Mumbai and Kolkatta). It can be noted that the prices of metro are at higher ends comparatively.  
+![image](https://user-images.githubusercontent.com/4603031/183809594-d7192c3f-e01a-459d-b642-bee0ee9e0e72.png){:class="ui image centered"}
+
+The detailed selling price of spectrum is shown in the below figure. There was only one circle (UP-East) where there was battle for spectrum in the 1800MHz band, which led to increase of price by 180.86%. In the odhisa (in 1800MHz) there was slight increase in the price. 
+
+![image](https://user-images.githubusercontent.com/4603031/183810604-ab7bf761-7f1a-44b0-8219-9399edae3749.png){:class="ui image centered"}
 
 
 
