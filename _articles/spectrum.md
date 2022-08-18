@@ -19,14 +19,15 @@ All the 5G bands (except for the 600MHz band) was sold at the base price recomme
 
 See below the frequency assignments to operators in the 3500MHz band.
 
-![image](https://user-images.githubusercontent.com/4603031/183051497-3b1cfc72-b3f9-4754-b725-acf12f33f925.png){:class="ui rounded bordered image"}
 
-<!-- <img class="ui fluid bordered image" src="https://user-images.githubusercontent.com/4603031/183051497-3b1cfc72-b3f9-4754-b725-acf12f33f925.png"> -->
+![image](https://user-images.githubusercontent.com/4603031/185290278-77096dc0-1c00-4595-8495-835a9be7ce84.png){:class="ui  centered rounded bordered  image"}
+
+                                                                                                                                   
 
 See below the frequency assignments to operators in the 26GHz (also called the mmwave band)
 
-![image](https://user-images.githubusercontent.com/4603031/183052791-dd9eded4-2981-4add-9420-9a9ae2e04183.png){:class="ui  centered rounded bordered  image"}
 
+![image](https://user-images.githubusercontent.com/4603031/185290816-a892fa05-d12f-4ba8-be8f-f11722b718f0.png){:class="ui  centered rounded bordered  image"}
 
 ## 4G bands
 
