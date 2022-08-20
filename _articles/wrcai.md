@@ -21,13 +21,11 @@ index: 10
 <div style="display:block"> 
   <div id="controls">  </div>  
  <div id="layout">   </div>
- </div>
+
   <div id="aifilter" ></div>
   <div id="AIplots" ></div>
     <div id="frange"></div>
-  
-
-  
+ </div> 
 <script type="module" defer async>
  
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
@@ -52,20 +50,12 @@ import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/run
    //  domobj=new Inspector.into(document.querySelector("#controls"))
   //   new Inspector(document.querySelector("#controls")).fulfilled(val)
 
-
-
-
 import define from "https://api.observablehq.com/d/789a850521ffd0e0@4799.js?v=3";
 new Runtime().module(define, name => {
   if (name === "WRCAIplot") return new Inspector(document.querySelector("#AIplots"));
-//  if (name === "viewof ydomainfilterd") return new Inspector(document.querySelector("#aifilter")); 
-
   if (name === "viewof fillByColumn") return new Inspector(document.querySelector("#aifilter"));
-//  return ["Nsets","WRCAIplot"].includes(name);
- 
   if (name === "viewof bandrangeview") return new Inspector(document.querySelector("#frange"));
   //return ["Nsets","bandrange","WRCAIplot"].includes(name);
-
 });
 
  
