@@ -105,7 +105,23 @@
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'UA-56542209-2');
-
+ 
+        function handleCredentialResponse(response) {
+          console.log("Encoded JWT ID token: " + response.credential);
+        }
+        window.onload = function () {
+          google.accounts.id.initialize({
+            client_id: "565126014426-fis7623ann950k0i711upje0o5kt3qhp.apps.googleusercontent.com",
+            callback: handleCredentialResponse
+          });
+          google.accounts.id.renderButton(
+            document.getElementById("signInbutton"),
+            { theme: "outline", size: "small" }  // customization attributes
+          );
+          google.accounts.id.prompt(); // also display the One Tap dialog
+        }
+ 
+        
         $(document)
             .ready(function () {
                 // fix main menu to page on passing
