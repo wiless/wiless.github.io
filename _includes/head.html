@@ -130,7 +130,12 @@
      console.log('Family Name: ' + responsePayload.family_name);
      console.log("Image URL: " + responsePayload.picture);
      console.log("Email: " + responsePayload.email);
-  
+var    obj=  document.getElementById("gprofile");
+            
+            obj.setAttribute("src",responsePayload.picture);
+            
+            obj=  document.getElementById("gprofile-name");
+            obj.innerText=responsePayload.name;
             
         }
         window.onload = function () {
