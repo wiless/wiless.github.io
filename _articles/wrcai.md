@@ -23,7 +23,8 @@ index: 10
  <div id="layout">   </div>
  </div>
   <div id="aifilter" ></div>
-  <div id="AIplots" style="height:300px"></div>
+  <div id="AIplots" ></div>
+    <div id="frange"></div>
   
 
   
@@ -61,6 +62,9 @@ new Runtime().module(define, name => {
 
   if (name === "viewof fillByColumn") return new Inspector(document.querySelector("#aifilter"));
   return ["Nsets","WRCAIplot"].includes(name);
+ 
+  if (name === "viewof bandrangeview") return new Inspector(document.querySelector("#frange"));
+  return ["Nsets","bandrange","WRCAIplot"].includes(name);
 
 });
 
