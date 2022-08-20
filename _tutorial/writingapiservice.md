@@ -8,7 +8,7 @@ title: Few learnings from integrating `ObservableHQ`, My blog and API service
      data-context="signin"
      data-ux_mode="popup"
      data-callback="handleCredentialResponse"
-     data-nonce=""
+     data-nonce="website123"
      data-auto_prompt="true">
 </div>
 
