@@ -12,14 +12,6 @@ title: Few learnings from integrating `ObservableHQ`, My blog and API service
      data-auto_prompt="true">
 </div>
 
-<div class="g_id_signin"
-     data-type="standard"
-     data-shape="pill"
-     data-theme="filled_blue"
-     data-text="signin"
-     data-size="small"
-     data-logo_alignment="left">
-</div>
 
 # Few learnings Integration of API and ObservableHQ 
 
