@@ -3,6 +3,24 @@ layout: article
 title: Few learnings from integrating `ObservableHQ`, My blog and API service
 ---
 
+<div id="g_id_onload"
+     data-client_id="565126014426-fis7623ann950k0i711upje0o5kt3qhp.apps.googleusercontent.com"
+     data-context="signin"
+     data-ux_mode="popup"
+     data-callback="signIn"
+     data-nonce=""
+     data-auto_prompt="false">
+</div>
+
+<div class="g_id_signin"
+     data-type="standard"
+     data-shape="pill"
+     data-theme="filled_blue"
+     data-text="signin"
+     data-size="small"
+     data-logo_alignment="left">
+</div>
+
 # Few learnings Integration of API and ObservableHQ 
 
 > This post is still work-in-progress !!
