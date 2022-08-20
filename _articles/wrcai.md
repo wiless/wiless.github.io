@@ -56,10 +56,11 @@ import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/run
 
 import define from "https://api.observablehq.com/d/789a850521ffd0e0@4799.js?v=3";
 new Runtime().module(define, name => {
-  if (name === "WRCAI") return new Inspector(document.querySelector("#AIplots"));
-   if (name === "viewof ydomainfilterd") return new Inspector(document.querySelector("#aifilter"));
- 
+  if (name === "WRCAIplot") return new Inspector(document.querySelector("#AIplots"));
+<!--    if (name === "viewof ydomainfilterd") return new Inspector(document.querySelector("#aifilter")); -->
 
+  if (name === "viewof fillByColumn") return new Inspector(document.querySelector("#aifilter"));
+  return ["Nsets","WRCAIplot"].includes(name);
 
 });
 
