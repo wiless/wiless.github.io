@@ -7,9 +7,9 @@ title: Few learnings from integrating `ObservableHQ`, My blog and API service
      data-client_id="565126014426-fis7623ann950k0i711upje0o5kt3qhp.apps.googleusercontent.com"
      data-context="signin"
      data-ux_mode="popup"
-     data-callback="signIn"
+     data-callback="handleCredentialResponse"
      data-nonce=""
-     data-auto_prompt="false">
+     data-auto_prompt="true">
 </div>
 
 <div class="g_id_signin"
