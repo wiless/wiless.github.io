@@ -20,7 +20,9 @@ All the 5G bands (except for the 600MHz band) was sold at the base price recomme
 See below the frequency assignments to operators in the 3500MHz band.
 
 
-![image](https://user-images.githubusercontent.com/4603031/185290278-77096dc0-1c00-4595-8495-835a9be7ce84.png){:class="ui  centered rounded bordered  image"}
+
+
+![image](https://github.com/wiless/wiless.github.io/assets/4603031/89a95a0f-edad-411e-90c8-9f3d836a9780){:class="ui  centered rounded bordered  image"}
 
                                                                                                                                    
 
