@@ -73,7 +73,7 @@ When we advance towards digital twin (DT), the real-world objects (static as wel
 Take, for example, a sophisticated manufacturing plant (see figure), the DT would encompass every machine, its properties (material, weight), and real-time operational state. Crucially, these digital objects can be interacted with programmatically, allowing for simulations, optimization, and remote control.
 
 <figure class="image">
-  <img src="imgs/—Pngtree—isometric 3d render of a_4041514.jpg" alt="Free Image from pngtree.com">
+  <img src="/imgs/—Pngtree—isometric 3d render of a_4041514.jpg" alt="Free Image from pngtree.com">
   <figcaption>Sample rendering of digital representation of factory floor <a href="http://pngtree.com">http://pngtree.com</a></figcaption>
 </figure>
 
@@ -83,7 +83,7 @@ If we need to scale and DT has to become mainstream by 2030, here are the key as
 ### DT Flow
 
 <figure class="image">
-  <img src="imgs/dt-flow.png" alt="Typical flow in DT">
+  <img src="/imgs/dt-flow.png" alt="Typical flow in DT">
   <figcaption>Typical flow in DT </figcaption>
 </figure>
 
