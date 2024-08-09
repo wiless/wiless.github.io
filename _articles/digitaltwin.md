@@ -64,7 +64,7 @@ DOES THIs work
 
 ## Background {#background}
 
-*Digital twins (DT)* have emerged as a powerful technology with applications across various industries. Research and development efforts are surging, along with real-world adoption in gaming, manufacturing, and even government initiatives for smart city infrastructure. It has also got attention by the ITU ^[Digital Twin - https://www.itu.int/cities/dt-resource-hub/digitaltwin/ ]; leading to few recommendations (See [ITU-T Y.3090](https://www.itu.int/rec/T-REC-Y.3090)) and focus groups.  
+*Digital twins (DT)* have emerged as a powerful technology with applications across various industries. Research and development efforts are surging, along with real-world adoption in gaming, manufacturing, and even government initiatives for smart city infrastructure. It has also got attention by the ITU [^itunote]; leading to few recommendations (See [ITU-T Y.3090](https://www.itu.int/rec/T-REC-Y.3090)) and focus groups.  
  
 One might consider digital twins an advanced evolution of the metaverse concept, which focuses on user interaction within a virtual world. However, digital twins offer a distinct set of capabilities.
  And metaverse itself has been there for few years in the Gaming industry. For e.g. the well-known multiplayer game `PUBG` has a shared virtual world, where multiple players interact in real-time. Recall the `Microsoft Flight Simulator` game, where various landmarks, airports and runway are preloaded and the server provides real-life data and information about flight that are overlayed on the game. These geographical information of locations are typically only the environments and gives a good visual appeal. Where as the simulated flight itself includes various physics an interaction with the console and controls. 
@@ -253,7 +253,7 @@ Overcoming these connectivity challenges is crucial for the successful implement
 [^soft]: Simulating flexible components like belts or hoses, soft body physics can be employed.
 *Electromagnetism*, electrical components, electromagnetic simulations.
 
-
+[^itunote]: Digital Twin - https://www.itu.int/cities/dt-resource-hub/digitaltwin/
 
 [^1]: My reference.
 
