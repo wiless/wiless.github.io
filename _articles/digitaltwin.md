@@ -2,7 +2,7 @@
 layout: wide
 title: Digital Twin | Communication Networks
 summary: From a communication engineer's perspective !!, Some thoughts and collection of responses and info from web on Digital Twins
-index: 10 
+index: 11 
 img: /imgs/<imagefilename.jpg>
 --- 
 
