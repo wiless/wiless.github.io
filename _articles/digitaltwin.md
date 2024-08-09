@@ -207,7 +207,7 @@ Ultimately, the goal is to achieve a balance between accuracy, performance, and 
 ---
 ## Digital Twin : Network requirements
  
-> Cant stop imagining the requirements Digital can impose on wireless networks of the future !! 
+> Cant stop imagining the requirements that Digital Twin can impose on wireless networks of the future !! 
 
 Quick glance on the elements of DT that impacts N/W design - bandwidth requirements for sending digital twin assets, rendering and events streaming:
 
