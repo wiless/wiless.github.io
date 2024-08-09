@@ -34,3 +34,4 @@ plugins:
 markdown: kramdown
 kramdown:
   input: GFM  #Github Flavored Markdown
+  extensions: [footnotes]
