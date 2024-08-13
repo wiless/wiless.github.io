@@ -3,7 +3,7 @@ layout: wide
 title: Digital Twin | Communication Networks
 summary: From a communication engineer's perspective !!, Some thoughts and collection of responses and info from web on Digital Twins
 index: 11 
-img: /imgs/—Pngtree—isometric 3d render of a_4041514.jpg
+img: /imgs/digital twin of a indoor factory floor.jpg
 comments: true
 --- 
 
@@ -74,7 +74,7 @@ When we advance towards digital twin (DT), the real-world objects (static as wel
 Take, for example, a sophisticated manufacturing plant (see figure), the DT would encompass every machine, its properties (material, weight), and real-time operational state. Crucially, these digital objects can be interacted with programmatically, allowing for simulations, optimization, and remote control.
 
 <figure class="image">
-  <img class="ui fluid bordered image" src="/imgs/—Pngtree—isometric 3d render of a_4041514.jpg" alt="Free Image from pngtree.com">
+  <img class="ui fluid bordered image" src="/imgs/digital twin of a indoor factory floor.jpg" alt="Free Image from pngtree.com">
   <figcaption>Sample rendering of digital representation of factory floor <a href="http://pngtree.com">http://pngtree.com</a></figcaption>
 </figure>
 
